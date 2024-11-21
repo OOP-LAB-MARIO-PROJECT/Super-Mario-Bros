@@ -8,6 +8,9 @@ void Game::start() {
 	window = new sf::RenderWindow(sf::VideoMode(800, 600), "Mario");
 	window->setFramerateLimit(60);
 	m_clock.restart();
+	
+	textureManager = &TextureManager::getInstance();
+	textureManager->loadNewTexture("Assets/Textures/Texture_Pack/mario.tsx", "Assets/Textures/Texture_Pack/mario.png");
 
 
 	m_isRunning = true;

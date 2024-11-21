@@ -2,15 +2,23 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+
 #include <iostream>
 #include <memory>
 
+#include "../Utils/TextureManager.h"
 
 class Game {
 private:
-	bool m_isRunning = false;
+	
 	sf::Clock m_clock;
 	sf::RenderWindow* window = nullptr;
+	
+	TextureManager* textureManager = nullptr;
+
+
+
+	bool m_isRunning = false;
 
 public:
 
