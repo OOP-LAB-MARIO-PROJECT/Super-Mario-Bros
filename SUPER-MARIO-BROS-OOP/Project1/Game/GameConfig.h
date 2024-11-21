@@ -1,4 +1,7 @@
 #pragma once
+
+
+// Glolbal configuration for Game -> not implement
 class GameConfig {
 
     GameConfig() = default;
