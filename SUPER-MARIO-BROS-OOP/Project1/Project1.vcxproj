@@ -146,6 +146,8 @@
     <ClCompile Include="Game\Scenes\Scene.cpp" />
     <ClCompile Include="Game\Scenes\Setting\SettingScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UI\Button.cpp" />
+    <ClCompile Include="UI\MainMenu.cpp" />
     <ClCompile Include="Utils\SceneManager.cpp" />
     <ClCompile Include="Utils\SoundManager.cpp" />
     <ClCompile Include="Utils\TextureManager.cpp" />
@@ -160,6 +162,8 @@
     <ClInclude Include="Game\Scenes\Home\HomeScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />
     <ClInclude Include="Game\Scenes\Setting\SettingScene.h" />
+    <ClInclude Include="UI\Button.h" />
+    <ClInclude Include="UI\MainMenu.h" />
     <ClInclude Include="Utils\SceneManager.h" />
     <ClInclude Include="Utils\SoundManager.h" />
     <ClInclude Include="Utils\TextureManager.h" />
