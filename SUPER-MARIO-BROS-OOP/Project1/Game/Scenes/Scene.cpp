@@ -1,0 +1,16 @@
+#include "Scene.h"
+#include <iostream>
+#include <exception>
+
+Scene::Scene(sf::RenderWindow* window) : window(window) {};
+void Scene::display() {
+	window->display();
+}
+
+const sf::RenderWindow* Scene::getWindow() const {
+	return window;
+}
+
+Scene::Scene() {
+	throw std::exception("Can not create a scene with no window initialize\n");
+}
