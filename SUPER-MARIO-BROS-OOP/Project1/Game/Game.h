@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "GameConfig.h" // global game configuration
 
 #include <iostream>
 #include <memory>
@@ -15,8 +16,6 @@ private:
 	sf::RenderWindow* window = nullptr;
 	
 	TextureManager* textureManager = nullptr;
-
-
 
 	bool m_isRunning = false;
 
