@@ -12,7 +12,7 @@ void MainMenu::setWindow(RenderWindow* window)
 void MainMenu::init(RenderWindow* window)
 {
 	this->window = window;
-	if (!font.loadFromFile("Utils/Roboto-Medium.ttf"))
+	if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf"))
 	{
 		cout << "Can't load font" << endl;
 	}
@@ -59,9 +59,7 @@ MainMenu::MainMenu(RenderWindow* window)
 }
 
 MainMenu::~MainMenu()
-{
-	delete window;
-}
+{}
 
 void MainMenu::loopEvents()
 {

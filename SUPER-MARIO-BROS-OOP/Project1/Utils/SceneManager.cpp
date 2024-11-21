@@ -44,11 +44,11 @@ void SceneManager::navigateTo(Scenes scene)
 }
 
 // Updates the current scene
-void SceneManager::update()
+void SceneManager::update(float deltatime)
 {
     if (sceneRegistry.find(currentScene) != sceneRegistry.end())
     {
-        sceneRegistry[currentScene]->update(0.0f); // Call update for the current scene
+        sceneRegistry[currentScene]->update(deltatime); // Call update for the current scene
     }
 }
 

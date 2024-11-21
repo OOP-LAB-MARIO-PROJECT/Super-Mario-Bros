@@ -24,7 +24,7 @@ public:
     void addScene(Scenes sceneId, unique_ptr<Scene> scene);
 	void deleteScene(Scenes sceneId);
     void navigateTo(Scenes scene);
-    void update();
+    void update(float deltatime = 0.f);
     void render();
     ~SceneManager();
 
