@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Components\Collision.cpp" />
     <ClCompile Include="Game\Components\Physics.cpp" />
     <ClCompile Include="Game\Entities\Entity.cpp" />
     <ClCompile Include="Game\Game.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="Utils\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Components\Collision.h" />
     <ClInclude Include="Game\Components\Physics.h" />
     <ClInclude Include="Game\Entities\Entity.h" />
     <ClInclude Include="Game\Game.h" />

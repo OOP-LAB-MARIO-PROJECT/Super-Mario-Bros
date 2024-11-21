@@ -5,6 +5,7 @@ class Scene { // no delete window
 	sf::RenderWindow* window = nullptr;
 
 public:
+	Scene();
 	Scene(sf::RenderWindow* window);
 	const sf::RenderWindow* getWindow() const;
 	void display();
