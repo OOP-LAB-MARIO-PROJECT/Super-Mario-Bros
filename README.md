@@ -1,6 +1,4 @@
-Here is a `README.md` file for your Mario OOP project based on the directory structure provided:
 
-```markdown
 # SUPER MARIO BROS - OOP
 
 Welcome to the **Super Mario Bros - OOP** project! This is a class project for demonstrating object-oriented programming (OOP) principles in the context of game development. The project implements a simplified version of the Mario game using a structured and modular design.
@@ -136,6 +134,5 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use, mod
 
 This project was created as part of an Object-Oriented Programming class assignment at [Your University Name]. It demonstrates game development concepts in an academic setting.
 
-```
 
-You can modify the placeholders (like "Your University Name" or dependencies/frameworks) to better suit your project. Let me know if you want additional changes!
+[]: # (End of README.md)
