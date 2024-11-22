@@ -18,6 +18,8 @@ void Game::start() {
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
 
+	soundManager = &SoundManager::getInstance();
+
 	m_isRunning = true;
 };
 

@@ -9,6 +9,7 @@
 
 #include "../Utils/TextureManager.h"
 #include "../Utils/SceneManager.h"
+#include "../Utils/SoundManager.h"
 
 #include "SceneList.h"
 
@@ -20,6 +21,7 @@ private:
 	
 	TextureManager* textureManager = nullptr;
 	SceneManager* sceneManager = nullptr;
+	SoundManager* soundManager = nullptr;
 	bool m_isRunning = false;
 
 public:
