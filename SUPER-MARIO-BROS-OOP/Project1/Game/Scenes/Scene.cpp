@@ -2,12 +2,14 @@
 #include <iostream>
 #include <exception>
 
-Scene::Scene(sf::RenderWindow* window) : window(window) {};
+Scene::Scene(sf::RenderWindow* window) : window(window) {
+};
+
 void Scene::display() {
 	window->display();
 }
 
-const sf::RenderWindow* Scene::getWindow() const {
+sf::RenderWindow* Scene::getWindow() const {
 	return window;
 }
 

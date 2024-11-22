@@ -17,11 +17,9 @@
 mono_crash.*
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
+*.exe.recipe
+SUPER-MARIO-BROS-OOP/Project1/x64/
+*.exe
 x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/

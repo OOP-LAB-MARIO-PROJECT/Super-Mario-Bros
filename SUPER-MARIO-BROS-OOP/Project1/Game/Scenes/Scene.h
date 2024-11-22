@@ -1,7 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-
 /* =======================================
 			** USING GUIDE **
 ------------------------------------------
@@ -13,13 +12,14 @@ Interface for using the scene of application:
 	- Implement the update(float deltime) method to update the current scene by deltatime
 
 ========================================== */
+
 class Scene {
 	sf::RenderWindow* window = nullptr; // NO DELETE WINDOW
 
 public:
 	Scene();
 	Scene(sf::RenderWindow* window);
-	const sf::RenderWindow* getWindow() const;
+	sf::RenderWindow* getWindow() const;
 	void display();
 
 	virtual void update(float deltatime) = 0;

@@ -1,13 +1,17 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+//#include <SFML/Audio.hpp>
 #include "GameConfig.h" // global game configuration
 
 #include <iostream>
 #include <memory>
 
 #include "../Utils/TextureManager.h"
+#include "../Utils/SceneManager.h"
+#include "../Utils/SoundManager.h"
+
+#include "SceneList.h"
 
 class Game {
 private:
@@ -16,7 +20,8 @@ private:
 	sf::RenderWindow* window = nullptr;
 	
 	TextureManager* textureManager = nullptr;
-
+	SceneManager* sceneManager = nullptr;
+	SoundManager* soundManager = nullptr;
 	bool m_isRunning = false;
 
 public:
