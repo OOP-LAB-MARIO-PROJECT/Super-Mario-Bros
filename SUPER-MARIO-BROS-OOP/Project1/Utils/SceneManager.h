@@ -21,7 +21,7 @@ public:
     static SceneManager& getInstance();
 
     Scenes getCurrentScene();
-    void addScene(Scenes sceneId, unique_ptr<Scene> scene);
+    void addScene(Scenes sceneId, Scene* scene);
 	void deleteScene(Scenes sceneId);
     void navigateTo(Scenes scene);
     void update(float deltatime = 0.f);
@@ -29,7 +29,7 @@ public:
     ~SceneManager();
 
 private:
-    map<Scenes, unique_ptr<Scene>> sceneRegistry; // Renamed the map
+    map<Scenes, Scene*> sceneRegistry; // Renamed the map
     Scenes currentScene = Scenes::Home;   // Default starting scene
     SceneManager();
     // Prevent copying and assignment

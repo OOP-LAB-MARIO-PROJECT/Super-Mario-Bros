@@ -31,7 +31,7 @@ public:
     // Xử lý sự kiện
     void handleEvent(const sf::Event& event, const sf::RenderWindow& window);
     // Vẽ nút
-    void draw(sf::RenderWindow& window);
+    void draw(sf::RenderWindow* window);
     // Hàm để tạo nút
     static Button createButton(const sf::Vector2f& size, const sf::Vector2f& position, const sf::Color& defaultCol, const sf::Color& hoverCol,
         const sf::Color& pressedCol, const std::function<void()>& onClickCallback);

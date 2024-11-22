@@ -7,7 +7,10 @@ SceneManager& SceneManager::getInstance()
     return instance;
 }
 
-SceneManager::~SceneManager() {}
+SceneManager::~SceneManager() {
+    for (auto& x : sceneRegistry)
+        delete x.second;
+}
 
 SceneManager::SceneManager() {}
 
@@ -18,14 +21,15 @@ SceneManager::Scenes SceneManager::getCurrentScene()
 }
 
 // Adds a new scene to the map
-void SceneManager::addScene(Scenes sceneId, unique_ptr<Scene> scene)
+void SceneManager::addScene(Scenes sceneId, Scene* scene)
 {
-    sceneRegistry[sceneId] = move(scene);
+    sceneRegistry[sceneId] = scene;
 }
 
 // Deletes a scene from the map
 void SceneManager::deleteScene(Scenes sceneId)
 {
+    std::cout << "called delete" << '\n';
 	sceneRegistry.erase(sceneId);
 }
 

@@ -14,6 +14,9 @@ void Game::start() {
 	textureManager = &TextureManager::getInstance();
 	textureManager->loadNewTexture("Assets/Textures/Texture_Pack/mario.tsx", "Assets/Textures/Texture_Pack/mario.png");
 
+	sceneManager = &SceneManager::getInstance();
+
+	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 
 	m_isRunning = true;
 };
@@ -26,28 +29,25 @@ void Game::run() {
 
 	float deltatime = m_clock.restart().asSeconds();
 	
+	window->clear(sf::Color::Black);
+
 	sf::Event event;
+	
+	// UPDATE HERE
+
+	sceneManager->update(deltatime);
+
+	// END UPDATE
+ 
 	while (window->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
 			window->close();
 	}
-	
-	// UPDATE HERE
 
-
-	// END UPDATE
- 
-
-
- 
 	// RENDER HERE
 
 	// END RENDER
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-	window->clear();
-	window->draw(shape);
 	window->display();
 };
 

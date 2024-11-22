@@ -11,7 +11,7 @@ using namespace std;
 class MainMenu
 {
 private:
-    RenderWindow* window;
+    RenderWindow* window = nullptr;
     vector<Button> buttons; // Danh sách các nút
     vector<string> options; // Danh sách các lựa chọn
     vector<Text> texts; // Danh sách các text
@@ -19,7 +19,6 @@ private:
     vector<Vector2f> textPositions; // Vị trí của các text
     vector<Vector2f> buttonPositions; // Vị trí của các nút
 public:
-    MainMenu();
     MainMenu(RenderWindow* window);
     ~MainMenu();
     Button getButton(int index);

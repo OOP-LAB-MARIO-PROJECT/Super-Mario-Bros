@@ -43,11 +43,14 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     isHovered = shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos));
 
+    //std::cout << mousePos.x << ' ' << mousePos.y << ' ' << shape.getPosition().x << ' ' << isHovered << '\n';
     if (isHovered) {
         shape.setFillColor(hoverColor); // Màu khi hover
+        std::cout << "changed color\n";
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             isPressed = true;
-            shape.setFillColor(pressedColor); // Màu khi nhấn
+            shape.setFillColor(sf::Color::Magenta); // Màu khi nhấn
+            std::cout << "press color " << (pressedColor == sf::Color::Yellow) << '\n';
         }
         else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
             if (isPressed && onClick) {
@@ -62,8 +65,8 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
 }
 
 // Vẽ nút
-void Button::draw(sf::RenderWindow& window) {
-    window.draw(shape);
+void Button::draw(sf::RenderWindow* window) {
+    window->draw(shape);
 }
 
 // Hàm để tạo nút

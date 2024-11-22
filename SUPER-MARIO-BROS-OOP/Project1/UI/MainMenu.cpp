@@ -11,7 +11,6 @@ void MainMenu::setWindow(RenderWindow* window)
 }
 void MainMenu::init(RenderWindow* window)
 {
-	this->window = window;
 	if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf"))
 	{
 		cout << "Can't load font" << endl;
@@ -35,20 +34,10 @@ Button MainMenu::getButton(int index)
 	return buttons[index];
 }
 
-MainMenu::MainMenu()
-{
-	window = new RenderWindow();
-	Button startGame = Button::createButton(Vector2f(200, 100), Vector2f(300, 250), Color::Yellow, Color::Blue, Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); });
-	buttons.push_back(startGame);
-	Button exit = Button::createButton(Vector2f(200, 100), Vector2f(300, 100), Color::Yellow, Color::Blue, Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }); //thay exit bằng hàm thoát game
-	buttons.push_back(exit);
-	init(window);
-}
 MainMenu::MainMenu(RenderWindow* window)
 {
 	this->window = window;
+	cout << "init " << window << '\n';
 	Button startGame = Button::createButton(Vector2f(200, 100), Vector2f(300, 250), Color::Yellow, Color::Blue, Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); });
 	buttons.push_back(startGame);
@@ -59,15 +48,14 @@ MainMenu::MainMenu(RenderWindow* window)
 }
 
 MainMenu::~MainMenu()
-{}
+{
+	std::cout << "destrutor called mainmenu\n";
+}
 
 void MainMenu::loopEvents()
 {
-	if (SceneManager::getInstance().getCurrentScene() != SceneManager::Scenes::Home)
-	{
-		window->close();
-	}
 	Event event;
+	std::cout << window << '\n';
 	while (window->pollEvent(event))
 	{
 		if (event.type == Event::Closed)
@@ -77,30 +65,25 @@ void MainMenu::loopEvents()
 		for (int i = 0; i < buttons.size(); i++)
 		{
 			buttons[i].handleEvent(event, *window);
+			//std::cout << "button " << i << '\n';
 		}
+		
 	}
 }
 
 void MainMenu::drawMenu()
 {
-	window->clear();
 	for (int i = 0; i < buttons.size(); i++)
 	{
-		buttons[i].draw(*window);
+		buttons[i].draw(window);
 	}
 
 	for (int i = 0; i < texts.size(); i++)
 	{
 		window->draw(texts[i]);
 	}
-	window->display();
 }
 
 void MainMenu::runMenu()
 {
-	while (window->isOpen())
-	{
-		loopEvents();
-		drawMenu();
-	}
 }

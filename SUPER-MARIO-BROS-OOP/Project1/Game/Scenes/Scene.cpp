@@ -7,7 +7,7 @@ void Scene::display() {
 	window->display();
 }
 
-const sf::RenderWindow* Scene::getWindow() const {
+sf::RenderWindow* Scene::getWindow() {
 	return window;
 }
 

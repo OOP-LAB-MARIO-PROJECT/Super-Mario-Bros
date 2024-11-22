@@ -8,6 +8,9 @@
 #include <memory>
 
 #include "../Utils/TextureManager.h"
+#include "../Utils/SceneManager.h"
+
+#include "Scenes/Home/HomeScene.h"
 
 class Game {
 private:
@@ -15,6 +18,7 @@ private:
 	sf::Clock m_clock;
 	sf::RenderWindow* window = nullptr;
 	
+	SceneManager* sceneManager = nullptr;
 	TextureManager* textureManager = nullptr;
 
 	bool m_isRunning = false;
