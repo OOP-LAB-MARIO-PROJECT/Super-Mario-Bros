@@ -8,6 +8,10 @@
 #include <memory>
 
 #include "../Utils/TextureManager.h"
+#include "../Utils/SceneManager.h"
+
+#include "Scenes/Home/HomeScene.h"
+#include "Scenes/Exit/ExitScene.h"
 
 class Game {
 private:
@@ -16,7 +20,7 @@ private:
 	sf::RenderWindow* window = nullptr;
 	
 	TextureManager* textureManager = nullptr;
-
+	SceneManager* sceneManager = nullptr;
 	bool m_isRunning = false;
 
 public:

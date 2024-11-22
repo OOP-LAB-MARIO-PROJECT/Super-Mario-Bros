@@ -147,11 +147,14 @@
     <ClCompile Include="Game\Entities\Tiles\Tile.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameConfig.cpp" />
+    <ClCompile Include="Game\Scenes\Exit\ExitScene.cpp" />
     <ClCompile Include="Game\Scenes\Game\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Home\HomeScene.cpp" />
+    <ClCompile Include="Game\Scenes\Login\LoginScene.cpp" />
     <ClCompile Include="Game\Scenes\Scene.cpp" />
     <ClCompile Include="Game\Scenes\Setting\SettingScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UI_Components\Button.cpp" />
     <ClCompile Include="Utils\SceneManager.cpp" />
     <ClCompile Include="Utils\SoundManager.cpp" />
     <ClCompile Include="Utils\TextureManager.cpp" />
@@ -168,15 +171,21 @@
     <ClInclude Include="Game\Entities\Tiles\Tile.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameConfig.h" />
+    <ClInclude Include="Game\Scenes\Exit\ExitScene.h" />
     <ClInclude Include="Game\Scenes\Game\GameScene.h" />
     <ClInclude Include="Game\Scenes\Home\HomeScene.h" />
+    <ClInclude Include="Game\Scenes\Login\LoginScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />
     <ClInclude Include="Game\Scenes\Setting\SettingScene.h" />
+    <ClInclude Include="UI_Components\Button.h" />
     <ClInclude Include="Utils\SceneManager.h" />
     <ClInclude Include="Utils\SoundManager.h" />
     <ClInclude Include="Utils\TextureManager.h" />
     <ClInclude Include="Utils\Tileset.h" />
     <ClInclude Include="Utils\tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
