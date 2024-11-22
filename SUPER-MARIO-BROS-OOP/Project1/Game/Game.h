@@ -10,8 +10,7 @@
 #include "../Utils/TextureManager.h"
 #include "../Utils/SceneManager.h"
 
-#include "Scenes/Home/HomeScene.h"
-#include "Scenes/Exit/ExitScene.h"
+#include "SceneList.h"
 
 class Game {
 private:

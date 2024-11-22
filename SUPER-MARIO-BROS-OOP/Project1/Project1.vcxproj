@@ -171,6 +171,7 @@
     <ClInclude Include="Game\Entities\Tiles\Tile.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameConfig.h" />
+    <ClInclude Include="Game\SceneList.h" />
     <ClInclude Include="Game\Scenes\Exit\ExitScene.h" />
     <ClInclude Include="Game\Scenes\Game\GameScene.h" />
     <ClInclude Include="Game\Scenes\Home\HomeScene.h" />
