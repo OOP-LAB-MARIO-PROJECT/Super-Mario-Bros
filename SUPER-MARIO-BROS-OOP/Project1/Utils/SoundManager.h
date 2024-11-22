@@ -21,6 +21,9 @@ public:
     void stopSound(const std::string& id);
     bool hasSound(const std::string& id) const;
     void removeSound(const std::string& id);
+    
+    void loadFromInterface(const std::string& filename);
+
 
 private:
     SoundManager() = default; // Private constructor

@@ -12,13 +12,15 @@ void Game::start() {
 	
 	
 	textureManager = &TextureManager::getInstance();
-	textureManager->loadNewTexture("Assets/Textures/Texture_Pack/mario.tsx", "Assets/Textures/Texture_Pack/mario.png");
+	textureManager->loadFromInterface("Assets/Textures/texture_interface.txt");
 
 	sceneManager = &SceneManager::getInstance();
+	
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
 
 	soundManager = &SoundManager::getInstance();
+	soundManager->loadFromInterface("Assets/Sounds/sound_interface.txt");
 
 	m_isRunning = true;
 };

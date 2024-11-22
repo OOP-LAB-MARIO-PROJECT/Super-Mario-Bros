@@ -37,6 +37,8 @@ public:
 	// set the rectange texture for a sprite -> the texture that will be render
 	void setTextureRect(sf::Sprite& sprite, const std::string& sourceName, const std::string& rectName);
 
+	void loadFromInterface(const std::string& filename);
+
 private:
 	TextureManager() = default; // Private constructor
 	~TextureManager() = default;
