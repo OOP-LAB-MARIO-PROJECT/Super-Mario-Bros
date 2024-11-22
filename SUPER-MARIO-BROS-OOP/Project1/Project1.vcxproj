@@ -138,9 +138,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Control\CommandManager.cpp" />
+    <ClCompile Include="Game\Components\Collision.cpp" />
     <ClCompile Include="Game\Components\Physics.cpp" />
+    <ClCompile Include="Game\Control\Command.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Actor.cpp" />
     <ClCompile Include="Game\Entities\Entity.cpp" />
+    <ClCompile Include="Game\Entities\Tiles\Tile.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameConfig.cpp" />
     <ClCompile Include="Game\Scenes\Game\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Home\HomeScene.cpp" />
     <ClCompile Include="Game\Scenes\Scene.cpp" />
@@ -155,9 +161,15 @@
     <ClCompile Include="Utils\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Components\Collision.h" />
     <ClInclude Include="Game\Components\Physics.h" />
+    <ClInclude Include="Game\Control\Command.h" />
+    <ClInclude Include="Game\Control\CommandManager.h" />
+    <ClInclude Include="Game\Entities\Actors\Actor.h" />
     <ClInclude Include="Game\Entities\Entity.h" />
+    <ClInclude Include="Game\Entities\Tiles\Tile.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameConfig.h" />
     <ClInclude Include="Game\Scenes\Game\GameScene.h" />
     <ClInclude Include="Game\Scenes\Home\HomeScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />

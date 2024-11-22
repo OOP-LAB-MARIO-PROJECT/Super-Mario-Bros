@@ -4,6 +4,18 @@
 #include <string>
 #include "Tileset.h"
 
+/* 
+=====================================
+Flyweight - pattern
+
+Support:
+	- void loadNewTexture(const std::string& filename, const std::string& textureName);
+
+	- void setTextureRect(sf::Sprite& sprite, const std::string& sourceName, const std::string& rectName);
+
+
+====================================== 
+*/
 class TextureManager {
 private:
 	std::map <std::string, sf::Texture> myTexture;
@@ -19,7 +31,10 @@ public:
 		return instance;
 	}
 
+	// load new texture from file -> the texture should be **2 FILE**, the tilemap file with extension .tsx and a picture denote the texture that suitable for the tilemap file
 	void loadNewTexture(const std::string& filename, const std::string& textureName);
+
+	// set the rectange texture for a sprite -> the texture that will be render
 	void setTextureRect(sf::Sprite& sprite, const std::string& sourceName, const std::string& rectName);
 
 private:
