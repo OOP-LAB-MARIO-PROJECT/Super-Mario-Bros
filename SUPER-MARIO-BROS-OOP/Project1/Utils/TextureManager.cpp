@@ -1,5 +1,6 @@
 #include "TextureManager.h"
 #include <iostream>
+#include <fstream>
 
 void TextureManager::loadNewTexture(const std::string& filename, const std::string& textureName) {
 	Tileset tileset;
@@ -33,4 +34,29 @@ void TextureManager::setTextureRect(sf::Sprite& sprite, const std::string& textu
 	sf::IntRect rect(rec.first.first, rec.first.second, rec.second.first, rec.second.second);
 	sprite.setTextureRect(rect);
 	std::cout << "texture pos" << (int)sprite.getTexture() << '\n';
+}
+
+
+void TextureManager::loadFromInterface(const std::string& filename) {
+	std::ifstream fin(filename);
+	if (!fin.is_open()) {
+		std::cerr << "Cannot open interface " + filename << '\n';
+		return;
+	}
+
+	std::string tileName, textureName;
+	while (fin >> tileName) {
+		if (!(fin >> textureName)) {
+			std::cerr << "Missing texture " + tileName << '\n';
+			return;
+		}
+
+		tileName = "Assets/Textures/" + tileName;
+		textureName = "Assets/Textures/" + textureName;
+		loadNewTexture(tileName, textureName);
+	}
+	
+	std::cerr << "Loaded texture successfully" << '\n';
+
+	fin.close();
 }

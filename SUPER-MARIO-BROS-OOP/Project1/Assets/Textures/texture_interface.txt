@@ -1,0 +1,1 @@
+Texture_Pack/mario.tsx Texture_Pack/mario.png
