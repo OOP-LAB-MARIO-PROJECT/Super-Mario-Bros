@@ -29,8 +29,32 @@ void Button::setColors(const sf::Color& defaultCol, const sf::Color& hoverCol, c
     defaultColor = defaultCol;
     hoverColor = hoverCol;
     pressedColor = pressedCol;
-    shape.setFillColor(defaultColor); // Cập nhật màu sắc hiện tại
+    shape.setFillColor(defaultColor); 
 }
+
+bool Button::setFont() {
+    if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf")) {
+        std::cout << "Can not load font\n";
+        return false;
+    }
+    text.setFont(font);
+    return true;
+}
+
+
+void Button::setText(const std::string& content, unsigned int textSize, const sf::Color& textColor) {
+    text.setString(content);
+    text.setCharacterSize(textSize);
+    text.setFillColor(textColor);
+
+    
+    sf::FloatRect bounds = shape.getGlobalBounds();
+    sf::FloatRect textBounds = text.getGlobalBounds();
+    text.setPosition(bounds.left + (bounds.width - textBounds.width) / 2.0f, bounds.top + (bounds.height - textBounds.height) / 2.0f - 10.0f );
+}
+
+
+
 
 // Set hành động onClick
 void Button::setOnClick(const std::function<void()>& callback) {
@@ -68,12 +92,15 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
 // Vẽ nút
 void Button::draw(sf::RenderWindow* window) {
     window->draw(shape);
+    window->draw(text);
 }
 
 Button Button::createButton(const sf::Vector2f& size, const sf::Vector2f& position, const sf::Color& defaultCol, const sf::Color& hoverCol,
-    const sf::Color& pressedCol, const std::function<void()>& onClickCallback) {
+    const sf::Color& pressedCol, const std::function<void()>& onClickCallback, const std::string& content, unsigned int textSize, const sf::Color& textColor) {
     Button button(size, position); 
     button.setColors(defaultCol, hoverCol, pressedCol); 
+    button.setFont();
+    button.setText(content, textSize, textColor);
     button.setOnClick(onClickCallback); 
     return button; 
 }

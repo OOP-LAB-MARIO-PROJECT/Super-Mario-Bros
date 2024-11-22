@@ -6,6 +6,8 @@
 class Button {
 private:
     sf::RectangleShape shape;
+    sf::Text text;
+    sf::Font font;
     bool isPressed = false;
     bool isHovered = false;
     std::function<void()> onClick;
@@ -22,11 +24,13 @@ public:
     void setPosition(const sf::Vector2f& position);
     sf::Vector2f getPosition() const;
     void setColors(const sf::Color& defaultCol, const sf::Color& hoverCol, const sf::Color& pressedCol);
+    bool setFont(); 
+    void setText(const std::string& content, unsigned int textSize, const sf::Color& textColor);
     void setOnClick(const std::function<void()>& callback);
     void handleEvent(const sf::Event& event, const sf::RenderWindow& window);
     void draw(sf::RenderWindow* window);
     static Button createButton(const sf::Vector2f& size, const sf::Vector2f& position, const sf::Color& defaultCol, const sf::Color& hoverCol,
-        const sf::Color& pressedCol, const std::function<void()>& onClickCallback);
+        const sf::Color& pressedCol, const std::function<void()>& onClickCallback, const std::string& content, unsigned int textSize, const sf::Color& textColor);
     bool isButtonPressed();
 };
 

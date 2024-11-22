@@ -7,13 +7,13 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
 	}
 
 
-	Button startGame = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	/*Button startGame = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); });
 	buttons.push_back(startGame);
 	Button exit = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }); //thay exit bằng hàm thoát game
 	buttons.push_back(exit);
-
+	*/
 	options = { "Start", "Exit" };
 	textPositions = { sf::Vector2f(300, 250), sf::Vector2f(300, 100) };
 	buttonPositions = { sf::Vector2f(400, 250), sf::Vector2f(400, 350) };
