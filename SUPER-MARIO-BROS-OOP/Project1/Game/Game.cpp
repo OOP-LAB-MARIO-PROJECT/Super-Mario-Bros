@@ -18,6 +18,8 @@ void Game::start() {
 	
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
+	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
+	sceneManager->navigateTo(SceneManager::Scenes::Game);
 
 	soundManager = &SoundManager::getInstance();
 	soundManager->loadFromInterface("Assets/Sounds/sound_interface.txt");

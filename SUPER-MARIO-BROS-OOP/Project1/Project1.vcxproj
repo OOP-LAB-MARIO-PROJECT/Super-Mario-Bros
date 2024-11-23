@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Scenes\Game\Camera.cpp" />
     <ClCompile Include="Game\Control\CommandManager.cpp" />
     <ClCompile Include="Game\Components\Collision.cpp" />
     <ClCompile Include="Game\Components\Physics.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="Utils\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Scenes\Game\Camera.h" />
     <ClInclude Include="Game\Components\Collision.h" />
     <ClInclude Include="Game\Components\Physics.h" />
     <ClInclude Include="Game\Control\Command.h" />

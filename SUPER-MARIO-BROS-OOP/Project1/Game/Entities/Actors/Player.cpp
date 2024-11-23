@@ -8,6 +8,12 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 
 void Player::update(float deltatime) {
 
+
+
+
+	setPos(getPos() + getVel() * deltatime);
+	setSpritePos(getPos() - sf::Vector2f{ 2, 2 });
+	performPhysics(deltatime);
 }
 
 void Player::jump(float deltatime) {
