@@ -46,7 +46,7 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	}
 }
 
-std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos) {
+std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	std::vector <sf::RectangleShape> tiles;
 	
 	std::pair <int, int> currentPos = toMap(pos);// row and col
@@ -57,6 +57,7 @@ std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos) {
 		newPos.second += j;
 		int id = getTileAt(newPos);
 		if (id == -1) continue;
+		if (!gettrans && map[id].isTrans())  continue;
 		tiles.push_back(map[id].getHitbox());
 	}
 

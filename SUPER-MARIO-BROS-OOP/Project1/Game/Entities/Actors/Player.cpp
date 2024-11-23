@@ -32,13 +32,14 @@ void Player::update(float deltatime) {
 
 	if (isCollide & 5) // touch top or bottom
 		setVel({ getVel().x, 0 }), isJumping = false;
+	if (!isOnGround) setVel({ getVel().x / 4, getVel().y });
 
 	performPhysics(deltatime);
 }
 
 void Player::jump(float deltatime) {
 	if (isOnGround && !isJumping) {
-		setVel({ getVel().x, -170 });
+		setVel({ getVel().x, -190 });
 		isOnGround = false;
 		reachMaxHeight = false;
 		isJumping = true;
@@ -47,8 +48,8 @@ void Player::jump(float deltatime) {
 		if (reachMaxHeight) return;
 		sf::Vector2f newVel = getVel();
 		newVel += sf::Vector2f(0, -40000) * deltatime;
-		if (newVel.y < -178.f)
-			newVel.y = -178.f, reachMaxHeight = true;
+		if (newVel.y < -198.f)
+			newVel.y = -198.f, reachMaxHeight = true;
 		setVel(newVel);
 	}
 }

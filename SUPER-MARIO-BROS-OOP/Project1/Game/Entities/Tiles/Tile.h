@@ -25,7 +25,7 @@ public:
 	void setSpritePos(sf::Vector2f pos);
 
 	void setTexture(const std::string& sourceName, const std::string& rectName);
-
+	bool isTrans() { return isTransparent; }
 
 	sf::RectangleShape& getHitbox();
 };

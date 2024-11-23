@@ -35,10 +35,11 @@ void Tileset::loadFile(const std::string& s) {
 
     std::map<std::string, std::vector <std::pair <int, int>>> mpClass;
 
-    for (int i = 0; i < rows; i ++) for (int j = 0; j < columns; j ++) {
-        if (!tile) break;
+    while (tile) {
         int id = 0;
         tile->QueryIntAttribute("id", &id);
+        int i = id / columns;
+        int j = id % columns;
         std::string type = "";
         char* ch = new char[500];
         memset(ch, 0, sizeof ch);
