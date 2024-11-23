@@ -6,26 +6,17 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
 		std::cout << "Can't load font" << std::endl;
 	}
 
-
-	/*Button startGame = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); });
+	Button startGame = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { std::cout << "Start"; });
+	startGame.setFont(font);
+	startGame.setText("Hehe", 24, sf::Color::White);
 	buttons.push_back(startGame);
+	/*
 	Button exit = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }); //thay exit bằng hàm thoát game
 	buttons.push_back(exit);
 	*/
-	options = { "Start", "Exit" };
-	textPositions = { sf::Vector2f(300, 250), sf::Vector2f(300, 100) };
-	buttonPositions = { sf::Vector2f(400, 250), sf::Vector2f(400, 350) };
-	texts.resize(options.size());
-	for (int i = 0; i < options.size(); i++)
-	{
-		texts[i].setFont(font);
-		texts[i].setString(options[i]);
-		texts[i].setCharacterSize(24);
-		texts[i].setFillColor(sf::Color::Black);
-		texts[i].setPosition(textPositions[i]);
-	}
+	
 }
 
 
@@ -53,14 +44,9 @@ void HomeScene::drawMenu()
 	{
 		buttons[i].draw(getWindow());
 	}
-
-	for (int i = 0; i < texts.size(); i++)
-	{
-		getWindow()->draw(texts[i]);
-	}
 }
 
 void HomeScene::update(float deltatime) {
-	drawMenu();
-	loopEvents();
+	drawMenu();             // Draw buttons
+	loopEvents();           // Handle events
 }

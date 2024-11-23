@@ -32,26 +32,25 @@ void Button::setColors(const sf::Color& defaultCol, const sf::Color& hoverCol, c
     shape.setFillColor(defaultColor); 
 }
 
-bool Button::setFont() {
-    if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf")) {
-        std::cout << "Can not load font\n";
-        return false;
-    }
-    text.setFont(font);
-    return true;
+void Button::setFont(const sf::Font& f) {
+    text.setFont(f);
 }
 
 
 void Button::setText(const std::string& content, unsigned int textSize, const sf::Color& textColor) {
+    if (content.empty()) {
+        std::cerr << "Text content is empty!" << std::endl;
+    }
     text.setString(content);
     text.setCharacterSize(textSize);
     text.setFillColor(textColor);
 
-    
+    // Căn chỉnh văn bản vào trung tâm của nút
     sf::FloatRect bounds = shape.getGlobalBounds();
     sf::FloatRect textBounds = text.getGlobalBounds();
-    text.setPosition(bounds.left + (bounds.width - textBounds.width) / 2.0f, bounds.top + (bounds.height - textBounds.height) / 2.0f - 10.0f );
+    text.setPosition(bounds.left + (bounds.width - textBounds.width) / 2.0f, bounds.top + (bounds.height - textBounds.height) / 2.0f - 5.0f);
 }
+
 
 
 
@@ -67,7 +66,7 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     isHovered = shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos));
 
-    //std::cout << mousePos.x << ' ' << mousePos.y << ' ' << shape.getPosition().x << ' ' << isHovered << '\n';
+    
     if (isHovered) {
         shape.setFillColor(hoverColor); // Màu khi hover
         std::cout << "changed color\n";
@@ -95,15 +94,19 @@ void Button::draw(sf::RenderWindow* window) {
     window->draw(text);
 }
 
-Button Button::createButton(const sf::Vector2f& size, const sf::Vector2f& position, const sf::Color& defaultCol, const sf::Color& hoverCol,
-    const sf::Color& pressedCol, const std::function<void()>& onClickCallback, const std::string& content, unsigned int textSize, const sf::Color& textColor) {
-    Button button(size, position); 
-    button.setColors(defaultCol, hoverCol, pressedCol); 
-    button.setFont();
-    button.setText(content, textSize, textColor);
-    button.setOnClick(onClickCallback); 
-    return button; 
+Button Button::createButton(
+    const sf::Vector2f& size,
+    const sf::Vector2f& position,
+    const sf::Color& defaultCol,
+    const sf::Color& hoverCol,
+    const sf::Color& pressedCol,
+    const std::function<void()>& onClickCallback) {
+    Button button(size, position); // Tạo nút
+    button.setColors(defaultCol, hoverCol, pressedCol); // Thiết lập màu sắc
+    button.setOnClick(onClickCallback); // Thiết lập hành động click
+    return button;
 }
+
 bool Button::isButtonPressed()
 {
     return isPressed;
