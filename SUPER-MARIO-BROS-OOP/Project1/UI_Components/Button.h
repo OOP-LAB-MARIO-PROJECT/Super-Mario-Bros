@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include <iostream>
+#include "../Utils/FontManager.h"
 
 class Button {
 private:
@@ -28,8 +29,17 @@ public:
     void setOnClick(const std::function<void()>& callback);
     void handleEvent(const sf::Event& event, const sf::RenderWindow& window);
     void draw(sf::RenderWindow* window);
-    static Button createButton(const sf::Vector2f& size, const sf::Vector2f& position, const sf::Color& defaultCol, const sf::Color& hoverCol,
-        const sf::Color& pressedCol, const std::function<void()>& onClickCallback);
+    static Button createButton(
+        const sf::Vector2f& size,
+        const sf::Vector2f& position,
+        const sf::Color& defaultCol,
+        const sf::Color& hoverCol,
+        const sf::Color& pressedCol,
+        const std::function<void()>& onClickCallback,
+        const std::string& content,
+        unsigned int textSize,
+        const sf::Color& textColor
+    );
     bool isButtonPressed();
 };
 
