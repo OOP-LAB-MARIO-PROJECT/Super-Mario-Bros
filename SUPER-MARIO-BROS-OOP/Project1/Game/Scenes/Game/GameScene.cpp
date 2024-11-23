@@ -12,7 +12,7 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	gameMap = new Map();
 	player = new Player(sf::Vector2f(50, 50), sf::Vector2f(14, 14), gameMap);
 	camera = new Camera(window);
-	gameMap->loadMap("Assets/Map/map.txt", player);
+	gameMap->loadMap("Assets/Map/map.tsx", player);
 
 	myCommand.addCommand("jump", new Jump(player));
 	myCommand.addCommand("moveLeft", new MoveLeft(player));

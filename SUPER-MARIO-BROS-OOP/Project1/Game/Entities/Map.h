@@ -4,6 +4,8 @@
 
 #include "Tiles/Tile.h"
 #include "Actors/Actor.h"
+#include "Tiles/TileFactory.h"
+#include "Actors/Player.h"
 
 #include <vector>
 #include <map>
@@ -17,9 +19,8 @@ private:
 	int m_col = 0;
 	int m_block_size = 1;
 
-	std::vector<std::vector<short>> tilesMap;
 	std::vector<Tile> map;
-
+	std::map <std::pair <int, int>, int> tilePos;
 	EntityManager myEntities;
 
 	sf::Vector2f playerPos;
@@ -46,6 +47,14 @@ public:
 	sf::Vector2f getPlayerSize() const;
 	sf::Vector2f getPlayerVel() const;
 	bool isTileAt(sf::Vector2f pos) const;
+
+	int getTileAt(sf::Vector2f pos) const;
+
+	// get by map tile set
+	int getTileAt(std::pair <int, int> pos) const;
 	// get near entity
+		
+	std::pair <int, int> toMap(sf::Vector2f pos);
+
 };
 

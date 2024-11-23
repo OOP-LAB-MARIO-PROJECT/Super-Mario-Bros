@@ -24,6 +24,9 @@ public:
 	// set sprite position
 	void setSpritePos(sf::Vector2f pos);
 
+	void setTexture(const std::string& sourceName, const std::string& rectName);
+
+
 	sf::RectangleShape& getHitbox();
 };
 

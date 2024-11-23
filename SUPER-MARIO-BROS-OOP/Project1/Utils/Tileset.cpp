@@ -86,3 +86,65 @@ void Tileset::print() {
                   << ", Value: " << value.second << std::endl;
     }
 }
+
+std::map<std::string, std::vector <std::pair <int, int>>> Tileset::loadMapFromFile(const std::string& s) {
+    XMLDocument doc;
+
+    // Load the .tsx file
+    if (doc.LoadFile(s.c_str()) != XML_SUCCESS) {
+        std::cerr << "Error loading file: " << s << std::endl;
+        return std::map<std::string, std::vector <std::pair <int, int>>>();
+    }
+
+    // Get the root element (tileset)
+    XMLElement* root = doc.FirstChildElement("tileset");
+    if (!root) {
+        std::cerr << "Error: Root <tileset> element not found in " << s << std::endl;
+        return std::map<std::string, std::vector <std::pair <int, int>>>();
+
+    }
+
+    // Extract basic attributes from the tileset
+    name = root->Attribute("name");
+    root->QueryIntAttribute("tilewidth", &tilewidth);
+    root->QueryIntAttribute("tileheight", &tileheight);
+    root->QueryIntAttribute("tilecount", &tilecount);
+    root->QueryIntAttribute("columns", &columns);
+
+    // Process individual tiles
+
+    int rows = tilecount / columns;
+    XMLElement* tile = root->FirstChildElement("tile");
+
+    std::map<std::string, std::vector <std::pair <int, int>>> mpClass;
+
+    while (tile) {
+        int id = 0;
+        tile->QueryIntAttribute("id", &id);
+
+        int i = id / columns;
+        int j = id % columns;
+
+        std::string type = "";
+        char* ch = new char[500];
+        memset(ch, 0, sizeof ch);
+
+        const char* cch = ch;
+
+        tile->QueryStringAttribute("type", &cch);
+        //tile->qe
+
+        type = cch;
+        delete[] ch;
+
+        std::string tileName = type;
+
+        mpClass[type].push_back({ j * tilewidth , i * tileheight });
+
+        //mp[tileName] = {i * tileheight, j * tilewidth};
+        tile = tile->NextSiblingElement("tile");
+    }
+
+    std::cout << "Tileset loaded successfully from: " << s << std::endl;
+    return mpClass;
+}

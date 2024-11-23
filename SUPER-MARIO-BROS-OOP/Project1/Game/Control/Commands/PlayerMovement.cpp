@@ -29,7 +29,6 @@ void Jump::setDeltaTime(float _deltaTime) {
 }
 
 void Jump::execute() {
-	std::cout << "Jump" << '\n';
 	player->jump(deltaTime);
 }
 

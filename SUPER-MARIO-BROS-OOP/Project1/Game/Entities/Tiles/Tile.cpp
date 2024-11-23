@@ -35,3 +35,8 @@ void Tile::render(sf::RenderWindow* window) const {
 	if (isRenderSprite)
 		window->draw(sprite);
 }
+
+
+void Tile::setTexture(const std::string& sourceName, const std::string& rectName) {
+	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
+}

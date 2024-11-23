@@ -1,6 +1,6 @@
 
 #include "Map.h"
-
+#include "../../Utils/Tileset.h"
 
 
 void Map::addTile(const Tile& tile) {
@@ -21,89 +21,44 @@ std::vector <sf::RectangleShape> Map::getTiles() {
 }
 
 void Map::loadMap(const std::string& filename, Player* player) {
-	playerPos = { 0, 0 };
-	playerPos = { 16, 16 };
-	std::fstream fin(filename);
+	Tileset mapLoader;
+	std::map<std::string, std::vector <std::pair <int, int>>> myMapInfo = mapLoader.loadMapFromFile(filename);
+	if (mapLoader.columns == 0) {
+		throw std::exception("Devide by zero");
+	}
+	m_row = mapLoader.tilecount / mapLoader.columns;
+	m_col = mapLoader.columns;
+	m_block_size = mapLoader.tilewidth;
 
-	if (fin.is_open())
-		std::cout << "file opened\n";
-	else
-		std::cout << "file is not opened\n";
+	sf::Vector2f size = sf::Vector2f{ (float)mapLoader.tilewidth, (float)mapLoader.tileheight };
 
-	int n, m;
-	fin >> n >> m;
-
-	sf::Vector2f pos(0, 0);
-	std::cout << n << ' ' << m << '\n';
-
-	m_row = n; m_col = m;
-
-	const int size = 16;
-	m_block_size = 16;
-
-	tilesMap.reserve(n);
-	tilesMap.resize(n);
-	for (auto& row : tilesMap)
-		row.reserve(m), row.resize(m);
-
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < m; j++) {
-			int t;
-			fin >> t;
-
-			tilesMap[i][j] = t;
-
-			pos = { (float)j * size, (float)i * size };
-
-			if (t == 1) {
-				map.push_back(Tile(pos, { size, size }, false));
-			}
-
-			if (t == 2) { // coin
-			//	props.push_back(std::make_unique<Coin>(Coin(pos, { size, size })));
-			}
-
-			if (t == 3) {
-			//	breakableTiles.push_back(std::make_unique<MoveUpTile>(MoveUpTile(pos, { size, size }, false, player)));
-			}
-
-			if (t == 4) { // power up
-
-			}
-
-			if (t == 5) { // enemies
-
-			}
-
-			if (t == 7) { // test enemies
-				//std::cout << "added test enemies\n";
-				//myEntities.addEntity(std::make_unique<SimpleTestingEnemy>(SimpleTestingEnemy(pos, { size, size }, this)));
-			}
-
-			if (t == 9) { // groompa
-				//std::make_unique<Entity>(Groompa(pos, { size, size }));
-				//myEntities.addEntity(std::make_unique<Groompa>(Groompa(pos, { size, size }, this)));
-			}
-		}
+	if (myMapInfo["player_pos"].size())
+		player->setPos({ (float)myMapInfo["player_pos"][0].first, (float)myMapInfo["player_pos"][0].second });
+	else {
+		throw std::exception("No found player in map");
 	}
 
-	fin.close();
+	for (const auto& typeTile : myMapInfo) {
+		for (const auto& tile : typeTile.second) {
+			tilePos[toMap(sf::Vector2f{ (float)tile.first, (float)tile.second })] = map.size();
+			addTile(TileFactory::createTile(typeTile.first, sf::Vector2f{(float)tile.first, (float)tile.second}, size));
+		}
+	}
 }
 
 std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos) {
 	std::vector <sf::RectangleShape> tiles;
-	for (Tile t : map) {
-		sf::Vector2f p = t.getHitbox().getPosition();
-		if (std::max(abs(pos.x - p.x), abs(pos.y - p.y)) <= 50)
-			tiles.push_back(t.getHitbox());
+	
+	std::pair <int, int> currentPos = toMap(pos);// row and col
+	
+	for (int i = -2; i <= 2; i++) for (int j = -2; j <= 2; j++) {
+		std::pair <int, int> newPos = currentPos;// row and col
+		newPos.first += i;
+		newPos.second += j;
+		int id = getTileAt(newPos);
+		if (id == -1) continue;
+		tiles.push_back(map[id].getHitbox());
 	}
-
-	//for (auto& t : breakableTiles) {
-	//	sf::Vector2f p = t->getHitbox().getPosition();
-	//	if (std::max(abs(pos.x - p.x), abs(pos.y - p.y)) <= 50) {
-	//		tiles.push_back(t->getHitbox());
-	//	}
-	//}
 
 	return tiles;
 }
@@ -156,5 +111,29 @@ bool Map::isTileAt(sf::Vector2f pos) const {
 	y /= m_block_size;
 
 	if (x >= m_col || y >= m_row) return false;
-	return tilesMap[y][x] != 0;
+	return tilePos.count({ y, x });
+}
+
+int Map::getTileAt(sf::Vector2f pos) const {
+	int x = pos.x, y = pos.y;
+	x /= m_block_size;
+	y /= m_block_size;
+
+	if (x >= m_col || y >= m_row) return -1;
+	if (!tilePos.count({ y, x })) return -1;
+
+	return tilePos.find({ y, x })->second;
+}
+
+// at y, x coordinate
+int Map::getTileAt(std::pair <int, int> pos) const {
+	if (!tilePos.count(pos)) return -1;
+	return tilePos.find(pos)->second;
+}
+
+std::pair <int, int> Map::toMap(sf::Vector2f pos) {
+	int x = pos.x, y = pos.y;
+	x /= m_block_size;
+	y /= m_block_size;
+	return { y, x };
 }
