@@ -33,7 +33,7 @@ public:
 
 	void addTile(const Tile& tile);
 	void render(sf::RenderWindow* window);
-
+	
 	std::vector <sf::RectangleShape> getTiles();
 	std::vector <sf::RectangleShape> getNearTiles(sf::Vector2f pos);
 
@@ -46,6 +46,6 @@ public:
 	sf::Vector2f getPlayerSize() const;
 	sf::Vector2f getPlayerVel() const;
 	bool isTileAt(sf::Vector2f pos) const;
-
+	// get near entity
 };
 

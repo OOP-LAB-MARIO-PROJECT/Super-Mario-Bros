@@ -5,14 +5,15 @@
 #include <memory>
 
 class CommandManager {
-	std::map <std::string, std::unique_ptr <Command>> myCommand;
+	std::map <std::string, Command*> myCommand;
 
 public:
 
 	CommandManager() {};
+	~CommandManager();
 	void setDeltaTime(float deltatime);
 
-	void addCommand(const std::string& name, std::unique_ptr<Command> command);
+	void addCommand(const std::string& name, Command* command);
 
 	void executeCommand(std::string name);
 	void deExecuteCommand(std::string name);
