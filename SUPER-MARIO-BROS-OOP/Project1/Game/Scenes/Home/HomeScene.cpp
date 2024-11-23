@@ -16,7 +16,7 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }); //thay exit bằng hàm thoát game
 	buttons.push_back(exit);
 	*/
-	
+
 }
 
 
