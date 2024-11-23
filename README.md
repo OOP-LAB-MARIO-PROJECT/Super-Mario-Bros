@@ -16,7 +16,14 @@ SUPER-MARIO-BROS-OOP/
 ├── Project1/
     ├── Assets/             # Game assets including sounds and textures
         ├── Sounds/         # Audio files for the game
+            ├── SoundFile1/
+            ├── ...
+            ├── sound_interface.txt # interface for adding new sounds
         ├── Textures/       # Images and textures used in the game
+            ├── Texture1/
+            ├── ...
+            ├── texture_interface.txt # interface for adding new textures
+        ├── Fonts/          # Fonts used in the game
     ├── Game/               # Core game logic and components
         ├── Components/     # Reusable game components
         ├── Entities/       # Entity classes like Mario, enemies, etc.
@@ -102,8 +109,26 @@ Each scene is managed independently in the `/Scenes/` directory for modularity.
 All assets are stored in the `Assets/` directory:
 
 - **Sounds**: Contains audio files like background music and sound effects.
+- **Fonts**: Includes fonts used in the game.
 - **Textures**: Stores sprite sheets and game textures.
 
+### Interface for Adding New Assets
+- **Sounds**: To add new sounds, follow the interface in `Assets/Sounds/sound_interface.txt`.
+   **Example:** the first column is the name of the sound and the second column is the path to the sound file.
+```
+background Sound_Pack/background.wav
+collect Sound_Pack/collect.wav
+defeat Sound_Pack/defeat.wav
+hit Sound_Pack/hit.wav
+jump Sound_Pack/jump.wav
+```
+
+
+- **Textures**: To add new textures, follow the interface in `Assets/Textures/texture_interface.txt`.
+   **Example:** the first column is the name of the tilemap file and the second column is the path to the texture file.
+```
+Texture_Pack/mario.tsx Texture_Pack/mario.png
+```
 ---
 
 ## 🖥️ Contributing

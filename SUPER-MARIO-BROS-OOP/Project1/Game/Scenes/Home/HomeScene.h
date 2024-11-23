@@ -1,19 +1,14 @@
 #pragma once
 #include "../Scene.h"
-#include "../../../UI/MainMenu.h"
+#include "../../Utils/SceneManager.h"
+#include "../../../UI_Components/Button.h"
 
 class HomeScene : public Scene
 {
-	MainMenu* menu = nullptr;
-public:
-	HomeScene(sf::RenderWindow* window) : Scene(window) {
-		menu = new MainMenu(getWindow());
-		//menu->init(window);
-	};
-	~HomeScene() { 
-		std::cout << "Destructor homescene\n";
-		delete menu; 
-	};
-	void update(float deltatime) override;
 };
 
+
+    void loopEvents();
+    void drawMenu();
+    void update(float deltatime) override;
+};

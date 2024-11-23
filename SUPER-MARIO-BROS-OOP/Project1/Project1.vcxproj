@@ -118,6 +118,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-network-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\dependencies\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,6 +136,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-network-s.lib;sfml-audio-s.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\dependencies\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -143,17 +145,21 @@
     <ClCompile Include="Game\Components\Physics.cpp" />
     <ClCompile Include="Game\Control\Command.cpp" />
     <ClCompile Include="Game\Entities\Actors\Actor.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Player.cpp" />
     <ClCompile Include="Game\Entities\Entity.cpp" />
+    <ClCompile Include="Game\Entities\EntityManager.cpp" />
+    <ClCompile Include="Game\Entities\Map.cpp" />
     <ClCompile Include="Game\Entities\Tiles\Tile.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameConfig.cpp" />
+    <ClCompile Include="Game\Scenes\Exit\ExitScene.cpp" />
     <ClCompile Include="Game\Scenes\Game\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Home\HomeScene.cpp" />
+    <ClCompile Include="Game\Scenes\Login\LoginScene.cpp" />
     <ClCompile Include="Game\Scenes\Scene.cpp" />
     <ClCompile Include="Game\Scenes\Setting\SettingScene.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="UI\Button.cpp" />
-    <ClCompile Include="UI\MainMenu.cpp" />
+    <ClCompile Include="UI_Components\Button.cpp" />
     <ClCompile Include="Utils\SceneManager.cpp" />
     <ClCompile Include="Utils\SoundManager.cpp" />
     <ClCompile Include="Utils\TextureManager.cpp" />
@@ -166,21 +172,28 @@
     <ClInclude Include="Game\Control\Command.h" />
     <ClInclude Include="Game\Control\CommandManager.h" />
     <ClInclude Include="Game\Entities\Actors\Actor.h" />
+    <ClInclude Include="Game\Entities\Actors\Player.h" />
     <ClInclude Include="Game\Entities\Entity.h" />
+    <ClInclude Include="Game\Entities\EntityManager.h" />
+    <ClInclude Include="Game\Entities\Map.h" />
     <ClInclude Include="Game\Entities\Tiles\Tile.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameConfig.h" />
+    <ClInclude Include="Game\SceneList.h" />
+    <ClInclude Include="Game\Scenes\Exit\ExitScene.h" />
     <ClInclude Include="Game\Scenes\Game\GameScene.h" />
     <ClInclude Include="Game\Scenes\Home\HomeScene.h" />
+    <ClInclude Include="Game\Scenes\Login\LoginScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />
     <ClInclude Include="Game\Scenes\Setting\SettingScene.h" />
-    <ClInclude Include="UI\Button.h" />
-    <ClInclude Include="UI\MainMenu.h" />
     <ClInclude Include="Utils\SceneManager.h" />
     <ClInclude Include="Utils\SoundManager.h" />
     <ClInclude Include="Utils\TextureManager.h" />
     <ClInclude Include="Utils\Tileset.h" />
     <ClInclude Include="Utils\tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

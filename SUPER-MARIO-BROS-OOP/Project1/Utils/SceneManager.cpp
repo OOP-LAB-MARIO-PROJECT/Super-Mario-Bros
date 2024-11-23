@@ -12,7 +12,9 @@ SceneManager::~SceneManager() {
         delete x.second;
 }
 
-SceneManager::SceneManager() {}
+SceneManager::SceneManager() {
+    currentScene = Scenes::Home;
+}
 
 // Returns the current scene ID
 SceneManager::Scenes SceneManager::getCurrentScene()
@@ -30,7 +32,7 @@ void SceneManager::addScene(Scenes sceneId, Scene* scene)
 void SceneManager::deleteScene(Scenes sceneId)
 {
     std::cout << "called delete" << '\n';
-	sceneRegistry.erase(sceneId);
+    sceneRegistry.erase(sceneId);
 }
 
 // Switches to a specified scene
@@ -43,7 +45,7 @@ void SceneManager::navigateTo(Scenes scene)
     else
     {
         // Handle error (scene not found)
-        cout << "Scene not found: " << static_cast<int>(scene) << endl;
+        std::cout << "Scene not found: " << static_cast<int>(scene) << std::endl;
     }
 }
 
@@ -64,4 +66,3 @@ void SceneManager::render()
         sceneRegistry[currentScene]->display(); // Call display for the current scene
     }
 }
-
