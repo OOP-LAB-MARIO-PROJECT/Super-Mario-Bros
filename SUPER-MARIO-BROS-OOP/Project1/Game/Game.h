@@ -21,7 +21,6 @@ private:
 	
 	SceneManager* sceneManager = nullptr;
 	TextureManager* textureManager = nullptr;
-	SceneManager* sceneManager = nullptr;
 	SoundManager* soundManager = nullptr;
 	bool m_isRunning = false;
 
