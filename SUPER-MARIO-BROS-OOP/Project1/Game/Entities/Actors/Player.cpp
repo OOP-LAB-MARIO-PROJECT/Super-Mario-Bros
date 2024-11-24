@@ -4,7 +4,7 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size, Map* map) : Actor(pos, size)
 	isRenderSprite = true;
 	isRenderHitbox = true;
 
-	setTexture("mario", "right-small-mario-1");
+	setTexture("mario", "right-small-mario-0");
 }
 
 
@@ -69,4 +69,8 @@ void Player::moveLeft(float deltatime) {
 void Player::moveRight(float deltatime) {
 	facing = 1;
 	setVel({ 140, getVel().y });
+}
+
+ENTITY_TYPE Player::getType() {
+	return PLAYER;
 }

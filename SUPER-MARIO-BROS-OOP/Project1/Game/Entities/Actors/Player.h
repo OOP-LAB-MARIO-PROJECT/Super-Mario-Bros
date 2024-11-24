@@ -14,6 +14,8 @@ class Player : public Actor
 	int speed = 100;
 	Map* map = NULL;
 
+	ENTITY_TYPE currentType = PLAYER;
+
 public:
 	Player() {
 		throw std::exception("Need to init the rigth construtor for player");
@@ -27,5 +29,7 @@ public:
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);
 	void moveRight(float deltatime);
+
+	ENTITY_TYPE getType() override;
 };
 

@@ -14,15 +14,14 @@ void Game::start() {
 	textureManager = &TextureManager::getInstance();
 	textureManager->loadFromInterface("Assets/Textures/texture_interface.txt");
 
-	sceneManager = &SceneManager::getInstance();
+	soundManager = &SoundManager::getInstance();
+	soundManager->loadFromInterface("Assets/Sounds/sound_interface.txt");
 	
+	sceneManager = &SceneManager::getInstance();
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
 	sceneManager->navigateTo(SceneManager::Scenes::Game);
-
-	soundManager = &SoundManager::getInstance();
-	soundManager->loadFromInterface("Assets/Sounds/sound_interface.txt");
 
 	m_isRunning = true;
 };

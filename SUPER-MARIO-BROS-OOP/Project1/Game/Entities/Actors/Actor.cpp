@@ -45,15 +45,15 @@ sf::Vector2f Actor::getSize() const {
 	return size;
 }
 
-sf::RectangleShape& Actor::getHitbox() {
-	return rect;
+Hitbox Actor::getHitbox() {
+	return {pos, size, getVel()};
 }
 
-int Actor::resolveCollideGround(std::vector <sf::RectangleShape> vi, float deltaTime) {
+int Actor::resolveCollideGround(std::vector <Hitbox> vi, float deltaTime) {
 	sf::Vector2f pos = getPos();
 	sf::Vector2f vel = getVel();
 	int dir = 0;
-	sf::Vector2f expected = rectVsTerain(rect, vi, getVel(), deltaTime, pos, dir);
+	sf::Vector2f expected = rectVsTerain(getHitbox(), vi, getVel(), deltaTime, pos, dir);
 	if (expected == getVel()) return 0;
 	setVel(expected);
 	return dir;
@@ -61,4 +61,8 @@ int Actor::resolveCollideGround(std::vector <sf::RectangleShape> vi, float delta
 
 void Actor::setTexture(const std::string& sourceName, const std::string& rectName) {
 	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
+}
+
+ENTITY_TYPE Actor::getType() {
+	return ACTOR;
 }

@@ -14,8 +14,8 @@ void Map::render(sf::RenderWindow* window) {
 	myEntities.renderAll(window);
 };
 
-std::vector <sf::RectangleShape> Map::getTiles() {
-	std::vector <sf::RectangleShape> ans;
+std::vector <Hitbox> Map::getTiles() {
+	std::vector <Hitbox> ans;
 	for (Tile& t : map) ans.push_back(t.getHitbox());
 	return ans;
 }
@@ -46,8 +46,8 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	}
 }
 
-std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
-	std::vector <sf::RectangleShape> tiles;
+std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
+	std::vector <Hitbox> tiles;
 	
 	std::pair <int, int> currentPos = toMap(pos);// row and col
 	

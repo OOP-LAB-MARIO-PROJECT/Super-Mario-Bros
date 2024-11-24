@@ -7,7 +7,7 @@
 class Actor : public Entity, public Collision, public Physics {
 private:
 	sf::Sprite sprite;
-	sf::RectangleShape rect;
+	sf::RectangleShape rect; // for rendering
 	sf::Vector2f pos;
 	sf::Vector2f size;
 	// spritesheet
@@ -34,7 +34,10 @@ public:
 	void setSpritePos(sf::Vector2f pos);
 	void setTexture(const std::string& sourceName, const std::string& rectName);
 	
-	sf::RectangleShape& getHitbox();
-	int resolveCollideGround(std::vector <sf::RectangleShape> vi, float deltaTime);
+	int resolveCollideGround(std::vector <Hitbox> vi, float deltaTime);
+
+	Hitbox getHitbox();
+	ENTITY_TYPE getType() override;
+
 };
 

@@ -35,8 +35,8 @@ public:
 	void addTile(const Tile& tile);
 	void render(sf::RenderWindow* window);
 	
-	std::vector <sf::RectangleShape> getTiles();
-	std::vector <sf::RectangleShape> getNearTiles(sf::Vector2f pos, bool gettrans = false);
+	std::vector <Hitbox> getTiles();
+	std::vector <Hitbox> getNearTiles(sf::Vector2f pos, bool gettrans = false);
 
 	void loadMap(const std::string& filename, Player* player);
 	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel);

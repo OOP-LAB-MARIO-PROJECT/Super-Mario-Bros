@@ -15,6 +15,7 @@ public:
         Exit,
         Home,
         Pause,
+        Login
     };
 
     static SceneManager& getInstance();

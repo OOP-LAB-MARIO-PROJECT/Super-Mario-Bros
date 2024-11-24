@@ -30,5 +30,7 @@ public:
 	virtual void applyEffect() = 0;
 	//sf::RectangleShape getPlayer() const {};
 	bool isCollideWithPlayer(sf::Vector2f pos, sf::Vector2f size);
+
+	Hitbox getHitbox();
 };
 

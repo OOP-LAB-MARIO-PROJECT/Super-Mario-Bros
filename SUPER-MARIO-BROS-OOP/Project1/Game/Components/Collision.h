@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 
+#include "../Entities/Entity.h"
 
 enum dir {
 	TOP = 1,
@@ -48,7 +49,7 @@ public:
 	* remember to put in deltatime
 	*/
 
-	vt rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::RectangleShape> ground, vt vel, float deltaTime, vt& pos, int& direction);
+	vt rectVsTerain(Hitbox dynamicRect, std::vector <Hitbox> ground, vt vel, float deltaTime, vt& pos, int& direction);
 
 
 
@@ -69,7 +70,7 @@ public:
 		};
 	
 	*/ 
-	dir dynamicRectVsRect(const sf::RectangleShape& dynamicRect, const float fTimeStep, const vt& vel, const sf::RectangleShape staticRect);
+	dir dynamicRectVsRect(Hitbox dynamicRect, const float fTimeStep, const vt& vel, const Hitbox staticRect);
 
 #undef vt
 };

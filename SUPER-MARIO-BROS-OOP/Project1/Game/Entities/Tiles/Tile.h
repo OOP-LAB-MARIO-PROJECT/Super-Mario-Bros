@@ -9,6 +9,8 @@ private:
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
+	ENTITY_TYPE currentType = ENTITY_TYPE::TILE;
+
 	bool isTransparent = true;
 public:
 
@@ -27,6 +29,7 @@ public:
 	void setTexture(const std::string& sourceName, const std::string& rectName);
 	bool isTrans() { return isTransparent; }
 
-	sf::RectangleShape& getHitbox();
+	Hitbox getHitbox();
+	ENTITY_TYPE getType() override;
 };
 

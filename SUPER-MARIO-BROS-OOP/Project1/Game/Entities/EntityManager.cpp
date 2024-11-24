@@ -12,3 +12,8 @@ void EntityManager::updateAll(float deltaTime) {
 void EntityManager::renderAll(sf::RenderWindow* window) {
 	for (auto en : entities) en->render(window);
 }
+
+EntityManager::~EntityManager() {
+	for (auto x : entities)
+		delete x;
+}
