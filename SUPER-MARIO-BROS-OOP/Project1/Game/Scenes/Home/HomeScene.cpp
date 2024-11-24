@@ -1,15 +1,8 @@
 ﻿#include "HomeScene.h"
 
 HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
-	if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf"))
-	{
-		std::cout << "Can't load font" << std::endl;
-	}
-
 	Button startGame = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); });
-	startGame.setFont(font);
-	startGame.setText("Start", 24, sf::Color::White);
+		[]() { std::cout << "Start"; }, "Hehe", 24, sf::Color::White);
 	buttons.push_back(startGame);
 	
 	Button exit = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
