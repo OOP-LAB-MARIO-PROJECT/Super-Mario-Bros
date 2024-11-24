@@ -2,7 +2,7 @@
 
 HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
 	Button startGame = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "Start"; }, "Hehe", 24, sf::Color::Black);
+		[]() { std::cout << "Start"; }, "Start", 24, sf::Color::Black);
 	buttons.push_back(startGame);
 	
 	Button exit = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
