@@ -2,14 +2,23 @@
 
 
 
-Camera::Camera(sf::RenderWindow* w) {
+Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) {
 	camera = w->getDefaultView();
-	//camera.setSize(sf::Vector2f(400, 500));
+	sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+	int screenWidth = desktop.width / 8;
+	int portion = screenWidth * 256 / 16;
 
-	leftLimit = 200.0f;
-	rightLimit = w->getSize().x - 200.0f;
+	/*
+		256 / 16 = screenwidd / x
+	*/
+
+
+	camera.setSize(sf::Vector2f(400, 240));
+	leftLimit = ppos.x - 100;
+	rightLimit = ppos.x;
 	aboveLimit = 200.0f;
 	beneathLimit = w->getSize().y - 200.0f;
+	base = ppos.y;
 }
 
 void Camera::moveCamera(const float& x, const float& y) {
@@ -17,7 +26,8 @@ void Camera::moveCamera(const float& x, const float& y) {
 	rightLimit += x;
 	aboveLimit += y;
 	beneathLimit += y;
-	camera.setCenter(sf::Vector2f((leftLimit + rightLimit) / 2, (aboveLimit + beneathLimit) / 2));
+
+	camera.setCenter(sf::Vector2f((leftLimit + rightLimit) / 2, (base + 48 - 104)));
 }
 
 void Camera::setCameraView(sf::RenderWindow* w) {

@@ -32,8 +32,10 @@ void Map::loadMap(const std::string& filename, Player* player) {
 
 	sf::Vector2f size = sf::Vector2f{ (float)mapLoader.tilewidth, (float)mapLoader.tileheight };
 
-	if (myMapInfo["player_pos"].size())
+	if (myMapInfo["player_pos"].size()) {
 		player->setPos({ (float)myMapInfo["player_pos"][0].first, (float)myMapInfo["player_pos"][0].second });
+		resetPlayer(player->getPos(), player->getSize(), player->getVel());
+	}
 	else {
 		throw std::exception("No found player in map");
 	}
@@ -80,6 +82,7 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 	//	props.push_back(std::move(p));
 
 	resetPlayer(ppos, psize, pvel);
+	myEntities.setUpdatePivot(ppos);
 
 	//for (auto& bt : breakableTiles) {
 	//	bt->update(deltaTime);
@@ -137,4 +140,8 @@ std::pair <int, int> Map::toMap(sf::Vector2f pos) {
 	x /= m_block_size;
 	y /= m_block_size;
 	return { y, x };
+}
+
+std::vector <Entity*> Map::getNearEntity(Entity* en) {
+	return myEntities.getNearEntity(en);
 }

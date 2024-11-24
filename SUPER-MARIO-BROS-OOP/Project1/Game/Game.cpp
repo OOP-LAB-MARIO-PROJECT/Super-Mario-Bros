@@ -6,7 +6,10 @@ Game::~Game() {
 
 void Game::start() {
 	// Basic window setup -> will change after
-	window = new sf::RenderWindow(sf::VideoMode(800, 600), "Mario");
+	sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+	int screenWidth = desktop.width / 8;
+
+	window = new sf::RenderWindow(sf::VideoMode(screenWidth * 5, screenWidth * 3), "Mario");
 	window->setFramerateLimit(60);
 	m_clock.restart();
 	
