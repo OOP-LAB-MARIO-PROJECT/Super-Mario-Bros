@@ -5,22 +5,23 @@
 #include "../../../UI_Components/TextBox.h"
 
 
-class LoginScene : public Scene
+class RegisterScene : public Scene
 {
 private:
     sf::Text text;
     std::vector<TextBox> textBoxes;
     std::vector<Button> buttons;
     bool showInvalidMessage = false;
+    bool isValidMessage;
 public:
-    LoginScene(sf::RenderWindow* window);
-    ~LoginScene() {
+    RegisterScene(sf::RenderWindow* window);
+    ~RegisterScene() {
     };
 
-    bool isValidAccount();
+    void addLineIfNotExists();
     void loopEvents();
     void drawLoginMenu();
-    void drawInvalidArgument();
+    void drawArgument();
     void update(float deltatime) override;
 };
 

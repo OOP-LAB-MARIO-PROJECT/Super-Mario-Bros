@@ -1,5 +1,8 @@
 #pragma once
 #include "Actor.h"
+#include "../Map.h"
+#include <exception>
+class Map;
 
 class Player : public Actor
 {
@@ -9,10 +12,14 @@ class Player : public Actor
 	bool reachMaxHeight = false;
 	bool isJumping = false;
 	int speed = 100;
+	Map* map = NULL;
 
 public:
-	
-	Player(sf::Vector2f pos, sf::Vector2f size);
+	Player() {
+		throw std::exception("Need to init the rigth construtor for player");
+	}
+
+	Player(sf::Vector2f pos, sf::Vector2f size, Map* map);
 
 	void update(float deltatime) override;
 	
@@ -20,6 +27,5 @@ public:
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);
 	void moveRight(float deltatime);
-
 };
 

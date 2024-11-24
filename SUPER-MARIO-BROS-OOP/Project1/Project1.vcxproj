@@ -140,6 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Control\Commands\PlayerMovement.cpp" />
+    <ClCompile Include="Game\Control\KeyExecute.cpp" />
+    <ClCompile Include="Game\Entities\Collectables\Collectable.cpp" />
+    <ClCompile Include="Game\Entities\Tiles\TileFactory.cpp" />
+    <ClCompile Include="Game\Scenes\Game\Camera.cpp" />
     <ClCompile Include="Game\Control\CommandManager.cpp" />
     <ClCompile Include="Game\Components\Collision.cpp" />
     <ClCompile Include="Game\Components\Physics.cpp" />
@@ -156,10 +161,12 @@
     <ClCompile Include="Game\Scenes\Game\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Home\HomeScene.cpp" />
     <ClCompile Include="Game\Scenes\Login\LoginScene.cpp" />
+    <ClCompile Include="Game\Scenes\Register\RegisterScene.cpp" />
     <ClCompile Include="Game\Scenes\Scene.cpp" />
     <ClCompile Include="Game\Scenes\Setting\SettingScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UI_Components\Button.cpp" />
+    <ClCompile Include="UI_Components\TextBox.cpp" />
     <ClCompile Include="Utils\FontManager.cpp" />
     <ClCompile Include="Utils\SceneManager.cpp" />
     <ClCompile Include="Utils\SoundManager.cpp" />
@@ -168,6 +175,11 @@
     <ClCompile Include="Utils\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Control\Commands\PlayerMovement.h" />
+    <ClInclude Include="Game\Control\KeyExecute.h" />
+    <ClInclude Include="Game\Entities\Collectables\Collectable.h" />
+    <ClInclude Include="Game\Entities\Tiles\TileFactory.h" />
+    <ClInclude Include="Game\Scenes\Game\Camera.h" />
     <ClInclude Include="Game\Components\Collision.h" />
     <ClInclude Include="Game\Components\Physics.h" />
     <ClInclude Include="Game\Control\Command.h" />
@@ -185,9 +197,11 @@
     <ClInclude Include="Game\Scenes\Game\GameScene.h" />
     <ClInclude Include="Game\Scenes\Home\HomeScene.h" />
     <ClInclude Include="Game\Scenes\Login\LoginScene.h" />
+    <ClInclude Include="Game\Scenes\Register\RegisterScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />
     <ClInclude Include="Game\Scenes\Setting\SettingScene.h" />
     <ClInclude Include="UI_Components\Button.h" />
+    <ClInclude Include="UI_Components\TextBox.h" />
     <ClInclude Include="Utils\FontManager.h" />
     <ClInclude Include="Utils\SceneManager.h" />
     <ClInclude Include="Utils\SoundManager.h" />

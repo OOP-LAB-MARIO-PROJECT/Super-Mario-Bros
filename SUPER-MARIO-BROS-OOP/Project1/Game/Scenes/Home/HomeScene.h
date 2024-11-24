@@ -6,7 +6,6 @@
 class HomeScene : public Scene
 {
     std::vector<Button> buttons;
-    sf::Font font;
 public:
     HomeScene(sf::RenderWindow* window);
     ~HomeScene() {

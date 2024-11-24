@@ -1,6 +1,6 @@
 #include "Tile.h"
 
-Tile::Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans) {
+Tile::Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans) : Entity() {
 	pos = _pos;
 	size = _size;
 	isTransparent = isTrans;
@@ -34,4 +34,9 @@ void Tile::render(sf::RenderWindow* window) const {
 		window->draw(hitbox);
 	if (isRenderSprite)
 		window->draw(sprite);
+}
+
+
+void Tile::setTexture(const std::string& sourceName, const std::string& rectName) {
+	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
 }
