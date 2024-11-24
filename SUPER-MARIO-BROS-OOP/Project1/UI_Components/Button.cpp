@@ -69,11 +69,9 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     
     if (isHovered) {
         shape.setFillColor(hoverColor); 
-        std::cout << "changed color\n";
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             isPressed = true;
             shape.setFillColor(sf::Color::Magenta); 
-            std::cout << "press color " << (pressedColor == sf::Color::Yellow) << '\n';
         }
         else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
             if (isPressed && onClick) {
