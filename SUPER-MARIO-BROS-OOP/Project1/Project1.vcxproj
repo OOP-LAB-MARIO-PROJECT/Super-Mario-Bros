@@ -164,6 +164,7 @@
     <ClCompile Include="Game\Scenes\Register\RegisterScene.cpp" />
     <ClCompile Include="Game\Scenes\Scene.cpp" />
     <ClCompile Include="Game\Scenes\Setting\SettingScene.cpp" />
+    <ClCompile Include="Game\Scenes\KeyBinding\KeyBindingScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UI_Components\Button.cpp" />
     <ClCompile Include="UI_Components\TextBox.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Game\Scenes\Register\RegisterScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />
     <ClInclude Include="Game\Scenes\Setting\SettingScene.h" />
+    <ClInclude Include="Game\Scenes\KeyBinding\KeyBindingScene.h" />
     <ClInclude Include="UI_Components\Button.h" />
     <ClInclude Include="UI_Components\TextBox.h" />
     <ClInclude Include="Utils\FontManager.h" />
