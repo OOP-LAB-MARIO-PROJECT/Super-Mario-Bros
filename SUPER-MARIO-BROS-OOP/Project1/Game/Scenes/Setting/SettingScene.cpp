@@ -25,6 +25,10 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	Button down = Button::createButton(sf::Vector2f(70, 70), sf::Vector2f(600, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { std::cout << "down\n"; }, "Down", 24, sf::Color::Black);
 	buttons.push_back(down);
+
+	Button keyBinding = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(550, 400), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { std::cout << "keyBinding\n"; }, "Key Binding", 24, sf::Color::Black);
+	buttons.push_back(keyBinding);
 }
 
 void SettingScene::changeVolume()
