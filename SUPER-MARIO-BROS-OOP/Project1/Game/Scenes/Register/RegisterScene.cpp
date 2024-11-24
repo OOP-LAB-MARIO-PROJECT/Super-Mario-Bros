@@ -1,6 +1,6 @@
 ﻿#include "RegisterScene.h"
 #include <fstream>
-#include "../../Utils/FontManager.h"
+#include "../../../Utils/FontManager.h"
 
 
 RegisterScene::RegisterScene(sf::RenderWindow* window) : Scene(window) {
