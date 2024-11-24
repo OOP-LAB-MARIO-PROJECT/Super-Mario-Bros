@@ -26,6 +26,8 @@ void Game::start() {
 	sceneManager->addScene(SceneManager::Scenes::Register, new RegisterScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
+	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
+	sceneManager->navigateTo(SceneManager::Scenes::Game);
 
 	sceneManager->navigateTo(SceneManager::Scenes::Login);
 	
