@@ -10,7 +10,8 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
 	buttons.push_back(exit);
 
 	Button setting = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 400), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { /*SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting);*/ std::cout << "setting"; }, "Setting", 24, sf::Color::Black); //thay exit bằng hàm thoát game
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "Setting", 24, sf::Color::Black); //thay exit bằng hàm thoát game
+	buttons.push_back(setting);
 }
 
 
