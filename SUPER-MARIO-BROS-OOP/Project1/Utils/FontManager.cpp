@@ -42,9 +42,7 @@ bool FontManager::addFont(const std::string& id, const std::string& filePath) {
 std::shared_ptr<sf::Font> FontManager::getFont(const std::string& id) const {
     auto it = fonts.find(id);
     if (it != fonts.end()) {
-        std::cout << "font is found";
-        return it->second;
-        
+        return it->second;  
     }
     return nullptr;  
 }

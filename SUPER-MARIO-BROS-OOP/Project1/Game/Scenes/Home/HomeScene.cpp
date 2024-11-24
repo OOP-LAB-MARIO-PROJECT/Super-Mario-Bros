@@ -25,7 +25,6 @@ void HomeScene::loopEvents()
 		for (int i = 0; i < buttons.size(); i++)
 		{
 			buttons[i].handleEvent(event, *getWindow());
-			//std::cout << "button " << i << '\n';
 		}
 	}
 }

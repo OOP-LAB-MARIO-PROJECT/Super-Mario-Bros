@@ -21,10 +21,13 @@ void Game::start() {
 	fontManager->loadFromInterface("Assets/Fonts/font_interface.txt");
 
 	sceneManager = &SceneManager::getInstance();
-	
+
+	sceneManager->addScene(SceneManager::Scenes::Login, new LoginScene(window));
+	sceneManager->addScene(SceneManager::Scenes::Register, new RegisterScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
 
+	sceneManager->navigateTo(SceneManager::Scenes::Login);
 	
 
 	m_isRunning = true;
