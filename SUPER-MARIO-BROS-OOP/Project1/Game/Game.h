@@ -20,8 +20,8 @@ private:
 	sf::Clock m_clock;
 	sf::RenderWindow* window = nullptr;
 	
-	TextureManager* textureManager = nullptr;
 	SceneManager* sceneManager = nullptr;
+	TextureManager* textureManager = nullptr;
 	SoundManager* soundManager = nullptr;
 	FontManager* fontManager = nullptr;
 	bool m_isRunning = false;

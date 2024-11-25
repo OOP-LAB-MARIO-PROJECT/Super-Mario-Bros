@@ -10,8 +10,6 @@ public:
     HomeScene(sf::RenderWindow* window);
     ~HomeScene() {
     };
-
-
     void loopEvents();
     void drawMenu();
     void update(float deltatime) override;

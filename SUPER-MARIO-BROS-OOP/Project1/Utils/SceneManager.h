@@ -17,6 +17,7 @@ public:
         Pause,
         Login,
         Register,
+		Setting,
     };
 
     static SceneManager& getInstance();

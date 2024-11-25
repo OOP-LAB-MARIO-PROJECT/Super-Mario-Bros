@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Scene.h"
-#include "../../Utils/SceneManager.h"
+#include "../../../Utils/SceneManager.h"
 
 class ExitScene : public Scene {
 private: 
