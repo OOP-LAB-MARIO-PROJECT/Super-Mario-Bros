@@ -12,7 +12,6 @@ Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) {
 		256 / 16 = screenwidd / x
 	*/
 
-
 	camera.setSize(sf::Vector2f(400, 240));
 	leftLimit = ppos.x - 100;
 	rightLimit = ppos.x;

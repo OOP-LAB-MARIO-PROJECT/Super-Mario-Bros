@@ -51,7 +51,6 @@ public:
 	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel);
 	void update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel);
 	
-	
 	// API for use
 	// infomation for the actor to get
 	std::vector <Hitbox> getTiles();

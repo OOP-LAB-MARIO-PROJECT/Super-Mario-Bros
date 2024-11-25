@@ -8,9 +8,10 @@
 class EntityManager {
 private:
     std::vector <Entity*> entities;  // Container to store entities
-    float updateDistance = 200;
     sf::Vector2f updatePivot = { 0, 0 };
+    float updateDistance = 200;
     int curEntity = 0;
+
 public:
 
     ~EntityManager();
@@ -26,5 +27,7 @@ public:
     void setUpdatePivot(sf::Vector2f pos);
 
     // get near entity to this "en"
-    std::vector<Entity*> getNearEntity(Entity* en);
+    std::vector<Entity*> getNearEntity(Entity* en, float radius = 50);
+
+    void filter(); // filter out dead entities
 };

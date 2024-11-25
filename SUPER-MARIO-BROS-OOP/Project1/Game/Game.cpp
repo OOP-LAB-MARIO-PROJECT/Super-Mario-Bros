@@ -36,7 +36,7 @@ void Game::run() {
 	}
 
 	float deltatime = m_clock.restart().asSeconds();
-
+	std::cout << "FPS: " << 1 / deltatime << '\n';
 
 	window->clear();
 	sceneManager->update(deltatime);
