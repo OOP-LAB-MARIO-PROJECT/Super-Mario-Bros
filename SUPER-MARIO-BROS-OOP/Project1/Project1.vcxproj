@@ -162,10 +162,13 @@
     <ClCompile Include="Game\Scenes\Game\GameScene.cpp" />
     <ClCompile Include="Game\Scenes\Home\HomeScene.cpp" />
     <ClCompile Include="Game\Scenes\Login\LoginScene.cpp" />
+    <ClCompile Include="Game\Scenes\Register\RegisterScene.cpp" />
     <ClCompile Include="Game\Scenes\Scene.cpp" />
     <ClCompile Include="Game\Scenes\Setting\SettingScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UI_Components\Button.cpp" />
+    <ClCompile Include="UI_Components\TextBox.cpp" />
+    <ClCompile Include="Utils\FontManager.cpp" />
     <ClCompile Include="Utils\SceneManager.cpp" />
     <ClCompile Include="Utils\SoundManager.cpp" />
     <ClCompile Include="Utils\TextureManager.cpp" />
@@ -196,9 +199,12 @@
     <ClInclude Include="Game\Scenes\Game\GameScene.h" />
     <ClInclude Include="Game\Scenes\Home\HomeScene.h" />
     <ClInclude Include="Game\Scenes\Login\LoginScene.h" />
+    <ClInclude Include="Game\Scenes\Register\RegisterScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />
     <ClInclude Include="Game\Scenes\Setting\SettingScene.h" />
     <ClInclude Include="UI_Components\Button.h" />
+    <ClInclude Include="UI_Components\TextBox.h" />
+    <ClInclude Include="Utils\FontManager.h" />
     <ClInclude Include="Utils\SceneManager.h" />
     <ClInclude Include="Utils\SoundManager.h" />
     <ClInclude Include="Utils\TextureManager.h" />

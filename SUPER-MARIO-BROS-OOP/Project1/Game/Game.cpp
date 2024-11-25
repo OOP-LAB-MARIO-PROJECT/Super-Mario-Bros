@@ -19,12 +19,21 @@ void Game::start() {
 
 	soundManager = &SoundManager::getInstance();
 	soundManager->loadFromInterface("Assets/Sounds/sound_interface.txt");
-	
+
+	fontManager = &FontManager::getInstance();
+	fontManager->loadFromInterface("Assets/Fonts/font_interface.txt");
+
 	sceneManager = &SceneManager::getInstance();
+
+	sceneManager->addScene(SceneManager::Scenes::Login, new LoginScene(window));
+	sceneManager->addScene(SceneManager::Scenes::Register, new RegisterScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
 	sceneManager->navigateTo(SceneManager::Scenes::Game);
+
+	sceneManager->navigateTo(SceneManager::Scenes::Login);
+	
 
 	m_isRunning = true;
 };

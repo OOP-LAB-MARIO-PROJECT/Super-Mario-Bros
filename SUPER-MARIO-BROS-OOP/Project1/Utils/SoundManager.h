@@ -12,7 +12,7 @@ public:
     SoundManager& operator=(const SoundManager&) = delete;
 
     static SoundManager& getInstance() {
-        static SoundManager instance; // Guaranteed to be lazy-initialized and thread-safe
+        static SoundManager instance; 
         return instance;
     }
 
