@@ -7,7 +7,6 @@
 class Collectable : public Entity, public Collision
 {
 private:
-
 	sf::RectangleShape rect;
 	sf::Sprite sprite;
 	sf::Vector2f pos;

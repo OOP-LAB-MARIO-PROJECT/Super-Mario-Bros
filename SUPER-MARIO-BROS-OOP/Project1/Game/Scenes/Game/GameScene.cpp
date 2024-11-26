@@ -35,7 +35,7 @@ void GameScene::update(float deltatime) {
 			getWindow()->close();
 		}
 	}
-
+	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 
 	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel());

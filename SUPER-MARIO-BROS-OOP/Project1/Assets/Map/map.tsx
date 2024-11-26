@@ -5,6 +5,7 @@
  <tile id="830" type="flag-3"/>
  <tile id="831" type="flag-2"/>
  <tile id="1042" type="flag-4"/>
+ <tile id="1077" type="question"/>
  <tile id="1135" type="block2"/>
  <tile id="1136" type="block2"/>
  <tile id="1137" type="block2"/>
@@ -16,10 +17,14 @@
  <tile id="1146" type="block2"/>
  <tile id="1147" type="block2"/>
  <tile id="1148" type="block2"/>
+ <tile id="1149" type="question"/>
+ <tile id="1164" type="question"/>
  <tile id="1176" type="block2"/>
  <tile id="1177" type="block2"/>
  <tile id="1178" type="block2"/>
  <tile id="1183" type="block2"/>
+ <tile id="1184" type="question"/>
+ <tile id="1185" type="question"/>
  <tile id="1186" type="block2"/>
  <tile id="1243" type="block4"/>
  <tile id="1244" type="block4"/>
@@ -39,18 +44,25 @@
  <tile id="1876" type="block4"/>
  <tile id="1877" type="block4"/>
  <tile id="1886" type="flag-body-1"/>
+ <tile id="1915" type="question"/>
  <tile id="1919" type="block2"/>
+ <tile id="1920" type="question"/>
  <tile id="1921" type="block2"/>
+ <tile id="1922" type="question"/>
  <tile id="1923" type="block2"/>
  <tile id="1945" type="pipe-up-head-left"/>
  <tile id="1946" type="pipe-up-head-right"/>
  <tile id="1956" type="pipe-up-head-left"/>
  <tile id="1957" type="pipe-up-head-right"/>
  <tile id="1976" type="block2"/>
+ <tile id="1977" type="question"/>
  <tile id="1978" type="block2"/>
  <tile id="1993" type="block2"/>
  <tile id="1999" type="block2"/>
  <tile id="2000" type="block2"/>
+ <tile id="2005" type="question"/>
+ <tile id="2008" type="question"/>
+ <tile id="2011" type="question"/>
  <tile id="2017" type="block2"/>
  <tile id="2028" type="block2"/>
  <tile id="2029" type="block2"/>
@@ -61,6 +73,7 @@
  <tile id="2054" type="block4"/>
  <tile id="2067" type="block2"/>
  <tile id="2068" type="block2"/>
+ <tile id="2069" type="question"/>
  <tile id="2070" type="block2"/>
  <tile id="2083" type="block4"/>
  <tile id="2084" type="block4"/>

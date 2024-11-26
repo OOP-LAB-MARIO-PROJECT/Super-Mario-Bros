@@ -10,7 +10,7 @@ public:
 	float deltaTime;
 	MoveLeft(Player* _player) : player(_player), deltaTime(0) {};
 
-	void setDeltaTime(float _deltaTime);
+	void setDeltatime(float _deltaTime) override;
 	virtual void execute() override;
 	virtual void deExecute() override;
 
@@ -25,7 +25,7 @@ private:
 public:
 	MoveRight(Player* _player) : player(_player), deltaTime(0) {};
 
-	void setDeltaTime(float _deltaTime);
+	void setDeltatime(float _deltaTime) override;
 	virtual void execute() override;
 	virtual void deExecute() override;
 
@@ -40,7 +40,7 @@ private:
 public:
 	MoveUp(Player* _player) : player(_player), deltaTime(0) {};
 
-	void setDeltaTime(float _deltaTime);
+	void setDeltatime(float _deltaTime) override;
 	virtual void execute() override;
 	virtual void deExecute() override;
 
@@ -55,7 +55,7 @@ private:
 public:
 	MoveDown(Player* _player) : player(_player), deltaTime(0) {};
 
-	void setDeltaTime(float _deltaTime);
+	void setDeltatime(float _deltaTime) override;
 	virtual void execute() override;
 	virtual void deExecute() override;
 };
@@ -68,7 +68,7 @@ private:
 public:
 	Jump(Player* _player) : player(_player), deltaTime(0) {};
 
-	void setDeltaTime(float _deltaTime);
+	void setDeltatime(float _deltaTime) override;
 	virtual void execute() override;
 	virtual void deExecute() override;
 };
