@@ -70,3 +70,6 @@ ENTITY_TYPE Actor::getType() {
 void Actor::setSpriteScale(float x, float y) {
 	sprite.setScale(x, y);
 }
+void Actor::setSpriteOrigin(sf::Vector2f ori) {
+	sprite.setOrigin(ori);
+}

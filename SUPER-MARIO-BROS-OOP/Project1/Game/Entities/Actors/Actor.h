@@ -34,6 +34,7 @@ public:
 	void setSpritePos(sf::Vector2f pos);
 	void setTexture(const std::string& sourceName, const std::string& rectName);
 	void setSpriteScale(float x, float y);
+	void setSpriteOrigin(sf::Vector2f ori);
 	int resolveCollideGround(std::vector <Hitbox> vi, float deltaTime);
 
 	Hitbox getHitbox();
