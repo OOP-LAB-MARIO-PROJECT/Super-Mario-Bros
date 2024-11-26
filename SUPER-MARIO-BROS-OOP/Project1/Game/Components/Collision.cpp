@@ -113,23 +113,23 @@ bool Collision::resolveDynamicRectVsRect(rect& r_dynamic, const float fTimeStep,
 	return false;
 }
 
-vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::RectangleShape> ground, vt vel, float deltaTime, vt& pos, int& direction) {
+vt Collision::rectVsTerain(Hitbox dynamicRect, std::vector <Hitbox> ground, vt vel, float deltaTime, vt& pos, int& direction) {
 
-	rect dr = { dynamicRect.getPosition(), dynamicRect.getSize(), vel };
-	dr.pos = dynamicRect.getPosition();
-	dr.size = dynamicRect.getSize();
+	rect dr = { dynamicRect.pos, dynamicRect.size, vel };
+	dr.pos = dynamicRect.pos;
+	dr.size = dynamicRect.size;
 	dr.vel = vel;
 	//std::cout << vel.x << ' ' << vel.y << '\n';
 	std::vector<std::pair <rect, float>> z;
 
 	vt ifCollide = { 0, 0 };
 
-	for (const sf::RectangleShape& rec : ground) {
+	for (const Hitbox& rec : ground) {
 		vt cp, cn;
 		float ct;
 		rect tmp;
-		tmp.size = rec.getSize();
-		tmp.pos = rec.getPosition();
+		tmp.size = rec.size;
+		tmp.pos = rec.pos;
 
 		if (dynamicRectVsRect(dr, deltaTime, tmp, cp, cn, ct))
 			z.emplace_back(tmp, ct);
@@ -178,17 +178,17 @@ dir Collision::dirDynamicRectVsRect(const rect& rDynamic, const float fTimeStep,
 	return getDir(rd.contact);
 }
 
-dir Collision::dynamicRectVsRect(const sf::RectangleShape& dynamicRect, const float fTimeStep, const vt& vel, const sf::RectangleShape staticRect) {
+dir Collision::dynamicRectVsRect(Hitbox dynamicRect, const float fTimeStep, const vt& vel, Hitbox staticRect) {
 	
 	rect dRect = {
-		dynamicRect.getPosition(),
-		dynamicRect.getSize(),
+		dynamicRect.pos,
+		dynamicRect.size,
 		vel
 	};
 
 	rect sRect = {
-		staticRect.getPosition(),
-		staticRect.getSize()
+		staticRect.pos,
+		staticRect.size
 	};
 
 	return dirDynamicRectVsRect(dRect, fTimeStep, sRect);

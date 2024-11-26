@@ -1,5 +1,5 @@
 #pragma once
-
+#include <map>
 
 // Glolbal configuration for Game -> not implement
 class GameConfig {
@@ -14,5 +14,7 @@ public:
         static GameConfig instance;
         return instance;
     }
+
+    float volume;
 };
 

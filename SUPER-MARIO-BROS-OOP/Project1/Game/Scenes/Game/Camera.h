@@ -13,8 +13,10 @@ private:
 	float rightLimit;
 	float aboveLimit;
 	float beneathLimit;
+	float base;
+
 public:
-	Camera(sf::RenderWindow* w);
+	Camera(sf::RenderWindow* w, sf::Vector2f ppos);
 	void moveCamera(const float& x, const float& y);
 	void setCameraView(sf::RenderWindow* w);
 	void followPlayer(const float& x, const float& y, const float& w, const float& h);

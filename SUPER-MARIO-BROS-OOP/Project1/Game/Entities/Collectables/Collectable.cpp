@@ -21,3 +21,6 @@ void Collectable::setTexture(const std::string& sourceName, const std::string& r
 	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
 }
 
+Hitbox Collectable::getHitbox() {
+	return { pos, size, sf::Vector2f(0.f, 0.f)};
+}

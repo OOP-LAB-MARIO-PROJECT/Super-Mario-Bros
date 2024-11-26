@@ -16,8 +16,8 @@ Tile::Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans) : Entity() {
 };
 
 
-sf::RectangleShape& Tile::getHitbox() {
-	return hitbox;
+Hitbox Tile::getHitbox() {
+	return { pos, size, sf::Vector2f{0.f, 0.f} };
 }
 
 
@@ -39,4 +39,8 @@ void Tile::render(sf::RenderWindow* window) const {
 
 void Tile::setTexture(const std::string& sourceName, const std::string& rectName) {
 	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
+}
+
+ENTITY_TYPE Tile::getType() {
+	return currentType;
 }

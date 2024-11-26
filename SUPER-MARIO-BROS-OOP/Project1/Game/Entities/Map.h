@@ -12,6 +12,19 @@
 
 class Player;
 
+/*
+Usefull fucntion need to note
+	+# std::vector <Hitbox> getTiles();
+	+# std::vector <Hitbox> getNearTiles(sf::Vector2f pos, bool gettrans = false);
+	+# std::vector <Entity*> getNearEntity(Entity* en);
+	+# sf::Vector2f getPlayerPos() const;
+	+# sf::Vector2f getPlayerSize() const;
+	+# sf::Vector2f getPlayerVel() const;
+	+# bool isTileAt(sf::Vector2f pos) const;
+	+# int getTileAt(sf::Vector2f pos) const;
+	+# int getTileAt(std::pair <int, int> pos) const;
+	+# std::pair <int, int> toMap(sf::Vector2f pos);
+*/
 class Map {
 private:
 
@@ -34,15 +47,16 @@ public:
 
 	void addTile(const Tile& tile);
 	void render(sf::RenderWindow* window);
-	
-	std::vector <sf::RectangleShape> getTiles();
-	std::vector <sf::RectangleShape> getNearTiles(sf::Vector2f pos, bool gettrans = false);
-
 	void loadMap(const std::string& filename, Player* player);
 	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel);
 	void update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel);
-
+	
+	// API for use
 	// infomation for the actor to get
+	std::vector <Hitbox> getTiles();
+	std::vector <Hitbox> getNearTiles(sf::Vector2f pos, bool gettrans = false);
+	std::vector <Entity*> getNearEntity(Entity* en);
+
 	sf::Vector2f getPlayerPos() const;
 	sf::Vector2f getPlayerSize() const;
 	sf::Vector2f getPlayerVel() const;
@@ -54,6 +68,7 @@ public:
 	int getTileAt(std::pair <int, int> pos) const;
 	// get near entity
 		
+	// to map coordinate
 	std::pair <int, int> toMap(sf::Vector2f pos);
 
 };

@@ -6,7 +6,10 @@ Game::~Game() {
 
 void Game::start() {
 	// Basic window setup -> will change after
-	window = new sf::RenderWindow(sf::VideoMode(800, 600), "Mario");
+	sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+	int screenWidth = desktop.width / 8;
+
+	window = new sf::RenderWindow(sf::VideoMode(screenWidth * 5, screenWidth * 3), "Mario");
 	window->setFramerateLimit(60);
 	m_clock.restart();
 	
@@ -28,7 +31,6 @@ void Game::start() {
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Setting, new SettingScene(window));
-	sceneManager->navigateTo(SceneManager::Scenes::Game);
 
 	sceneManager->navigateTo(SceneManager::Scenes::Login);
 	
@@ -76,7 +78,7 @@ void Game::run() {
 	}
 
 	float deltatime = m_clock.restart().asSeconds();
-
+	std::cout << "FPS: " << 1 / deltatime << '\n';
 
 	window->clear();
 	sceneManager->update(deltatime);

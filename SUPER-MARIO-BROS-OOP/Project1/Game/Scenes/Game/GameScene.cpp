@@ -11,8 +11,9 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	// INITIALIZE 
 	gameMap = new Map();
 	player = new Player(sf::Vector2f(50, 50), sf::Vector2f(14, 14), gameMap);
-	camera = new Camera(window);
 	gameMap->loadMap("Assets/Map/map.tsx", player);
+	std::cout << gameMap->getPlayerPos().x << ' ' << gameMap->getPlayerPos().y << "\n";
+	camera = new Camera(window, gameMap->getPlayerPos());
 
 	myCommand.addCommand("jump", new Jump(player));
 	myCommand.addCommand("moveLeft", new MoveLeft(player));
