@@ -24,12 +24,12 @@ public:
 	Player(sf::Vector2f pos, sf::Vector2f size, Map* map);
 
 	void update(float deltatime) override;
+	void inflictDamage() override;
 	
 	void jump(float deltatime);
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);
 	void moveRight(float deltatime);
-
 	ENTITY_TYPE getType() override;
 };
 

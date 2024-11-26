@@ -70,7 +70,7 @@ public:
 		};
 	
 	*/ 
-	dir dynamicRectVsRect(Hitbox dynamicRect, const float fTimeStep, const vt& vel, const Hitbox staticRect);
+	dir dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeStep, const vt& vel, const Hitbox& staticRect);
 
 #undef vt
 };

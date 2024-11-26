@@ -8,11 +8,10 @@ void EntityManager::addEntity(Entity* entity) {
 // Render all entities
 void EntityManager::updateAll(float deltaTime) {
 	//std::vector <Entity*> alive;
-	std::cout << entities.size() << '\n';
 	for (auto en : entities)
 		if (!en->isDead() && std::abs(en->getHitbox().pos.x - updatePivot.x) < (float)updateDistance) {
 			en->update(deltaTime);
-			std::cout << "updated: " << en->getType() << '\n';
+			//std::cout << "updated: " << en->getType() << '\n';
 		}
 }
 

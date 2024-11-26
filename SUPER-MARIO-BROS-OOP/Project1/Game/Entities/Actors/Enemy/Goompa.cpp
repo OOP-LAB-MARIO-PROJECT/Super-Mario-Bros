@@ -40,9 +40,16 @@ void Goompa::update(float deltatime) {
 }
 
 void Goompa::behavior(float deltatime) {
+	if (health <= 0) {
+		kill();
+		return;
+	}
 }
 
 ENTITY_TYPE Goompa::getType() {
 	return ENEMY;
 }
 
+void Goompa::inflictDamage() {
+	health--;
+}

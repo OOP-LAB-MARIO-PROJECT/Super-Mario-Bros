@@ -10,7 +10,6 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size, Map* map) : Actor(pos, size)
 
 void Player::update(float deltatime) {
 
-
 	if (facing == 0)
 		setVel({ 0, getVel().y });
 
@@ -19,7 +18,6 @@ void Player::update(float deltatime) {
 	int isCollide = resolveCollideGround(map->getNearTiles(getPos()), deltatime);
 
 	if (getPos().y > 800) setVel(sf::Vector2f(getVel().x, 0));
-	//if (isCollide) std::cout << "collidiing!!!!!!!1\n";
 	isOnGround = isCollide & (1 << 2);
 
 	if (isOnGround)
@@ -33,6 +31,24 @@ void Player::update(float deltatime) {
 	if (isCollide & 5) // touch top or bottom
 		setVel({ getVel().x, 0 }), isJumping = false;
 	if (!isOnGround) setVel({ getVel().x / 4, getVel().y });
+
+	std::vector <Entity*> other = map->getNearEntity(this);
+
+	for (const auto& en : other) { // player interact with surrounding enemies
+		if (en->getType() == ENEMY) {
+
+			int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel(), en->getHitbox());
+			// if the contact direction is on top of enemy player will inflict a damage
+			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage();
+		}
+	}
+
+	other = map->getNearPointerTiles(getPos());
+
+	for (const auto& tile : other) {
+		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel(), tile->getHitbox());
+		if (dir == BOTTOM) tile->touched(deltatime);
+	}
 
 	performPhysics(deltatime);
 }
@@ -73,4 +89,8 @@ void Player::moveRight(float deltatime) {
 
 ENTITY_TYPE Player::getType() {
 	return PLAYER;
+}
+
+void Player::inflictDamage() {
+	health--;
 }

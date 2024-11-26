@@ -35,7 +35,7 @@ private:
 	int m_col = 0;
 	int m_block_size = 1;
 
-	std::vector<Tile> map;
+	std::vector<Tile*> map;
 	std::map <std::pair <int, int>, int> tilePos;
 	EntityManager myEntities;
 
@@ -46,9 +46,9 @@ private:
 public:
 
 	Map() {};
-	~Map() {};
+	~Map();
 
-	void addTile(const Tile& tile);
+	void addTile(Tile* tile);
 	void render(sf::RenderWindow* window);
 	void loadMap(const std::string& filename, Player* player);
 	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel);
@@ -58,6 +58,7 @@ public:
 	// infomation for the actor to get
 	std::vector <Hitbox> getTiles();
 	std::vector <Hitbox> getNearTiles(sf::Vector2f pos, bool gettrans = false);
+	std::vector <Entity*> getNearPointerTiles(sf::Vector2f pos, bool gettrans = false);
 	std::vector <Entity*> getNearEntity(Entity* en);
 
 	sf::Vector2f getPlayerPos() const;
