@@ -1,16 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "EntityManager.h"
-
 #include "Tiles/Tile.h"
 #include "Actors/Actor.h"
-#include "Tiles/TileFactory.h"
 #include "Actors/Player.h"
+
+#include "Tiles/TileFactory.h"
+#include "EntityFactory.h"
+
+#include "EntityManager.h"
 
 #include <vector>
 #include <map>
 
 class Player;
+
 
 /*
 Usefull fucntion need to note
@@ -72,4 +75,5 @@ public:
 	std::pair <int, int> toMap(sf::Vector2f pos);
 
 };
+
 

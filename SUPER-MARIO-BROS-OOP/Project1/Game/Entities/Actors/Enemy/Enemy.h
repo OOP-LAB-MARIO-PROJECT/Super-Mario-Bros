@@ -1,4 +1,7 @@
 #pragma once
+#ifndef _ENTITY_H_
+#define _ENTITY_H_
+
 #include "../Actor.h"
 #include "../../Map.h"
 #include <iostream>
@@ -15,6 +18,7 @@
 
 	// call the map-><function> to get info
 */
+class Map;
 
 class Enemy : public Actor
 {
@@ -29,3 +33,5 @@ public:
 	virtual void update(float deltatime) = 0;
 	virtual void behavior(float detatime) = 0;
 };
+
+#endif

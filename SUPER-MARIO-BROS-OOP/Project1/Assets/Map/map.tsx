@@ -133,6 +133,8 @@
  <tile id="2527" type="block2"/>
  <tile id="2560" type="pipe-up-body-left"/>
  <tile id="2561" type="pipe-up-body-right"/>
+ <tile id="2564" type="goompa"/>
+ <tile id="2566" type="goompa"/>
  <tile id="2570" type="pipe-up-body-left"/>
  <tile id="2571" type="pipe-up-body-right"/>
  <tile id="2578" type="pipe-up-body-left"/>

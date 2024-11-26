@@ -40,7 +40,17 @@ void Map::loadMap(const std::string& filename, Player* player) {
 		throw std::exception("No found player in map");
 	}
 
+	EntityFactory enFactory;
+
 	for (const auto& typeTile : myMapInfo) {
+
+		if (FACTORY_ENTITY_TYPE::isEntityNotTile(typeTile.first)) {
+			for (const auto& tile : typeTile.second) {
+				myEntities.addEntity(enFactory.createEntity(typeTile.first, sf::Vector2f{ (float)tile.first, (float)tile.second }, size, this));
+			}
+			continue;
+		}
+
 		for (const auto& tile : typeTile.second) {
 			tilePos[toMap(sf::Vector2f{ (float)tile.first, (float)tile.second })] = map.size();
 			addTile(TileFactory::createTile(typeTile.first, sf::Vector2f{(float)tile.first, (float)tile.second}, size));
@@ -53,7 +63,7 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	
 	std::pair <int, int> currentPos = toMap(pos);// row and col
 	
-	for (int i = -2; i <= 2; i++) for (int j = -2; j <= 2; j++) {
+	for (int i = -3; i <= 3; i++) for (int j = -3; j <= 3; j++) {
 		std::pair <int, int> newPos = currentPos;// row and col
 		newPos.first += i;
 		newPos.second += j;

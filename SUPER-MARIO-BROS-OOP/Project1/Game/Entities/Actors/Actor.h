@@ -37,7 +37,7 @@ public:
 	int resolveCollideGround(std::vector <Hitbox> vi, float deltaTime);
 
 	Hitbox getHitbox();
-	ENTITY_TYPE getType() override;
-
+	virtual ENTITY_TYPE getType() override;
+	virtual void update(float deltatime) override = 0;
 };
 
