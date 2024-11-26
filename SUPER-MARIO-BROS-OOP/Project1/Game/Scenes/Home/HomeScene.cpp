@@ -1,31 +1,17 @@
 ﻿#include "HomeScene.h"
 
 HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
-	if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf"))
-	{
-		std::cout << "Can't load font" << std::endl;
-	}
-
-
 	Button startGame = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); });
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); }, "Start", 24, sf::Color::Black);
 	buttons.push_back(startGame);
+	
 	Button exit = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }); //thay exit bằng hàm thoát game
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }, "Exit", 24, sf::Color::Black); //thay exit bằng hàm thoát game
 	buttons.push_back(exit);
 
-	options = { "Start", "Exit" };
-	textPositions = { sf::Vector2f(300, 250), sf::Vector2f(300, 100) };
-	buttonPositions = { sf::Vector2f(400, 250), sf::Vector2f(400, 350) };
-	texts.resize(options.size());
-	for (int i = 0; i < options.size(); i++)
-	{
-		texts[i].setFont(font);
-		texts[i].setString(options[i]);
-		texts[i].setCharacterSize(24);
-		texts[i].setFillColor(sf::Color::Black);
-		texts[i].setPosition(textPositions[i]);
-	}
+	Button setting = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 400), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "Setting", 24, sf::Color::Black); //thay exit bằng hàm thoát game
+	buttons.push_back(setting);
 }
 
 
@@ -41,7 +27,6 @@ void HomeScene::loopEvents()
 		for (int i = 0; i < buttons.size(); i++)
 		{
 			buttons[i].handleEvent(event, *getWindow());
-			//std::cout << "button " << i << '\n';
 		}
 	}
 }
@@ -53,14 +38,9 @@ void HomeScene::drawMenu()
 	{
 		buttons[i].draw(getWindow());
 	}
-
-	for (int i = 0; i < texts.size(); i++)
-	{
-		getWindow()->draw(texts[i]);
-	}
 }
 
 void HomeScene::update(float deltatime) {
-	drawMenu();
-	loopEvents();
+	drawMenu();             // Draw buttons
+	loopEvents();           // Handle events
 }

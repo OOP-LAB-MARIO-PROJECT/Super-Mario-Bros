@@ -20,7 +20,7 @@ public:
 	Scene();
 	Scene(sf::RenderWindow* window);
 	sf::RenderWindow* getWindow() const;
-	void display();
+	void display(); // dont call it
 
 	virtual void update(float deltatime) = 0;
 };

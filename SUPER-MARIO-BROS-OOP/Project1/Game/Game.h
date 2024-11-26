@@ -10,6 +10,7 @@
 #include "../Utils/TextureManager.h"
 #include "../Utils/SceneManager.h"
 #include "../Utils/SoundManager.h"
+#include "../Utils/FontManager.h"
 
 #include "SceneList.h"
 
@@ -19,9 +20,10 @@ private:
 	sf::Clock m_clock;
 	sf::RenderWindow* window = nullptr;
 	
-	TextureManager* textureManager = nullptr;
 	SceneManager* sceneManager = nullptr;
+	TextureManager* textureManager = nullptr;
 	SoundManager* soundManager = nullptr;
+	FontManager* fontManager = nullptr;
 	bool m_isRunning = false;
 
 public:

@@ -17,6 +17,7 @@ public:
 
 
     void loadFile(const std::string& s);
+    std::map<std::string, std::vector <std::pair <int, int>>> loadMapFromFile(const std::string& s);
     void print();
 
 };

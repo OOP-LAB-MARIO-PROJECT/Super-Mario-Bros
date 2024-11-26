@@ -15,6 +15,9 @@ public:
         Exit,
         Home,
         Pause,
+        Login,
+        Register,
+		Setting,
     };
 
     static SceneManager& getInstance();
@@ -29,7 +32,7 @@ public:
 
 private:
     std::map<Scenes, Scene*> sceneRegistry; // Renamed the map
-    Scenes currentScene = Scenes::Home;   // Default starting scene
+    Scenes currentScene = Scenes::Login;   // Default starting scene
     SceneManager();
     // Prevent copying and assignment
     SceneManager(SceneManager const&) = delete;
