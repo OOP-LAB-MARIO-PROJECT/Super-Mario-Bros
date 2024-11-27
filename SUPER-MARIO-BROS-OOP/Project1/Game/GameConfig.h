@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <map>
+#include <SFML/Graphics.hpp>
 
 class GameConfig {
 private:
