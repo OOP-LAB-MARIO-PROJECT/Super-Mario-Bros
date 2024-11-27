@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include <iostream>
+#include "../Utils/TextureManager.h"
 #include "../Utils/FontManager.h"
 
 class Button {
