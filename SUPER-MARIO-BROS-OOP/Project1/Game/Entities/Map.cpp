@@ -90,34 +90,7 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 	map = alive;
 
 	resetPlayer(ppos, psize, pvel, mode);
-
-	// update environment
-
-	player->updateEvironment(
-		getNearTiles(player->getPos()),
-		EntityManager::getInstance().
-		getNearEntity(player)
-	);
-
-	player->nearPointerTiles = getNearPointerTiles(player->getPos());
-
-	std::vector<Entity*>& entities = EntityManager::getInstance().
-		getEntities();
-	for (auto en : entities) {
-		std::vector <Hitbox> neartile = getNearTiles(en->getHitbox().pos);
-		std::vector <Entity*> nearptr = getNearPointerTiles(en->getHitbox().pos);
-		for (auto x : nearptr) neartile.push_back(x->getHitbox());
-
-		en->updateEvironment(
-			neartile,
-			EntityManager::getInstance().
-			getNearEntity(en)
-		);
-	}
-
-	// end update
-
-
+	updateEnvironment();
 	EntityManager::getInstance().setUpdatePivot(ppos);
 	EntityManager::getInstance().updateAll(deltaTime);
 	EntityManager::getInstance().filter();
@@ -201,3 +174,26 @@ std::vector <Entity*> Map::getNearPointerTiles(sf::Vector2f pos, bool gettrans) 
 	return tiles;
 }
 
+void Map::updateEnvironment() {
+	player->updateEvironment(
+		getNearTiles(player->getPos()),
+		EntityManager::getInstance().
+		getNearEntity(player)
+	);
+
+	player->nearPointerTiles = getNearPointerTiles(player->getPos());
+
+	std::vector<Entity*>& entities = EntityManager::getInstance().
+		getEntities();
+	for (auto en : entities) {
+		std::vector <Hitbox> neartile = getNearTiles(en->getHitbox().pos);
+		std::vector <Entity*> nearptr = getNearPointerTiles(en->getHitbox().pos);
+		for (auto x : nearptr) neartile.push_back(x->getHitbox());
+
+		en->updateEvironment(
+			neartile,
+			EntityManager::getInstance().
+			getNearEntity(en)
+		);
+	}
+}

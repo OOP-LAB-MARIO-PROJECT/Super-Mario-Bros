@@ -1,6 +1,7 @@
 #pragma once
 #include "../Entity.h"
-#include "../Common.h"
+
+
 class Tile : public Entity {
 private:
 	sf::RectangleShape hitbox;

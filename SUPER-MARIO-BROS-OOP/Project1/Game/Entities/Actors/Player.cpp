@@ -18,7 +18,7 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	ani[1][RUN] = {
 		"right-small-mario-0",
 		"right-small-mario-1",
-		"right-small-mario-2"
+		"right-small-mario-2",
 	};
 
 	ani[1][SLIDE] = {"right-small-mario-3"};
@@ -31,7 +31,7 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	ani[0][RUN]= {
 		"left-small-mario-13",
 		"left-small-mario-12",
-		"left-small-mario-11"
+		"left-small-mario-11",
 	};
 	ani[0][SLIDE] = { "left-small-mario-10" };
 	ani[0][DIE] = { "left-small-mario-8" };
@@ -90,7 +90,19 @@ void Player::update(float deltatime) {
 		float curDist = 1e9;
 		Entity* cur = NULL;
 		sf::Vector2f pcenter = getPos() + getSize() / 2.f;
+		std::cout << other.size() << '\n';
 		for (const auto& tile : other) {
+			Hitbox tmp = getHitbox();
+			if (isOnGround) tmp.vel.y = 1;
+
+
+			if (tile->getType() == PIPE_HEAD_TELE) {
+				int dir = dynamicRectVsRect(tmp, deltatime, tmp.vel, tile->getHitbox());
+				if (dir == TOP || dir == LEFT)
+					tile->affectOther(this);
+				continue;
+			}
+
 			int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel(), tile->getHitbox());
 			if (dir == BOTTOM) {
 				sf::Vector2f center = tile->getHitbox().pos + tile->getHitbox().size / 2.f;
@@ -100,6 +112,7 @@ void Player::update(float deltatime) {
 					curDist = dist, cur = tile;	
 			}
 		}
+
 		if (cur)
 			cur->touched(deltatime);
 
@@ -129,7 +142,6 @@ void Player::jump(float deltatime) {
 void Player::notJump(float deltatime) {
 	if (!isJumping) return;
 	isJumping = false;
-	//reachMaxHeight = true;
 	setVel({ getVel().x, getVel().y / 3 });
 }
 

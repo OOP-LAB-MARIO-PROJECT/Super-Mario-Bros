@@ -6,8 +6,6 @@
 #include "EntityFactory.h"
 #include "../../Utils/EntityManager.h"
 
-#include "../Entities/Common.h"
-
 #include <vector>
 #include <map>
 
@@ -42,6 +40,7 @@ private:
 	sf::Vector2f playerVel;
 	
 	int playerMode = 0;
+	void updateEnvironment();
 public:
 
 	Map() {};

@@ -1,12 +1,21 @@
 #pragma once
 #include <map>
 
+
+
+enum WORLD {
+    OVERWORLD,
+    UNDERGROUND
+};
+
+
 // Glolbal configuration for Game -> not implement
 class GameConfig {
 
     GameConfig() = default;
     GameConfig(const GameConfig&) = delete;
     GameConfig& operator=(const GameConfig&) = delete;
+    ~GameConfig() = default;
 
 public: 
 
@@ -16,5 +25,6 @@ public:
     }
 
     float volume;
+    WORLD currentWorld = OVERWORLD;
 };
 

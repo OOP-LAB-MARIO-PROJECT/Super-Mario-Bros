@@ -27,11 +27,14 @@ public:
 	void render(sf::RenderWindow* window) const override;
 	
 	sf::Vector2f getPos() const;
-	void setPos(sf::Vector2f pos);
+	void setPos(sf::Vector2f pos) override;
 
 	sf::Vector2f getSize() const;
-	void setSize(sf::Vector2f size);
+	void setSize(sf::Vector2f size) override;
 	
+	sf::Vector2f getVel() const;
+	void setVel(sf::Vector2f vel) override;
+
 	void setSpritePos(sf::Vector2f pos);
 	void setTexture(const std::string& sourceName, const std::string& rectName);
 	void setSpriteScale(float x, float y);

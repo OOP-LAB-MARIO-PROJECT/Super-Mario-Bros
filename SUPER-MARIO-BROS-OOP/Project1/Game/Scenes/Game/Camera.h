@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../GameConfig.h"
 #include <array>
 #include <vector>
 #include <algorithm>

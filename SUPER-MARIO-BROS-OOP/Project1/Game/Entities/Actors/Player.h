@@ -20,9 +20,9 @@ class Player : public Actor
 		RUN, IDLE, SLIDE, JUMP, DIE, KILL,
 	} currentState;
 	
-	int doesItKill = 0;
 	// animation list
 	std::map <state, std::vector <std::string>> ani[2];
+	int doesItKill = 0;
 	int aniLoop = 0; 
 
 public:

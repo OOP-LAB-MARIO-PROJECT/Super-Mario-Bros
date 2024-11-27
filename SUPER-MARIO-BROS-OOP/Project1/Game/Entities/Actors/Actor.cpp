@@ -39,6 +39,15 @@ void Actor::setSize(sf::Vector2f _size) {
 	rect.setScale(size);
 }
 
+void Actor::setVel(sf::Vector2f vel) {
+	hitbox.vel = vel;
+	Physics::setVel(vel);
+}
+
+sf::Vector2f Actor::getVel() const {
+	return Physics::getVel();
+}
+
 sf::Vector2f Actor::getPos() const {
 	return pos;
 }
@@ -57,7 +66,7 @@ int Actor::resolveCollideGround(std::vector <Hitbox> vi, float deltaTime) {
 	int dir = 0;
 	sf::Vector2f expected = rectVsTerain(getHitbox(), vi, getVel(), deltaTime, pos, dir);
 	if (expected == getVel()) return 0;
-	setVel(expected);
+	Physics::setVel(expected);
 	return dir;
 }
 

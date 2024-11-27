@@ -18,13 +18,11 @@ void RedMushroom::update(float deltatime) {
 		return;
 	}
 
-
-	for (auto en : otherEntities) {
+	for (auto en : otherEntities) if (en->getType() == TILE) {
 		Hitbox ob = en->getHitbox();
 		ob.vel = sf::Vector2f{ 0.f, 0.f };
 		obstacle.push_back(ob);
 	}
-
 
 	int dir = resolveCollideGround(obstacle, deltatime);
 	setPos(getPos() + getVel() * deltatime);  //update right after collision for best resolution
@@ -43,9 +41,17 @@ void RedMushroom::update(float deltatime) {
 
 	// 1 << 1 = left 
 	behavior(deltatime);
-
 	performPhysics(deltatime);
 }
 
 void RedMushroom::behavior(float detatime) {
+}
+
+
+ENTITY_TYPE GreenMushroom::getType() {
+	return GREEN_MUSHROOM;
+}
+
+GreenMushroom::GreenMushroom(sf::Vector2f pos, sf::Vector2f size) : RedMushroom(pos, size) {
+	setTexture("item-object", "green-mushroom-0");
 }

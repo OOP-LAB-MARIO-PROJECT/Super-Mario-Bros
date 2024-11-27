@@ -1,5 +1,11 @@
 #include "MoveUpTile.h"
 
+void MoveUpTile::setVel(sf::Vector2f vel) {
+	Physics::setVel(vel);
+	Entity::setVel(vel);
+}
+
+
 void MoveUpTile::touched(float deltatime) {
 	if (isTouch) return;
 	isTouch = true;

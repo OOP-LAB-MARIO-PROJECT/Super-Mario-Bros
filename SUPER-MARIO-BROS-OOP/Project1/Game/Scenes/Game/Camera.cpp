@@ -26,7 +26,7 @@ void Camera::moveCamera(const float& x, const float& y) {
 	aboveLimit += y;
 	beneathLimit += y;
 
-	camera.setCenter(sf::Vector2f((leftLimit + rightLimit) / 2, (base + 48 - 104)));
+	camera.setCenter(sf::Vector2f((leftLimit + rightLimit) / 2, (base + 32 - 104)));
 }
 
 void Camera::setCameraView(sf::RenderWindow* w) {
@@ -34,6 +34,10 @@ void Camera::setCameraView(sf::RenderWindow* w) {
 }
 
 void Camera::followPlayer(const float& x, const float& y, const float& w, const float& h) {
+
+	if (GameConfig::getInstance().currentWorld == OVERWORLD) base = 192;
+	if (GameConfig::getInstance().currentWorld == UNDERGROUND) base = 432;
+
 	if (x <= leftLimit) moveCamera(x - leftLimit, 0);
 	else if (x + w >= rightLimit) moveCamera(x + w - rightLimit, 0);
 

@@ -149,6 +149,7 @@
     <ClCompile Include="Game\Entities\Actors\Prop\Collectable.cpp" />
     <ClCompile Include="Game\Entities\EntityFactory.cpp" />
     <ClCompile Include="Game\Entities\Tiles\MoveUpTile.cpp" />
+    <ClCompile Include="Game\Entities\Tiles\PipeHead.cpp" />
     <ClCompile Include="Game\Entities\Tiles\TileFactory.cpp" />
     <ClCompile Include="Game\Scenes\Game\Camera.cpp" />
     <ClCompile Include="Game\Control\CommandManager.cpp" />
@@ -189,10 +190,10 @@
     <ClInclude Include="Game\Entities\Actors\Prop\Coin.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Mushroom.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Collectable.h" />
-    <ClInclude Include="Game\Entities\Common.h" />
     <ClInclude Include="Game\Entities\EntityFactory.h" />
     <ClInclude Include="Game\Entities\EntityList.h" />
     <ClInclude Include="Game\Entities\Tiles\MoveUpTile.h" />
+    <ClInclude Include="Game\Entities\Tiles\PipeHead.h" />
     <ClInclude Include="Game\Entities\Tiles\TileFactory.h" />
     <ClInclude Include="Game\Scenes\Game\Camera.h" />
     <ClInclude Include="Game\Components\Collision.h" />
