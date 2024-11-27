@@ -30,7 +30,7 @@ void TextureManager::setTextureRect(sf::Sprite& sprite, const std::string& textu
 	}
 
 	auto rec = textureRect[textureName][rectName];
-	std::cout << "set render texture at " << rec.first.first << ' ' << rec.first.second << '\n';
+	//std::cout << "set render texture at " << rec.first.first << ' ' << rec.first.second << '\n';
 	sf::IntRect rect(rec.first.first, rec.first.second, rec.second.first, rec.second.second);
 	sprite.setTextureRect(rect);
 //	std::cout << "texture pos" << (int)sprite.getTexture() << '\n';

@@ -9,6 +9,8 @@ void Actor::render(sf::RenderWindow* window) const {
 		window->draw(sprite);
 }
 
+Actor::Actor() {};
+
 Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
 	pos(_pos), size(_size), Physics({ 0, 0 }, { 0, 260 })
 {

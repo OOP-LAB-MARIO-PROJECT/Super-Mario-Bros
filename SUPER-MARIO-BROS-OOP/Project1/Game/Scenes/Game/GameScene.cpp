@@ -6,11 +6,10 @@ GameScene::~GameScene() {
 	delete camera;
 }
 
-
 GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	// INITIALIZE 
+	player = new Player(sf::Vector2f(50, 50), sf::Vector2f(14, 14));
 	gameMap = new Map();
-	player = new Player(sf::Vector2f(50, 50), sf::Vector2f(14, 14), gameMap);
 	gameMap->loadMap("Assets/Map/map.tsx", player);
 	std::cout << gameMap->getPlayerPos().x << ' ' << gameMap->getPlayerPos().y << "\n";
 	camera = new Camera(window, gameMap->getPlayerPos());
@@ -38,7 +37,7 @@ void GameScene::update(float deltatime) {
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 
-	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel());
+	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 	player->update(deltatime);
 
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);

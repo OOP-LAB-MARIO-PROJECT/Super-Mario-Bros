@@ -1,0 +1,9 @@
+class Map;
+class Actor;
+class Player;
+class Enemy;
+class Goompa;
+class Entity;
+class Collision;
+class Physics;
+class EntityManager;

@@ -1,2 +1,3 @@
 Texture_Pack/mario.tsx Texture_Pack/mario.png
 Texture_Pack/tiles.tsx Texture_Pack/tiles.png
+Texture_Pack/item-object.tsx Texture_Pack/items-objects.png

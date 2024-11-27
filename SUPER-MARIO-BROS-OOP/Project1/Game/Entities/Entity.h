@@ -12,7 +12,10 @@ enum ENTITY_TYPE {
 	HARM_TO_ALL,
 	HARM_TO_PLAYER,
 	PROP,
-	ACTOR
+	ACTOR,
+	RED_MUSHROOM,
+	GREEN_MUSHROOM,
+	BROWN_MUSHROOM
 };
 
 struct Hitbox {
@@ -29,6 +32,8 @@ class Entity
 public:
 
 	Hitbox hitbox;
+	std::vector <Hitbox> obstacle;
+	std::vector <Entity*> otherEntities;
 	int isRenderHitbox = true;
 	int isRenderSprite = false;
 
@@ -36,8 +41,9 @@ public:
 	bool isDead() const { return _isDead; }
 	virtual ~Entity() = default;
 
-	void setRenderHitbox(bool f) { isRenderHitbox = f; }
-	void setRenderSprite(bool f) { isRenderSprite = f; }
+	void setRenderHitbox(bool f);
+	void setRenderSprite(bool f);
+	void updateEvironment(const std::vector <Hitbox>& obstacle, const std::vector <Entity*>& otherEntities);
 
 	virtual void render(sf::RenderWindow* window) const = 0;
 	virtual void update(float deltaTime) = 0;

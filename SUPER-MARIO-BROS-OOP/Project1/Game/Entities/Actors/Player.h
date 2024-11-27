@@ -1,10 +1,8 @@
 #pragma once
 #include "Actor.h"
-#include "../Map.h"
 #include <vector>
 #include <exception>
 #include <map>
-class Map;
 
 class Player : public Actor
 {
@@ -16,10 +14,8 @@ class Player : public Actor
 	bool isJumping = false;
 	int speed = 100;
 	float timer = 0;
-	Map* map = NULL;
 	
 	ENTITY_TYPE currentType = PLAYER;
-	
 	enum state {
 		RUN,
 		IDLE,
@@ -28,16 +24,24 @@ class Player : public Actor
 		DIE,
 		KILL,
 	} currentState;
+	
 	int doesItKill = 0;
 	// animation list
 	std::map <state, std::vector <std::string>> ani[2];
-	int aniLoop = 0;
-public:
-	Player() {
-		throw std::exception("Need to init the rigth construtor for player");
-	}
+	int aniLoop = 0; 
 
-	Player(sf::Vector2f pos, sf::Vector2f size, Map* map);
+public:
+	std::vector <Entity*> nearPointerTiles;
+	
+	enum mode {
+		SMALL,
+		LARGE,
+		WHITE_LARGE
+	} currentMode;
+
+	Player();
+
+	Player(sf::Vector2f pos, sf::Vector2f size);
 
 	void update(float deltatime) override;
 	void inflictDamage() override;

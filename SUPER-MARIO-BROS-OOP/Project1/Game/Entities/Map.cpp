@@ -11,10 +11,9 @@ void Map::addTile(Tile* tile) {
 };
 
 void Map::render(sf::RenderWindow* window) {
+	EntityManager::getInstance().renderAll(window);
 	for (Tile* t : map)
 		t->render(window);
-
-	myEntities.renderAll(window);
 };
 
 std::vector <Hitbox> Map::getTiles() {
@@ -24,6 +23,7 @@ std::vector <Hitbox> Map::getTiles() {
 }
 
 void Map::loadMap(const std::string& filename, Player* player) {
+	this->player = player;
 	Tileset mapLoader;
 	std::map<std::string, std::vector <std::pair <int, int>>> myMapInfo = mapLoader.loadMapFromFile(filename);
 	if (mapLoader.columns == 0) {
@@ -37,7 +37,7 @@ void Map::loadMap(const std::string& filename, Player* player) {
 
 	if (myMapInfo["player_pos"].size()) {
 		player->setPos({ (float)myMapInfo["player_pos"][0].first, (float)myMapInfo["player_pos"][0].second });
-		resetPlayer(player->getPos(), player->getSize(), player->getVel());
+		resetPlayer(player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 	}
 	else {
 		throw std::exception("No found player in map");
@@ -49,7 +49,8 @@ void Map::loadMap(const std::string& filename, Player* player) {
 
 		if (FACTORY_ENTITY_TYPE::isEntityNotTile(typeTile.first)) {
 			for (const auto& tile : typeTile.second) {
-				myEntities.addEntity(enFactory.createEntity(typeTile.first, sf::Vector2f{ (float)tile.first, (float)tile.second }, size, this));
+				EntityManager::getInstance().
+					addEntity(enFactory.createEntity(typeTile.first, sf::Vector2f{ (float)tile.first, (float)tile.second }, size));
 			}
 			continue;
 		}
@@ -79,7 +80,7 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	return tiles;
 }
 
-void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel) {
+void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode) {
 
 	std::vector <Tile*> alive;
 	for (auto t : map) if (!t->isDead()) {
@@ -88,17 +89,45 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 	}
 	map = alive;
 
-	resetPlayer(ppos, psize, pvel);
-	myEntities.setUpdatePivot(ppos);
-	myEntities.updateAll(deltaTime);
-	myEntities.filter();
+	resetPlayer(ppos, psize, pvel, mode);
 
+	// update environment
+
+	player->updateEvironment(
+		getNearTiles(player->getPos()),
+		EntityManager::getInstance().
+		getNearEntity(player)
+	);
+
+	player->nearPointerTiles = getNearPointerTiles(player->getPos());
+
+	std::vector<Entity*>& entities = EntityManager::getInstance().
+		getEntities();
+	for (auto en : entities) {
+		std::vector <Hitbox> neartile = getNearTiles(en->getHitbox().pos);
+		std::vector <Entity*> nearptr = getNearPointerTiles(en->getHitbox().pos);
+		for (auto x : nearptr) neartile.push_back(x->getHitbox());
+
+		en->updateEvironment(
+			neartile,
+			EntityManager::getInstance().
+			getNearEntity(en)
+		);
+	}
+
+	// end update
+
+
+	EntityManager::getInstance().setUpdatePivot(ppos);
+	EntityManager::getInstance().updateAll(deltaTime);
+	EntityManager::getInstance().filter();
 }
 
-void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel) {
+void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel, int mode) {
 	playerPos = pos;
 	playerSize = size;
 	playerVel = vel;
+	playerMode = mode;
 }
 
 sf::Vector2f Map::getPlayerPos() const {
@@ -111,6 +140,10 @@ sf::Vector2f Map::getPlayerSize() const {
 
 sf::Vector2f Map::getPlayerVel() const {
 	return playerVel;
+}
+
+int Map::getPlayerMode() const{
+	return playerMode;
 }
 
 bool Map::isTileAt(sf::Vector2f pos) const {
@@ -147,7 +180,7 @@ std::pair <int, int> Map::toMap(sf::Vector2f pos) {
 }
 
 std::vector <Entity*> Map::getNearEntity(Entity* en) {
-	return myEntities.getNearEntity(en);
+	return 	EntityManager::getInstance().getNearEntity(en);
 }
 
 std::vector <Entity*> Map::getNearPointerTiles(sf::Vector2f pos, bool gettrans) {

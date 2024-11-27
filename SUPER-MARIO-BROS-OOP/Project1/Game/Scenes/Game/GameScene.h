@@ -2,6 +2,7 @@
 #include "../Scene.h"
 #include "../../../Utils/SceneManager.h"
 #include "../../../Utils/TextureManager.h"
+#include "../../../Utils/EntityManager.h"
 #include "../../Control/CommandManager.h"
 #include "../../Control/KeyExecute.h"
 

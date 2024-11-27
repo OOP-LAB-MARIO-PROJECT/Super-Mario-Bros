@@ -1,11 +1,17 @@
 #include "Player.h"
 
-Player::Player(sf::Vector2f pos, sf::Vector2f size, Map* map) : Actor(pos, size), map(map) {
+
+Player::Player() {
+	throw std::exception("Need to init the rigth construtor for player");
+}
+
+Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	isRenderSprite = true;
 	isRenderHitbox = false;
 	facing = 1;
 	spriteFace = 1;
 	currentState = IDLE;
+	currentMode = SMALL;
 
 	ani[1][IDLE] = {"right-small-mario-6"};
 	ani[1][JUMP] = {"right-small-mario-4"};
@@ -39,7 +45,7 @@ void Player::update(float deltatime) {
 	animation(deltatime);
 
 	sf::Vector2f vx = getVel();
-	int isCollide = resolveCollideGround(map->getNearTiles(getPos()), deltatime);
+	int isCollide = resolveCollideGround(obstacle, deltatime);
 
 	if (getPos().y > 800) setVel(sf::Vector2f(getVel().x, 0));
 	isOnGround = isCollide & (1 << 2);
@@ -68,7 +74,7 @@ void Player::update(float deltatime) {
 		setVel({ getVel().x, 0 }), isJumping = false;
 	//if (!isOnGround) setVel({ getVel().x / 4, getVel().y });
 
-	std::vector <Entity*> other = map->getNearEntity(this);
+	std::vector <Entity*> other = otherEntities;
 
 	for (const auto& en : other) { // player interact with surrounding enemies
 		if (en->getType() == ENEMY) {
@@ -79,7 +85,7 @@ void Player::update(float deltatime) {
 		}
 	}
 
-	other = map->getNearPointerTiles(getPos());
+	other = nearPointerTiles;
 	if (other.size()) {
 		float curDist = 1e9;
 		Entity* cur = NULL;

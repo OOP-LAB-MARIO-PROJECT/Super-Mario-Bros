@@ -2,6 +2,7 @@
 
 #include "Tile.h"
 #include "MoveUpTile.h"
+#include "QuestionTile.h"
 
 #include <vector>
 #include <string>
@@ -69,6 +70,14 @@ public:
 	static Tile* createTile(const std::string& type, sf::Vector2f pos, sf::Vector2f size) {
 
 		if (TILETYPE::isInteractable(type)) {
+			if (type == "question") {
+				Tile* r = new QuestionTile(pos, size, false);
+				//r->setTexture("tiles", type + "-0");
+				r->setRenderSprite(true);
+				r->setRenderHitbox(false);
+				return r;
+			}
+
 			Tile* r = new MoveUpTile(pos, size, false);
 			r->setTexture("tiles", type + "-0");
 			r->setRenderSprite(true);

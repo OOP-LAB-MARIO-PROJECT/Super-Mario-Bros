@@ -54,3 +54,8 @@ void EntityManager::filter() {
 		}
 	entities = filtered;
 }
+
+std::vector <Entity*>& EntityManager::getEntities() {
+	// Container to store entities
+	return entities;
+}

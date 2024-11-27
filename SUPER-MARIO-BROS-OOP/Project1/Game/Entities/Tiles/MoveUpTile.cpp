@@ -24,5 +24,4 @@ void MoveUpTile::update(float deltatime) {
 
 MoveUpTile::MoveUpTile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans) : Tile(_pos, _size, isTrans), Physics({0, 0}, {0, 800}) {
 	initpos = _pos;
-
 }

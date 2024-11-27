@@ -1,15 +1,15 @@
 #include "Goompa.h"
 #include <vector>
 
-Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size, Map* map) : Enemy(pos, size, map) {
+Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
 	isRenderHitbox = true;
 	facing = 1;
 }
 
 void Goompa::update(float deltatime) {
-	std::vector <Hitbox> obstacle = map->getNearTiles(getPos() + getSize() / 2.f);
-	
-	std::vector <Entity*> otherEntities = map->getNearEntity(this);
+	//std::vector <Hitbox> obstacle = map->getNearTiles(getPos() + getSize() / 2.f);
+	//std::vector <Entity*> otherEntities = map->getNearEntity(this);
+
 	for (auto en : otherEntities) {
 		Hitbox ob = en->getHitbox();
 		ob.vel = sf::Vector2f{ 0.f, 0.f };
@@ -35,7 +35,6 @@ void Goompa::update(float deltatime) {
 
 	// 1 << 1 = left 
 	behavior(deltatime);
-
 	performPhysics(deltatime);
 }
 
