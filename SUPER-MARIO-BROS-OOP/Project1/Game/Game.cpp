@@ -32,7 +32,7 @@ void Game::start() {
 	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Setting, new SettingScene(window));
 
-	sceneManager->navigateTo(SceneManager::Scenes::Login);
+	sceneManager->navigateTo(SceneManager::Scenes::Game);
 	
 
 	m_isRunning = true;
@@ -78,7 +78,7 @@ void Game::run() {
 	}
 
 	float deltatime = m_clock.restart().asSeconds();
-	std::cout << "FPS: " << 1 / deltatime << '\n';
+	//::cout << "FPS: " << 1 / deltatime << '\n';
 
 	window->clear();
 	sceneManager->update(deltatime);

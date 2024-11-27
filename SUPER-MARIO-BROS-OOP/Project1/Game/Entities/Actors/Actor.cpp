@@ -66,3 +66,10 @@ void Actor::setTexture(const std::string& sourceName, const std::string& rectNam
 ENTITY_TYPE Actor::getType() {
 	return ACTOR;
 }
+
+void Actor::setSpriteScale(float x, float y) {
+	sprite.setScale(x, y);
+}
+void Actor::setSpriteOrigin(sf::Vector2f ori) {
+	sprite.setOrigin(ori);
+}

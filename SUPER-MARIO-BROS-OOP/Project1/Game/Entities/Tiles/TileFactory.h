@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Tile.h"
+#include "MoveUpTile.h"
+
 #include <vector>
 #include <string>
 #include <vector>
@@ -28,6 +30,13 @@ namespace TILETYPE {
 		"pipe-side-tail-bottom"
 	};
 
+
+	static std::vector <std::string> interactable = {
+		"block2",
+		"block-underground-2",
+		"question"
+	};
+
 	static std::vector <std::string> transparent = {
 		"flag-1",
 		"flag-2",
@@ -42,6 +51,10 @@ namespace TILETYPE {
 		return false;
 	}
 
+	static bool isInteractable(std::string name) {
+		return std::find(interactable.begin(), interactable.end(), name) != interactable.end();
+	}
+
 	static bool isTransparent(std::string name) {
 		for (const auto& s : transparent)
 			if (s == name) return true;
@@ -53,23 +66,33 @@ namespace TILETYPE {
 
 class TileFactory {
 public:
-	static Tile createTile(const std::string& type, sf::Vector2f pos, sf::Vector2f size) {
-		if (TILETYPE::isNormalPlatform(type)) {
-			Tile ret(pos, size, false);
-			ret.setTexture("tiles", type + "-0");
-			ret.setRenderSprite(true);
-			ret.setRenderHitbox(false);
-			return ret;
+	static Tile* createTile(const std::string& type, sf::Vector2f pos, sf::Vector2f size) {
+
+		if (TILETYPE::isInteractable(type)) {
+			Tile* r = new MoveUpTile(pos, size, false);
+			r->setTexture("tiles", type + "-0");
+			r->setRenderSprite(true);
+			r->setRenderHitbox(false);
+			return r;
 		}
-		if (TILETYPE::isTransparent(type)) {
-			Tile ret(pos, size, true);
-			ret.setTexture("tiles", type + "-0");
-			ret.setRenderSprite(true);
-			ret.setRenderHitbox(false);
-			return ret;
+		
+		if (TILETYPE::isNormalPlatform(type)) {
+			Tile* r = new Tile(pos, size, false);
+			r->setTexture("tiles", type + "-0");
+			r->setRenderSprite(true);
+			r->setRenderHitbox(false);
+			return r;
 		}
 
-		return 	Tile(pos, size);
+		if (TILETYPE::isTransparent(type)) {
+			Tile* r = new Tile(pos, size, true);
+			r->setTexture("tiles", type + "-0");
+			r->setRenderSprite(true);
+			r->setRenderHitbox(false);
+			return r;
+		}
+
+		return new Tile(pos, size);
 	}
 };
 

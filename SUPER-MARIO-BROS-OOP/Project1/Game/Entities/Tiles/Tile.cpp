@@ -21,8 +21,9 @@ Hitbox Tile::getHitbox() {
 }
 
 
-void Tile::setPosition(sf::Vector2f pos) {
-	hitbox.setPosition(pos);
+void Tile::setPosition(sf::Vector2f _pos) {
+	hitbox.setPosition(_pos);
+	pos = _pos;
 }
 
 void Tile::setSpritePos(sf::Vector2f pos) {
@@ -43,4 +44,15 @@ void Tile::setTexture(const std::string& sourceName, const std::string& rectName
 
 ENTITY_TYPE Tile::getType() {
 	return currentType;
+}
+
+
+
+sf::Vector2f Tile::getPos() const {
+	return pos;
+}
+// set srite and hitbox pos
+void Tile::setPos(sf::Vector2f pos) {
+	setPosition(pos);
+	setSpritePos(pos);
 }

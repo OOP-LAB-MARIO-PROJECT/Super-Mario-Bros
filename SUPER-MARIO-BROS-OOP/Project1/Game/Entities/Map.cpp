@@ -2,21 +2,24 @@
 #include "Map.h"
 #include "../../Utils/Tileset.h"
 
+Map::~Map() {
+	for (auto x : map) delete x;
+}
 
-void Map::addTile(const Tile& tile) {
+void Map::addTile(Tile* tile) {
 	map.push_back(tile);
 };
 
 void Map::render(sf::RenderWindow* window) {
-	for (const Tile& t : map)
-		t.render(window);
+	for (Tile* t : map)
+		t->render(window);
 
 	myEntities.renderAll(window);
 };
 
 std::vector <Hitbox> Map::getTiles() {
 	std::vector <Hitbox> ans;
-	for (Tile& t : map) ans.push_back(t.getHitbox());
+	for (Tile* t : map) ans.push_back(t->getHitbox());
 	return ans;
 }
 
@@ -40,7 +43,17 @@ void Map::loadMap(const std::string& filename, Player* player) {
 		throw std::exception("No found player in map");
 	}
 
+	EntityFactory enFactory;
+
 	for (const auto& typeTile : myMapInfo) {
+
+		if (FACTORY_ENTITY_TYPE::isEntityNotTile(typeTile.first)) {
+			for (const auto& tile : typeTile.second) {
+				myEntities.addEntity(enFactory.createEntity(typeTile.first, sf::Vector2f{ (float)tile.first, (float)tile.second }, size, this));
+			}
+			continue;
+		}
+
 		for (const auto& tile : typeTile.second) {
 			tilePos[toMap(sf::Vector2f{ (float)tile.first, (float)tile.second })] = map.size();
 			addTile(TileFactory::createTile(typeTile.first, sf::Vector2f{(float)tile.first, (float)tile.second}, size));
@@ -53,42 +66,33 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	
 	std::pair <int, int> currentPos = toMap(pos);// row and col
 	
-	for (int i = -2; i <= 2; i++) for (int j = -2; j <= 2; j++) {
+	for (int i = -3; i <= 3; i++) for (int j = -3; j <= 3; j++) {
 		std::pair <int, int> newPos = currentPos;// row and col
 		newPos.first += i;
 		newPos.second += j;
 		int id = getTileAt(newPos);
 		if (id == -1) continue;
-		if (!gettrans && map[id].isTrans())  continue;
-		tiles.push_back(map[id].getHitbox());
+		if (!gettrans && map[id]->isTrans())  continue;
+		tiles.push_back(map[id]->getHitbox());
 	}
 
 	return tiles;
 }
 
 void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel) {
-	//std::vector <std::unique_ptr<Collectable>> newProps;
-	//for (auto& p : props) {
-	//	p->update(deltaTime);
-	//	if (p->isCollideWithPlayer(playerPos, playerSize))
-	//		p->applyEffect();
-	//	else
-	//		newProps.push_back(std::move(p));
-	//}
 
-	//props.clear();
-
-	//for (auto& p : newProps)
-	//	props.push_back(std::move(p));
+	std::vector <Tile*> alive;
+	for (auto t : map) if (!t->isDead()) {
+		alive.push_back(t);
+		t->update(deltaTime);
+	}
+	map = alive;
 
 	resetPlayer(ppos, psize, pvel);
 	myEntities.setUpdatePivot(ppos);
-
-	//for (auto& bt : breakableTiles) {
-	//	bt->update(deltaTime);
-	//}
-
 	myEntities.updateAll(deltaTime);
+	myEntities.filter();
+
 }
 
 void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel) {
@@ -145,3 +149,22 @@ std::pair <int, int> Map::toMap(sf::Vector2f pos) {
 std::vector <Entity*> Map::getNearEntity(Entity* en) {
 	return myEntities.getNearEntity(en);
 }
+
+std::vector <Entity*> Map::getNearPointerTiles(sf::Vector2f pos, bool gettrans) {
+	std::vector <Entity*> tiles;
+
+	std::pair <int, int> currentPos = toMap(pos);// row and col
+
+	for (int i = -3; i <= 3; i++) for (int j = -3; j <= 3; j++) {
+		std::pair <int, int> newPos = currentPos;// row and col
+		newPos.first += i;
+		newPos.second += j;
+		int id = getTileAt(newPos);
+		if (id == -1) continue;
+		if (!gettrans && map[id]->isTrans())  continue;
+		tiles.push_back(map[id]);
+	}
+
+	return tiles;
+}
+

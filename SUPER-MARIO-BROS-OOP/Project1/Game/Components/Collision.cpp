@@ -178,7 +178,7 @@ dir Collision::dirDynamicRectVsRect(const rect& rDynamic, const float fTimeStep,
 	return getDir(rd.contact);
 }
 
-dir Collision::dynamicRectVsRect(Hitbox dynamicRect, const float fTimeStep, const vt& vel, Hitbox staticRect) {
+dir Collision::dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeStep, const vt& vel, const Hitbox& staticRect) {
 	
 	rect dRect = {
 		dynamicRect.pos,
