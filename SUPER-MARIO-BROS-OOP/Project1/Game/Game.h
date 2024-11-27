@@ -11,6 +11,7 @@
 #include "../Utils/SceneManager.h"
 #include "../Utils/SoundManager.h"
 #include "../Utils/FontManager.h"
+#include "../Game/GameConfig.h"
 
 #include "SceneList.h"
 
