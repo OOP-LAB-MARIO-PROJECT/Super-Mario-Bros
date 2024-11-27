@@ -17,12 +17,7 @@ class Player : public Actor
 	
 	ENTITY_TYPE currentType = PLAYER;
 	enum state {
-		RUN,
-		IDLE,
-		SLIDE,
-		JUMP,
-		DIE,
-		KILL,
+		RUN, IDLE, SLIDE, JUMP, DIE, KILL,
 	} currentState;
 	
 	int doesItKill = 0;

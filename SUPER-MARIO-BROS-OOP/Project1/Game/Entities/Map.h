@@ -74,7 +74,6 @@ public:
 		
 	// to map coordinate
 	std::pair <int, int> toMap(sf::Vector2f pos);
-
 };
 
 
