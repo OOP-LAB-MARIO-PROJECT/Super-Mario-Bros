@@ -8,7 +8,7 @@ private:
 	bool isUp = false;
 	int x = 0;
 	int y = 0;
-	WORLD world = WORLD::OVERWORLD;
+	float cameraBase = 0;
 
 public:
 	PipeHead(sf::Vector2f pos, sf::Vector2f size, bool isTrans, std::string properties, std::string type);

@@ -26,5 +26,6 @@ public:
 
     float volume;
     WORLD currentWorld = OVERWORLD;
+    float cameraBase = 192;
 };
 

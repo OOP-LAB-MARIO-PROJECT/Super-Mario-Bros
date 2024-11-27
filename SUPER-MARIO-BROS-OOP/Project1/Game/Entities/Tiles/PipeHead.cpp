@@ -20,7 +20,7 @@ PipeHead::PipeHead(sf::Vector2f pos, sf::Vector2f size, bool isTrans, std::strin
 	}
 
 	x = p[0], y = p[1];
-	world = (WORLD)p[2];
+	cameraBase = p[2];
 	
 }
 
@@ -36,6 +36,6 @@ void PipeHead::affectOther(Entity* other) {
 	)
 		if (isTele && other->getType() == PLAYER) {
 			other->setPos(sf::Vector2f(x, y));
-			GameConfig::getInstance().currentWorld = world;
+			GameConfig::getInstance().cameraBase = cameraBase;
 		}
 }
