@@ -7,9 +7,9 @@
 
 #include "../../Entities/Actors/Player.h"
 #include "../../Entities/Map.h"
-#include "Camera.h"
 
 #include "../../Control/Commands/PlayerMovement.h"
+#include "Camera.h"
 
 class GameScene : public Scene {
 

@@ -86,7 +86,6 @@ void Game::run() {
     sceneManager->update(deltatime);
 
     // Render
-    window->clear();
     sceneManager->render(); // Render the current scene
 
     window->display();

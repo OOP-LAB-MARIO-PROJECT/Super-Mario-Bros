@@ -1,4 +1,4 @@
-#include "Camera.h"
+﻿#include "Camera.h"
 
 Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) {
 	camera = w->getDefaultView();
