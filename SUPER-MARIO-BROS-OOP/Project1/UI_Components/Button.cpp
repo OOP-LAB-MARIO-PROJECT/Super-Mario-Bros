@@ -2,7 +2,7 @@
 
 
 Button::Button(const sf::Vector2f& size, const sf::Vector2f& position)
-    : shape(size), defaultColor(sf::Color::Magenta), hoverColor(sf::Color::Green), pressedColor(sf::Color::Red) {
+    : shape(size), defaultColor(sf::Color::Transparent), hoverColor(sf::Color::Transparent), pressedColor(sf::Color::Transparent) {
 	shape.setPosition(position);
     shape.setSize(size);
     shape.setFillColor(defaultColor); 
@@ -49,7 +49,7 @@ void Button::setText(const std::string& content, unsigned int textSize, const sf
 
     sf::FloatRect bounds = shape.getGlobalBounds();
     sf::FloatRect textBounds = text.getGlobalBounds();
-    text.setPosition(bounds.left + (bounds.width - textBounds.width) / 2.0f, bounds.top + (bounds.height - textBounds.height) / 2.0f - 5.0f);
+    text.setPosition((bounds.left + (bounds.width - textBounds.width) / 2.0f), bounds.top + (bounds.height - textBounds.height) / 2.0f - 5.0f);
 }
 
 
@@ -72,10 +72,11 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     if (isHovered) {
         shape.setFillColor(hoverColor); 
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+			text.setCharacterSize(text.getCharacterSize() + 5);
             isPressed = true;
-            shape.setFillColor(sf::Color::Magenta); 
         }
         else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+            text.setCharacterSize(text.getCharacterSize() - 5);
             if (isPressed && onClick) {
                 onClick(); 
             }
@@ -84,7 +85,7 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     }
     else {
         shape.setFillColor(defaultColor); 
-    }
+   }
 }
 
 
@@ -123,7 +124,7 @@ Button Button::createButton(
     float spriteX = (size.x / textureSize.x) * 2;
 	float spriteY = (size.y / textureSize.y) * 2;
     button.sprite->setScale( spriteX, spriteY);
-    button.sprite->setPosition(position.x - midX, position.y - midY - 10.0);
+    button.sprite->setPosition(position.x - midX, position.y - midY  - 50.0);
     button.setFont(*(FontManager::getInstance().getFont("Mario")));
     button.setText(content, textSize, textColor);
     button.setOnClick(onClickCallback); 

@@ -5,15 +5,15 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
 	float midScreenY = getWindow()->getSize().y / 2.0;
 	sf::Vector2f midCoordinate(midScreenX - 100, midScreenY - 50);
 	Button startGame = Button::createButton(sf::Vector2f(200, 100), midCoordinate, sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); }, "Start", 24, sf::Color::Black);
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); }, "start", 20, sf::Color::Black);
 	buttons.push_back(startGame);
 	
-	Button exit = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y - 250  ), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }, "Exit", 24, sf::Color::Black); //thay exit bằng hàm thoát game
+	Button exit = Button::createButton(sf::Vector2f(200, 90), sf::Vector2f(midCoordinate.x, midCoordinate.y - 200), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Exit); }, "exit", 20, sf::Color::Black); //thay exit bằng hàm thoát game
 	buttons.push_back(exit);
 
-	Button setting = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y + 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "Setting", 24, sf::Color::Black); //thay exit bằng hàm thoát game
+	Button setting = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "setting", 15, sf::Color::Black); //thay exit bằng hàm thoát game
 	buttons.push_back(setting);
 }
 
