@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../../Utils/TextureManager.h"
 #include "../../Utils/SceneManager.h"
+#include "../../Utils/SoundManager.h"
 #include "../GameConfig.h"
 
 enum ENTITY_TYPE {
