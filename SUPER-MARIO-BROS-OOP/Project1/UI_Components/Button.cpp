@@ -2,8 +2,9 @@
 
 
 Button::Button(const sf::Vector2f& size, const sf::Vector2f& position)
-    : shape(size), defaultColor(sf::Color::Blue), hoverColor(sf::Color::Green), pressedColor(sf::Color::Red) {
-    shape.setPosition(position);
+    : shape(size), defaultColor(sf::Color::Magenta), hoverColor(sf::Color::Green), pressedColor(sf::Color::Red) {
+	shape.setPosition(position);
+    shape.setSize(size);
     shape.setFillColor(defaultColor); 
 }
 
@@ -61,6 +62,7 @@ void Button::setOnClick(const std::function<void()>& callback) {
 }
 
 
+
 void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window) {
     
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
@@ -87,8 +89,12 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
 
 
 void Button::draw(sf::RenderWindow* window) {
+    window->draw(*sprite);
+   /* std::cout << "draw sprite\n";*/
     window->draw(shape);
+   /* std::cout << "draw shape\n";*/
     window->draw(text);
+    /*std::cout << "draw text\n";*/
 }
 
 Button Button::createButton(
@@ -102,8 +108,23 @@ Button Button::createButton(
     unsigned int textSize, 
     const sf::Color& textColor
     ) {
-    Button button(size, position); 
-    button.setFont(*(FontManager::getInstance().getFont("Roboto")));
+    Button button(size, position);
+
+    button.texture = std::make_shared<sf::Texture>();
+    if (button.texture->loadFromFile("UI_Components/UI_Texture_Pack/cloud.png"))
+    {
+        std::cout << "texture rendered" << std::endl;
+    }
+    button.sprite = std::make_shared<sf::Sprite>();
+    button.sprite->setTexture(*(button.texture));
+    float midX = size.x / 2.0;
+    float midY = size.y / 2.0;
+    sf::Vector2u textureSize = button.texture->getSize();
+    float spriteX = (size.x / textureSize.x) * 2;
+	float spriteY = (size.y / textureSize.y) * 2;
+    button.sprite->setScale( spriteX, spriteY);
+    button.sprite->setPosition(position.x - midX, position.y - midY - 10.0);
+    button.setFont(*(FontManager::getInstance().getFont("Mario")));
     button.setText(content, textSize, textColor);
     button.setOnClick(onClickCallback); 
     return button;

@@ -224,10 +224,15 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
+    <Font Include="Assets\Fonts\Font_Pack\mario.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />
     <Text Include="Assets\Sounds\sound_interface.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="UI_Components\UI_Texture_Pack\cat.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

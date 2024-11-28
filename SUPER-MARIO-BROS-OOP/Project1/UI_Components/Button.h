@@ -8,6 +8,8 @@
 class Button {
 private:
     sf::RectangleShape shape;
+    std::shared_ptr<sf::Texture> texture = nullptr;
+    std::shared_ptr<sf::Sprite> sprite = nullptr;
     sf::Text text;
     bool isPressed = false;
     bool isHovered = false;
