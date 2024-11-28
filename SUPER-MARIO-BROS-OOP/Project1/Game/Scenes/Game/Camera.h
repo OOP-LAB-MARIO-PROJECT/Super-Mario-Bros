@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include "../../GameConfig.h"
 
 
 class	Camera {
@@ -20,4 +21,5 @@ public:
 	void moveCamera(const float& x, const float& y);
 	void setCameraView(sf::RenderWindow* w);
 	void followPlayer(const float& x, const float& y, const float& w, const float& h);
+	void renderGameInfo(sf::RenderWindow& window, sf::Font& font, const GameConfig& config);
 };

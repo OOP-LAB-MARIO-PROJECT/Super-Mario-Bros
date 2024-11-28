@@ -42,6 +42,9 @@ void Game::start() {
     config.setVolume(75.0f);
     config.updateControl("MoveLeft", sf::Keyboard::Left); // Đổi phím di chuyển trái
 
+    sf::Vector2f playerInitialPosition(400.0f, 300.0f); // Replace with actual player position
+    camera = new Camera(window, playerInitialPosition);
+
     m_isRunning = true;
 };
 

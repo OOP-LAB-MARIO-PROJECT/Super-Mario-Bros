@@ -12,6 +12,7 @@
 #include "../Utils/SoundManager.h"
 #include "../Utils/FontManager.h"
 #include "../Game/GameConfig.h"
+#include "../Game/Scenes/Game/Camera.h"
 
 #include "SceneList.h"
 
@@ -25,6 +26,7 @@ private:
 	TextureManager* textureManager = nullptr;
 	SoundManager* soundManager = nullptr;
 	FontManager* fontManager = nullptr;
+	Camera* camera = nullptr;
 	bool m_isRunning = false;
 
 public:
