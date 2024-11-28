@@ -237,6 +237,7 @@
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />
     <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\pipe.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,6 +9,9 @@ class HomeScene : public Scene
 	Animation marioAnimation;
     std::shared_ptr<sf::Texture> marioTexture = nullptr;
 	std::shared_ptr<sf::Sprite> marioSprite = nullptr;
+	std::shared_ptr<sf::Texture> pipeTexture = nullptr;
+	std::shared_ptr<sf::Sprite> pipeSprite = nullptr;
+
 public:
     HomeScene(sf::RenderWindow* window);
     ~HomeScene() {

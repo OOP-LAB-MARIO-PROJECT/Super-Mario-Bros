@@ -278,6 +278,9 @@
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\pipe.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />

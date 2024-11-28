@@ -29,6 +29,19 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window)
 	marioSprite = std::make_shared<sf::Sprite>();
 	marioSprite->setTexture(*marioTexture);
 	marioAnimation = Animation(marioTexture, sf::Vector2u(5, 2), 0.1);
+
+	pipeTexture = std::make_shared<sf::Texture>();
+	pipeSprite = std::make_shared<sf::Sprite>();
+	if (pipeTexture->loadFromFile("UI_Components/UI_Texture_Pack/pipe.png"))
+	{
+		std::cout << "Load pipe texture successfully" << std::endl;
+	}
+	else
+	{
+		std::cout << "Load pipe texture failed" << std::endl;
+	}
+	pipeSprite->setTexture(*pipeTexture);
+	//pipeSprite->setPosition();
 }
 
 
@@ -62,9 +75,11 @@ void HomeScene::drawMenu()
 void HomeScene::render(float deltatime)
 {
 	marioAnimation.renderGif(0, deltatime);
+
 	marioSprite->setTextureRect(marioAnimation.rect);
 	sf::Vector2f bottomLeft(0, getWindow()->getSize().y - marioAnimation.rect.height);
 	marioSprite->setPosition(bottomLeft);
+	marioSprite->setScale(0.5, 0.5);
 	drawMenu();
 	loopEvents();
 }

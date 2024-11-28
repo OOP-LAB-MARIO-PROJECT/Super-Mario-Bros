@@ -120,7 +120,7 @@ Button Button::createButton(
     sf::Vector2u textureSize = button.texture->getSize();
     float spriteX = (size.x / textureSize.x) * 2;
 	float spriteY = (size.y / textureSize.y) * 2;
-    button.sprite->setScale( spriteX, spriteY);
+    button.sprite->setScale(spriteX, spriteY);
     button.sprite->setPosition(position.x - midX, position.y - midY  - 50.0);
     button.setFont(*(FontManager::getInstance().getFont("Mario")));
     button.setText(content, textSize, textColor);
