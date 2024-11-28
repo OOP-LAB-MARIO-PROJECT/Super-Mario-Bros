@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="UI_Components\Animation.cpp" />
     <ClCompile Include="Game\Control\Commands\PlayerMovement.cpp" />
     <ClCompile Include="Game\Control\KeyExecute.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\Enemy.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="Utils\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="UI_Components\Animation.h" />
     <ClInclude Include="Game\Control\Commands\PlayerMovement.h" />
     <ClInclude Include="Game\Control\KeyExecute.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\Enemy.h" />
@@ -231,7 +233,6 @@
     <Text Include="Assets\Sounds\sound_interface.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\LENOVO\Downloads\MarioSpriteSheet.png" />
     <Image Include="UI_Components\UI_Texture_Pack\cat.png" />
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />

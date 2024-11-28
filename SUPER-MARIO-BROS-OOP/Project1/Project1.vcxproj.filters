@@ -132,6 +132,9 @@
     <ClCompile Include="Utils\FontManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UI_Components\Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game.h">
@@ -254,6 +257,9 @@
     <ClInclude Include="Utils\FontManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Components\Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
@@ -270,9 +276,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="C:\Users\LENOVO\Downloads\MarioSpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
