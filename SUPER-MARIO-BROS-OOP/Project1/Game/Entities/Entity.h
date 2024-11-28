@@ -20,7 +20,8 @@ enum ENTITY_TYPE {
 	BROWN_MUSHROOM,
 	PIPE_HEAD_TELE,
 	PIPE_HEAD,
-	COIN
+	COIN,
+	DOOR
 };
 
 struct Hitbox {

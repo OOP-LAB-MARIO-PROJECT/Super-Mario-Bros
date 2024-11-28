@@ -94,7 +94,6 @@ void Player::update(float deltatime) {
 		float curDist = 1e9;
 		Entity* cur = NULL;
 		sf::Vector2f pcenter = getPos() + getSize() / 2.f;
-		std::cout << other.size() << '\n';
 		for (const auto& tile : other) {
 			Hitbox tmp = getHitbox();
 			if (isOnGround) tmp.vel.y = 1;

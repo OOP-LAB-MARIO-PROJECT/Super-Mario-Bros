@@ -59,3 +59,10 @@ std::vector <Entity*>& EntityManager::getEntities() {
 	// Container to store entities
 	return entities;
 }
+
+void EntityManager::clear() {
+	// clear out entities
+	for (auto x : entities)
+		delete x;
+	entities.clear();
+}

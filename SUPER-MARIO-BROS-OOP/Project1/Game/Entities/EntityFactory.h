@@ -3,6 +3,15 @@
 #include <string>
 #include <vector>
 
+static std::string findProperties(std::string& s)  {
+	size_t delimiterPos = s.find('#');
+	if (delimiterPos == std::string::npos) {
+		return "";
+	}
+	std::string properties = s.substr(delimiterPos + 1);
+	s = s.substr(0, delimiterPos);
+	return properties;
+}
 namespace FACTORY_ENTITY_TYPE {
 
 	static std::vector <std::string> enemies = {
@@ -14,7 +23,8 @@ namespace FACTORY_ENTITY_TYPE {
 		"red-mushroom",
 		"green-mushroom",
 		"brown-mushroom",
-		"coin"
+		"coin",
+		"castle-door"
 	};
 
 	static bool isEnemy(const std::string& type) {
@@ -26,12 +36,15 @@ namespace FACTORY_ENTITY_TYPE {
 	}
 
 	static bool isEntityNotTile(const std::string& type) {
-		return isEnemy(type) || isCollectable(type);
+		std::string tmp = type;
+		findProperties(tmp);
+		return isEnemy(tmp) || isCollectable(tmp);
 	}
 
 };
 
+
 class EntityFactory {
 public:
-	Entity* createEntity(const std::string& type, sf::Vector2f pos, sf::Vector2f size);
+	Entity* createEntity(std::string type, sf::Vector2f pos, sf::Vector2f size);
 };

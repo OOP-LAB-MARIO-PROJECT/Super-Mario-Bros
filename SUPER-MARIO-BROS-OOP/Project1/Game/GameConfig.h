@@ -3,13 +3,27 @@
 #include <SFML/Graphics.hpp>
 
 
+// Glolbal configuration for Game -> every file can get infomation from this
+
 enum WORLD {
     OVERWORLD,
     UNDERGROUND
 };
 
+enum MARIO_STATE {
+    BIG,
+    SMALL,
+    WHITE_BIG,
+    INVINCIBLE
+};
 
-// Glolbal configuration for Game -> not implement
+enum LEVEL_STATUS {
+    PLAYING,
+    RESTART,
+    NEXT_LEVEL,
+    IDLE
+};
+
 class GameConfig {
 
     GameConfig() = default;
@@ -24,18 +38,23 @@ public:
         return instance;
     }
 
+    // Game status
+    
     WORLD currentWorld = OVERWORLD;
+    MARIO_STATE marioState = SMALL;
+    LEVEL_STATUS levelStatus = PLAYING;
     float cameraBase = 192;
 
     // Configurations
-    float volume = 100.0f; // Default volume (0-100)
+    std::map<std::string, std::string> mapList;
+    std::map<std::string, sf::Keyboard::Key> controls;
     std::string playerName = "Player"; // Default player name
     std::string currentLevel = "Level 1"; // Current level name
+    float volume = 100.0f; // Default volume (0-100)
+    int timeLeft = 300; // Remaining time in seconds
     int score = 0; // Player's score
     int coins = 0; // Number of coins collected
-    int timeLeft = 300; // Remaining time in seconds
     
-    std::map<std::string, sf::Keyboard::Key> controls;
     // Methods
     void setVolume(float newVolume);
     void toggleVolume();

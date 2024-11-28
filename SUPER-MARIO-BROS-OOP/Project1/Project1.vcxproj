@@ -144,6 +144,7 @@
     <ClCompile Include="Game\Control\KeyExecute.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\Enemy.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\Goompa.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Prop\CastleGate.cpp" />
     <ClCompile Include="Game\Entities\Actors\Prop\Coin.cpp" />
     <ClCompile Include="Game\Entities\Actors\Prop\Mushroom.cpp" />
     <ClCompile Include="Game\Entities\Actors\Prop\Collectable.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Game\Control\KeyExecute.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\Enemy.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\Goompa.h" />
+    <ClInclude Include="Game\Entities\Actors\Prop\CastleGate.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Coin.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Mushroom.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Collectable.h" />

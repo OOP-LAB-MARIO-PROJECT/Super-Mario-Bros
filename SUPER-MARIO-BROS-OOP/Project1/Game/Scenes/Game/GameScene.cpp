@@ -1,16 +1,84 @@
 #include "GameScene.h"
+#include <fstream>
+#include <exception>
 
 GameScene::~GameScene() {
 	delete player;
 	delete gameMap;
 	delete camera;
+
+}
+
+void GameScene::loadMapList() {
+	const std::string& mapList = "Assets/Map/map_interface.txt";
+
+	std::ifstream fin(mapList);
+	if (!fin.is_open()) {
+		throw std::exception("Cannot open maplist\n");
+	}
+
+	std::string mapName, mapPath;
+	while (fin >> mapName >> mapPath) {
+		levelMap[mapName] = mapPath;
+	}
+
+	currentLevel = "map-1-1";
+	GameConfig::getInstance().setCurrentLevel(currentLevel);
+
+	fin.close();
+}
+
+
+void GameScene::nextLevel(std::string level) {
+	EntityManager::getInstance().clear();
+
+	GameConfig::getInstance().timeLeft = 300;
+	GameConfig::getInstance().setCurrentLevel(level);
+	std::cout << "move to " << level << '\n';
+	currentLevel = level;
+	delete gameMap;
+	gameMap = new Map();
+	gameMap->loadMap(levelMap[currentLevel], player);
+}
+
+void GameScene::retrieveLevelStatus() {
+	LEVEL_STATUS& status = GameConfig::getInstance().levelStatus;
+	if (status == PLAYING) return;
+
+	if (status == RESTART) {
+		status = PLAYING;
+		restartLevel();
+		return;
+	}
+
+	if (status = NEXT_LEVEL) {
+		status = PLAYING;
+		nextLevel(GameConfig::getInstance().currentLevel);
+	}
+}
+
+
+void GameScene::restartLevel() {
+	EntityManager::getInstance().clear();
+
+	GameConfig::getInstance().marioState = SMALL;
+	GameConfig::getInstance().coins = 0;
+	GameConfig::getInstance().score = 0;
+	GameConfig::getInstance().timeLeft = 300;
+
+	delete gameMap;
+	gameMap = new Map();
+	gameMap->loadMap(levelMap[currentLevel], player);
 }
 
 GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	// INITIALIZE 
+	
+	loadMapList();
+
 	player = new Player(sf::Vector2f(50, 50), sf::Vector2f(14, 14));
-	gameMap = new Map();
-	gameMap->loadMap("Assets/Map/map.tsx", player);
+	restartLevel();
+
 	std::cout << gameMap->getPlayerPos().x << ' ' << gameMap->getPlayerPos().y << "\n";
 	camera = new Camera(window, gameMap->getPlayerPos());
 
@@ -21,12 +89,10 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myKeyExecute.addCommand(sf::Keyboard::W, myCommand.getCommand("jump"));
 	myKeyExecute.addCommand(sf::Keyboard::A, myCommand.getCommand("moveLeft"));
 	myKeyExecute.addCommand(sf::Keyboard::D, myCommand.getCommand("moveRight"));
-
 }
 
 
 void GameScene::update(float deltatime) {
-
 	sf::Event event;
 	while (getWindow()->pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
@@ -34,6 +100,7 @@ void GameScene::update(float deltatime) {
 			getWindow()->close();
 		}
 	}
+
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 
@@ -51,4 +118,8 @@ void GameScene::update(float deltatime) {
 	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance());
 
 	EntityManager::getInstance().filter();
+
+
+	// check for level
+	retrieveLevelStatus();
 }

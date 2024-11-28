@@ -32,6 +32,7 @@ void GameConfig::setPlayerName(const std::string& name) {
 void GameConfig::setCurrentLevel(const std::string& level) {
     if (!level.empty()) {
         currentLevel = level;
+        std::cout << "cur lev" << ' ' << level << '\n';
     }
     else {
         std::cerr << "Level name cannot be empty.\n";

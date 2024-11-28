@@ -21,9 +21,17 @@ class GameScene : public Scene {
 	CommandManager myCommand;
 	KeyExecute myKeyExecute;
 
+	std::map <std::string, std::string> levelMap;
+	std::string currentLevel;
+
 public:
 
 	GameScene(sf::RenderWindow* window);
 	~GameScene();
+
 	void update(float deltatime) override;
+	void nextLevel(std::string level);
+	void retrieveLevelStatus();
+	void restartLevel();
+	void loadMapList();
 };

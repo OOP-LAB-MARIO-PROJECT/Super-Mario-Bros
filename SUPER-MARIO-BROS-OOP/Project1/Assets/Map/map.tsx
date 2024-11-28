@@ -44,6 +44,9 @@
  <tile id="1876" type="block4"/>
  <tile id="1877" type="block4"/>
  <tile id="1886" type="flag-body-1"/>
+ <tile id="1891" type="castle1"/>
+ <tile id="1892" type="castle1"/>
+ <tile id="1893" type="castle1"/>
  <tile id="1915" type="question"/>
  <tile id="1919" type="block2"/>
  <tile id="1920" type="question"/>
@@ -82,6 +85,9 @@
  <tile id="2087" type="block4"/>
  <tile id="2088" type="block4"/>
  <tile id="2097" type="flag-body-1"/>
+ <tile id="2102" type="castle-window-left"/>
+ <tile id="2103" type="block3"/>
+ <tile id="2104" type="castle-window-right"/>
  <tile id="2148" type="pipe-up-head-left"/>
  <tile id="2149" type="pipe-up-head-right"/>
  <tile id="2156" type="pipe-up-body-left"/>
@@ -105,6 +111,11 @@
  <tile id="2298" type="block4"/>
  <tile id="2299" type="block4"/>
  <tile id="2308" type="flag-body-1"/>
+ <tile id="2312" type="castle1"/>
+ <tile id="2313" type="castle3"/>
+ <tile id="2314" type="castle3"/>
+ <tile id="2315" type="castle3"/>
+ <tile id="2316" type="castle1"/>
  <tile id="2327" type="player_pos"/>
  <tile id="2349" type="pipe-up-head-left"/>
  <tile id="2350" type="pipe-up-head-right"/>
@@ -140,10 +151,11 @@
  <tile id="2509" type="block4"/>
  <tile id="2510" type="block4"/>
  <tile id="2519" type="flag-body-1"/>
- <tile id="2523" type="block2"/>
- <tile id="2524" type="block2"/>
- <tile id="2526" type="block2"/>
- <tile id="2527" type="block2"/>
+ <tile id="2523" type="block3#trans"/>
+ <tile id="2524" type="block3#trans"/>
+ <tile id="2525" type="castle-arch"/>
+ <tile id="2526" type="block3#trans"/>
+ <tile id="2527" type="block3#trans"/>
  <tile id="2560" type="pipe-up-body-left"/>
  <tile id="2561" type="pipe-up-body-right"/>
  <tile id="2564" type="goompa"/>
@@ -185,10 +197,11 @@
  <tile id="2720" type="block4"/>
  <tile id="2721" type="block4"/>
  <tile id="2730" type="block4"/>
- <tile id="2734" type="block2"/>
- <tile id="2735" type="block2"/>
- <tile id="2737" type="block2"/>
- <tile id="2738" type="block2"/>
+ <tile id="2734" type="block3#trans"/>
+ <tile id="2735" type="block3#trans"/>
+ <tile id="2736" type="castle-door#map-1-2"/>
+ <tile id="2737" type="block3#trans"/>
+ <tile id="2738" type="block3#trans"/>
  <tile id="2743" type="block1"/>
  <tile id="2744" type="block1"/>
  <tile id="2745" type="block1"/>

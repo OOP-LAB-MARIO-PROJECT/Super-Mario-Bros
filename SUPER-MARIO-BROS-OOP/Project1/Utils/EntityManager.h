@@ -38,4 +38,6 @@ public:
     std::vector<Entity*> getNearEntity(Entity* en, float radius = 500);
 
     void filter(); // filter out dead entities
+    void clear(); // clear out entities
+
 };

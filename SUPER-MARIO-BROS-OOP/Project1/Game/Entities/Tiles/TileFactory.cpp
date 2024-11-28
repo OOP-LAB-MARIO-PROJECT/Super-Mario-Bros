@@ -37,7 +37,11 @@ Tile* TileFactory::createTile(std::string type, sf::Vector2f pos, sf::Vector2f s
 	}
 
 	if (TILETYPE::isNormalPlatform(type)) {
-		Tile* r = new Tile(pos, size, false);
+		Tile* r = NULL;
+		if (properties == "trans")
+			r = new Tile(pos, size, true);
+		else
+			r = new Tile(pos, size, false);
 		r->setTexture("tiles", type + "-0");
 		r->setRenderSprite(true);
 		r->setRenderHitbox(false);

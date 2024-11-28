@@ -404,6 +404,10 @@
  <tile id="3838" type="block-underground-2"/>
  <tile id="3839" type="block-underground-2"/>
  <tile id="3840" type="block-underground-2"/>
+ <tile id="3881" type="coin"/>
+ <tile id="3882" type="coin"/>
+ <tile id="3883" type="coin"/>
+ <tile id="3884" type="coin"/>
  <tile id="3892" type="block-underground-2"/>
  <tile id="3893" type="block-underground-2"/>
  <tile id="3902" type="block-underground-2"/>
@@ -411,6 +415,12 @@
  <tile id="3907" type="block-underground-2"/>
  <tile id="3912" type="block-underground-2"/>
  <tile id="3913" type="block-underground-2"/>
+ <tile id="3924" type="coin"/>
+ <tile id="3925" type="coin"/>
+ <tile id="3926" type="coin"/>
+ <tile id="3927" type="coin"/>
+ <tile id="3928" type="coin"/>
+ <tile id="3929" type="coin"/>
  <tile id="4008" type="pipe-up-body-left"/>
  <tile id="4009" type="pipe-up-body-right"/>
  <tile id="4010" type="block-underground-2"/>
@@ -475,14 +485,21 @@
  <tile id="4416" type="block-underground-2"/>
  <tile id="4445" type="block-underground-2"/>
  <tile id="4455" type="block-underground-2"/>
+ <tile id="4456" type="coin"/>
  <tile id="4457" type="block-underground-2"/>
  <tile id="4460" type="block-underground-2"/>
+ <tile id="4461" type="coin"/>
  <tile id="4462" type="block-underground-2"/>
  <tile id="4468" type="block-underground-2"/>
  <tile id="4469" type="block-underground-2"/>
+ <tile id="4474" type="coin"/>
+ <tile id="4475" type="coin"/>
+ <tile id="4476" type="coin"/>
+ <tile id="4477" type="coin"/>
  <tile id="4478" type="block-underground-2"/>
  <tile id="4479" type="block-underground-2"/>
  <tile id="4483" type="block-underground-2"/>
+ <tile id="4484" type="coin"/>
  <tile id="4485" type="block-underground-2"/>
  <tile id="4488" type="block-underground-2"/>
  <tile id="4489" type="block-underground-2"/>
@@ -1099,6 +1116,14 @@
  <tile id="7214" type="block-underground-2"/>
  <tile id="7215" type="pipe-up-body-left"/>
  <tile id="7392" type="block-underground-2"/>
+ <tile id="7396" type="coin"/>
+ <tile id="7397" type="coin"/>
+ <tile id="7398" type="coin"/>
+ <tile id="7399" type="coin"/>
+ <tile id="7400" type="coin"/>
+ <tile id="7401" type="coin"/>
+ <tile id="7402" type="coin"/>
+ <tile id="7403" type="coin"/>
  <tile id="7405" type="block-underground-2"/>
  <tile id="7406" type="block-underground-2"/>
  <tile id="7407" type="pipe-up-body-left"/>
@@ -1125,6 +1150,15 @@
  <tile id="7982" type="pipe-side-body-up"/>
  <tile id="7983" type="pipe-side-tail-up"/>
  <tile id="8160" type="block-underground-2"/>
+ <tile id="8163" type="coin"/>
+ <tile id="8164" type="coin"/>
+ <tile id="8165" type="coin"/>
+ <tile id="8166" type="coin"/>
+ <tile id="8167" type="coin"/>
+ <tile id="8168" type="coin"/>
+ <tile id="8169" type="coin"/>
+ <tile id="8170" type="coin"/>
+ <tile id="8171" type="coin"/>
  <tile id="8173" type="pipe-side-head-bottom#1856;400;432"/>
  <tile id="8174" type="pipe-side-body-bottom"/>
  <tile id="8175" type="pipe-side-tail-bottom"/>

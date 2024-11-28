@@ -46,7 +46,13 @@ namespace TILETYPE {
 		"flag-2",
 		"flag-3",
 		"flag-4",
-		"flag-body-1"
+		"flag-body-1",
+		"castle1",
+		"castle2",
+		"castle3",
+		"castle-arch",
+		"castle-window-right",
+		"castle-window-left"
 	};
 
 	static bool isNormalPlatform(std::string name) {
