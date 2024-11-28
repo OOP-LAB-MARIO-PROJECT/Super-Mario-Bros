@@ -46,4 +46,7 @@ void GameScene::update(float deltatime) {
 
 	player->render(getWindow());
 	gameMap->render(getWindow());
+	if (FontManager::getInstance().getFont("Roboto").get() == nullptr)
+		std::cout << "cannot getfont in game\n";
+	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance());
 }

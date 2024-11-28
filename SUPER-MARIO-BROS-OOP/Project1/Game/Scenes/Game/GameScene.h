@@ -3,6 +3,7 @@
 #include "../../../Utils/SceneManager.h"
 #include "../../../Utils/TextureManager.h"
 #include "../../../Utils/EntityManager.h"
+#include "../../../Utils/FontManager.h"
 #include "../../Control/CommandManager.h"
 #include "../../Control/KeyExecute.h"
 
