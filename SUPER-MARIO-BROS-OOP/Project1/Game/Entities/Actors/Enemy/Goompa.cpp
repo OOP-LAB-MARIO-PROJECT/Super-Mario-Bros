@@ -3,7 +3,10 @@
 
 Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
 	isRenderHitbox = true;
+	//isRenderSprite = true;
 	facing = 1;
+
+
 }
 
 void Goompa::update(float deltatime) {

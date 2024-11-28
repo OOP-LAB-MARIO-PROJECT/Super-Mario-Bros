@@ -21,9 +21,9 @@ class Collectable : public Actor
 {
 protected:
 	int facing = 1;
-
+	
 public:
-
+	int score = 0;
 	Collectable(sf::Vector2f _pos, sf::Vector2f _size);
 
 	virtual void update(float deltatime) override = 0;

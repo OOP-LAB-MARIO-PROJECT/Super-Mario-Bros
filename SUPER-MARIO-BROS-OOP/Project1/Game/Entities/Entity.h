@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../../Utils/TextureManager.h"
 #include "../../Utils/SceneManager.h"
+#include "../GameConfig.h"
 
 enum ENTITY_TYPE {
 	PROJECTILE,
@@ -17,7 +18,8 @@ enum ENTITY_TYPE {
 	GREEN_MUSHROOM,
 	BROWN_MUSHROOM,
 	PIPE_HEAD_TELE,
-	PIPE_HEAD
+	PIPE_HEAD,
+	COIN
 };
 
 struct Hitbox {

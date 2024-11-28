@@ -1,9 +1,10 @@
 #include "Mushroom.h"
 
-RedMushroom::RedMushroom(sf::Vector2f _pos, sf::Vector2f _size) : Collectable(_pos, _size) {
+RedMushroom::RedMushroom(sf::Vector2f _pos, sf::Vector2f _size) : Collectable(_pos, sf::Vector2f(14, 16)) {
 	isRenderHitbox = false;
 	isRenderSprite = true;
 	setTexture("item-object", "red-mushroom-0");
+	score = 200;
 }
 
 ENTITY_TYPE RedMushroom::getType() {
@@ -45,6 +46,11 @@ void RedMushroom::update(float deltatime) {
 }
 
 void RedMushroom::behavior(float detatime) {
+}
+
+void RedMushroom::touched(float detatime) {
+	kill();
+	GameConfig::getInstance().addScore(score);
 }
 
 

@@ -21,7 +21,7 @@ PipeHead::PipeHead(sf::Vector2f pos, sf::Vector2f size, bool isTrans, std::strin
 
 	x = p[0], y = p[1];
 	cameraBase = p[2];
-	
+	std::cout << cameraBase << '\n';
 }
 
 ENTITY_TYPE PipeHead::getType() {

@@ -77,12 +77,16 @@ void Player::update(float deltatime) {
 	std::vector <Entity*> other = otherEntities;
 
 	for (const auto& en : other) { // player interact with surrounding enemies
+		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
+		if (dir == -1) continue;
 		if (en->getType() == ENEMY) {
 
-			int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel(), en->getHitbox());
 			// if the contact direction is on top of enemy player will inflict a damage
 			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), currentState = KILL;
+			continue;
 		}
+		
+		en->touched(deltatime);
 	}
 
 	other = nearPointerTiles;

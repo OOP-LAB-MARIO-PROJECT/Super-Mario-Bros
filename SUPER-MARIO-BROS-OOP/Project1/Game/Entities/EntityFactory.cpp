@@ -14,6 +14,10 @@ Entity* EntityFactory::createEntity(const std::string& type, sf::Vector2f pos, s
 		 return new RedMushroom(pos, size);
 	 }
 
+	 if (type == "coin") {
+		 return new Coin(pos, size);
+	 }
+
 
 	 //return new Goompa(pos, size, map);
 	 return NULL;
