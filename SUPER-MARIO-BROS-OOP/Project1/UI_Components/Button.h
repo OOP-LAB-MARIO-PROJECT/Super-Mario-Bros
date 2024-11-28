@@ -44,5 +44,6 @@ public:
         const sf::Color& textColor
     );
     bool isButtonPressed();
+	bool beingHovered();
 };
 

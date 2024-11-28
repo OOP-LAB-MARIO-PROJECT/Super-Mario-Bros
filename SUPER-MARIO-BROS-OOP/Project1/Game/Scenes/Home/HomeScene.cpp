@@ -15,6 +15,21 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window) {
 	Button setting = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "setting", 15, sf::Color::Black); //thay exit bằng hàm thoát game
 	buttons.push_back(setting);
+
+	idleMarioTexture.loadFromFile("UI_Components/UI_Texture_Pack/IdleMario.png");
+	idleMario.setTexture(idleMarioTexture);
+
+	sf::FloatRect idleMarioCoord = idleMario.getGlobalBounds();
+	sf::Vector2u windowCoord = getWindow()->getSize();
+
+	float bottomRightX = windowCoord.x - idleMarioCoord.width;
+	float bottomRightY = windowCoord.y - idleMarioCoord.height;
+	idleMario.setPosition(bottomRightX, bottomRightY);
+	getWindow()->draw(idleMario);
+
+	hoveredMarioTexture.loadFromFile("UI_Components/UI_Texture_Pack/HoveredMario.png");
+	hoveredMario.setTexture(hoveredMarioTexture);
+	hoveredMario.setPosition(bottomRightX, bottomRightY);
 }
 
 
@@ -27,8 +42,14 @@ void HomeScene::loopEvents()
 		{
 			getWindow()->close();
 		}
+
+		isMarioHovered = false;
 		for (int i = 0; i < buttons.size(); i++)
 		{
+			if (buttons[i].beingHovered())
+			{
+				isMarioHovered = true;
+			}
 			buttons[i].handleEvent(event, *getWindow());
 		}
 	}
@@ -41,10 +62,18 @@ void HomeScene::drawMenu()
 	for (int i = 0; i < buttons.size(); i++)
 	{
 		buttons[i].draw(getWindow());
-		std::cout << "draw option" << i + 1;
 	}
-	//std::cout << "total options: " << buttons.size() << '\n';
+
+	if (isMarioHovered)
+	{
+		getWindow()->draw(hoveredMario);
+	}
+	else
+	{
+		getWindow()->draw(idleMario);
+	}
 }
+
 
 void HomeScene::update(float deltatime) {
 	drawMenu();             // Draw buttons

@@ -53,22 +53,19 @@ void Button::setText(const std::string& content, unsigned int textSize, const sf
 }
 
 
-
-
-
-
 void Button::setOnClick(const std::function<void()>& callback) {
     onClick = callback;
 }
 
-
+bool Button::beingHovered()
+{
+	return isHovered;
+}
 
 void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window) {
     
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     isHovered = shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos));
-
-    
     if (isHovered) {
         shape.setFillColor(hoverColor); 
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {

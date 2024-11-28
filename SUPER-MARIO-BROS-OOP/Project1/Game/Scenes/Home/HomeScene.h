@@ -6,6 +6,11 @@
 class HomeScene : public Scene
 {
     std::vector<Button> buttons;
+    sf::Sprite hoveredMario;
+    sf::Texture hoveredMarioTexture;
+    sf::Sprite idleMario;
+    sf::Texture idleMarioTexture;
+	bool isMarioHovered = false;    
 public:
     HomeScene(sf::RenderWindow* window);
     ~HomeScene() {
