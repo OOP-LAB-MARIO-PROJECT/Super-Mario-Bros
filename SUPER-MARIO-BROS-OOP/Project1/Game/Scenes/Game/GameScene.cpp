@@ -10,8 +10,8 @@ GameScene::~GameScene() {
 }
 
 void GameScene::loadMapList() {
+	// load map from txt file
 	const std::string& mapList = "Assets/Map/map_interface.txt";
-
 	std::ifstream fin(mapList);
 	if (!fin.is_open()) {
 		throw std::exception("Cannot open maplist\n");
