@@ -69,6 +69,10 @@ void MovingPlatform::update(float deltatime) {
 		pHitbox.pos.y -= contactLen;
 		player->setPos(pHitbox.pos);
 	}
+	std::cout << "asdfasdf\n";
+	pHitbox = player->getHitbox();
+	pHitbox.vel.x += this->getHitbox().vel.x;
+	player->setVel(pHitbox.vel);
 }
 
 void MovingPlatform::affectOther(Entity* other, float deltatime) {
@@ -83,5 +87,6 @@ ENTITY_TYPE MovingPlatform::getType() {
 }
 
 Hitbox MovingPlatform::getHitbox() {
+	hitbox.vel = vel;
 	return hitbox;
 }
