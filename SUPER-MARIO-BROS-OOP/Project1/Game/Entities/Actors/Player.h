@@ -34,7 +34,7 @@ public:
 	void setState(const std::string& stateName) override;
 	void update(float deltatime) override;
 	void inflictDamage() override;
-	
+	void setPos(sf::Vector2f pos) override;
 	void jump(float deltatime);
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);

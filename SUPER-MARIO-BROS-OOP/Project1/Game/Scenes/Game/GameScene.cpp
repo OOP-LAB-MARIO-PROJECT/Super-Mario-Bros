@@ -22,7 +22,7 @@ void GameScene::loadMapList() {
 		levelMap[mapName] = mapPath;
 	}
 
-	currentLevel = "map-1-1";
+	currentLevel = "map-1-2";
 	GameConfig::getInstance().setCurrentLevel(currentLevel);
 
 	fin.close();
@@ -104,8 +104,8 @@ void GameScene::update(float deltatime) {
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 
-	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 	player->update(deltatime);
+	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());

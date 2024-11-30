@@ -50,14 +50,30 @@ void MovingPlatform::update(float deltatime) {
 		setPos(start);
 
 	}
+
 	hitbox.pos = getPos();
+
+	if (player == NULL) return;
+	Hitbox pHitbox = player->getHitbox();
+
+	Collision::rect this_rect = { this->getHitbox().pos, this->getHitbox().size };
+	Collision::rect player_rect = { player->getHitbox().pos, player->getHitbox().size };
+
+	if (!rectVsRect(this_rect, player_rect)) return;
+
+	if (pHitbox.pos.y + pHitbox.size.y >= this->getHitbox().pos.y) {
+		float contactLen = pHitbox.pos.y + pHitbox.size.y - this->getHitbox().pos.y;
+		sf::Vector2f newVel = player->getHitbox().vel;
+		newVel.y = contactLen;
+		player->setVel(newVel);
+		pHitbox.pos.y -= contactLen;
+		player->setPos(pHitbox.pos);
+	}
 }
 
-void MovingPlatform::affectOther(Entity* other) {
-	sf::Vector2f pos = other->getHitbox().pos;
-	sf::Vector2f size = other->getHitbox().size;
-	sf::Vector2f vel = other->getHitbox().vel;
-
+void MovingPlatform::affectOther(Entity* other, float deltatime) {
+	if (other->getType() != PLAYER) return;
+	player = other;
 }
 
 ENTITY_TYPE MovingPlatform::getType() {

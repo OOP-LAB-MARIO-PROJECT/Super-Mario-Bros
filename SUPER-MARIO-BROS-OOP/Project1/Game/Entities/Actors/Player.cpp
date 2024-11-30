@@ -34,33 +34,6 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 
 	std::vector<std::vector<std::string>> deadTexture = { { "left-small-mario-8" }, {"right-small-mario-5"} };
 	stateCache["DEAD"] = std::make_shared<DeadState>("mario", deadTexture, 2.5f);
-
-
-	//ani[1][IDLE] = {"right-small-mario-6"};
-	//ani[1][JUMP] = {"right-small-mario-4"};
-	//ani[1][RUN] = {
-	//	"right-small-mario-0",
-	//	"right-small-mario-1",
-	//	"right-small-mario-2",
-	//};
-
-	//ani[1][SLIDE] = {"right-small-mario-3"};
-	//ani[1][DIE] = {"right-small-mario-5"};
-	//ani[1][KILL] = { "right-small-mario-7" };
-
-
-	//ani[0][IDLE]= { "left-small-mario-7" };
-	//ani[0][JUMP]= { "left-small-mario-9" };
-	//ani[0][RUN]= {
-	//	"left-small-mario-13",
-	//	"left-small-mario-12",
-	//	"left-small-mario-11",
-	//};
-	//ani[0][SLIDE] = { "left-small-mario-10" };
-	//ani[0][DIE] = { "left-small-mario-8" };
-	//ani[0][KILL] = { "left-small-mario-6" };
-
-	//setTexture("mario", "right-small-mario-6"); // idle right
 	setState("IDLE");
 }
 
@@ -211,6 +184,11 @@ ENTITY_TYPE Player::getType() {
 
 void Player::inflictDamage() {
 	health--;
+}
+
+void Player::setPos(sf::Vector2f pos) {
+	Actor::setPos(pos);
+	setSpritePos(pos - sf::Vector2f(2, 2));
 }
 
 
