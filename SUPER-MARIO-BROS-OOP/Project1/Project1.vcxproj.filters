@@ -135,6 +135,15 @@
     <ClCompile Include="Game\Entities\Tiles\QuestionTile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Entities\Actors\Prop\CastleGate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Tiles\PipeHead.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Actors\AnimationState\AnimationState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game.h">
@@ -260,7 +269,13 @@
     <ClInclude Include="Game\Entities\Tiles\QuestionTile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Entities\Common.h">
+    <ClInclude Include="Game\Entities\Actors\Prop\CastleGate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Tiles\PipeHead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Actors\AnimationState\AnimationState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -270,5 +285,8 @@
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />
     <Text Include="Assets\Sounds\sound_interface.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Game\Entities\Readme.md" />
   </ItemGroup>
 </Project>

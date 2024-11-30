@@ -194,5 +194,6 @@ void Map::updateEnvironment() {
 			EntityManager::getInstance().
 			getNearEntity(en)
 		);
+		en->otherEntities.push_back(player);
 	}
 }

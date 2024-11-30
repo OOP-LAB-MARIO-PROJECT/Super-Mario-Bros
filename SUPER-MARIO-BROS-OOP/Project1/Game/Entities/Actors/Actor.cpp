@@ -60,6 +60,33 @@ Hitbox Actor::getHitbox() {
 	return {pos, size, getVel()};
 }
 
+int Actor::getFacing() {
+	return facing;
+}
+
+bool Actor::getIsOnGround() {
+	return isOnGround;
+}
+
+bool Actor::getIsKilling() const {
+	return isKilling;
+}
+
+void Actor::setIsKilling(bool a) {
+	isKilling = a;
+}
+
+bool Actor::getIsDead() const {
+	return isDead;
+}
+
+void Actor::setIsDead(bool a) {
+	isDead = a;
+}
+
+
+
+
 int Actor::resolveCollideGround(std::vector <Hitbox> vi, float deltaTime) {
 	sf::Vector2f pos = getPos();
 	sf::Vector2f vel = getVel();
