@@ -66,5 +66,6 @@ public:
 	virtual Hitbox getHitbox() = 0; // get the dynamic hitbox of an object -> make it easier for detection collision
 	virtual void affectOther(Entity* other);
 	virtual void affectOther(Entity* other, float deltatime);
+
 };
 

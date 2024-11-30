@@ -29,7 +29,3 @@ void Entity::affectOther(Entity* other) {
 
 void Entity::affectOther(Entity* other, float deltatime) {
 }
-
-void Entity::affectOther(Entity* other, float deltaTime) {
-
-}
