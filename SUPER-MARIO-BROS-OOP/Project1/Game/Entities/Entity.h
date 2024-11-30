@@ -65,5 +65,7 @@ public:
 	virtual ENTITY_TYPE getType() = 0; // get the type of entities -> use for distinguish between entyties and use for conditional behavior of entities 
 	virtual Hitbox getHitbox() = 0; // get the dynamic hitbox of an object -> make it easier for detection collision
 	virtual void affectOther(Entity* other);
+	virtual void affectOther(Entity* other, float deltaTime);
+
 };
 

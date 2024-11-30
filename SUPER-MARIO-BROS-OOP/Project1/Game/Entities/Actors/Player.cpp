@@ -1,4 +1,4 @@
-#include "Player.h"
+﻿#include "Player.h"
 
 
 Player::Player() {
@@ -7,42 +7,93 @@ Player::Player() {
 
 Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	isRenderSprite = true;
-	isRenderHitbox = false;
+	isRenderHitbox = true;
 	facing = 1;
-	spriteFace = 1;
-	currentState = IDLE;
-	currentMode = SMALL;
 
-	ani[1][IDLE] = {"right-small-mario-6"};
-	ani[1][JUMP] = {"right-small-mario-4"};
-	ani[1][RUN] = {
-		"right-small-mario-0",
-		"right-small-mario-1",
-		"right-small-mario-2",
-	};
-
-	ani[1][SLIDE] = {"right-small-mario-3"};
-	ani[1][DIE] = {"right-small-mario-5"};
-	ani[1][KILL] = { "right-small-mario-7" };
+	std::vector<std::vector<std::string>> idleTexture = { { "left-small-mario-7" }, {"right-small-mario-6"} };
+	stateCache["IDLE"] = std::make_shared<IdleState>("mario", idleTexture, 0);
 
 
-	ani[0][IDLE]= { "left-small-mario-7" };
-	ani[0][JUMP]= { "left-small-mario-9" };
-	ani[0][RUN]= {
-		"left-small-mario-13",
-		"left-small-mario-12",
-		"left-small-mario-11",
-	};
-	ani[0][SLIDE] = { "left-small-mario-10" };
-	ani[0][DIE] = { "left-small-mario-8" };
-	ani[0][KILL] = { "left-small-mario-6" };
+	std::vector<std::vector<std::string>> runTexture = { {	"left-small-mario-13", 
+															"left-small-mario-12", 
+															"left-small-mario-11" }, 
+														  {	"right-small-mario-0",
+															"right-small-mario-1",
+															"right-small-mario-2"} };
+	stateCache["RUN"] = std::make_shared<RunningState>("mario", runTexture, 0);
 
-	setTexture("mario", "right-small-mario-6"); // idle right
+	std::vector<std::vector<std::string>> jumpTexture = { { "left-small-mario-9" }, {"right-small-mario-4"} };
+	stateCache["JUMP"] = std::make_shared<JumpingState>("mario", jumpTexture, 0);
+
+
+	std::vector<std::vector<std::string>> slideTexture = { { "left-small-mario-10" }, {"right-small-mario-3"} };
+	stateCache["SLIDE"] = std::make_shared<SlideState>("mario", slideTexture, 0.3f);
+
+	std::vector<std::vector<std::string>> killTexture = { { "left-small-mario-6" }, {"right-small-mario-7"} };
+	stateCache["KILL"] = std::make_shared<KillState>("mario", killTexture, 0.3f);
+
+	std::vector<std::vector<std::string>> deadTexture = { { "left-small-mario-8" }, {"right-small-mario-5"} };
+	stateCache["DEAD"] = std::make_shared<DeadState>("mario", deadTexture, 2.5f);
+
+
+	//ani[1][IDLE] = {"right-small-mario-6"};
+	//ani[1][JUMP] = {"right-small-mario-4"};
+	//ani[1][RUN] = {
+	//	"right-small-mario-0",
+	//	"right-small-mario-1",
+	//	"right-small-mario-2",
+	//};
+
+	//ani[1][SLIDE] = {"right-small-mario-3"};
+	//ani[1][DIE] = {"right-small-mario-5"};
+	//ani[1][KILL] = { "right-small-mario-7" };
+
+
+	//ani[0][IDLE]= { "left-small-mario-7" };
+	//ani[0][JUMP]= { "left-small-mario-9" };
+	//ani[0][RUN]= {
+	//	"left-small-mario-13",
+	//	"left-small-mario-12",
+	//	"left-small-mario-11",
+	//};
+	//ani[0][SLIDE] = { "left-small-mario-10" };
+	//ani[0][DIE] = { "left-small-mario-8" };
+	//ani[0][KILL] = { "left-small-mario-6" };
+
+	//setTexture("mario", "right-small-mario-6"); // idle right
+	setState("IDLE");
+}
+
+void Player::setState(const std::string& stateName) {
+	if (stateCache.find(stateName) != stateCache.end()) {
+		auto& state = stateCache[stateName];
+		if (state != nullptr) {
+			currentState = state;
+		}
+	}
+	else {
+		//std::cout << "Can not find State " << stateName << "\n";
+	}
 }
 
 
 void Player::update(float deltatime) {
-	animation(deltatime);
+	if (deadthTimer > 2.5) GameConfig::getInstance().levelStatus = RESTART, health = 1, deadthTimer = 0, isDead = false;
+	if (currentState) {
+		//std::cout << "Current state exists" << std::endl;
+		currentState->handle(this, deltatime);
+		currentState->update(this, deltatime);
+	}
+
+
+	if (health <= 0) {
+		isDead = true;
+		if (health == 0) setVel({ 0, -180.0f }), health--;
+		deadthTimer += deltatime;
+		performPhysics(deltatime);
+		setPos(getPos() + getVel() * deltatime);
+		return;
+	}
 
 	sf::Vector2f vx = getVel();
 	int isCollide = resolveCollideGround(obstacle, deltatime);
@@ -50,21 +101,13 @@ void Player::update(float deltatime) {
 	if (getPos().y > 800) setVel(sf::Vector2f(getVel().x, 0));
 	isOnGround = isCollide & (1 << 2);
 
-	if (facing == 0 && isOnGround) currentState = IDLE;
 
 	if (isOnGround)
 		setFric({ 3, 0 }), isJumping = false;
 	else
 		setFric({ 0, 0 });
 
-	if (getVel().x == 0 && isOnGround)
-		currentState = IDLE; else
-		if (!isOnGround)
-			currentState = JUMP; else
-			if (getVel().x * facing < 0)
-				currentState = SLIDE; 
-			else
-				currentState = RUN;
+	
 
 
 	setPos(getPos() + getVel() * deltatime);
@@ -82,7 +125,8 @@ void Player::update(float deltatime) {
 		if (en->getType() == ENEMY) {
 
 			// if the contact direction is on top of enemy player will inflict a damage
-			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), currentState = KILL;
+			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), isKilling = true;
+			en->affectOther(this);
 			continue;
 		}
 		
@@ -125,7 +169,7 @@ void Player::update(float deltatime) {
 }
 
 void Player::jump(float deltatime) {
-	currentState = JUMP;
+	if (isDead) return;
 	if (isOnGround && !isJumping) {
 		setVel({ getVel().x, -190 });
 		isOnGround = false;
@@ -149,6 +193,7 @@ void Player::notJump(float deltatime) {
 }
 
 void Player::moveLeft(float deltatime) {
+	if (isDead) return;
 	if (!isOnGround) {
 		if (facing == 1) setVel(getVel() + sf::Vector2f(10, 0) * deltatime);
 		else setVel(getVel() + sf::Vector2f(-20, 0) * deltatime);
@@ -163,6 +208,7 @@ void Player::moveLeft(float deltatime) {
 }
 
 void Player::moveRight(float deltatime) {
+	if (isDead) return;
 	if (!isOnGround) {
 		if (facing == -1) setVel(getVel() + sf::Vector2f(-10, 0) * deltatime);
 		else setVel(getVel() + sf::Vector2f(20, 0) * deltatime);
@@ -185,20 +231,5 @@ void Player::inflictDamage() {
 }
 
 
-void Player::animation(float deltatime) {
-	bool isRight = facing == 1;
-	if (doesItKill) currentState = KILL;
-	setTexture("mario", ani[isRight][currentState][aniLoop % ani[isRight][currentState].size()]);
 
-	timer += deltatime;
-	if (doesItKill && timer < 0.2) return;
-	if (currentState == KILL && !doesItKill) {
-		doesItKill = 1;
-	}
-	else {
-		doesItKill = 0;
-	}
 
-	if (timer > 0.15)
-		aniLoop++, timer = 0;
-}

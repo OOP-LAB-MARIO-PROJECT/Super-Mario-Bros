@@ -3,27 +3,19 @@
 #include <vector>
 #include <exception>
 #include <map>
+#include "../Actors/AnimationState/AnimationState.h"
 
 class Player : public Actor
 {
-	int facing = 0;
-	int spriteFace = 1;
-	int health = 0;
+	std::shared_ptr<AnimationState> currentState;
+	std::map<std::string, std::shared_ptr<AnimationState>> stateCache;
+	int health = 1;
 	int moving = 0;
 	bool reachMaxHeight = false;
 	bool isJumping = false;
 	int speed = 100;
-	float timer = 0;
-	
 	ENTITY_TYPE currentType = PLAYER;
-	enum state {
-		RUN, IDLE, SLIDE, JUMP, DIE, KILL,
-	} currentState;
-	
-	// animation list
-	std::map <state, std::vector <std::string>> ani[2];
-	int doesItKill = 0;
-	int aniLoop = 0; 
+	float deadthTimer = 0;
 
 public:
 	std::vector <Entity*> nearPointerTiles;
@@ -38,6 +30,8 @@ public:
 
 	Player(sf::Vector2f pos, sf::Vector2f size);
 
+
+	void setState(const std::string& stateName) override;
 	void update(float deltatime) override;
 	void inflictDamage() override;
 	
@@ -45,7 +39,6 @@ public:
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);
 	void moveRight(float deltatime);
-	void animation(float deltatime);
 	ENTITY_TYPE getType() override;
 };
 
