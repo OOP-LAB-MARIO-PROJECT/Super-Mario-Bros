@@ -4,27 +4,46 @@
 
 
 RegisterScene::RegisterScene(sf::RenderWindow* window) : Scene(window) {
-	TextBox usernameBox(200, 150, 400, 40, false);
-	TextBox passwordBox(200, 250, 400, 40, true);
+	float midScreenX = getWindow()->getSize().x / 2.0;
+	float midScreenY = getWindow()->getSize().y / 2.0;
+
+	TextBox usernameBox(midScreenX - 200, midScreenY - 100, 400, 50, false);
+	TextBox passwordBox(midScreenX - 200, midScreenY, 400, 50, true);
 	textBoxes.push_back(usernameBox);
 	textBoxes.push_back(passwordBox);
 
 
 	
 
-	Button registerGame = Button::createButton(sf::Vector2f(180, 100), sf::Vector2f(200, 350), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button registerGame = Button::createButton(sf::Vector2f(150, 70), sf::Vector2f(midScreenX - 230, midScreenY + 170), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[&]() {
 			addLineIfNotExists();
 			showInvalidMessage = true;
 		
-		}, "Register", 24, sf::Color::White);
+		}, "Register", 13, sf::Color::Black);
 	buttons.push_back(registerGame);
 
-	Button loginGame = Button::createButton(sf::Vector2f(180, 100), sf::Vector2f(420, 350), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button loginGame = Button::createButton(sf::Vector2f(150, 70), sf::Vector2f(midScreenX + 100, midScreenY + 170), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[&]() {
 			SceneManager::getInstance().navigateTo(SceneManager::Scenes::Login);
-		}, "Back To Login", 24, sf::Color::White);
+		}, "Back To Login", 13, sf::Color::Black);
 	buttons.push_back(loginGame);
+
+	std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Mario");
+	if (font == nullptr) {
+		std::cerr << "Error: Font 'Roboto' not loaded!" << std::endl;
+		return;
+	}
+	inValid.setFont(*font);
+	inValid.setString("Your account is already exist");
+	inValid.setCharacterSize(18);
+	inValid.setFillColor(sf::Color::Color(251, 188, 174));
+	inValid.setPosition(inValid.getScale().x, getWindow()->getSize().y / 2.0 + inValid.getScale().y / 2.0 - 35);
+	shape.setSize(sf::Vector2f(getWindow()->getSize().x, inValid.getScale().x + 18));
+	shape.setPosition(inValid.getPosition());
+	shape.setFillColor(sf::Color::Color(200, 76, 11));
+	//shape.setOutlineThickness(3);
+	shape.setOutlineColor(sf::Color::Black);
 }
 
 
@@ -105,41 +124,22 @@ void RegisterScene::drawLoginMenu() {
 
 void RegisterScene::drawArgument() {
 	if (isValidMessage) {
-		std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Roboto");
+		std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Mario");
 		if (font == nullptr) {
 			std::cerr << "Error: Font 'Roboto' not loaded!" << std::endl;
 			return;
 		}
-
 
 		sf::Text valid;
 		valid.setFont(*font);
 		valid.setString("Your account is registered successfully.");
 		valid.setCharacterSize(18);
-		valid.setFillColor(sf::Color::White);
+		valid.setFillColor(sf::Color::Color(251, 188, 174));
 		valid.setPosition(200, 450);
-
-
 		getWindow()->draw(valid);
-		
-		
-		
+
 	}
 	else {
-		std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Roboto");
-		if (font == nullptr) {
-			std::cerr << "Error: Font 'Roboto' not loaded!" << std::endl;
-			return;
-		}
-
-
-		sf::Text inValid;
-		inValid.setFont(*font);
-		inValid.setString("Your account is already exsit");
-		inValid.setCharacterSize(18);
-		inValid.setFillColor(sf::Color::White);
-		inValid.setPosition(200, 450);
-
 
 		getWindow()->draw(inValid);
 	}

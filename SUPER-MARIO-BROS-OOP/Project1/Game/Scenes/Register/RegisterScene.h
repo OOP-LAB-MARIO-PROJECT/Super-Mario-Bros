@@ -13,6 +13,8 @@ private:
     std::vector<Button> buttons;
     bool showInvalidMessage = false;
     bool isValidMessage;
+	sf::Text inValid;
+	sf::RectangleShape shape;
 public:
     RegisterScene(sf::RenderWindow* window);
     ~RegisterScene() {
