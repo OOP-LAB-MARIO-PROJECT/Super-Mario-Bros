@@ -20,7 +20,7 @@ LoginScene::LoginScene(sf::RenderWindow* window) : Scene(window) {
 	text.setFillColor(sf::Color::White); 
 	text.setPosition(200, 400);
 
-	Button loginGame = Button::createButton(sf::Vector2f(150, 70), sf::Vector2f(midScreenX - 230, midScreenY + 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button loginGame = Button::createButton(sf::Vector2f(150, 70), sf::Vector2f(midScreenX - 230, midScreenY + 170), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[&]() {
 			if (isValidAccount()) {
 				SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home);
@@ -32,7 +32,7 @@ LoginScene::LoginScene(sf::RenderWindow* window) : Scene(window) {
 		}, "Login", 13, sf::Color::Black);
 	buttons.push_back(loginGame);
 
-	Button RegisterGame = Button::createButton(sf::Vector2f(150, 70), sf::Vector2f(midScreenX + 100, midScreenY + 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button RegisterGame = Button::createButton(sf::Vector2f(150, 70), sf::Vector2f(midScreenX + 100, midScreenY + 170), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[&]() {
 			SceneManager::getInstance().navigateTo(SceneManager::Scenes::Register);
 		}, "Register", 13, sf::Color::Black);
@@ -75,6 +75,9 @@ void LoginScene::loopEvents() {
 			for (int i = 0; i < textBoxes.size(); i++) {
 				bool isSelected = textBoxes[i].isMouseOver(sf::Mouse::getPosition(*(getWindow())));
 				textBoxes[i].setSelected(isSelected);
+				if (isSelected) {
+					isHovered = true;
+				}
 			}
 		}
 
