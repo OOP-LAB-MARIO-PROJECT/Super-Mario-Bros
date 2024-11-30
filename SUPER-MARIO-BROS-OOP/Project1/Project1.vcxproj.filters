@@ -278,7 +278,31 @@
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="UI_Components\UI_Texture_Pack\pipe.png">
+    <Image Include="UI_Components\UI_Texture_Pack\CoinSpriteSheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\GoombaSpriteSheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\CloudBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Moon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Koopa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Pipe.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

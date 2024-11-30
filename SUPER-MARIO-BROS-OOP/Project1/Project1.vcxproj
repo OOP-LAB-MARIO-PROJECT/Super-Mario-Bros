@@ -233,11 +233,19 @@
     <Text Include="Assets\Sounds\sound_interface.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="UI_Components\UI_Texture_Pack\Background.png" />
     <Image Include="UI_Components\UI_Texture_Pack\cat.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\CloudBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\CoinSpriteSheet.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\GoombaSpriteSheet.png" />
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />
     <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png" />
-    <Image Include="UI_Components\UI_Texture_Pack\pipe.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Koopa.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Moon.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

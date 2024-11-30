@@ -8,9 +8,22 @@ class HomeScene : public Scene
     std::vector<Button> buttons;
     std::vector<Animation> animations;
 	std::vector<std::shared_ptr<sf::Sprite>> sprites; //for animation sprite
-	sf::Texture goombaTexture;
 	sf::Sprite goombaSprite;
-
+	sf::Texture startTexture;
+	sf::Sprite startSprite;
+	sf::Texture exitTexture;
+	sf::Sprite exitSprite;
+	sf::Texture settingTexture;
+	sf::Sprite settingSprite;
+	sf::Texture pipeTexture;
+	sf::Sprite leftPipeSprite1;
+	sf::Sprite leftPipeSprite2;
+	sf::Sprite leftPipeSprite3;
+	sf::Sprite rightPipeSprite1;
+	sf::Sprite rightPipeSprite2;
+	sf::Sprite rightPipeSprite3;
+	bool isMoonHovered;
+	int currentMoon;
 
 public:
     HomeScene(sf::RenderWindow* window);
