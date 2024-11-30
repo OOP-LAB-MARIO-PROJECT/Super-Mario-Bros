@@ -4,6 +4,7 @@
 #include "MoveUpTile.h"
 #include "QuestionTile.h"
 #include "PipeHead.h"
+#include "MovingPlatform.h"
 
 #include <vector>
 #include <string>
@@ -17,9 +18,9 @@ namespace TILETYPE {
 		"block3",
 		"block4",
 		"block-underground-1",
-		"block-underground-2",
 		"block-underground-3",
 		"block-underground-4",
+		"block-underground-5",
 		"pipe-up-body-left",
 		"pipe-up-body-right",
 		"pipe-side-body-bottom",
@@ -37,8 +38,9 @@ namespace TILETYPE {
 
 	static std::vector <std::string> interactable = {
 		"block2",
-		"block-underground-2",
-		"question"
+		"block-underground-3",
+		"question",
+		"moing-platform"
 	};
 
 	static std::vector <std::string> transparent = {

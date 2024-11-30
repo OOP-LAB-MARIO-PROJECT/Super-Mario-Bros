@@ -1,10 +1,11 @@
 #pragma once
 #include "../Entity.h"
+#include "../../Components/Collision.h"
 
 
-class Tile : public Entity {
+class Tile : public Entity, public Collision {
 private:
-	sf::RectangleShape hitbox;
+	sf::RectangleShape m_hitbox;
 	sf::Sprite sprite;
 
 	sf::Vector2f pos;

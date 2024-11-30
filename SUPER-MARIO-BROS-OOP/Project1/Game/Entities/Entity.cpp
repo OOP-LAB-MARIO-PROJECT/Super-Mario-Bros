@@ -26,3 +26,6 @@ void Entity::setVel(sf::Vector2f vel) {
 
 void Entity::affectOther(Entity* other) {
 }
+
+void Entity::affectOther(Entity* other, float deltatime) {
+}

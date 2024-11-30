@@ -14,5 +14,6 @@ public:
 	virtual void destroy(float deltatime) override;
 	virtual void touched(float deltatime) override;
 	void setVel(sf::Vector2f vel) override;
+	void affectOther(Entity* other, float deltatime) override;
 };
 

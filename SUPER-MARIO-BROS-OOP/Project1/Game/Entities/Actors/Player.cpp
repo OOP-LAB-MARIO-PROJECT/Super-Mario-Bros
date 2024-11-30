@@ -72,7 +72,6 @@ void Player::update(float deltatime) {
 
 	if (isCollide & 5) // touch top or bottom
 		setVel({ getVel().x, 0 }), isJumping = false;
-	//if (!isOnGround) setVel({ getVel().x / 4, getVel().y });
 
 	std::vector <Entity*> other = otherEntities;
 
@@ -85,7 +84,6 @@ void Player::update(float deltatime) {
 			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), currentState = KILL;
 			continue;
 		}
-		
 		en->touched(deltatime);
 	}
 
@@ -97,28 +95,14 @@ void Player::update(float deltatime) {
 		for (const auto& tile : other) {
 			Hitbox tmp = getHitbox();
 			if (isOnGround) tmp.vel.y = 1;
-
-
-			if (tile->getType() == PIPE_HEAD_TELE) {
-				int dir = dynamicRectVsRect(tmp, deltatime, tmp.vel, tile->getHitbox());
-				if (dir == TOP || dir == LEFT)
-					tile->affectOther(this);
-				continue;
-			}
-
-			int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel(), tile->getHitbox());
-			if (dir == BOTTOM) {
-				sf::Vector2f center = tile->getHitbox().pos + tile->getHitbox().size / 2.f;
-				
-				float dist = (pcenter.x - center.x) * (pcenter.x - center.x) + (pcenter.y - center.y) * (pcenter.y - center.y);
-				if (dist < curDist)
-					curDist = dist, cur = tile;	
-			}
+			int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - tile->getHitbox().vel, tile->getHitbox());
+			if (dir == -1) continue;
+			sf::Vector2f center = tile->getHitbox().pos + tile->getHitbox().size / 2.f;			
+			float dist = (pcenter.x - center.x) * (pcenter.x - center.x) + (pcenter.y - center.y) * (pcenter.y - center.y);
+			if (dist < curDist) curDist = dist, cur = tile;	
 		}
 
-		if (cur)
-			cur->touched(deltatime);
-
+		if (cur) cur->affectOther(this, deltatime);
 	}
 
 	performPhysics(deltatime);

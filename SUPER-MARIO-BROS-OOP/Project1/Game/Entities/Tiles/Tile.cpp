@@ -5,14 +5,14 @@ Tile::Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans) : Entity() {
 	size = _size;
 	isTransparent = isTrans;
 
-	hitbox.setPosition(pos);
-	hitbox.setSize(size);
+	m_hitbox.setPosition(pos);
+	m_hitbox.setSize(size);
 
 	sprite.setPosition(pos);
 
-	hitbox.setFillColor(sf::Color::Magenta);
-	hitbox.setOutlineColor(sf::Color::Blue);
-	hitbox.setOutlineThickness(1);
+	m_hitbox.setFillColor(sf::Color::Magenta);
+	m_hitbox.setOutlineColor(sf::Color::Blue);
+	m_hitbox.setOutlineThickness(1);
 };
 
 
@@ -22,7 +22,7 @@ Hitbox Tile::getHitbox() {
 
 
 void Tile::setPosition(sf::Vector2f _pos) {
-	hitbox.setPosition(_pos);
+	m_hitbox.setPosition(_pos);
 	pos = _pos;
 }
 
@@ -32,7 +32,7 @@ void Tile::setSpritePos(sf::Vector2f pos) {
 
 void Tile::render(sf::RenderWindow* window) const {
 	if (isRenderHitbox)
-		window->draw(hitbox);
+		window->draw(m_hitbox);
 	if (isRenderSprite)
 		window->draw(sprite);
 }

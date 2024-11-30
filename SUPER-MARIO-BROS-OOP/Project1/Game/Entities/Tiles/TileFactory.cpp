@@ -48,6 +48,10 @@ Tile* TileFactory::createTile(std::string type, sf::Vector2f pos, sf::Vector2f s
 		return r;
 	}
 
+	if (type == "moving-platform") {
+		return new MovingPlatform(pos, size, false, properties);
+	}
+
 	if (TILETYPE::isTransparent(type)) {
 		Tile* r = new Tile(pos, size, true);
 		r->setTexture("tiles", type + "-0");

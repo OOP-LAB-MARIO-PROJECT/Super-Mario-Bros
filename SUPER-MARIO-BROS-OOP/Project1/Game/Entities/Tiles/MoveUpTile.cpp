@@ -10,7 +10,16 @@ void MoveUpTile::touched(float deltatime) {
 	if (isTouch) return;
 	isTouch = true;
 	setVel({ 0, -90 });
+	std::cout << "asdfasdfasd\n";
 }
+
+void MoveUpTile::affectOther(Entity* other, float deltatime) {
+	if (other->getType() != PLAYER) return;
+	int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel, getHitbox());
+	if (dir == BOTTOM)
+	touched(deltatime);
+}
+
 
 void MoveUpTile::destroy(float deltatime) {
 	kill();

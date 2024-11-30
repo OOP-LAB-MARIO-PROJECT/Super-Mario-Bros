@@ -29,7 +29,12 @@ ENTITY_TYPE PipeHead::getType() {
 	return PIPE_HEAD;
 }
 
-void PipeHead::affectOther(Entity* other) {
+void PipeHead::affectOther(Entity* other, float deltatime) {
+	if (other->getType() != PLAYER) return;
+	int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel, getHitbox());
+
+	if (dir != TOP && dir != LEFT) return;
+
 	if (
 		(isUp && sf::Keyboard::isKeyPressed(sf::Keyboard::S)) || 
 		(!isUp && sf::Keyboard::isKeyPressed(sf::Keyboard::D))

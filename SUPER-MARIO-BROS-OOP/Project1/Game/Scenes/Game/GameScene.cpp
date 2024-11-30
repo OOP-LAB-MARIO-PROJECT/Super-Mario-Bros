@@ -22,7 +22,7 @@ void GameScene::loadMapList() {
 		levelMap[mapName] = mapPath;
 	}
 
-	currentLevel = "map-1-1";
+	currentLevel = "map-1-2";
 	GameConfig::getInstance().setCurrentLevel(currentLevel);
 
 	fin.close();

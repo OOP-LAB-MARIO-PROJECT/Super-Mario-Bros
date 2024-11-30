@@ -17,4 +17,5 @@
  <tile id="217" type="coin"/>
  <tile id="218" type="coin"/>
  <tile id="219" type="coin"/>
+ <tile id="292" type="moving-platform"/>
 </tileset>

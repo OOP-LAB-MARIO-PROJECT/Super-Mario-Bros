@@ -67,7 +67,7 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	
 	std::pair <int, int> currentPos = toMap(pos);// row and col
 	
-	for (int i = -3; i <= 3; i++) for (int j = -3; j <= 3; j++) {
+	for (int i = -12; i <= 12; i++) for (int j = -12; j <= 12; j++) {
 		std::pair <int, int> newPos = currentPos;// row and col
 		newPos.first += i;
 		newPos.second += j;
@@ -160,7 +160,7 @@ std::vector <Entity*> Map::getNearPointerTiles(sf::Vector2f pos, bool gettrans) 
 
 	std::pair <int, int> currentPos = toMap(pos);// row and col
 
-	for (int i = -3; i <= 3; i++) for (int j = -3; j <= 3; j++) {
+	for (int i = -12; i <= 12; i++) for (int j = -12; j <= 12; j++) {
 		std::pair <int, int> newPos = currentPos;// row and col
 		newPos.first += i;
 		newPos.second += j;
