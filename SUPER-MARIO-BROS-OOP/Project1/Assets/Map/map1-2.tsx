@@ -440,6 +440,7 @@
  <tile id="4030" type="block-underground-3"/>
  <tile id="4031" type="block-underground-3"/>
  <tile id="4032" type="block-underground-3"/>
+ <tile id="4052" type="moving-platform#432;304;2;1"/>
  <tile id="4084" type="block-underground-3"/>
  <tile id="4085" type="block-underground-3"/>
  <tile id="4094" type="block-underground-3"/>

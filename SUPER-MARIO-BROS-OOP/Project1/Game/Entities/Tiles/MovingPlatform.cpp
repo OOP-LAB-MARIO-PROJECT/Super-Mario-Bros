@@ -74,6 +74,8 @@ void MovingPlatform::update(float deltatime) {
 void MovingPlatform::affectOther(Entity* other, float deltatime) {
 	if (other->getType() != PLAYER) return;
 	player = other;
+	sf::Vector2f playerVel = other->getHitbox().vel;
+	playerVel.x += this->getHitbox().vel.x;
 }
 
 ENTITY_TYPE MovingPlatform::getType() {
