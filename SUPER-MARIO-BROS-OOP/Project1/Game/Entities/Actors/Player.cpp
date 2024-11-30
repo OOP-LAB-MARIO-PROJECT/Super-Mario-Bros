@@ -79,7 +79,6 @@ void Player::update(float deltatime) {
 		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
 		if (dir == -1) continue;
 		if (en->getType() == ENEMY) {
-
 			// if the contact direction is on top of enemy player will inflict a damage
 			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), currentState = KILL;
 			continue;
