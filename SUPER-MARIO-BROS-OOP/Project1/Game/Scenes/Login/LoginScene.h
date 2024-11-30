@@ -12,6 +12,8 @@ private:
     std::vector<TextBox> textBoxes;
     std::vector<Button> buttons;
     bool showInvalidMessage = false;
+	sf::Texture titleTexture;
+	sf::Sprite titleSprite;
 public:
     LoginScene(sf::RenderWindow* window);
     ~LoginScene() {

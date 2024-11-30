@@ -242,9 +242,11 @@
     <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />
     <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Koopa.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Moon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Title.png" />
     <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -305,6 +305,12 @@
     <Image Include="UI_Components\UI_Texture_Pack\Pipe.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Title.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />

@@ -7,7 +7,7 @@ class HomeScene : public Scene
 {
     std::vector<Button> buttons;
     std::vector<Animation> animations;
-	std::vector<std::shared_ptr<sf::Sprite>> sprites; //for animation sprite
+	std::vector<std::shared_ptr<sf::Sprite>> sprites; 
 	sf::Sprite goombaSprite;
 	sf::Texture startTexture;
 	sf::Sprite startSprite;
@@ -16,7 +16,7 @@ class HomeScene : public Scene
 	sf::Texture settingTexture;
 	sf::Sprite settingSprite;
 	sf::Texture pipeTexture;
-	sf::Sprite leftPipeSprite1;
+	sf::Sprite leftPipeSprite1; 	//have not been refactored
 	sf::Sprite leftPipeSprite2;
 	sf::Sprite leftPipeSprite3;
 	sf::Sprite rightPipeSprite1;
