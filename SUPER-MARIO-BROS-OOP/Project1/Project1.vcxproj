@@ -245,6 +245,7 @@
     <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Moon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\PinkFlower.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Title.png" />
     <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />

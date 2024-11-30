@@ -38,10 +38,38 @@ LoginScene::LoginScene(sf::RenderWindow* window) : Scene(window) {
 		}, "Register", 13, sf::Color::Black);
 	buttons.push_back(RegisterGame);
 
+	//create title
 	titleTexture.loadFromFile("UI_Components/UI_Texture_Pack/Title.png");
 	titleSprite.setTexture(titleTexture);
 	titleSprite.setScale(1.5, 1.5);
 	titleSprite.setPosition(midScreenX - titleSprite.getScale().x / 2.0 - 255, -2);
+
+	//create hovered flower
+	pinkFlower.loadFromFile("UI_Components/UI_Texture_Pack/PinkFlower.png");
+	pinkFlowerSprite1.setTexture(pinkFlower);
+	pinkFlowerSprite1.setScale(1.5, 1.5);
+	pinkFlowerSprite1.setPosition(midScreenX + 125, midScreenY - 170);
+
+	pinkFlowerSprite2.setTexture(pinkFlower);
+	pinkFlowerSprite2.setScale(1.5, 1.5);
+	pinkFlowerSprite2.setPosition(midScreenX + 125, midScreenY - 70);
+
+	// Tạo đối tượng sf::Text để hiển thị thông báo lỗi
+	std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Mario");
+	if (font == nullptr) {
+		std::cerr << "Error: Font 'Roboto' not loaded!" << std::endl;
+		return;
+	}
+	inValid.setFont(*font);
+	inValid.setString("Your account is invalid. Please check your username and password again!");
+	inValid.setCharacterSize(18);
+	inValid.setFillColor(sf::Color::Color(251, 188, 174)); // Sử dụng fillColor (đúng với SFML 2.5+)
+	inValid.setPosition(inValid.getScale().x, getWindow()->getSize().y / 2.0 + inValid.getScale().y / 2.0 - 35);
+	shape.setSize(sf::Vector2f(getWindow()->getSize().x, inValid.getScale().x + 18));
+	shape.setPosition(inValid.getPosition());
+	shape.setFillColor(sf::Color::Color(200, 76, 11));
+	//shape.setOutlineThickness(3);
+	shape.setOutlineColor(sf::Color::Black);
 }
 
 
@@ -69,20 +97,17 @@ void LoginScene::loopEvents() {
 	while (getWindow()->pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
 			getWindow()->close();
-
-		
 		if (event.type == sf::Event::MouseButtonPressed) {
 			for (int i = 0; i < textBoxes.size(); i++) {
 				bool isSelected = textBoxes[i].isMouseOver(sf::Mouse::getPosition(*(getWindow())));
 				textBoxes[i].setSelected(isSelected);
-				if (isSelected) {
-					isHovered = true;
-				}
 			}
 		}
-
+		beingSelected = false;
 		for (int i = 0; i < textBoxes.size(); i++) {
 			if (textBoxes[i].getSelected()) {
+				beingSelected = true;
+				currentBox = i;
 				textBoxes[i].handleInput(event);
 			}
 		}
@@ -93,6 +118,7 @@ void LoginScene::loopEvents() {
 		}
 	}
 }
+
 void LoginScene::drawLoginMenu() {
 	sf::Texture backgroundTexture;
 	backgroundTexture.loadFromFile("UI_Components/UI_Texture_Pack/LoginBackground.png");
@@ -111,32 +137,26 @@ void LoginScene::drawLoginMenu() {
 	for (int i = 0; i < buttons.size(); i++) {
 		buttons[i].draw(getWindow());
 	}
+
+	if (beingSelected && currentBox == 0) 
+	{
+		getWindow()->draw(pinkFlowerSprite1);
+	}
+	else if (beingSelected && currentBox == 1) 
+	{
+		getWindow()->draw(pinkFlowerSprite2);
+	}
 }
 
 void LoginScene::drawInvalidArgument() {
-	std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Roboto");
-	if (font == nullptr) {
-		std::cerr << "Error: Font 'Roboto' not loaded!" << std::endl;
-		return;
-	}
-
-	// Tạo đối tượng sf::Text để hiển thị thông báo lỗi
-	sf::Text inValid;
-	inValid.setFont(*font);
-	inValid.setString("Your account is invalid. Please check your username and password again!");
-	inValid.setCharacterSize(18);
-	inValid.setFillColor(sf::Color::White); // Sử dụng fillColor (đúng với SFML 2.5+)
-	inValid.setPosition(200, 450);
-
-	// Vẽ thông báo lên cửa sổ
+	getWindow()->draw(shape);
 	getWindow()->draw(inValid);
 }
 
-
 void LoginScene::update(float deltatime) {
-	if (showInvalidMessage) {
+	drawLoginMenu(); //draw the ui elements first and then check for the events
+	if (showInvalidMessage) { 
 		drawInvalidArgument();
 	}
-	drawLoginMenu();
 	loopEvents();
 }
