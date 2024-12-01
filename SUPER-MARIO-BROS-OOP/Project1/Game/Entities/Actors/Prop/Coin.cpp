@@ -33,9 +33,11 @@ void Coin::behavior(float deltatime) {
 
 void Coin::touched(float deltatime) {
 	kill();
+	
 	GameConfig::getInstance().addCoin();
 	GameConfig::getInstance().addScore(score);
 	SoundManager::getInstance().playSound("collect", false);
+	
 }
 
 ENTITY_TYPE Coin::getType() {

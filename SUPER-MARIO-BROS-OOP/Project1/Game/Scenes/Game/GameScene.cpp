@@ -110,7 +110,7 @@ void GameScene::update(float deltatime) {
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());
 
-
+	EntityManager::getInstance().filter();
 	player->render(getWindow());
 	gameMap->render(getWindow());
 	if (FontManager::getInstance().getFont("Roboto").get() == nullptr)

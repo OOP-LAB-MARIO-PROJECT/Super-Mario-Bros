@@ -37,7 +37,7 @@ std::vector<Entity*> EntityManager::getNearEntity(Entity* en, float radius) {
 		return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
 	};
 
-	for (auto entity : entities) if (entity != en && dist(entity->getHitbox().pos, en->getHitbox().pos) < radius) {
+	for (auto entity : entities) if (!entity->isDead() && entity != en && dist(entity->getHitbox().pos, en->getHitbox().pos) < radius) {
 		res.push_back(entity);
 	}
 	return res;
