@@ -61,14 +61,20 @@ LoginScene::LoginScene(sf::RenderWindow* window) : Scene(window) {
 		return;
 	}
 	inValid.setFont(*font);
-	inValid.setString("Your account is invalid. Please check your username and password again!");
-	inValid.setCharacterSize(18);
+	inValid.setString("Uh-oh! Your username or password missed the mark. Recheck them or register to join the fun!");
+	inValid.setCharacterSize(14);
 	inValid.setFillColor(sf::Color::Color(251, 188, 174)); // Sử dụng fillColor (đúng với SFML 2.5+)
-	inValid.setPosition(inValid.getScale().x, getWindow()->getSize().y / 2.0 + inValid.getScale().y / 2.0 - 35);
-	shape.setSize(sf::Vector2f(getWindow()->getSize().x, inValid.getScale().x + 18));
-	shape.setPosition(inValid.getPosition());
+	inValid.setPosition(inValid.getScale().x + 2, getWindow()->getSize().y / 2.0 + inValid.getScale().y / 2.0 - 35);
+	shape.setSize(sf::Vector2f(getWindow()->getSize().x + 3, inValid.getScale().x + 18));
+	shape.setPosition(inValid.getPosition().x - 3, inValid.getPosition().y);
 	shape.setFillColor(sf::Color::Color(200, 76, 11));
 	shape.setOutlineColor(sf::Color::Black);
+
+	//create sad mario
+	sadMarioTexture.loadFromFile("UI_Components/UI_Texture_Pack/SadMario.png");
+	sadMarioSprite.setTexture(sadMarioTexture);
+	sadMarioSprite.setScale(1.5, 1.3);
+	sadMarioSprite.setPosition(getWindow()->getSize().x - sadMarioTexture.getSize().x -100, getWindow()->getSize().y - sadMarioTexture.getSize().y - 150);
 }
 
 
@@ -150,6 +156,7 @@ void LoginScene::drawLoginMenu() {
 void LoginScene::drawInvalidArgument() {
 	getWindow()->draw(shape);
 	getWindow()->draw(inValid);
+	getWindow()->draw(sadMarioSprite);
 }
 
 void LoginScene::update(float deltatime) {

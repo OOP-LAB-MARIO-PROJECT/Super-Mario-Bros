@@ -31,6 +31,7 @@ RegisterScene::RegisterScene(sf::RenderWindow* window) : Scene(window) {
 		std::cerr << "Error: Font 'Mario' not loaded!" << std::endl;
 		return;
 	}
+	//create invalid message
 	inValid.setFont(*font);
 	inValid.setString("Mario never forgets a hero! Your account is already registered. Log in to continue saving the day!");
 	inValid.setCharacterSize(13);
@@ -41,6 +42,40 @@ RegisterScene::RegisterScene(sf::RenderWindow* window) : Scene(window) {
 	shape.setPosition(inValid.getPosition().x - 5, inValid.getPosition().y);
 	shape.setFillColor(sf::Color::Color(200, 76, 11));
 	shape.setOutlineColor(sf::Color::Black);
+
+	//create valid message
+	valid.setFont(*font);
+	valid.setString("Your epic adventure begins now!");
+	valid.setCharacterSize(18);
+	valid.setFillColor(sf::Color::Color(251, 188, 174));
+	valid.setPosition(getWindow()->getSize().x / 2.0 - 270, 449);
+
+	//create title
+	titleTexture.loadFromFile("UI_Components/UI_Texture_Pack/Title.png");
+	titleSprite.setTexture(titleTexture);
+	titleSprite.setScale(1.5, 1.5);
+	titleSprite.setPosition(midScreenX - titleSprite.getScale().x / 2.0 - 255, -2);
+
+	//create hovered flower
+	pinkFlower.loadFromFile("UI_Components/UI_Texture_Pack/PinkFlower.png");
+	pinkFlowerSprite1.setTexture(pinkFlower);
+	pinkFlowerSprite1.setScale(1.5, 1.5);
+	pinkFlowerSprite1.setPosition(midScreenX + 125, midScreenY - 170);
+
+	pinkFlowerSprite2.setTexture(pinkFlower);
+	pinkFlowerSprite2.setScale(1.5, 1.5);
+	pinkFlowerSprite2.setPosition(midScreenX + 125, midScreenY - 70);
+	//create sad mario
+	sadMarioTexture.loadFromFile("UI_Components/UI_Texture_Pack/SadMario.png");
+	sadMarioSprite.setTexture(sadMarioTexture);
+	sadMarioSprite.setScale(1.5, 1.3);
+	sadMarioSprite.setPosition(getWindow()->getSize().x - sadMarioTexture.getSize().x - 100, getWindow()->getSize().y - sadMarioTexture.getSize().y - 150);
+
+	//create happy mario
+	happyMarioTexture.loadFromFile("UI_Components/UI_Texture_Pack/HappyMario.png");
+	happyMarioSprite.setTexture(happyMarioTexture);
+	happyMarioSprite.setScale(5, 5);
+	happyMarioSprite.setPosition(getWindow()->getSize().x - happyMarioTexture.getSize().x - 220, getWindow()->getSize().y - happyMarioTexture.getSize().y - 280);
 }
 
 
@@ -97,8 +132,12 @@ void RegisterScene::loopEvents() {
 			}
 		}
 
+		beingSelected = false;
+
 		for (int i = 0; i < textBoxes.size(); i++) {
 			if (textBoxes[i].getSelected()) {
+				beingSelected = true;
+				currentBox = i;
 				textBoxes[i].handleInput(event);
 			}
 		}
@@ -111,13 +150,14 @@ void RegisterScene::loopEvents() {
 }
 void RegisterScene::drawLoginMenu() {
 	sf::Texture backgroundTexture;
-	backgroundTexture.loadFromFile("UI_Components/UI_Texture_Pack/LoginBackground.png");
+	backgroundTexture.loadFromFile("UI_Components/UI_Texture_Pack/RegisterBackground.png");
 	sf::Sprite backgroundSprite;
 	backgroundSprite.setTexture(backgroundTexture);
-	backgroundSprite.setScale(3.5, 3.3);
+	backgroundSprite.setScale(6, 6);
 	backgroundSprite.setPosition(0, 0);	
 	getWindow()->draw(backgroundSprite);
 
+	getWindow()->draw(titleSprite);
 	for (int i = 0; i < textBoxes.size(); i++) {
 		textBoxes[i].draw(getWindow());
 	}
@@ -125,28 +165,25 @@ void RegisterScene::drawLoginMenu() {
 	for (int i = 0; i < buttons.size(); i++) {
 		buttons[i].draw(getWindow());
 	}
+
+	if (beingSelected && currentBox == 0) {
+		getWindow()->draw(pinkFlowerSprite1);
+	}
+	else if (beingSelected && currentBox == 1) {
+		getWindow()->draw(pinkFlowerSprite2);
+	}
 }
 
 void RegisterScene::drawArgument() {
 	if (isValidMessage) {
-		std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Mario");
-		if (font == nullptr) {
-			std::cerr << "Error: Font 'Roboto' not loaded!" << std::endl;
-			return;
-		}
-
-		sf::Text valid;
-		valid.setFont(*font);
-		valid.setString("The registration is complete. Your epic adventure begins now!");
-		valid.setCharacterSize(18);
-		valid.setFillColor(sf::Color::Color(251, 188, 174));
-		valid.setPosition(0, 450);
 		getWindow()->draw(valid);
+		getWindow()->draw(happyMarioSprite);
 
 	}
 	else {
 		getWindow()->draw(shape);
 		getWindow()->draw(inValid);
+		getWindow()->draw(sadMarioSprite);
 	}
 	
 }

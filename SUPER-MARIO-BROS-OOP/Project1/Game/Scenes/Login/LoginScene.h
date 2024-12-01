@@ -22,6 +22,9 @@ private:
     sf::Texture pinkFlower;
 	sf::Sprite pinkFlowerSprite1;
 	sf::Sprite pinkFlowerSprite2;
+	sf::Texture sadMarioTexture;
+    sf::Sprite sadMarioSprite;
+
 public:
     LoginScene(sf::RenderWindow* window);
     ~LoginScene() {

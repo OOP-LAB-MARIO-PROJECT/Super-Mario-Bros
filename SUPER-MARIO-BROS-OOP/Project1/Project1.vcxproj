@@ -238,6 +238,7 @@
     <Image Include="UI_Components\UI_Texture_Pack\CloudBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\CoinSpriteSheet.png" />
     <Image Include="UI_Components\UI_Texture_Pack\GoombaSpriteSheet.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\HappyMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />
     <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png" />
@@ -247,6 +248,8 @@
     <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\PinkFlower.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\RegisterBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\SadMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Title.png" />
     <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>

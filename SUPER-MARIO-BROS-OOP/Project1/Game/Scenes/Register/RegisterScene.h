@@ -14,7 +14,19 @@ private:
     bool showInvalidMessage = false;
     bool isValidMessage;
 	sf::Text inValid;
+	sf::Text valid;
 	sf::RectangleShape shape;
+    bool beingSelected;
+    int currentBox;
+    sf::Texture titleTexture;
+    sf::Sprite titleSprite;
+    sf::Texture pinkFlower;
+    sf::Sprite pinkFlowerSprite1;
+    sf::Sprite pinkFlowerSprite2;
+    sf::Texture sadMarioTexture;
+    sf::Sprite sadMarioSprite;
+	sf::Texture happyMarioTexture;
+	sf::Sprite happyMarioSprite;
 public:
     RegisterScene(sf::RenderWindow* window);
     ~RegisterScene() {
