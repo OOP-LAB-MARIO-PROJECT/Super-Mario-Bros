@@ -47,7 +47,7 @@ RegisterScene::RegisterScene(sf::RenderWindow* window) : Scene(window) {
 	valid.setFont(*font);
 	valid.setString("Your epic adventure begins now!");
 	valid.setCharacterSize(18);
-	valid.setFillColor(sf::Color::Color(251, 188, 174));
+	valid.setFillColor(sf::Color::Black);
 	valid.setPosition(getWindow()->getSize().x / 2.0 - 270, 449);
 
 	//create title

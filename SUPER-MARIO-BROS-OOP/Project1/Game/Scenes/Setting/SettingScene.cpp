@@ -1,33 +1,32 @@
 ﻿#include "SettingScene.h"
 
 SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
-	//if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf"))
-	//{
-	//	std::cout << "Can't load font" << std::endl;
-	//}
-
-	Button mute = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "mute\n";  }, "Mute", 24, sf::Color::Black);
+	
+	float midScreenX = getWindow()->getSize().x / 2.0;
+	float midScreenY = getWindow()->getSize().y / 2.0;
+	sf::Vector2f midCoordinate(midScreenX - 100, midScreenY - 50); //button base position
+	Button mute = Button::createButton(sf::Vector2f(200, 100), midCoordinate, sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { std::cout << "mute\n";  }, "Mute", 15, sf::Color::Black);
 	buttons.push_back(mute);
 
-	Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "save\n"; }, "Save", 24, sf::Color::Black);
+	Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y - 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { std::cout << "save\n"; }, "Save", 15, sf::Color::Black);
 	buttons.push_back(save);
 
-	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 400), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 24, sf::Color::Black);
+	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midScreenX - 320, midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 15, sf::Color::Black);
 	buttons.push_back(back);
 
-	Button up = Button::createButton(sf::Vector2f(60, 60), sf::Vector2f(520, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "up\n"; }, "Up", 24, sf::Color::Black);
+	Button up = Button::createButton(sf::Vector2f(60, 60), sf::Vector2f(midScreenX + 200, midScreenY), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { std::cout << "up\n"; }, "Up", 15, sf::Color::Black);
 	buttons.push_back(up);
 
-	Button down = Button::createButton(sf::Vector2f(70, 70), sf::Vector2f(600, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "down\n"; }, "Down", 24, sf::Color::Black);
+	Button down = Button::createButton(sf::Vector2f(70, 70), sf::Vector2f(midScreenX + 270, midScreenY), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { std::cout << "down\n"; }, "Down", 15, sf::Color::Black);
 	buttons.push_back(down);
 
-	Button keyBinding = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(550, 400), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "keyBinding\n"; }, "Key Binding", 24, sf::Color::Black);
+	Button keyBinding = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midScreenX + 120,  midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { std::cout << "keyBinding\n"; }, "Key Binding", 12, sf::Color::Black);
 	buttons.push_back(keyBinding);
 }
 
@@ -48,6 +47,12 @@ void SettingScene::changeKeys()
 
 void SettingScene::drawScene()
 {
+	sf::Texture backgroundTexture;
+	backgroundTexture.loadFromFile("UI_Components/UI_Texture_Pack/SettingSceneBackground.png");
+	sf::Sprite backgroundSprite;
+	backgroundSprite.setTexture(backgroundTexture);
+	backgroundSprite.setScale(1.5, 1.8);
+	getWindow()->draw(backgroundSprite);
 	for (int i = 0; i < buttons.size(); i++)
 	{
 		buttons[i].draw(getWindow());

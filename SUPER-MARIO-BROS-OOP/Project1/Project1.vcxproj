@@ -250,6 +250,7 @@
     <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
     <Image Include="UI_Components\UI_Texture_Pack\RegisterBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\SadMario.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\SettingSceneBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Title.png" />
     <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>
