@@ -68,7 +68,6 @@ LoginScene::LoginScene(sf::RenderWindow* window) : Scene(window) {
 	shape.setSize(sf::Vector2f(getWindow()->getSize().x, inValid.getScale().x + 18));
 	shape.setPosition(inValid.getPosition());
 	shape.setFillColor(sf::Color::Color(200, 76, 11));
-	//shape.setOutlineThickness(3);
 	shape.setOutlineColor(sf::Color::Black);
 }
 

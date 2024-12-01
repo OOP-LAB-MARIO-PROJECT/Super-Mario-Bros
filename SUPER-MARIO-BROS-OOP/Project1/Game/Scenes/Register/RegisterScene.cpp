@@ -12,9 +12,6 @@ RegisterScene::RegisterScene(sf::RenderWindow* window) : Scene(window) {
 	textBoxes.push_back(usernameBox);
 	textBoxes.push_back(passwordBox);
 
-
-	
-
 	Button registerGame = Button::createButton(sf::Vector2f(150, 70), sf::Vector2f(midScreenX - 230, midScreenY + 170), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[&]() {
 			addLineIfNotExists();
@@ -31,18 +28,18 @@ RegisterScene::RegisterScene(sf::RenderWindow* window) : Scene(window) {
 
 	std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Mario");
 	if (font == nullptr) {
-		std::cerr << "Error: Font 'Roboto' not loaded!" << std::endl;
+		std::cerr << "Error: Font 'Mario' not loaded!" << std::endl;
 		return;
 	}
 	inValid.setFont(*font);
-	inValid.setString("Your account is already exist");
-	inValid.setCharacterSize(18);
+	inValid.setString("Mario never forgets a hero! Your account is already registered. Log in to continue saving the day!");
+	inValid.setCharacterSize(13);
+	inValid.setScale(1, 1.25);
 	inValid.setFillColor(sf::Color::Color(251, 188, 174));
-	inValid.setPosition(inValid.getScale().x, getWindow()->getSize().y / 2.0 + inValid.getScale().y / 2.0 - 35);
-	shape.setSize(sf::Vector2f(getWindow()->getSize().x, inValid.getScale().x + 18));
-	shape.setPosition(inValid.getPosition());
+	inValid.setPosition(inValid.getScale().x + 3, getWindow()->getSize().y / 2.0 + inValid.getScale().y / 2.0 - 35);
+	shape.setSize(sf::Vector2f(getWindow()->getSize().x + 5, inValid.getScale().x + 15));
+	shape.setPosition(inValid.getPosition().x - 5, inValid.getPosition().y);
 	shape.setFillColor(sf::Color::Color(200, 76, 11));
-	//shape.setOutlineThickness(3);
 	shape.setOutlineColor(sf::Color::Black);
 }
 
@@ -113,6 +110,14 @@ void RegisterScene::loopEvents() {
 	}
 }
 void RegisterScene::drawLoginMenu() {
+	sf::Texture backgroundTexture;
+	backgroundTexture.loadFromFile("UI_Components/UI_Texture_Pack/LoginBackground.png");
+	sf::Sprite backgroundSprite;
+	backgroundSprite.setTexture(backgroundTexture);
+	backgroundSprite.setScale(3.5, 3.3);
+	backgroundSprite.setPosition(0, 0);	
+	getWindow()->draw(backgroundSprite);
+
 	for (int i = 0; i < textBoxes.size(); i++) {
 		textBoxes[i].draw(getWindow());
 	}
@@ -132,15 +137,15 @@ void RegisterScene::drawArgument() {
 
 		sf::Text valid;
 		valid.setFont(*font);
-		valid.setString("Your account is registered successfully.");
+		valid.setString("The registration is complete. Your epic adventure begins now!");
 		valid.setCharacterSize(18);
 		valid.setFillColor(sf::Color::Color(251, 188, 174));
-		valid.setPosition(200, 450);
+		valid.setPosition(0, 450);
 		getWindow()->draw(valid);
 
 	}
 	else {
-
+		getWindow()->draw(shape);
 		getWindow()->draw(inValid);
 	}
 	
@@ -148,9 +153,9 @@ void RegisterScene::drawArgument() {
 
 
 void RegisterScene::update(float deltatime) {
+	drawLoginMenu();
 	if (showInvalidMessage) {
 		drawArgument();
 	}
-	drawLoginMenu();
 	loopEvents();
 }
