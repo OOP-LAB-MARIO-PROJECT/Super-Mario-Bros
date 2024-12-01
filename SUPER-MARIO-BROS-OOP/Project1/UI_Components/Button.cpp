@@ -64,16 +64,18 @@ bool Button::beingHovered()
 
 void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window) {
     
-    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-    isHovered = shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos));
+    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+    isHovered = shape.getGlobalBounds().contains(mousePos);
     if (isHovered) {
         shape.setFillColor(hoverColor); 
+        text.setFillColor(sf::Color::Color(107, 137, 253));
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
 			text.setCharacterSize(text.getCharacterSize() + 5);
             isPressed = true;
         }
         else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
             text.setCharacterSize(text.getCharacterSize() - 5);
+			text.setFillColor(sf::Color::Black);
             if (isPressed && onClick) {
                 onClick(); 
             }
@@ -82,6 +84,7 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     }
     else {
         shape.setFillColor(defaultColor); 
+        text.setFillColor(sf::Color::Black);
    }
 }
 
