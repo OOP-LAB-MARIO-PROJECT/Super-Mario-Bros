@@ -90,9 +90,9 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 	map = alive;
 
 	resetPlayer(ppos, psize, pvel, mode);
-	updateEnvironment();
 	EntityManager::getInstance().setUpdatePivot(ppos);
 	EntityManager::getInstance().updateAll(deltaTime);
+	updateEnvironment();
 }
 
 void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel, int mode) {

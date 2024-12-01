@@ -35,7 +35,7 @@ public:
     std::vector <Entity*>& getEntities();  // Container to store entities
 
     // get near entity to this "en"
-    std::vector<Entity*> getNearEntity(Entity* en, float radius = 500);
+    std::vector<Entity*> getNearEntity(Entity* en, float radius = 30);
 
     void filter(); // filter out dead entities
     void clear(); // clear out entities
