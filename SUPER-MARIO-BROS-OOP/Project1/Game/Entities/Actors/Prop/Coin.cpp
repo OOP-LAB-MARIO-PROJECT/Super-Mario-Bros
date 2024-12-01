@@ -37,7 +37,6 @@ void Coin::update(float deltatime) {
 
 	for (auto& o : obstacle) {
 		Collision::rect dr = { o.pos, o.size, o.vel };
-		if (o.vel.y != 0) std::cout << o.vel.y << '\n';
 		if (rectVsRect(dr, { getPos(), getSize() })) {
 			setVel(sf::Vector2f{ 0, -90 });
 			fallingTimer = 1;
