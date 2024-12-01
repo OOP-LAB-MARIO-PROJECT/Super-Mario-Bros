@@ -77,6 +77,7 @@ void GameScene::restartLevel() {
 	delete gameMap;
 	gameMap = new Map();
 	gameMap->loadMap(levelMap[currentLevel], player);
+	std::cout << "Player pos after start: " << player->getPos().x <<" " << player->getPos().y << "\n";
 }
 
 GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
@@ -113,8 +114,8 @@ void GameScene::update(float deltatime) {
 	myKeyExecute.handleInput();
 
 	EntityManager::getInstance().filter();
-	player->update(deltatime);
 	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
+	player->update(deltatime);
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());
 

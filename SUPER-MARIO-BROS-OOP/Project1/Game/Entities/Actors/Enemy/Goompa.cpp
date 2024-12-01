@@ -2,6 +2,7 @@
 #include <vector>
 
 Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
+    setSize({ 12, 12 });
 	isRenderHitbox = true;
 	isRenderSprite = true;
 	facing = 1;
@@ -56,7 +57,7 @@ void Goompa::update(float deltatime) {
     
     behavior(deltatime);
     performPhysics(deltatime);
-    setSpritePos(getPos() - sf::Vector2f(0, 16));
+    setSpritePos(getPos() - sf::Vector2f(0, 20));
 }
 
 void Goompa::animation(float deltatime) {

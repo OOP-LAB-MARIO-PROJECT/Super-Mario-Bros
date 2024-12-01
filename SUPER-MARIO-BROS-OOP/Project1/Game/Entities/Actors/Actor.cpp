@@ -36,7 +36,7 @@ void Actor::setSpritePos(sf::Vector2f pos) {
 
 void Actor::setSize(sf::Vector2f _size) {
 	size = _size;
-	rect.setScale(size);
+	rect.setSize(size);
 }
 
 void Actor::setVel(sf::Vector2f vel) {
