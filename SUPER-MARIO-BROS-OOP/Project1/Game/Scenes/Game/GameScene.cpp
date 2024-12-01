@@ -22,7 +22,7 @@ void GameScene::loadMapList() {
 		levelMap[mapName] = mapPath;
 	}
 
-	currentLevel = "map-1-2";
+	currentLevel = "map-1-1";
 	GameConfig::getInstance().setCurrentLevel(currentLevel);
 
 	fin.close();
@@ -34,6 +34,10 @@ void GameScene::nextLevel(std::string level) {
 
 	GameConfig::getInstance().timeLeft = 300;
 	GameConfig::getInstance().setCurrentLevel(level);
+
+	player->otherEntities.clear();
+	player->obstacle.clear();
+
 	std::cout << "move to " << level << '\n';
 	currentLevel = level;
 	delete gameMap;
@@ -65,6 +69,9 @@ void GameScene::restartLevel() {
 	GameConfig::getInstance().coins = 0;
 	GameConfig::getInstance().score = 0;
 	GameConfig::getInstance().timeLeft = 300;
+
+	player->otherEntities.clear();
+	player->obstacle.clear();
 
 	delete gameMap;
 	gameMap = new Map();
