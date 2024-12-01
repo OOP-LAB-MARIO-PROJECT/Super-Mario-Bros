@@ -37,7 +37,7 @@ void GameScene::nextLevel(std::string level) {
 
 	player->otherEntities.clear();
 	player->obstacle.clear();
-
+	player->nearPointerTiles.clear();
 	std::cout << "move to " << level << '\n';
 	currentLevel = level;
 	delete gameMap;
@@ -72,6 +72,7 @@ void GameScene::restartLevel() {
 
 	player->otherEntities.clear();
 	player->obstacle.clear();
+	player->nearPointerTiles.clear();
 
 	delete gameMap;
 	gameMap = new Map();
@@ -112,8 +113,8 @@ void GameScene::update(float deltatime) {
 	myKeyExecute.handleInput();
 
 	EntityManager::getInstance().filter();
-	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 	player->update(deltatime);
+	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());
 

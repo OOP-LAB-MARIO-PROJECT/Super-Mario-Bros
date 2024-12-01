@@ -8,6 +8,9 @@ class Coin : public Collectable {
 	std::vector<std::string> animation;
 	int aniloop;
 	float timer;
+	float fallingTimer = 0;
+	bool isTouch = false;
+	
 public:
 
 	Coin(sf::Vector2f pos, sf::Vector2f size);

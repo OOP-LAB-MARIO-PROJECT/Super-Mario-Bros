@@ -4,7 +4,7 @@
 
 
 class Tile : public Entity, public Collision {
-private:
+protected:
 	sf::RectangleShape m_hitbox;
 	sf::Sprite sprite;
 

@@ -20,6 +20,9 @@ void MoveUpTile::affectOther(Entity* other, float deltatime) {
 	touched(deltatime);
 }
 
+Hitbox MoveUpTile::getHitbox() {
+	return { pos, size, Physics::getVel() };
+}
 
 void MoveUpTile::destroy(float deltatime) {
 	kill();

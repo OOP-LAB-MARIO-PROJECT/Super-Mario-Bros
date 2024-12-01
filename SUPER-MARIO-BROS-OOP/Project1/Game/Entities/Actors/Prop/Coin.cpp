@@ -25,6 +25,27 @@ void Coin::update(float deltatime) {
 		setTexture("item-object", animation[aniloop]);
 		timer = 0;
 	}
+	
+	if (isTouch) {
+		performPhysics(deltatime);
+		setPos(getPos() + getVel() * deltatime);
+		fallingTimer -= deltatime;
+		touched(deltatime);
+		return;
+	}
+	//std::cout << obstacle.size() << '\n';
+
+	for (auto& o : obstacle) {
+		Collision::rect dr = { o.pos, o.size, o.vel };
+		if (o.vel.y != 0) std::cout << o.vel.y << '\n';
+		if (rectVsRect(dr, { getPos(), getSize() })) {
+			setVel(sf::Vector2f{ 0, -90 });
+			fallingTimer = 1;
+			touched(deltatime);
+			return;
+		}
+	}
+
 }
 
 void Coin::behavior(float deltatime) {
@@ -32,12 +53,12 @@ void Coin::behavior(float deltatime) {
 }
 
 void Coin::touched(float deltatime) {
-	kill();
-	
+	if (fallingTimer <= 0) kill();
+	if (isTouch) return;
 	GameConfig::getInstance().addCoin();
 	GameConfig::getInstance().addScore(score);
 	SoundManager::getInstance().playSound("collect", false);
-	
+	isTouch = true;
 }
 
 ENTITY_TYPE Coin::getType() {
