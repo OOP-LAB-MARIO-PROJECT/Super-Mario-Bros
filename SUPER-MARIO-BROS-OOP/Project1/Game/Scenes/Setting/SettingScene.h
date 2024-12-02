@@ -20,6 +20,7 @@ public:
 	};
 	void changeVolume();
 	void saveSetting();
+	void loadSetting();
 	void changeKeys();
 	void drawScene();
 	void loopEvents();

@@ -1,5 +1,8 @@
-#include "GameConfig.h"
+﻿#include "GameConfig.h"
 #include <iostream>
+#include <fstream>
+#include <json.hpp> // Thư viện JSON, tải từ https://github.com/nlohmann/json
+using json = nlohmann::json;
 
 // Singleton instance is managed within the header file (no explicit code needed here)
 
@@ -70,6 +73,56 @@ void GameConfig::updateControl(const std::string& action, sf::Keyboard::Key key)
     }
     else {
         std::cerr << "Action '" << action << "' not found in controls.\n";
+    }
+}
+// Save & Load
+void GameConfig::saveToFile(const std::string& filename) {
+    json j;
+    j["volume"] = volume;
+    j["playerName"] = playerName;
+    j["currentLevel"] = currentLevel;
+    j["score"] = score;
+    j["coins"] = coins;
+    j["timeLeft"] = timeLeft;
+
+    // Lưu controls
+    for (const auto& pair : controls) {
+        j["controls"][pair.first] = pair.second;
+    }
+
+    std::ofstream file(filename);
+    if (file.is_open()) {
+        file << j.dump(4); // Định dạng JSON đẹp mắt
+        file.close();
+    }
+    else {
+        std::cerr << "Unable to open file for saving: " << filename << std::endl;
+    }
+}
+
+void GameConfig::loadFromFile(const std::string& filename) {
+    std::ifstream file(filename);
+    if (file.is_open()) {
+        json j;
+        file >> j;
+        file.close();
+
+        volume = j["volume"];
+        playerName = j["playerName"];
+        currentLevel = j["currentLevel"];
+        score = j["score"];
+        coins = j["coins"];
+        timeLeft = j["timeLeft"];
+
+        // Tải controls
+        for (auto& pair : controls) {
+            if (j["controls"].contains(pair.first)) {
+                pair.second = j["controls"][pair.first];
+            }
+        }
+    }
+    else {
+        std::cerr << "Unable to open file for loading: " << filename << std::endl;
     }
 }
 

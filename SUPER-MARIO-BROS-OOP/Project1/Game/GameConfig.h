@@ -66,6 +66,9 @@ public:
             controls[action] = key;
         }
     }
+    // Save - Load Game
+    void saveToFile(const std::string& filename);
+    void loadFromFile(const std::string& filename);
 
     sf::Keyboard::Key getControl(const std::string& action) {
         return controls[action];

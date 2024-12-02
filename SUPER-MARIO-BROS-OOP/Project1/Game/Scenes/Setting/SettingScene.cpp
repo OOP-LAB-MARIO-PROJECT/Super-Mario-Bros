@@ -1,4 +1,5 @@
 ﻿#include "SettingScene.h"
+#include "../../../Game/GameConfig.h"
 
 SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	//if (!font.loadFromFile("Assets/Fonts/Roboto-Medium.ttf"))
@@ -11,8 +12,12 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	buttons.push_back(mute);
 
 	Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "save\n"; }, "Save", 24, sf::Color::Black);
+		[this]() { saveSetting(); }, "Save", 24, sf::Color::Black);
 	buttons.push_back(save);
+
+	Button load = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 250), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[this]() { loadSetting(); }, "Load", 24, sf::Color::Black);
+	buttons.push_back(load);
 
 	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(300, 400), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 24, sf::Color::Black);
@@ -36,9 +41,14 @@ void SettingScene::changeVolume()
 	//change volume
 }
 
-void SettingScene::saveSetting()
-{
-	//save setting
+void SettingScene::saveSetting() {
+	GameConfig::getInstance().saveToFile("savegame.json");
+	std::cout << "Game saved successfully.\n";
+}
+
+void SettingScene::loadSetting() {
+	GameConfig::getInstance().loadFromFile("savegame.json");
+	std::cout << "Game loaded successfully.\n";
 }
 
 void SettingScene::changeKeys()
