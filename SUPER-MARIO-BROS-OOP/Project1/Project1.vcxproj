@@ -180,6 +180,7 @@
     <ClCompile Include="Utils\TextureManager.cpp" />
     <ClCompile Include="Utils\Tileset.cpp" />
     <ClCompile Include="Utils\tinyxml2.cpp" />
+    <ClCompile Include="UI_Components\VolumeSlider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UI_Components\Animation.h" />
@@ -223,6 +224,7 @@
     <ClInclude Include="Utils\TextureManager.h" />
     <ClInclude Include="Utils\Tileset.h" />
     <ClInclude Include="Utils\tinyxml2.h" />
+    <ClInclude Include="UI_Components\VolumeSlider.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
@@ -242,6 +244,7 @@
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />
     <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\knob.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Koopa.png" />
     <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Moon.png" />

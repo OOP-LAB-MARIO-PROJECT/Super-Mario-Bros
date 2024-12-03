@@ -135,6 +135,9 @@
     <ClCompile Include="UI_Components\Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UI_Components\VolumeSlider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game.h">
@@ -260,6 +263,9 @@
     <ClInclude Include="UI_Components\Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Components\VolumeSlider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
@@ -321,6 +327,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="UI_Components\UI_Texture_Pack\RegisterBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\SettingSceneBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\knob.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
