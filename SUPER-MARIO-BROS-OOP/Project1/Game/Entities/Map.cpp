@@ -7,6 +7,7 @@ Map::~Map() {
 }
 
 void Map::addTile(Tile* tile) {
+	quadMap.insert((Entity*)tile);
 	map.push_back(tile);
 };
 
@@ -33,6 +34,9 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	m_col = mapLoader.columns;
 	m_block_size = mapLoader.tilewidth;
 
+	quadMap.init(m_col * (m_block_size + 10), m_row * (m_block_size + 10), 20);
+	EntityManager::getInstance().setSpace(m_col * (m_block_size + 10), m_row * (m_block_size + 10));
+
 	sf::Vector2f size = sf::Vector2f{ (float)mapLoader.tilewidth, (float)mapLoader.tileheight };
 
 	if (myMapInfo["player_pos"].size()) {
@@ -56,28 +60,28 @@ void Map::loadMap(const std::string& filename, Player* player) {
 		}
 
 		for (const auto& tile : typeTile.second) {
-			tilePos[toMap(sf::Vector2f{ (float)tile.first, (float)tile.second })] = map.size();
-			addTile(TileFactory::createTile(typeTile.first, sf::Vector2f{(float)tile.first, (float)tile.second}, size));
+			Tile* tmp = TileFactory::createTile(typeTile.first, sf::Vector2f{ (float)tile.first, (float)tile.second }, size);
+		
+			addTile(tmp);
 		}
 	}
 }
 
 std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	std::vector <Hitbox> tiles;
+	std::vector <Hitbox> tmp;
 	
-	std::pair <int, int> currentPos = toMap(pos);// row and col
-	
-	for (int i = -12; i <= 12; i++) for (int j = -12; j <= 12; j++) {
-		std::pair <int, int> newPos = currentPos;// row and col
-		newPos.first += i;
-		newPos.second += j;
-		int id = getTileAt(newPos);
-		if (id == -1) continue;
-		if (!gettrans && map[id]->isTrans())  continue;
-		tiles.push_back(map[id]->getHitbox());
-	}
+	Hitbox space = {
+		pos - sf::Vector2f(32, 32),
+		sf::Vector2f(64, 64)
+	};
 
-	return tiles;
+	std::vector <Entity*> nearTile = quadMap.nearEntity(space);
+	for (auto x : nearTile) {
+		if (x->getType() == TRANS && !gettrans) continue;
+		tmp.push_back(x->getHitbox());
+	}
+	return tmp;
 }
 
 void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode) {
@@ -85,14 +89,16 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 	std::vector <Tile*> alive;
 	for (auto t : map) if (!t->isDead()) {
 		alive.push_back(t);
+		//if (t->getType() >> MOVING_TILE & 1) std::cout << "i updated you\n";
 		t->update(deltaTime);
+		//if (t->getType() >> MOVING_TILE & 1) std::cout << "i done updated you\n";
+		t->notify(t);
 	}
 	map = alive;
 
+	quadMap.checkForPending();
+
 	resetPlayer(ppos, psize, pvel, mode);
-	EntityManager::getInstance().setUpdatePivot(ppos);
-	EntityManager::getInstance().updateAll(deltaTime);
-	updateEnvironment();
 }
 
 void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel, int mode) {
@@ -156,20 +162,18 @@ std::vector <Entity*> Map::getNearEntity(Entity* en) {
 }
 
 std::vector <Entity*> Map::getNearPointerTiles(sf::Vector2f pos, bool gettrans) {
+
+	Hitbox space = {
+		pos - sf::Vector2f(32, 32),
+		sf::Vector2f(64, 64)
+	};
+
+	std::vector <Entity*> nearTile = quadMap.nearEntity(space);
 	std::vector <Entity*> tiles;
-
-	std::pair <int, int> currentPos = toMap(pos);// row and col
-
-	for (int i = -12; i <= 12; i++) for (int j = -12; j <= 12; j++) {
-		std::pair <int, int> newPos = currentPos;// row and col
-		newPos.first += i;
-		newPos.second += j;
-		int id = getTileAt(newPos);
-		if (id == -1) continue;
-		if (!gettrans && map[id]->isTrans())  continue;
-		tiles.push_back(map[id]);
+	for (auto x : nearTile) {
+		if (x->getType() == TRANS && !gettrans) continue;
+		tiles.push_back(x);
 	}
-
 	return tiles;
 }
 

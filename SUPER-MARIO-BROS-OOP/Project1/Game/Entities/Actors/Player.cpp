@@ -85,6 +85,7 @@ void Player::update(float deltatime) {
 
 
 	setPos(getPos() + getVel() * deltatime);
+	//notify(this);
 	setSpritePos(getPos() - sf::Vector2f{ 2, 2 });
 
 	if (isCollide & 5) // touch top or bottom
@@ -122,7 +123,6 @@ void Player::update(float deltatime) {
 
 		if (cur) cur->affectOther(this, deltatime);
 	}
-
 }
 
 void Player::jump(float deltatime) {
@@ -179,7 +179,7 @@ void Player::moveRight(float deltatime) {
 	if (getVel().x > capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
 }
 
-ENTITY_TYPE Player::getType() {
+int Player::getType() {
 	return PLAYER;
 }
 

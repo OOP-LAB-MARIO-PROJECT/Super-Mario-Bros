@@ -115,6 +115,12 @@ void GameScene::update(float deltatime) {
 	EntityManager::getInstance().filter();
 	player->update(deltatime);
 	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
+
+	EntityManager::getInstance().setUpdatePivot(player->getPos());
+	EntityManager::getInstance().updateAll(deltatime);
+	
+	gameMap->updateEnvironment();
+	
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());
 

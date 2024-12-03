@@ -88,7 +88,7 @@ void Goompa::behavior(float deltatime) {
 
 
 
-ENTITY_TYPE Goompa::getType() {
+int Goompa::getType() {
 	return ENEMY;
 }
 

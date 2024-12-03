@@ -3,6 +3,7 @@
 void EntityManager::addEntity(Entity* entity) {
 	if (entity == NULL) return;
 	entities.push_back(entity);
+	quadEn.insert(entity);
 }
 
 // Render all entities
@@ -11,8 +12,10 @@ void EntityManager::updateAll(float deltaTime) {
 	for (auto en : entities)
 		if (!en->isDead() && std::abs(en->getHitbox().pos.x - updatePivot.x) < (float)updateDistance) {
 			en->update(deltaTime);
-			//std::cout << "updated: " << en->getType() << '\n';
 		}
+
+	for (auto en : entities) en->notify(en);
+	quadEn.checkForPending();
 }
 
 void EntityManager::renderAll(sf::RenderWindow* window) {
@@ -32,15 +35,15 @@ void EntityManager::setUpdatePivot(sf::Vector2f pos) {
 
 std::vector<Entity*> EntityManager::getNearEntity(Entity* en, float radius) {
 	std::vector <Entity*> res;
-	radius *= radius;
-	auto dist = [&](sf::Vector2f a, sf::Vector2f b) {
-		return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
-	};
+	std::vector <Entity*> tmp;
+	
+	Hitbox space = en->getHitbox();
+	space.pos -= space.size * 4.f;
+	space.size *= 4.f;
 
-	for (auto entity : entities) if (!entity->isDead() && entity != en && dist(entity->getHitbox().pos, en->getHitbox().pos) < radius) {
-		res.push_back(entity);
-	}
-	return res;
+	res = quadEn.nearEntity(space);
+	for (auto x : res) if (!x->isDead()) tmp.push_back(x);
+	return tmp;
 }
 
 void EntityManager::filter() {
@@ -65,4 +68,9 @@ void EntityManager::clear() {
 	for (auto x : entities)
 		delete x;
 	entities.clear();
+	quadEn.root = nullptr;
+}
+
+void EntityManager::setSpace(float width, float height) {
+	quadEn.init(width, height, 10);
 }

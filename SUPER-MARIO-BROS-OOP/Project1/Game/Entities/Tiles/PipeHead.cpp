@@ -24,7 +24,7 @@ PipeHead::PipeHead(sf::Vector2f pos, sf::Vector2f size, bool isTrans, std::strin
 	std::cout << cameraBase << '\n';
 }
 
-ENTITY_TYPE PipeHead::getType() {
+int PipeHead::getType() {
 	if (isTele) return PIPE_HEAD_TELE;
 	return PIPE_HEAD;
 }

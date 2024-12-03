@@ -4,6 +4,8 @@ Tile::Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans) : Entity() {
 	pos = _pos;
 	size = _size;
 	isTransparent = isTrans;
+	currentType = TILE;
+	if (isTrans) currentType = TRANS;
 
 	m_hitbox.setPosition(pos);
 	m_hitbox.setSize(size);
@@ -42,7 +44,7 @@ void Tile::setTexture(const std::string& sourceName, const std::string& rectName
 	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
 }
 
-ENTITY_TYPE Tile::getType() {
+int Tile::getType() {
 	return currentType;
 }
 

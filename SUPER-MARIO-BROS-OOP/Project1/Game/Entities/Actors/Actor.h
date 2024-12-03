@@ -51,7 +51,7 @@ public:
 	int getFacing();
 	bool getIsOnGround();
 	Hitbox getHitbox();
-	virtual ENTITY_TYPE getType() override;
+	virtual int getType() override;
 	virtual void update(float deltatime) override = 0;
 	virtual void setState(const std::string& stateName) { }
 };

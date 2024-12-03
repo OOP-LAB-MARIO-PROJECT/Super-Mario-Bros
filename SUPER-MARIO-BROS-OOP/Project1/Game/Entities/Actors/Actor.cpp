@@ -98,7 +98,7 @@ void Actor::setTexture(const std::string& sourceName, const std::string& rectNam
 	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
 }
 
-ENTITY_TYPE Actor::getType() {
+int Actor::getType() {
 	return ACTOR;
 }
 

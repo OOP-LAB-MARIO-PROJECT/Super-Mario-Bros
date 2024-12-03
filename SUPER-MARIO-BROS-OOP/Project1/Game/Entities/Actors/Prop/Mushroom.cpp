@@ -7,7 +7,7 @@ RedMushroom::RedMushroom(sf::Vector2f _pos, sf::Vector2f _size) : Collectable(_p
 	score = 200;
 }
 
-ENTITY_TYPE RedMushroom::getType() {
+int RedMushroom::getType() {
 	return RED_MUSHROOM;
 }
 
@@ -54,7 +54,7 @@ void RedMushroom::touched(float detatime) {
 }
 
 
-ENTITY_TYPE GreenMushroom::getType() {
+int GreenMushroom::getType() {
 	return GREEN_MUSHROOM;
 }
 

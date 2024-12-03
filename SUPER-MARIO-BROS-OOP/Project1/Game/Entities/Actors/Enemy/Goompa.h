@@ -27,5 +27,5 @@ public:
 	void inflictDamage() override;
 	void affectOther(Entity* other, float deltatime) override;
 
-	ENTITY_TYPE getType() override;
+	int getType() override;
 };

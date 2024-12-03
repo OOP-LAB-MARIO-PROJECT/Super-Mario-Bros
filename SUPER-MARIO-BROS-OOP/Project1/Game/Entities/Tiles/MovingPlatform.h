@@ -13,7 +13,7 @@ private:
 
 public:
 	MovingPlatform(sf::Vector2f pos, sf::Vector2f size, bool isTrans, std::string properties);
-	ENTITY_TYPE getType() override;
+	int getType() override;
 	void affectOther(Entity* other, float deltatime) override;
 	Hitbox getHitbox() override;
 	void update(float deltatime) override;

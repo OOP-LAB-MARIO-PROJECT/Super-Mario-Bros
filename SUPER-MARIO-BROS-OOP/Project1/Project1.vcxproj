@@ -179,6 +179,8 @@
     <ClCompile Include="UI_Components\Button.cpp" />
     <ClCompile Include="UI_Components\TextBox.cpp" />
     <ClCompile Include="Utils\FontManager.cpp" />
+    <ClCompile Include="Utils\QuadTree.cpp" />
+    <ClCompile Include="Utils\Observer.cpp" />
     <ClCompile Include="Utils\SceneManager.cpp" />
     <ClCompile Include="Utils\SoundManager.cpp" />
     <ClCompile Include="Utils\TextureManager.cpp" />
@@ -226,6 +228,8 @@
     <ClInclude Include="UI_Components\Button.h" />
     <ClInclude Include="UI_Components\TextBox.h" />
     <ClInclude Include="Utils\FontManager.h" />
+    <ClInclude Include="Utils\QuadTree.h" />
+    <ClInclude Include="Utils\Observer.h" />
     <ClInclude Include="Utils\SceneManager.h" />
     <ClInclude Include="Utils\SoundManager.h" />
     <ClInclude Include="Utils\TextureManager.h" />

@@ -3,12 +3,14 @@
 #include "../../Utils/TextureManager.h"
 #include "../../Utils/SceneManager.h"
 #include "../../Utils/SoundManager.h"
+#include "../../Utils/Observer.h"
 #include "../GameConfig.h"
 
 enum ENTITY_TYPE {
 	PROJECTILE,
 	ENEMY,
 	TILE,
+	MOVING_TILE,
 	PLAYER,
 	HARM_TO_ENEMY,
 	HARM_TO_ALL,
@@ -21,7 +23,8 @@ enum ENTITY_TYPE {
 	PIPE_HEAD_TELE,
 	PIPE_HEAD,
 	COIN,
-	DOOR
+	DOOR,
+	TRANS
 };
 
 struct Hitbox {
@@ -30,7 +33,7 @@ struct Hitbox {
 	sf::Vector2f vel;
 };
 
-class Entity
+class Entity: public Observer<Entity>
 {
 	bool _isDead = false;
 	// id
@@ -62,10 +65,9 @@ public:
 	virtual void touched(float deltatime) {};
 
 	// FUNCTION TO NOTE
-	virtual ENTITY_TYPE getType() = 0; // get the type of entities -> use for distinguish between entyties and use for conditional behavior of entities 
+	virtual int getType() = 0; // get the type of entities -> use for distinguish between entyties and use for conditional behavior of entities 
 	virtual Hitbox getHitbox() = 0; // get the dynamic hitbox of an object -> make it easier for detection collision
 	virtual void affectOther(Entity* other);
 	virtual void affectOther(Entity* other, float deltatime);
-
 };
 
