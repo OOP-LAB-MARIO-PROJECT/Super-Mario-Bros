@@ -8,7 +8,6 @@
 class Actor : public Entity, public Collision, public Physics {
 private:
 	sf::Sprite sprite;
-	sf::RectangleShape rect; // for rendering
 	sf::Vector2f pos;
 	sf::Vector2f size;
 

@@ -3,8 +3,22 @@
 void Actor::render(sf::RenderWindow* window) const {
 	//std::cout << "Rendering player!" << std::endl;
 
-	if (isRenderHitbox)
-		window->draw(rect);
+	if (isRenderHitbox) {
+
+		sf::VertexArray box(sf::LineStrip, 5);
+		float x = pos.x, y = pos.y;
+		float width = size.x, height = size.y;
+		box[0].position = sf::Vector2f(x, y);
+		box[1].position = sf::Vector2f(x + width, y);
+		box[2].position = sf::Vector2f(x + width, y + height);
+		box[3].position = sf::Vector2f(x, y + height);
+		box[4].position = sf::Vector2f(x, y);
+
+		for (int i = 0; i < 5; ++i)
+			box[i].color = sf::Color::Red;
+
+		window->draw(box);
+	}
 	if (isRenderSprite)
 		window->draw(sprite);
 }
@@ -14,9 +28,6 @@ Actor::Actor() {};
 Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
 	pos(_pos), size(_size), Physics({ 0, 0 }, { 0, 260 })
 {
-	rect.setFillColor(sf::Color::Green);
-	rect.setPosition(pos);
-	rect.setSize(size);
 	sprite.setPosition(pos);
 
 	std::cout << "made the player green\n";
@@ -25,7 +36,6 @@ Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
 
 void Actor::setPos(sf::Vector2f _pos) {
 	pos = _pos;
-	rect.setPosition(pos);
 	if (autoSpriteFollowHitbox) sprite.setPosition(pos);
 }
 
@@ -36,7 +46,6 @@ void Actor::setSpritePos(sf::Vector2f pos) {
 
 void Actor::setSize(sf::Vector2f _size) {
 	size = _size;
-	rect.setScale(size);
 }
 
 void Actor::setVel(sf::Vector2f vel) {

@@ -57,15 +57,15 @@ void Player::update(float deltatime) {
 		currentState->handle(this, deltatime);
 		currentState->update(this, deltatime);
 	}
-	
-	performPhysics(deltatime);
 
+	
 
 	if (health <= 0) {
 		isDead = true;
 		if (health == 0) setVel({ 0, -180.0f }), health--;
 		deadthTimer += deltatime;
 		setPos(getPos() + getVel() * deltatime);
+		performPhysics(deltatime);
 		return;
 	}
 
@@ -81,16 +81,14 @@ void Player::update(float deltatime) {
 	else
 		setFric({ 0, 0 });
 
-	
-
-
-	setPos(getPos() + getVel() * deltatime);
-	//notify(this);
-	setSpritePos(getPos() - sf::Vector2f{ 2, 2 });
-
 	if (isCollide & 5) // touch top or bottom
 		setVel({ getVel().x, 0 }), isJumping = false;
 
+
+	setPos(getPos() + getVel() * deltatime);
+	setSpritePos(getPos() - sf::Vector2f{ 2, 2 });
+
+	performPhysics(deltatime);
 	std::vector <Entity*> other = otherEntities;
 
 	for (const auto& en : other) { // player interact with surrounding enemies
@@ -123,6 +121,7 @@ void Player::update(float deltatime) {
 
 		if (cur) cur->affectOther(this, deltatime);
 	}
+
 }
 
 void Player::jump(float deltatime) {

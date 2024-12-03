@@ -5,9 +5,7 @@
 
 class Tile : public Entity, public Collision {
 protected:
-	sf::RectangleShape m_hitbox;
 	sf::Sprite sprite;
-
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
