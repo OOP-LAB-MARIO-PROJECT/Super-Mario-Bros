@@ -72,8 +72,8 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	std::vector <Hitbox> tmp;
 	
 	Hitbox space = {
-		pos - sf::Vector2f(32, 32),
-		sf::Vector2f(64, 64)
+		pos - sf::Vector2f(16, 16),
+		sf::Vector2f(48, 48)
 	};
 
 	std::vector <Entity*> nearTile = quadMap.nearEntity(space);
@@ -81,6 +81,7 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 		if (x->getType() == TRANS && !gettrans) continue;
 		tmp.push_back(x->getHitbox());
 	}
+
 	return tmp;
 }
 
