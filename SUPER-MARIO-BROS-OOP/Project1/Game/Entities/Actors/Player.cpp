@@ -57,13 +57,14 @@ void Player::update(float deltatime) {
 		currentState->handle(this, deltatime);
 		currentState->update(this, deltatime);
 	}
+	
+	performPhysics(deltatime);
 
 
 	if (health <= 0) {
 		isDead = true;
 		if (health == 0) setVel({ 0, -180.0f }), health--;
 		deadthTimer += deltatime;
-		performPhysics(deltatime);
 		setPos(getPos() + getVel() * deltatime);
 		return;
 	}
@@ -95,7 +96,6 @@ void Player::update(float deltatime) {
 		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
 		if (dir == -1) continue;
 		if (en->getType() == ENEMY) {
-			// if the contact direction is on top of enemy player will inflict a damage
 			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), isKilling = true;
 			en->affectOther(this);
 			continue;
@@ -109,7 +109,9 @@ void Player::update(float deltatime) {
 		Entity* cur = NULL;
 		sf::Vector2f pcenter = getPos() + getSize() / 2.f;
 		for (const auto& tile : other) {
+
 			Hitbox tmp = getHitbox();
+
 			if (isOnGround) tmp.vel.y = 1;
 			int dir = dynamicRectVsRect(getHitbox(), deltatime, tmp.vel, tile->getHitbox());
 			if (dir == -1) continue;
@@ -121,7 +123,6 @@ void Player::update(float deltatime) {
 		if (cur) cur->affectOther(this, deltatime);
 	}
 
-	performPhysics(deltatime);
 }
 
 void Player::jump(float deltatime) {
