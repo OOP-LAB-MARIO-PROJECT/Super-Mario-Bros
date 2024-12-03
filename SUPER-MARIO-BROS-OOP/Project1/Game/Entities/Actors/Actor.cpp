@@ -84,9 +84,6 @@ void Actor::setIsDead(bool a) {
 	isDead = a;
 }
 
-
-
-
 int Actor::resolveCollideGround(std::vector <Hitbox> vi, float deltaTime) {
 	sf::Vector2f pos = getPos();
 	sf::Vector2f vel = getVel();
