@@ -40,7 +40,7 @@ private:
 	sf::Vector2f playerVel;
 	
 	int playerMode = 0;
-	void updateEnvironment();
+
 public:
 
 	Map() {};
@@ -51,7 +51,7 @@ public:
 	void loadMap(const std::string& filename, Player* player);
 	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel, int mode);
 	void update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode);
-	
+	void updateEnvironment();
 	// API for use
 	// infomation for the actor to get
 	std::vector <Hitbox> getTiles();

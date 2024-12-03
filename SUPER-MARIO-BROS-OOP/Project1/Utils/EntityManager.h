@@ -1,5 +1,7 @@
 #pragma once
 #include "../Game/Entities/Entity.h"
+#include "../Game/Components/Physics.h"
+#include "../Game/Entities/Actors/Actor.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -9,7 +11,7 @@ class EntityManager {
 private:
     std::vector <Entity*> entities;  // Container to store entities
     sf::Vector2f updatePivot = { 0, 0 };
-    float updateDistance = 200;
+    float updateDistance = 1000;
     int curEntity = 0;
 
     ~EntityManager();
@@ -30,7 +32,7 @@ public:
 
     void renderAll(sf::RenderWindow* window);
     // vector <..> getEntityWithID();
-
+    void updatePositionAndPhysic(float deltaTime);
     void setUpdatePivot(sf::Vector2f pos);
     std::vector <Entity*>& getEntities();  // Container to store entities
 

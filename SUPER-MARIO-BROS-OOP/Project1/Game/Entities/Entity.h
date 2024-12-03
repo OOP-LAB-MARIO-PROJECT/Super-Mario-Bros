@@ -51,6 +51,7 @@ public:
 	virtual void setPos(sf::Vector2f pos);
 	virtual void setSize(sf::Vector2f size);
 	virtual void setVel(sf::Vector2f vel);
+	virtual void updatePositionAndPhysic(float deltaTime) {}
 
 	void setRenderHitbox(bool f);
 	void setRenderSprite(bool f);

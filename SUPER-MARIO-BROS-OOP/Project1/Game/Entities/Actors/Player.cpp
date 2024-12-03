@@ -83,7 +83,6 @@ void Player::update(float deltatime) {
 	
 
 
-	setPos(getPos() + getVel() * deltatime);
 	setSpritePos(getPos() - sf::Vector2f{ 2, 2 });
 
 	if (isCollide & 5) // touch top or bottom
@@ -93,17 +92,22 @@ void Player::update(float deltatime) {
 
 	for (const auto& en : other) { // player interact with surrounding enemies
 		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
-		if (dir == -1) continue;
+		
 		if (en->getType() == ENEMY) {
+			//std::cout << this->getPos().y - en->getHitbox().pos.y << "\n";
 			// if the contact direction is on top of enemy player will inflict a damage
 			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), isKilling = true;
 			en->affectOther(this);
+			continue;
+		}
+		if (dir == -1) {
 			continue;
 		}
 		en->touched(deltatime);
 	}
 
 	other = nearPointerTiles;
+	std::cout << other.size();
 	if (other.size()) {
 		float curDist = 1e9;
 		Entity* cur = NULL;
@@ -121,7 +125,6 @@ void Player::update(float deltatime) {
 		if (cur) cur->affectOther(this, deltatime);
 	}
 
-	performPhysics(deltatime);
 }
 
 void Player::jump(float deltatime) {
@@ -194,3 +197,9 @@ void Player::setPos(sf::Vector2f pos) {
 
 
 
+
+
+void Player::updatePositionAndPhysic(float deltaTime) {
+	setPos(getPos() + getVel() * deltaTime);
+	performPhysics(deltaTime);
+}

@@ -26,6 +26,6 @@ public:
 	void animation(float deltatime);
 	void inflictDamage() override;
 	void affectOther(Entity* other, float deltatime) override;
-
+	void updatePositionAndPhysic(float deltaTime) override;
 	ENTITY_TYPE getType() override;
 };

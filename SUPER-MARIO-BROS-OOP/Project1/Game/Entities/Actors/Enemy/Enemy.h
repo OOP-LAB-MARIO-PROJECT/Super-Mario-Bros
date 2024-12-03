@@ -22,4 +22,5 @@ public:
 	Enemy(sf::Vector2f _pos, sf::Vector2f _size);
 	virtual void update(float deltatime) override = 0;
 	virtual void behavior(float detatime) = 0;
+
 };

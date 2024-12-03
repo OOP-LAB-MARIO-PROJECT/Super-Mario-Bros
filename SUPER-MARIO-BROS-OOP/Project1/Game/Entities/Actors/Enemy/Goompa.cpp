@@ -2,7 +2,6 @@
 #include <vector>
 
 Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
-    setSize({ 12, 12 });
 	isRenderHitbox = true;
 	isRenderSprite = true;
 	facing = 1;
@@ -19,6 +18,7 @@ Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
 }
 
 void Goompa::update(float deltatime) {
+    std::cout << "HEHEHE\n";
     animation(deltatime);  
     
     
@@ -28,7 +28,6 @@ void Goompa::update(float deltatime) {
     }
 
     
-    if (!isDead) {
         for (auto en : otherEntities) {
             Hitbox ob = en->getHitbox();
             ob.vel = sf::Vector2f{ 0.f, 0.f };
@@ -36,8 +35,6 @@ void Goompa::update(float deltatime) {
         }
 
         int dir = resolveCollideGround(obstacle, deltatime);
-        setPos(getPos() + getVel() * deltatime);
-
         if (dir & (1 << 2)) setVel({ getVel().x, 0 });
         if (dir & (1 << 3)) facing = 1, setVel(sf::Vector2f(50, getVel().y));
         if (dir & (1 << 1)) facing = -1, setVel(sf::Vector2f(-50, getVel().y));
@@ -48,7 +45,7 @@ void Goompa::update(float deltatime) {
             else
                 setVel(sf::Vector2f(-50, getVel().y));
         }
-    }
+    
 
     for (auto en : otherEntities) {
         affectOther(en, deltatime);
@@ -56,8 +53,7 @@ void Goompa::update(float deltatime) {
 
     
     behavior(deltatime);
-    performPhysics(deltatime);
-    setSpritePos(getPos() - sf::Vector2f(0, 20));
+
 }
 
 void Goompa::animation(float deltatime) {
@@ -105,4 +101,13 @@ void Goompa::affectOther(Entity* other, float deltatime) {
             other->inflictDamage();
         }
     }
+}
+
+
+
+
+void Goompa::updatePositionAndPhysic(float deltaTime) {
+    setPos(getPos() + getVel() * deltaTime);
+    performPhysics(deltaTime);
+    setSpritePos(getPos() - sf::Vector2f(0, 16));
 }
