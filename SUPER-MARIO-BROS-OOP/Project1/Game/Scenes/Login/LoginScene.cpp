@@ -1,7 +1,7 @@
 ﻿#include "LoginScene.h"
 #include <fstream>
 #include "../../../Utils/FontManager.h"
-
+#include "../../GameConfig.h"
 
 LoginScene::LoginScene(sf::RenderWindow* window) : Scene(window) {
 	TextBox usernameBox(200, 150, 400, 40, false);
@@ -20,6 +20,9 @@ LoginScene::LoginScene(sf::RenderWindow* window) : Scene(window) {
 	Button loginGame = Button::createButton(sf::Vector2f(180, 100), sf::Vector2f(200, 350), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[&]() {
 			if (isValidAccount()) {
+				std::string username = textBoxes[0].getText();
+				GameConfig::getInstance().setPlayerName(username);
+				GameConfig::getInstance().loadFromFile();
 				SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home);
 			}
 			else {

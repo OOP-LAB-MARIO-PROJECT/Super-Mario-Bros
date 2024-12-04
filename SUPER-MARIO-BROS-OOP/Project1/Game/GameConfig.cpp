@@ -146,6 +146,7 @@ void GameConfig::loadFromFile(const std::string& filename) {
     }
     else {
         std::cerr << "Unable to open file for loading: " << filename << std::endl;
+        std::cerr << "New player: " << playerName << std::endl;
     }
 }
 
