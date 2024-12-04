@@ -6,7 +6,7 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	float midScreenY = getWindow()->getSize().y / 2.0;
 	sf::Vector2f midCoordinate(midScreenX - 100, midScreenY - 50); //button base position
 	Button mute = Button::createButton(sf::Vector2f(200, 100), midCoordinate, sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "mute\n";  }, "Mute", 17, sf::Color::Black);
+		[this]() { this->muteHandling();  }, "Mute", 17, sf::Color::Black);
 	buttons.push_back(mute);
 
 	Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y - 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
@@ -17,24 +17,31 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 17, sf::Color::Black);
 	buttons.push_back(back);
 
-	//Button up = Button::createButton(sf::Vector2f(60, 60), sf::Vector2f(midScreenX + 200, midScreenY), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-	//	[]() { std::cout << "up\n"; }, "Up", 20, sf::Color::Black);
-	//buttons.push_back(up);
-
-	//Button down = Button::createButton(sf::Vector2f(70, 70), sf::Vector2f(midScreenX + 300, midScreenY), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-	//	[]() { std::cout << "down\n"; }, "Down", 15, sf::Color::Black);
-	//buttons.push_back(down);
-
 	Button keyBinding = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midScreenX + 120,  midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { std::cout << "keyBinding\n"; }, "Key Binding", 12, sf::Color::Black);
 	buttons.push_back(keyBinding);
 
-	volumeSlider = VolumeSlider::createVolumeSlider(sf::Vector2f(200, 20), sf::Vector2f(midScreenX + 200, midScreenY));
+	volumeSlider = VolumeSlider::createVolumeSlider(sf::Vector2f(200, 20), sf::Vector2f(midScreenX + 210, midScreenY - 25));
 }
 
 void SettingScene::changeVolume()
 {
-	//change volume
+	this->volume = volumeSlider.getVolume();
+	std::cout << this->volume << '\n';
+}
+
+void SettingScene::muteHandling()
+{
+	if (isMute == false)
+	{
+		this->volume = 0;
+		isMute = true;
+	}
+	else
+	{
+		this->volume = 50;
+		isMute = false;
+	}
 }
 
 void SettingScene::saveSetting()
@@ -75,7 +82,8 @@ void SettingScene::loopEvents()
 		{
 			buttons[i].handleEvent(event, *getWindow());
 		}
-		volumeSlider.handleEvent(event, *getWindow());
+		volumeSlider.handleEvent(event, *getWindow(), this->isMute);
+		changeVolume();
 	}
 }
 

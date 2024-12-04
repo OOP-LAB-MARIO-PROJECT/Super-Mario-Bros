@@ -12,7 +12,7 @@ class SettingScene : public Scene
 	std::vector<Button> buttons;
 	sf::Font font;
 	bool isMute = false;
-	float volume;
+	float volume = 50.0;
 	bool save = false;
 	std::map<std::string, sf::Keyboard::Key> keys;
 	VolumeSlider volumeSlider;
@@ -20,6 +20,7 @@ public:
 	SettingScene(sf::RenderWindow* window);
 	~SettingScene() {
 	};
+	void muteHandling();
 	void changeVolume();
 	void saveSetting();
 	void changeKeys();

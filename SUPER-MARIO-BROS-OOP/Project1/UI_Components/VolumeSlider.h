@@ -10,7 +10,7 @@ private:
 	bool isHovered = false;
 	bool isDragged = false;
 	float volume = 50.0;
-	sf::Color barColor;
+	sf::RectangleShape adjustment;
 public:
 	VolumeSlider()
 	{
@@ -22,7 +22,7 @@ public:
 	float getVolume();
 	static VolumeSlider createVolumeSlider(sf::Vector2f barSize, sf::Vector2f barPosition);
 	void draw(sf::RenderWindow* window);
-	void handleEvent(const sf::Event& event,const sf::RenderWindow& window);
+	void handleEvent(const sf::Event& event,const sf::RenderWindow& window, bool isMute);
 };
 
 
