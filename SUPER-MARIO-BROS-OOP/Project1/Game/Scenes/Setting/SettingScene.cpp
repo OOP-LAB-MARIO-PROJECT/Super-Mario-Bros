@@ -32,15 +32,15 @@ void SettingScene::changeVolume()
 
 void SettingScene::muteHandling()
 {
-	if (isMute == false)
+	if (isClicked == false)
 	{
 		this->volume = 0;
-		isMute = true;
+		isClicked = true;
 	}
 	else
 	{
 		this->volume = 50;
-		isMute = false;
+		isClicked = false;
 	}
 }
 
@@ -82,7 +82,7 @@ void SettingScene::loopEvents()
 		{
 			buttons[i].handleEvent(event, *getWindow());
 		}
-		volumeSlider.handleEvent(event, *getWindow(), this->isMute);
+		volumeSlider.handleEvent(event, *getWindow(), this->isClicked);
 		changeVolume();
 	}
 }

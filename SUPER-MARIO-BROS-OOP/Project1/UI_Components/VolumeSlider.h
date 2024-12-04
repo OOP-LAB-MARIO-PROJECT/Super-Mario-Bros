@@ -10,6 +10,7 @@ private:
 	bool isHovered = false;
 	bool isDragged = false;
 	float volume = 50.0;
+	bool isMute = false;
 	sf::RectangleShape adjustment;
 public:
 	VolumeSlider()
