@@ -84,7 +84,7 @@
     <ClCompile Include="Game\Entities\Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Entities\EntityManager.cpp">
+    <ClCompile Include="Utils\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Utils\SoundManager.cpp">
@@ -99,13 +99,43 @@
     <ClCompile Include="Game\Control\KeyExecute.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Entities\Collectables\Collectable.cpp">
+    <ClCompile Include="Game\Entities\Actors\Prop\Collectable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Entities\Tiles\TileFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Entities\Actors\Enemy\Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Actors\Enemy\Goompa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Actors\Prop\Coin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\EntityFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Tiles\MoveUpTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scenes\Register\RegisterScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scenes\KeyBinding\KeyBindingScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Components\TextBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\FontManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Components\Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Components\VolumeSlider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -179,7 +209,7 @@
     <ClInclude Include="Game\Entities\Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Entities\EntityManager.h">
+    <ClInclude Include="Utils\EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils\SoundManager.h">
@@ -194,7 +224,7 @@
     <ClInclude Include="Game\Control\KeyExecute.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Entities\Collectables\Collectable.h">
+    <ClInclude Include="Game\Entities\Actors\Prop\Collectable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Entities\Tiles\TileFactory.h">
@@ -203,8 +233,133 @@
     <ClInclude Include="Game\Entities\Actors\Enemy\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Entities\Actors\Enemy\Goompa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Actors\Prop\Coin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\EntityFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\EntityList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Tiles\MoveUpTile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scenes\Register\RegisterScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Components\TextBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\FontManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Actors\Prop\Mushroom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Tiles\QuestionTile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Actors\Prop\CastleGate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Tiles\PipeHead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Actors\AnimationState\AnimationState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entities\Tiles\MovingPlatform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\QuadTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
+    <Font Include="Assets\Fonts\Font_Pack\mario.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="UI_Components\UI_Texture_Pack\cat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Cloud.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\CoinSpriteSheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\GoombaSpriteSheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\CloudBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Moon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Koopa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Pipe.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Title.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\PinkFlower.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\SadMario.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\HappyMario.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\RegisterBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\SettingSceneBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\knob.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Fonts\font_interface.txt" />
+    <Text Include="Assets\Sounds\sound_interface.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Fonts\font_interface.txt" />
+    <Text Include="Assets\Sounds\sound_interface.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Game\Entities\Readme.md" />
   </ItemGroup>
 </Project>

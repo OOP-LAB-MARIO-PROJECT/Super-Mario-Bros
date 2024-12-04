@@ -38,39 +38,6 @@ void Game::start() {
 	m_isRunning = true;
 };
 
-//void Game::run() {
-//	if (!window->isOpen()) {
-//		m_isRunning = false;
-//		return;
-//	}
-//
-//	float deltatime = m_clock.restart().asSeconds();
-//	
-//	sf::Event event;
-//	while (window->pollEvent(event))
-//	{
-//		if (event.type == sf::Event::Closed)
-//			window->close();
-//	}
-//	
-//	// UPDATE HERE
-//
-//
-//	// END UPDATE
-// 
-//
-//
-// 
-//	// RENDER HERE
-//
-//	// END RENDER
-//	sf::CircleShape shape(100.f);
-//	shape.setFillColor(sf::Color::Green);
-//	window->clear();
-//	window->draw(shape);
-//	window->display();
-//};
-
 void Game::run() {
 	if (!window->isOpen()) {
 		m_isRunning = false;
@@ -78,8 +45,7 @@ void Game::run() {
 	}
 
 	float deltatime = m_clock.restart().asSeconds();
-	std::cout << "FPS: " << 1 / deltatime << '\n';
-
+	
 	window->clear();
 	sceneManager->update(deltatime);
 	window->display();

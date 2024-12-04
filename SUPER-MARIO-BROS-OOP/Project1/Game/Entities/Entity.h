@@ -2,17 +2,29 @@
 #include <SFML/Graphics.hpp>
 #include "../../Utils/TextureManager.h"
 #include "../../Utils/SceneManager.h"
+#include "../../Utils/SoundManager.h"
+#include "../../Utils/Observer.h"
+#include "../GameConfig.h"
 
 enum ENTITY_TYPE {
 	PROJECTILE,
 	ENEMY,
 	TILE,
+	MOVING_TILE,
 	PLAYER,
 	HARM_TO_ENEMY,
 	HARM_TO_ALL,
 	HARM_TO_PLAYER,
 	PROP,
-	ACTOR
+	ACTOR,
+	RED_MUSHROOM,
+	GREEN_MUSHROOM,
+	BROWN_MUSHROOM,
+	PIPE_HEAD_TELE,
+	PIPE_HEAD,
+	COIN,
+	DOOR,
+	TRANS
 };
 
 struct Hitbox {
@@ -21,14 +33,16 @@ struct Hitbox {
 	sf::Vector2f vel;
 };
 
-class Entity
+class Entity: public Observer<Entity>
 {
 	bool _isDead = false;
 	// id
 	int id = -1;
 public:
-
+	// API being update in entities
 	Hitbox hitbox;
+	std::vector <Hitbox> obstacle;
+	std::vector <Entity*> otherEntities;
 	int isRenderHitbox = true;
 	int isRenderSprite = false;
 
@@ -36,14 +50,24 @@ public:
 	bool isDead() const { return _isDead; }
 	virtual ~Entity() = default;
 
-	void setRenderHitbox(bool f) { isRenderHitbox = f; }
-	void setRenderSprite(bool f) { isRenderSprite = f; }
+
+	virtual void setPos(sf::Vector2f pos);
+	virtual void setSize(sf::Vector2f size);
+	virtual void setVel(sf::Vector2f vel);
+
+	void setRenderHitbox(bool f);
+	void setRenderSprite(bool f);
+	virtual void updateEvironment(const std::vector <Hitbox>& obstacle, const std::vector <Entity*>& otherEntities);
 
 	virtual void render(sf::RenderWindow* window) const = 0;
 	virtual void update(float deltaTime) = 0;
+	virtual void inflictDamage() {};
+	virtual void touched(float deltatime) {};
 
 	// FUNCTION TO NOTE
-	virtual ENTITY_TYPE getType() = 0; // get the type of entities -> use for distinguish between entyties and use for conditional behavior of entities 
+	virtual int getType() = 0; // get the type of entities -> use for distinguish between entyties and use for conditional behavior of entities 
 	virtual Hitbox getHitbox() = 0; // get the dynamic hitbox of an object -> make it easier for detection collision
+	virtual void affectOther(Entity* other);
+	virtual void affectOther(Entity* other, float deltatime);
 };
 

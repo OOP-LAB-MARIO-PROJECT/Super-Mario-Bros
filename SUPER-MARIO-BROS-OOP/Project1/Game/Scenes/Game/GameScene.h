@@ -2,6 +2,8 @@
 #include "../Scene.h"
 #include "../../../Utils/SceneManager.h"
 #include "../../../Utils/TextureManager.h"
+#include "../../../Utils/EntityManager.h"
+#include "../../../Utils/FontManager.h"
 #include "../../Control/CommandManager.h"
 #include "../../Control/KeyExecute.h"
 
@@ -19,9 +21,17 @@ class GameScene : public Scene {
 	CommandManager myCommand;
 	KeyExecute myKeyExecute;
 
+	std::map <std::string, std::string> levelMap;
+	std::string currentLevel;
+
 public:
 
 	GameScene(sf::RenderWindow* window);
 	~GameScene();
+
 	void update(float deltatime) override;
+	void nextLevel(std::string level);
+	void retrieveLevelStatus();
+	void restartLevel();
+	void loadMapList();
 };

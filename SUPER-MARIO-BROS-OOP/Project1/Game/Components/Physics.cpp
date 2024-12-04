@@ -21,6 +21,7 @@ void Physics::performPhysics(float dt) {
 		if (vel.x < 0) vel.x = 0;
 	}
 	vel += g * dt;
+	if (vel.y > 0 && vel.y < minGravity) vel.y = minGravity;
 }
 
 

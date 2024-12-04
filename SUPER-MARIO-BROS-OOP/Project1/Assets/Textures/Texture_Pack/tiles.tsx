@@ -5,14 +5,23 @@
  <tile id="1" type="block2"/>
  <tile id="2" type="block3"/>
  <tile id="3" type="block4"/>
+ <tile id="11" type="castle1"/>
+ <tile id="12" type="castle-window-left"/>
+ <tile id="13" type="castle2"/>
+ <tile id="14" type="castle-window-right"/>
  <tile id="24" type="question"/>
  <tile id="25" type="question"/>
  <tile id="26" type="question"/>
  <tile id="27" type="question"/>
+ <tile id="33" type="block5"/>
+ <tile id="44" type="castle3"/>
+ <tile id="45" type="castle-arch"/>
+ <tile id="46" type="castle-door"/>
  <tile id="66" type="block-underground-1"/>
  <tile id="67" type="block-underground-2"/>
  <tile id="68" type="block-underground-3"/>
  <tile id="69" type="block-underground-4"/>
+ <tile id="99" type="block-underground-5"/>
  <tile id="264" type="pipe-up-head-left"/>
  <tile id="265" type="pipe-up-head-right"/>
  <tile id="266" type="pipe-side-head-up"/>

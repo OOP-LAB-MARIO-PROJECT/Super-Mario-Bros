@@ -2,11 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include <iostream>
+#include "../Utils/TextureManager.h"
 #include "../Utils/FontManager.h"
 
 class Button {
 private:
     sf::RectangleShape shape;
+    std::shared_ptr<sf::Texture> texture = nullptr;
+    std::shared_ptr<sf::Sprite> sprite = nullptr;
     sf::Text text;
     bool isPressed = false;
     bool isHovered = false;
@@ -41,5 +44,6 @@ public:
         const sf::Color& textColor
     );
     bool isButtonPressed();
+	bool beingHovered();
 };
 

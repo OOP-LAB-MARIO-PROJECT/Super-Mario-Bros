@@ -9,7 +9,7 @@ private:
 	vt vel = { 0,0 };
 	vt g = { 0, 0 };
 	vt fric = { 10, 0 };
-
+	float minGravity = 20;
 public:
 
 
