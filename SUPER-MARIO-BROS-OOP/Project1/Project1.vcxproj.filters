@@ -138,6 +138,30 @@
     <ClCompile Include="UI_Components\VolumeSlider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Entities\Actors\AnimationState\AnimationState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Actors\Prop\CastleGate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Actors\Prop\Mushroom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Tiles\MovingPlatform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Tiles\PipeHead.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entities\Tiles\QuestionTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\QuadTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Observer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game.h">
@@ -260,9 +284,6 @@
     <ClInclude Include="Game\Entities\Actors\Prop\Mushroom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Entities\Tiles\QuestionTile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Entities\Actors\Prop\CastleGate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -279,6 +300,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Components\Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scenes\KeyBinding\KeyBindingScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Components\VolumeSlider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -350,6 +383,12 @@
     <Image Include="UI_Components\UI_Texture_Pack\knob.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\Bar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\LuigiWithWrench.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />
@@ -358,8 +397,5 @@
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />
     <Text Include="Assets\Sounds\sound_interface.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Game\Entities\Readme.md" />
   </ItemGroup>
 </Project>

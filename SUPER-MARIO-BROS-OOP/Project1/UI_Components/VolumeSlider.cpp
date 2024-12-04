@@ -4,22 +4,23 @@ VolumeSlider::VolumeSlider(const sf::Vector2f& size, const sf::Vector2f& positio
 {
 	bar.setSize(size);
 	bar.setPosition(position);
-	bar.setOutlineThickness(7);
-	bar.setFillColor(sf::Color::Color(232, 240, 248));
-	bar.setOutlineColor(sf::Color::Black);
+	bar.setOutlineThickness(4);
+	bar.setFillColor(sf::Color::Color(230, 230, 238));
+	bar.setOutlineColor(sf::Color::Color(43, 46, 79));
 
 	handleTexture = std::make_shared<sf::Texture>();
 	if (handleTexture->loadFromFile("UI_Components/UI_Texture_Pack/knob.png"))
 	{
 		std::cout << "load texture for knob successfully!";
 	}
-	handle.setTexture(*handleTexture);
-	handle.setScale(0.3, 0.3);
-	handle.setPosition(position.x + handle.getLocalBounds().width / 2.0 + 10, position.y - 8);
 
-	adjustment.setFillColor(sf::Color::Color(168, 224, 248));
+	adjustment.setFillColor(sf::Color::Color(128, 169, 175));
 	adjustment.setSize(sf::Vector2f(bar.getSize().x / 2.0, bar.getSize().y));
 	adjustment.setPosition(bar.getPosition());
+
+	handle.setTexture(*handleTexture);
+	handle.setScale(0.5, 0.5);
+	handle.setPosition(bar.getPosition().x + adjustment.getSize().x / 2.0 + handle.getGlobalBounds().width, position.y - 12);
 }
 
 VolumeSlider VolumeSlider::createVolumeSlider(sf::Vector2f barSize, sf::Vector2f barPosition) 
