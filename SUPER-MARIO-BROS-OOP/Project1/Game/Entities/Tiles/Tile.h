@@ -5,13 +5,11 @@
 
 class Tile : public Entity, public Collision {
 protected:
-	sf::RectangleShape m_hitbox;
 	sf::Sprite sprite;
-
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
-	ENTITY_TYPE currentType = ENTITY_TYPE::TILE;
+	int currentType = ENTITY_TYPE::TILE;
 
 	bool isTransparent = true;
 public:
@@ -36,7 +34,7 @@ public:
 	bool isTrans() { return isTransparent; }
 
 	Hitbox getHitbox();
-	ENTITY_TYPE getType() override;
+	int getType() override;
 	void touched(float deltatime) override {};
 };
 

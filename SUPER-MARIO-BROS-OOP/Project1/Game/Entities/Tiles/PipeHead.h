@@ -13,7 +13,7 @@ private:
 
 public:
 	PipeHead(sf::Vector2f pos, sf::Vector2f size, bool isTrans, std::string properties, std::string type);
-	ENTITY_TYPE getType() override;
+	int getType() override;
 	void affectOther(Entity* other, float deltatime) override;
 	void update(float deltatime) override;
 };

@@ -102,6 +102,7 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 
 
 void GameScene::update(float deltatime) {
+
 	sf::Event event;
 	while (getWindow()->pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
@@ -110,12 +111,24 @@ void GameScene::update(float deltatime) {
 		}
 	}
 
+	if (deltatime > 0.03) {
+		std::cout << "loading....\n";
+		return;
+	}
+
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 
 	EntityManager::getInstance().filter();
 	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 	player->update(deltatime);
+	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
+
+	EntityManager::getInstance().setUpdatePivot(player->getPos());
+	EntityManager::getInstance().updateAll(deltatime);
+	
+	gameMap->updateEnvironment();
+	
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());
 

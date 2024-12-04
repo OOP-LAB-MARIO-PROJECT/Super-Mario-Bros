@@ -30,7 +30,7 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	stateCache["SLIDE"] = std::make_shared<SlideState>("mario", slideTexture, 0.3f);
 
 	std::vector<std::vector<std::string>> killTexture = { { "left-small-mario-6" }, {"right-small-mario-7"} };
-	stateCache["KILL"] = std::make_shared<KillState>("mario", killTexture, 0.3f);
+	stateCache["KILL"] = std::make_shared<KillState>("mario", killTexture, 0);
 
 	std::vector<std::vector<std::string>> deadTexture = { { "left-small-mario-8" }, {"right-small-mario-5"} };
 	stateCache["DEAD"] = std::make_shared<DeadState>("mario", deadTexture, 2.5f);
@@ -59,8 +59,8 @@ void Player::update(float deltatime) {
 	}
 	
 	performPhysics(deltatime);
+	
 
-	                       
 	if (health <= 0) {
 		isDead = true;
 		if (health == 0) setVel({ 0, -180.0f }), health--;
@@ -96,7 +96,7 @@ void Player::update(float deltatime) {
 		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
 		if (dir == -1) continue;
 		if (en->getType() == ENEMY) {
-			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), isKilling = true;
+			if (dir == TOP) setVel({ getVel().x, -80 }), en->inflictDamage(), isKilling = true;
 			en->affectOther(this);
 			continue;
 		}
@@ -179,7 +179,7 @@ void Player::moveRight(float deltatime) {
 	if (getVel().x > capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
 }
 
-ENTITY_TYPE Player::getType() {
+int Player::getType() {
 	return PLAYER;
 }
 

@@ -9,7 +9,7 @@ Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vect
 		return new Goompa(pos, size);
 
 	if (type == "troopa-koopa") {
-	//return new TroopaKoopa(pos, size, map);
+		return new KoopaTroopa(pos, size);
 	}
 
 	if (type == "red-mushroom") {

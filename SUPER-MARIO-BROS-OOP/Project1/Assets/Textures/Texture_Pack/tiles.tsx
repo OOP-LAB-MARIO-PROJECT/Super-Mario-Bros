@@ -27,6 +27,9 @@
  <tile id="266" type="pipe-side-head-up"/>
  <tile id="267" type="pipe-side-body-up"/>
  <tile id="268" type="pipe-side-tail-up"/>
+ <tile id="269" type="cay1"/>
+ <tile id="270" type="cay1"/>
+ <tile id="271" type="cay1"/>
  <tile id="280" type="flag-1"/>
  <tile id="281" type="flag-2"/>
  <tile id="297" type="pipe-up-body-left"/>

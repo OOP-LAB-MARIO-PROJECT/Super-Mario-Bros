@@ -8,7 +8,6 @@
 class Actor : public Entity, public Collision, public Physics {
 private:
 	sf::Sprite sprite;
-	sf::RectangleShape rect; // for rendering
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
@@ -51,7 +50,7 @@ public:
 	int getFacing();
 	bool getIsOnGround();
 	Hitbox getHitbox();
-	virtual ENTITY_TYPE getType() override;
+	virtual int getType() override;
 	virtual void update(float deltatime) override = 0;
 	virtual void setState(const std::string& stateName) { }
 };

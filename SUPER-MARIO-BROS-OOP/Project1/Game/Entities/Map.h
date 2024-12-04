@@ -5,6 +5,7 @@
 #include "Tiles/TileFactory.h"
 #include "EntityFactory.h"
 #include "../../Utils/EntityManager.h"
+#include "../../Utils/QuadTree.h"
 
 #include <vector>
 #include <map>
@@ -34,18 +35,23 @@ private:
 	std::vector<Tile*> map;
 	std::map <std::pair <int, int>, int> tilePos;
 	
+	QuadTree quadMap;
+
+
 	Player* player = NULL;
 	sf::Vector2f playerPos;
 	sf::Vector2f playerSize;
 	sf::Vector2f playerVel;
 	
 	int playerMode = 0;
-	void updateEnvironment();
 public:
 
-	Map() {};
+	Map() {
+		quadMap.init(1e4, 600, 20);
+	};
 	~Map();
 
+	void updateEnvironment();
 	void addTile(Tile* tile);
 	void render(sf::RenderWindow* window);
 	void loadMap(const std::string& filename, Player* player);

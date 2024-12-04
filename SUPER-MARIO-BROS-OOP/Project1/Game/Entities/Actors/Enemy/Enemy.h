@@ -15,8 +15,6 @@
 */
 
 class Enemy : public Actor {
-protected:
-	int facing = 1;
 public:
 
 	Enemy(sf::Vector2f _pos, sf::Vector2f _size);

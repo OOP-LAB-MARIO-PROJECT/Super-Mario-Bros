@@ -60,6 +60,6 @@ void Coin::touched(float deltatime) {
 	isTouch = true;
 }
 
-ENTITY_TYPE Coin::getType() {
+int Coin::getType() {
 	return COIN;
 }

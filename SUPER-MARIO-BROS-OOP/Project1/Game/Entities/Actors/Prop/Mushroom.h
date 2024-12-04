@@ -6,10 +6,10 @@ public:
 	void update(float deltatime) override;
 	void behavior(float deltatime) override;
 	void touched(float deltatime) override;
-	ENTITY_TYPE getType() override;
+	int getType() override;
 };
 
 class GreenMushroom : public RedMushroom {
 	GreenMushroom(sf::Vector2f pos, sf::Vector2f size);
-	ENTITY_TYPE getType() override;
+	int getType() override;
 };

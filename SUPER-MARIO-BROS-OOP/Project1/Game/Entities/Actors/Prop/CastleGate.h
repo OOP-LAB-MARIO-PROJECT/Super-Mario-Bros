@@ -8,6 +8,6 @@ public:
 	void update(float deltatime) override {};
 	void behavior(float deltatime) override {};
 	void touched(float deltatime) override;
-	ENTITY_TYPE getType() override;
+	int getType() override;
 };
 

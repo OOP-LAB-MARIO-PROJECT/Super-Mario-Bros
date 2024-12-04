@@ -5,7 +5,7 @@
 Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
 	isRenderHitbox = true;
 	isRenderSprite = true;
-	facing = 1;
+	facing = -1;
     
 
     std::vector<std::vector<std::string>> a = { {"goompa_ow-0", "goompa_ow-1"},
@@ -30,14 +30,10 @@ void Goompa::setState(const std::string& stateName) {
             currentState = state;
         }
     }
-    else {
-        //std::cout << "Can not find State " << stateName << "\n";
-    }
 }
 void Goompa::update(float deltatime) {
     
     if (currentState) {
-        //std::cout << "Current state exists" << std::endl;
         currentState->handle(this, deltatime);
         currentState->update(this, deltatime);
     }
@@ -88,7 +84,7 @@ void Goompa::behavior(float deltatime) {
 
 
 
-ENTITY_TYPE Goompa::getType() {
+int Goompa::getType() {
 	return ENEMY;
 }
 

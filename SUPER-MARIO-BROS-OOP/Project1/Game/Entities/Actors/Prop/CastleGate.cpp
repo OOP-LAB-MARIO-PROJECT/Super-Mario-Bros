@@ -9,7 +9,7 @@ CastleGate::CastleGate(sf::Vector2f pos, sf::Vector2f size, std::string nextLeve
 }
 
 
-ENTITY_TYPE CastleGate::getType() {
+int CastleGate::getType() {
 	return DOOR;
 }
 

@@ -38,6 +38,7 @@
  <tile id="1665" type="block4"/>
  <tile id="1666" type="block4"/>
  <tile id="1675" type="flag-body-1"/>
+ <tile id="1710" type="goompa"/>
  <tile id="1873" type="block4"/>
  <tile id="1874" type="block4"/>
  <tile id="1875" type="block4"/>
@@ -162,6 +163,7 @@
  <tile id="2566" type="goompa"/>
  <tile id="2570" type="pipe-up-body-left"/>
  <tile id="2571" type="pipe-up-body-right"/>
+ <tile id="2576" type="troopa-koopa"/>
  <tile id="2578" type="pipe-up-body-left"/>
  <tile id="2579" type="pipe-up-body-right"/>
  <tile id="2589" type="pipe-up-body-left"/>

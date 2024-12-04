@@ -1,5 +1,6 @@
 #pragma once
 #include "../Game/Entities/Entity.h"
+#include "../Utils/QuadTree.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,6 +9,8 @@
 class EntityManager {
 private:
     std::vector <Entity*> entities;  // Container to store entities
+
+    QuadTree quadEn;
     sf::Vector2f updatePivot = { 0, 0 };
     float updateDistance = 1000;
     int curEntity = 0;
@@ -23,6 +26,8 @@ public:
         static EntityManager instance; // Guaranteed to be lazy-initialized and thread-safe
         return instance;
     }
+
+    void setSpace(float width, float height);
     // Add an entity to the manager -> if an entity A derive from class entity -> addEntity(new A())
     void addEntity(Entity* entity);
     // Render all entities

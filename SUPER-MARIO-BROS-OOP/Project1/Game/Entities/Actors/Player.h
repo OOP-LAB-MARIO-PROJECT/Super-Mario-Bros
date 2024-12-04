@@ -39,6 +39,6 @@ public:
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);
 	void moveRight(float deltatime);
-	ENTITY_TYPE getType() override;
+	int getType() override;
 };
 
