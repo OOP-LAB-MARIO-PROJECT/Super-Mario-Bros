@@ -1,19 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Tiles/Tile.h"
-#include "Actors/Actor.h"
-#include "Actors/Player.h"
 
+#include "Actors/Player.h"
 #include "Tiles/TileFactory.h"
 #include "EntityFactory.h"
-
-#include "EntityManager.h"
+#include "../../Utils/EntityManager.h"
+#include "../../Utils/QuadTree.h"
 
 #include <vector>
 #include <map>
-
-class Player;
-
 
 /*
 Usefull fucntion need to note
@@ -28,6 +23,8 @@ Usefull fucntion need to note
 	+# int getTileAt(std::pair <int, int> pos) const;
 	+# std::pair <int, int> toMap(sf::Vector2f pos);
 */
+
+
 class Map {
 private:
 
@@ -37,22 +34,29 @@ private:
 
 	std::vector<Tile*> map;
 	std::map <std::pair <int, int>, int> tilePos;
-	EntityManager myEntities;
+	
+	QuadTree quadMap;
 
+
+	Player* player = NULL;
 	sf::Vector2f playerPos;
 	sf::Vector2f playerSize;
 	sf::Vector2f playerVel;
-
+	
+	int playerMode = 0;
 public:
 
-	Map() {};
+	Map() {
+		quadMap.init(1e4, 600, 20);
+	};
 	~Map();
 
+	void updateEnvironment();
 	void addTile(Tile* tile);
 	void render(sf::RenderWindow* window);
 	void loadMap(const std::string& filename, Player* player);
-	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel);
-	void update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel);
+	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel, int mode);
+	void update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode);
 	
 	// API for use
 	// infomation for the actor to get
@@ -64,6 +68,7 @@ public:
 	sf::Vector2f getPlayerPos() const;
 	sf::Vector2f getPlayerSize() const;
 	sf::Vector2f getPlayerVel() const;
+	int getPlayerMode() const;
 	bool isTileAt(sf::Vector2f pos) const;
 
 	int getTileAt(sf::Vector2f pos) const;
@@ -74,7 +79,6 @@ public:
 		
 	// to map coordinate
 	std::pair <int, int> toMap(sf::Vector2f pos);
-
 };
 
 

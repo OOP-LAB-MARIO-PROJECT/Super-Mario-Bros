@@ -1,0 +1,2 @@
+map-1-1 Assets/Map/map.tsx
+map-1-2 Assets/Map/map1-2.tsx

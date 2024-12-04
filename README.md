@@ -11,27 +11,33 @@ Here is an overview of the directory structure and its purpose:
 
 ```
 SUPER-MARIO-BROS-OOP/
-├── .git/                   # Git version control files
-├── dependencies/           # External dependencies and libraries
+├── .git/                              # Git version control files
+├── dependencies/                      # External dependencies and libraries
 ├── Project1/
-    ├── Assets/             # Game assets including sounds and textures
-        ├── Sounds/         # Audio files for the game
+    ├── Assets/                        # Game assets including sounds and textures
+        ├── Sounds/                    # Audio files for the game
             ├── SoundFile1/
             ├── ...
-            ├── sound_interface.txt # interface for adding new sounds
-        ├── Textures/       # Images and textures used in the game
+            ├── sound_interface.txt    # interface for adding new sounds
+        ├── Textures/                  # Images and textures used in the game
             ├── Texture1/
             ├── ...
-            ├── texture_interface.txt # interface for adding new textures
-        ├── Fonts/          # Fonts used in the game
-    ├── Game/               # Core game logic and components
-        ├── Components/     # Reusable game components
-        ├── Entities/       # Entity classes like Mario, enemies, etc.
-        ├── Scenes/         # Game scenes
-            ├── Game/       # Gameplay scene
-            ├── Home/       # Home menu scene
-            ├── Setting/    # Settings menu scene
-        ├── Utils/          # Utility functions and helper classes
+            ├── texture_interface.txt  # interface for adding new textures
+        ├── Fonts/                     # Fonts used in the game
+    ├── Game/                          # Core game logic and components
+        ├── Components/                # Reusable game components
+        ├── Control/                   # Input handling and game controls
+        ├── Entities/                  # Entity classes like Mario, enemies, etc.
+        ├── Scenes/                    # Game scenes
+            ├── Game/                  # Gameplay scene
+            ├── Home/                  # Home menu scene
+            ├── Setting/               # Settings menu scene
+            ├── Exit/                  # Settings menu scene
+            ├── Login/                 # Settings menu scene
+            ├── Register/              # Settings menu scene
+        ├── Utils/                     # Utility functions and helper classes
+    ├── UI/                            # Utility functions and helper classes
+
 ```
 
 ---
@@ -99,6 +105,10 @@ The game includes the following scenes:
 - **Home Scene**: Displays the main menu.
 - **Game Scene**: The core gameplay environment.
 - **Settings Scene**: Allows the player to adjust settings.
+- **Exit Scene**: Allows the player to exit the game.
+- **Login Scene**: Allows the player to login.
+- **Register Scene**: Allows the player to register.
+- **Game Over Scene**: Displays the game over screen.
 
 Each scene is managed independently in the `/Scenes/` directory for modularity.
 
@@ -146,7 +156,6 @@ Contributions are welcome! Please follow these steps:
    git push origin feature-name
    ```
 4. Open a pull request.
-
 ---
 
 ## 📜 License

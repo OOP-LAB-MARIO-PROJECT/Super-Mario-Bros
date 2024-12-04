@@ -33,7 +33,7 @@ bool FontManager::addFont(const std::string& id, const std::string& filePath) {
         std::cerr << "Can not load font from: " << filePath << "\n";
         return false;
     }
-
+    std::cout << "font added with id: " << id << '\n';
     fonts[id] = font; 
     return true;
 }
@@ -44,6 +44,7 @@ std::shared_ptr<sf::Font> FontManager::getFont(const std::string& id) const {
     if (it != fonts.end()) {
         return it->second;  
     }
+    std::cout << "canot get font with id: " << id << '\n';;
     return nullptr;  
 }
 

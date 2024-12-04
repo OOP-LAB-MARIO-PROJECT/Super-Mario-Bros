@@ -10,8 +10,11 @@ protected:
 public:
 
 	MoveUpTile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans = true);
-	void update(float deltatime) override;
-	void destroy(float deltatime) override;
-	void touched(float deltatime) override;
+	virtual void update(float deltatime) override;
+	virtual void destroy(float deltatime) override;
+	virtual void touched(float deltatime) override;
+	void setVel(sf::Vector2f vel) override;
+	Hitbox getHitbox() override;
+	void affectOther(Entity* other, float deltatime) override;
 };
 
