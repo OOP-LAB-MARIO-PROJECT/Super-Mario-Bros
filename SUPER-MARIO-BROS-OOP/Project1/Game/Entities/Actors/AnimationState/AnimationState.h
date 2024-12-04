@@ -32,6 +32,7 @@ public:
         stateTimer = 0.0f;
     }
 
+    void switchTexture(std::vector<std::vector<std::string>> newTexture);
     AnimationState(const std::string& en, const std::vector<std::vector<std::string>>& tn,const float& sT = 0);
     virtual ~AnimationState() = default;
 
@@ -97,6 +98,17 @@ public:
 class DeadState : public AnimationState {
 public:
     DeadState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT);
+
+    void update(Actor* a, float deltaTime) override;
+    void handle(Actor* a, float deltaTime) override;
+
+};
+
+
+// For enemy 
+class AliveState : public AnimationState {
+public:
+    AliveState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT);
 
     void update(Actor* a, float deltaTime) override;
     void handle(Actor* a, float deltaTime) override;

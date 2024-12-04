@@ -4,6 +4,10 @@
 AnimationState::AnimationState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : entityName(en), textureName(tn), stateDuration(sT)  {}
 
 
+void AnimationState::switchTexture(std::vector<std::vector<std::string>> newTexture) {
+}
+
+
 IdleState::IdleState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn) {
 	stateDuration = 0.0f;
 }
@@ -39,7 +43,7 @@ void RunningState::update(Actor* a, float deltaTime) {
 	a->setTexture(entityName, textureName[isRight][aniLoop % textureName[isRight].size()]);
 
 	timer += deltaTime;
-	if (timer > 0.16) {
+	if (timer > 0.15) {
 		aniLoop++;
 		timer = 0;
 	}
@@ -47,20 +51,28 @@ void RunningState::update(Actor* a, float deltaTime) {
 
 
 void RunningState::handle(Actor* a, float deltaTime) {
-	if (a->getVel().x == 0 && a->getIsOnGround()) {
-		a->setState("IDLE");
-	}
-	else if (!a->getIsOnGround()) {
-		a->setState("JUMP");
-	}
-	else if (a->getVel().x * a->getFacing() < 0) {
-		a->setState("SLIDE");
-	}
-	else if (a->getIsDead()) 
+	
+	if (a->getType() == PLAYER) 
 	{
-		a->setState("DEAD");
-		a->setIsDead(false);
+		if (a->getVel().x == 0 && a->getIsOnGround()) {
+			a->setState("IDLE");
+		}
+		else if (!a->getIsOnGround()) {
+			a->setState("JUMP");
+		}
+		else if (a->getVel().x * a->getFacing() < 0) {
+			a->setState("SLIDE");
+		}
+		else if (a->getIsDead())
+		{
+			a->setState("DEAD");
+			a->setIsDead(false);
+		}
 	}
+	else if (a->getType() == ENEMY) {
+		if (a->getIsDead()) a->setState("DEAD");
+	}
+	
 }
 
 
@@ -173,6 +185,30 @@ void DeadState::update(Actor* a, float deltaTime) {
 
 
 void DeadState::handle(Actor* a, float deltaTime) {
+	updateTimer(deltaTime);
+	if (!isDurationEnded()) {
+		return;
+	}
+	else resetTimer();
+
+	if (a->getType() == ENEMY) a->kill();
+	if(a->getType() == PLAYER) a->setState("IDLE");
+
+}
+
+
+AliveState::AliveState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn, sT) {
+}
+
+
+void AliveState::update(Actor* a, float deltaTime) {
+	bool isRight = a->getFacing() == 1;
+	a->setTexture(entityName, textureName[isRight][0]);
+
+}
+
+
+void AliveState::handle(Actor* a, float deltaTime) {
 	updateTimer(deltaTime);
 	if (!isDurationEnded()) {
 		return;

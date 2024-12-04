@@ -60,13 +60,13 @@ void Player::update(float deltatime) {
 	
 	performPhysics(deltatime);
 
-
+	                       
 	if (health <= 0) {
 		isDead = true;
 		if (health == 0) setVel({ 0, -180.0f }), health--;
 		deadthTimer += deltatime;
 		setPos(getPos() + getVel() * deltatime);
-		return;
+		return;  
 	}
 
 	sf::Vector2f vx = getVel();
