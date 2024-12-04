@@ -99,6 +99,7 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myKeyExecute.addCommand(sf::Keyboard::W, myCommand.getCommand("jump"));
 	myKeyExecute.addCommand(sf::Keyboard::A, myCommand.getCommand("moveLeft"));
 	myKeyExecute.addCommand(sf::Keyboard::D, myCommand.getCommand("moveRight"));
+	EntityManager::getInstance().setRenderWindowForDebug(getWindow());
 }
 
 
@@ -120,6 +121,10 @@ void GameScene::update(float deltatime) {
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 
+	gameMap->render(getWindow());
+	player->render(getWindow());
+
+	EntityManager::getInstance().renderAll(getWindow());
 	EntityManager::getInstance().filter();
 	player->update(deltatime);
 	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
@@ -132,12 +137,9 @@ void GameScene::update(float deltatime) {
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());
 
-	gameMap->render(getWindow());
-	player->render(getWindow());
 	if (FontManager::getInstance().getFont("Roboto").get() == nullptr)
 		std::cout << "cannot getfont in game\n";
 	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance());
-
 
 
 	// check for level

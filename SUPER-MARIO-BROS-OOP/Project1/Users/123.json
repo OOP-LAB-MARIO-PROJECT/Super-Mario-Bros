@@ -1,0 +1,14 @@
+{
+    "playerName": "123",
+    "unlocked-level": {
+        "map-1-1": [
+            0,
+            0
+        ],
+        "map-1-2": [
+            0,
+            0
+        ]
+    },
+    "volume": 100.0
+}

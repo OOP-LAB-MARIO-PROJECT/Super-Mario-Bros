@@ -12,7 +12,6 @@ void Map::addTile(Tile* tile) {
 };
 
 void Map::render(sf::RenderWindow* window) {
-	EntityManager::getInstance().renderAll(window);
 	for (Tile* t : map)
 		t->render(window);
 };

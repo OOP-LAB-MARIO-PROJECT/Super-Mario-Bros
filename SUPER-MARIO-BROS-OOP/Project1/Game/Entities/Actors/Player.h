@@ -1,9 +1,11 @@
 #pragma once
+#include "../Actors/AnimationState/AnimationState.h"
+#include "../../Utils/EntityManager.h"
 #include "Actor.h"
+#include "../Actors/Projectile/Fireball.h"
 #include <vector>
 #include <exception>
 #include <map>
-#include "../Actors/AnimationState/AnimationState.h"
 
 class Player : public Actor
 {
@@ -16,6 +18,7 @@ class Player : public Actor
 	int speed = 100;
 	ENTITY_TYPE currentType = PLAYER;
 	float deadthTimer = 0;
+	float shootTimer = 0;
 
 public:
 	std::vector <Entity*> nearPointerTiles;

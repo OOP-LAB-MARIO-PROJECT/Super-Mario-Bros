@@ -52,6 +52,15 @@ void Player::setState(const std::string& stateName) {
 
 void Player::update(float deltatime) {
 	if (deadthTimer > 2.5) GameConfig::getInstance().levelStatus = RESTART, health = 1, deadthTimer = 0, isDead = false;
+	shootTimer -= deltatime;
+	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shootTimer <= 0) {
+		EntityManager::getInstance().addEntity(new Fireball(getPos(), sf::Vector2f(4, 4), getFacing()));
+	}
+	
+	if (shootTimer < 0) shootTimer = 0.5;
+	
+	
 	if (currentState) {
 		//std::cout << "Current state exists" << std::endl;
 		currentState->handle(this, deltatime);
