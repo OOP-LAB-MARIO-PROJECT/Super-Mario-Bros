@@ -101,12 +101,18 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 
 
 void GameScene::update(float deltatime) {
+
 	sf::Event event;
 	while (getWindow()->pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
 		{
 			getWindow()->close();
 		}
+	}
+
+	if (deltatime > 0.03) {
+		std::cout << "loading....\n";
+		return;
 	}
 
 	myCommand.setDeltaTime(deltatime);

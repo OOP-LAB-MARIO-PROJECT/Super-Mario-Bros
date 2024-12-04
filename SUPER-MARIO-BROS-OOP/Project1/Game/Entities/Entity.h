@@ -57,7 +57,7 @@ public:
 
 	void setRenderHitbox(bool f);
 	void setRenderSprite(bool f);
-	void updateEvironment(const std::vector <Hitbox>& obstacle, const std::vector <Entity*>& otherEntities);
+	virtual void updateEvironment(const std::vector <Hitbox>& obstacle, const std::vector <Entity*>& otherEntities);
 
 	virtual void render(sf::RenderWindow* window) const = 0;
 	virtual void update(float deltaTime) = 0;
