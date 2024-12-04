@@ -40,6 +40,17 @@ void GameConfig::setCurrentLevel(const std::string& level) {
     }
 }
 
+
+void GameConfig::setNextLevel(const std::string& level) {
+    if (!level.empty()) {
+        nextLevel = level;
+        std::cout << "next lev" << ' ' << level << '\n';
+    }
+    else {
+        std::cerr << "Level name cannot be empty.\n";
+    }
+}
+
 // Add score
 void GameConfig::addScore(int points) {
     if (points > 0) {
@@ -90,17 +101,17 @@ sf::Keyboard::Key GameConfig::getControl(const std::string& action) {
 // Save & Load
 void GameConfig::saveToFile(const std::string& filename) {
     json j;
+    
+    // Meta data
     j["volume"] = volume;
     j["playerName"] = playerName;
-    j["currentLevel"] = currentLevel;
-    j["score"] = score;
-    j["coins"] = coins;
-    j["timeLeft"] = timeLeft;
-
+    
     // Lưu controls
     for (const auto& pair : controls) {
         j["controls"][pair.first] = pair.second;
     }
+
+    j["unlocked-level"] = unlockedLevel;
 
     std::ofstream file(filename);
     if (file.is_open()) {
@@ -110,6 +121,8 @@ void GameConfig::saveToFile(const std::string& filename) {
     else {
         std::cerr << "Unable to open file for saving: " << filename << std::endl;
     }
+
+    file.close();
 }
 
 void GameConfig::loadFromFile(const std::string& filename) {
@@ -122,10 +135,8 @@ void GameConfig::loadFromFile(const std::string& filename) {
         volume = j["volume"];
         playerName = j["playerName"];
         currentLevel = j["currentLevel"];
-        score = j["score"];
-        coins = j["coins"];
-        timeLeft = j["timeLeft"];
-
+        unlockedLevel = j["unlocked-level"];
+        
         // Tải controls
         for (auto& pair : controls) {
             if (j["controls"].contains(pair.first)) {
@@ -136,4 +147,25 @@ void GameConfig::loadFromFile(const std::string& filename) {
     else {
         std::cerr << "Unable to open file for loading: " << filename << std::endl;
     }
+}
+
+
+void GameConfig::saveLevel() {
+    if (unlockedLevel.find(currentLevel) == unlockedLevel.end()) {
+        unlockedLevel[currentLevel] = { score, coins};
+    }
+    else {
+        std::pair <int, int> newRecord = { score, coins };
+        unlockedLevel[currentLevel] = std::max(newRecord, unlockedLevel[currentLevel]);
+    }
+}
+
+void GameConfig::saveToFile() {
+    std::string filename = "Users/" + playerName + ".json";
+    saveToFile(filename);
+}
+
+void GameConfig::loadFromFile() {
+    std::string filename = "Users/" + playerName + ".json";
+    loadFromFile(filename);
 }

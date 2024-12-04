@@ -24,16 +24,18 @@ void GameScene::loadMapList() {
 
 	currentLevel = "map-1-1";
 	GameConfig::getInstance().setCurrentLevel(currentLevel);
-
+	GameConfig::getInstance().saveLevel();
 	fin.close();
 }
 
 
 void GameScene::nextLevel(std::string level) {
 	EntityManager::getInstance().clear();
-
+	GameConfig::getInstance().saveLevel();
 	GameConfig::getInstance().timeLeft = 300;
 	GameConfig::getInstance().setCurrentLevel(level);
+	GameConfig::getInstance().unlockedLevel[level] = { 0, 0 };
+	GameConfig::getInstance().saveToFile();
 
 	player->otherEntities.clear();
 	player->obstacle.clear();
@@ -57,7 +59,7 @@ void GameScene::retrieveLevelStatus() {
 
 	if (status = NEXT_LEVEL) {
 		status = PLAYING;
-		nextLevel(GameConfig::getInstance().currentLevel);
+		nextLevel(GameConfig::getInstance().nextLevel);
 	}
 }
 

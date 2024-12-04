@@ -16,5 +16,5 @@ int CastleGate::getType() {
 void CastleGate::touched(float deltatime) {
 	std::cout << nxt << '\n';
 	GameConfig::getInstance().levelStatus = NEXT_LEVEL;
-	GameConfig::getInstance().setCurrentLevel(nxt);
+	GameConfig::getInstance().setNextLevel(nxt);
 }
