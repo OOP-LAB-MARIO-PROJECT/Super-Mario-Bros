@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 #include <SFML/Graphics.hpp>
-
+#include "../Utils/json.hpp"
 
 // Glolbal configuration for Game -> every file can get infomation from this
 
@@ -65,5 +65,8 @@ public:
     void setTimeLeft(int seconds);
     void updateControl(const std::string& action, sf::Keyboard::Key key);
     sf::Keyboard::Key getControl(const std::string& action);
+    void saveToFile(const std::string& filename);
+    void loadFromFile(const std::string& filename);
+
 };
 

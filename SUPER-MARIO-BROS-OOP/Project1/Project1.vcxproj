@@ -228,6 +228,7 @@
     <ClInclude Include="UI_Components\Button.h" />
     <ClInclude Include="UI_Components\TextBox.h" />
     <ClInclude Include="Utils\FontManager.h" />
+    <ClInclude Include="Utils\json.hpp" />
     <ClInclude Include="Utils\QuadTree.h" />
     <ClInclude Include="Utils\Observer.h" />
     <ClInclude Include="Utils\SceneManager.h" />
