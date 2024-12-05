@@ -134,7 +134,6 @@ void GameConfig::loadFromFile(const std::string& filename) {
 
         volume = j["volume"];
         playerName = j["playerName"];
-        currentLevel = j["currentLevel"];
         unlockedLevel = j["unlocked-level"];
         
         // Tải controls
