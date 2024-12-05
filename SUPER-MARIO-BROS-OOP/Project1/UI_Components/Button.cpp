@@ -2,8 +2,9 @@
 
 
 Button::Button(const sf::Vector2f& size, const sf::Vector2f& position)
-    : shape(size), defaultColor(sf::Color::Blue), hoverColor(sf::Color::Green), pressedColor(sf::Color::Red) {
-    shape.setPosition(position);
+    : shape(size), defaultColor(sf::Color::Transparent), hoverColor(sf::Color::Transparent), pressedColor(sf::Color::Transparent) {
+	shape.setPosition(position);
+    shape.setSize(size);
     shape.setFillColor(defaultColor); 
 }
 
@@ -48,32 +49,33 @@ void Button::setText(const std::string& content, unsigned int textSize, const sf
 
     sf::FloatRect bounds = shape.getGlobalBounds();
     sf::FloatRect textBounds = text.getGlobalBounds();
-    text.setPosition(bounds.left + (bounds.width - textBounds.width) / 2.0f, bounds.top + (bounds.height - textBounds.height) / 2.0f - 5.0f);
+    text.setPosition((bounds.left + (bounds.width - textBounds.width) / 2.0f), bounds.top + (bounds.height - textBounds.height) / 2.0f - 5.0f);
 }
-
-
-
-
 
 
 void Button::setOnClick(const std::function<void()>& callback) {
     onClick = callback;
 }
 
+bool Button::beingHovered()
+{
+	return isHovered;
+}
 
 void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window) {
     
-    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-    isHovered = shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos));
-
-    
+    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+    isHovered = shape.getGlobalBounds().contains(mousePos);
     if (isHovered) {
         shape.setFillColor(hoverColor); 
+        text.setFillColor(sf::Color::Color(107, 137, 253));
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+			text.setCharacterSize(text.getCharacterSize() + 5);
             isPressed = true;
-            shape.setFillColor(sf::Color::Magenta); 
         }
         else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+            text.setCharacterSize(text.getCharacterSize() - 5);
+			text.setFillColor(sf::Color::Black);
             if (isPressed && onClick) {
                 onClick(); 
             }
@@ -82,13 +84,18 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     }
     else {
         shape.setFillColor(defaultColor); 
-    }
+        text.setFillColor(sf::Color::Black);
+   }
 }
 
 
 void Button::draw(sf::RenderWindow* window) {
+    window->draw(*sprite);
+   /* std::cout << "draw sprite\n";*/
     window->draw(shape);
+   /* std::cout << "draw shape\n";*/
     window->draw(text);
+    /*std::cout << "draw text\n";*/
 }
 
 Button Button::createButton(
@@ -102,8 +109,23 @@ Button Button::createButton(
     unsigned int textSize, 
     const sf::Color& textColor
     ) {
-    Button button(size, position); 
-    button.setFont(*(FontManager::getInstance().getFont("Roboto")));
+    Button button(size, position);
+
+    button.texture = std::make_shared<sf::Texture>();
+    if (button.texture->loadFromFile("UI_Components/UI_Texture_Pack/cloud.png"))
+    {
+        std::cout << "texture rendered" << std::endl;
+    }
+    button.sprite = std::make_shared<sf::Sprite>();
+    button.sprite->setTexture(*(button.texture));
+    float midX = size.x / 2.0;
+    float midY = size.y / 2.0;
+    sf::Vector2u textureSize = button.texture->getSize();
+    float spriteX = (size.x / textureSize.x) * 2;
+	float spriteY = (size.y / textureSize.y) * 2;
+    button.sprite->setScale(spriteX, spriteY);
+    button.sprite->setPosition(position.x - midX, position.y - midY  - 50.0);
+    button.setFont(*(FontManager::getInstance().getFont("Mario")));
     button.setText(content, textSize, textColor);
     button.setOnClick(onClickCallback); 
     return button;

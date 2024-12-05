@@ -7,9 +7,9 @@ TextBox::TextBox(float x, float y, float width, float height, bool isPassword)
     box.setSize(sf::Vector2f(width, height));
     box.setFillColor(sf::Color::White);
     box.setOutlineColor(sf::Color::Black);
-    box.setOutlineThickness(4);
+    box.setOutlineThickness(10);
 
-    text.setFont(*(FontManager::getInstance().getFont("Roboto")));
+    text.setFont(*(FontManager::getInstance().getFont("Mario")));
     text.setFillColor(sf::Color::Black);
     text.setCharacterSize(24);
 

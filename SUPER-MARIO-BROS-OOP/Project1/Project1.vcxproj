@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="UI_Components\Animation.cpp" />
     <ClCompile Include="Game\Control\Commands\PlayerMovement.cpp" />
     <ClCompile Include="Game\Control\KeyExecute.cpp" />
     <ClCompile Include="Game\Entities\Actors\AnimationState\AnimationState.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="Game\Scenes\Register\RegisterScene.cpp" />
     <ClCompile Include="Game\Scenes\Scene.cpp" />
     <ClCompile Include="Game\Scenes\Setting\SettingScene.cpp" />
+    <ClCompile Include="Game\Scenes\KeyBinding\KeyBindingScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game\Entities\Tiles\QuestionTile.cpp" />
     <ClCompile Include="UI_Components\Button.cpp" />
@@ -188,8 +190,10 @@
     <ClCompile Include="Utils\TextureManager.cpp" />
     <ClCompile Include="Utils\Tileset.cpp" />
     <ClCompile Include="Utils\tinyxml2.cpp" />
+    <ClCompile Include="UI_Components\VolumeSlider.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="UI_Components\Animation.h" />
     <ClInclude Include="Game\Control\Commands\PlayerMovement.h" />
     <ClInclude Include="Game\Control\KeyExecute.h" />
     <ClInclude Include="Game\Entities\Actors\AnimationState\AnimationState.h" />
@@ -228,7 +232,7 @@
     <ClInclude Include="Game\Scenes\Register\RegisterScene.h" />
     <ClInclude Include="Game\Scenes\Scene.h" />
     <ClInclude Include="Game\Scenes\Setting\SettingScene.h" />
-    <ClInclude Include="Game\Entities\Tiles\QuestionTile.h" />
+    <ClInclude Include="Game\Scenes\KeyBinding\KeyBindingScene.h" />
     <ClInclude Include="UI_Components\Button.h" />
     <ClInclude Include="UI_Components\TextBox.h" />
     <ClInclude Include="Utils\FontManager.h" />
@@ -240,16 +244,38 @@
     <ClInclude Include="Utils\TextureManager.h" />
     <ClInclude Include="Utils\Tileset.h" />
     <ClInclude Include="Utils\tinyxml2.h" />
+    <ClInclude Include="UI_Components\VolumeSlider.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Roboto-Medium.ttf" />
+    <Font Include="Assets\Fonts\Font_Pack\mario.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />
     <Text Include="Assets\Sounds\sound_interface.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Game\Entities\Readme.md" />
+    <Image Include="UI_Components\UI_Texture_Pack\Background.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\cat.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\CloudBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\CoinSpriteSheet.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\GoombaSpriteSheet.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\HappyMario.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Cloud.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\knob.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Koopa.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Moon.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\PinkFlower.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\RegisterBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\SadMario.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\SettingSceneBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\Title.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
