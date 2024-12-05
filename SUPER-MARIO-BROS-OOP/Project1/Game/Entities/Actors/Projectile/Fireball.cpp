@@ -25,23 +25,11 @@ Fireball::Fireball(sf::Vector2f pos, sf::Vector2f size, int facing) : Projectile
 void Fireball::update(float deltatime) {
 	if ((timeToLive -= deltatime) <= 0) kill();
 	
-	performPhysics(deltatime);
 	std::cout << obstacle.size() << '\n';
-	for (auto& ob : obstacle) {
-
-		sf::RectangleShape tmp;
-		tmp.setFillColor(sf::Color::Yellow);
-		tmp.setSize(ob.size);
-		tmp.setPosition(ob.pos);
-		sf::RenderWindow* debug = EntityManager::getInstance().debugWindow;
-		if (debug) {
-			debug->draw(tmp);
-		}
-		int dir = dynamicRectVsRect(hitbox, deltatime, hitbox.vel, ob);
-		if (dir == -1) continue;
-		if (dir == TOP || dir == BOTTOM) setVel(sf::Vector2f(getVel().x, -100));
-		if (dir == LEFT || dir == RIGHT) kill();
-	}
-
+	int dir = resolveCollideGround(obstacle, deltatime);
+	if (dir & 5) setVel(sf::Vector2f(getVel().x, -100));
+	if (dir & 10) kill();
+	std::cout << dir << '\n';
 	setPos(getPos() + getVel() * deltatime);
+	performPhysics(deltatime);
 }

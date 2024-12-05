@@ -51,6 +51,8 @@ void Player::setState(const std::string& stateName) {
 
 
 void Player::update(float deltatime) {
+
+
 	if (deadthTimer > 2.5) GameConfig::getInstance().levelStatus = RESTART, health = 1, deadthTimer = 0, isDead = false;
 	shootTimer -= deltatime;
 	

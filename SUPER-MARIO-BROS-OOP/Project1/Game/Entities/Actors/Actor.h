@@ -46,6 +46,19 @@ public:
 	void setTexture(const std::string& sourceName, const std::string& rectName);
 	void setSpriteScale(float x, float y);
 	void setSpriteOrigin(sf::Vector2f ori);
+
+
+	/*
+		if (contact[2]) return dir::TOP;
+		if (contact[1]) return dir::LEFT;
+		if (contact[0]) return dir::BOTTOM;
+		if (contact[3]) return dir::RIGHT;
+
+		1 << 0: BOTTOM
+		1 << 1: LEFT
+		1 << 3: RIGHT
+		1 << 2: TOP
+	*/
 	int resolveCollideGround(std::vector <Hitbox> vi, float deltaTime);
 	int getFacing();
 	bool getIsOnGround();

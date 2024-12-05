@@ -35,6 +35,8 @@ void Coin::update(float deltatime) {
 	}
 	//std::cout << obstacle.size() << '\n';
 
+	bool blockUnder = false;
+
 	for (auto& o : obstacle) {
 		Collision::rect dr = { o.pos, o.size, o.vel };
 		if (rectVsRect(dr, { getPos(), getSize() })) {
@@ -43,8 +45,12 @@ void Coin::update(float deltatime) {
 			touched(deltatime);
 			return;
 		}
+
+		dr.pos += sf::Vector2f(0, -8);
+		if (rectVsRect(dr, { getPos(), getSize() })) blockUnder = true;
 	}
 
+	if (!blockUnder) needUpdateEnvironment = false;
 }
 
 void Coin::behavior(float deltatime) {

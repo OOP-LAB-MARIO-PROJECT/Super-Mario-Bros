@@ -11,8 +11,14 @@ void Map::addTile(Tile* tile) {
 	map.push_back(tile);
 };
 
+void Map::setRenderSpace(sf::Vector2f pos, sf::Vector2f size) {
+	renderSpace.pos = pos;
+	renderSpace.size = size;
+}
+
 void Map::render(sf::RenderWindow* window) {
-	for (Tile* t : map)
+	std::vector <Entity*> renderTile = quadMap.nearEntity(renderSpace);
+	for (Entity* t : renderTile)
 		t->render(window);
 };
 
@@ -33,7 +39,7 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	m_col = mapLoader.columns;
 	m_block_size = mapLoader.tilewidth;
 
-	quadMap.init(m_col * (m_block_size + 10), m_row * (m_block_size + 10), 20);
+	quadMap.init(m_col * (m_block_size + 10), m_row * (m_block_size + 10), 8);
 	EntityManager::getInstance().setSpace(m_col * (m_block_size + 10), m_row * (m_block_size + 10));
 
 	sf::Vector2f size = sf::Vector2f{ (float)mapLoader.tilewidth, (float)mapLoader.tileheight };
@@ -70,9 +76,11 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	std::vector <Hitbox> tiles;
 	std::vector <Hitbox> tmp;
 	
+	sf::Vector2f size = sf::Vector2f(64, 64);
+
 	Hitbox space = {
-		pos - sf::Vector2f(16, 16),
-		sf::Vector2f(48, 48)
+		pos - size / 2.f,
+		size
 	};
 
 	std::vector <Entity*> nearTile = quadMap.nearEntity(space);
@@ -85,13 +93,10 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 }
 
 void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode) {
-
 	std::vector <Tile*> alive;
 	for (auto t : map) if (!t->isDead()) {
 		alive.push_back(t);
-		//if (t->getType() >> MOVING_TILE & 1) std::cout << "i updated you\n";
 		t->update(deltaTime);
-		//if (t->getType() >> MOVING_TILE & 1) std::cout << "i done updated you\n";
 		t->notify(t);
 	}
 	map = alive;
@@ -163,9 +168,11 @@ std::vector <Entity*> Map::getNearEntity(Entity* en) {
 
 std::vector <Entity*> Map::getNearPointerTiles(sf::Vector2f pos, bool gettrans) {
 
+	sf::Vector2f spaceSize = sf::Vector2f(64, 64);
+
 	Hitbox space = {
-		pos - sf::Vector2f(32, 32),
-		sf::Vector2f(64, 64)
+		pos - spaceSize / 2.f,
+		spaceSize
 	};
 
 	std::vector <Entity*> nearTile = quadMap.nearEntity(space);
@@ -188,11 +195,11 @@ void Map::updateEnvironment() {
 
 	std::vector<Entity*>& entities = EntityManager::getInstance().
 		getEntities();
-	for (auto en : entities) {
-		std::vector <Hitbox> neartile = getNearTiles(en->getHitbox().pos);
-		std::vector <Entity*> nearptr = getNearPointerTiles(en->getHitbox().pos);
-		for (auto x : nearptr) neartile.push_back(x->getHitbox());
 
+
+	for (auto en : entities) if (en->needUpdateEnvironment) {
+		std::vector <Hitbox> neartile = getNearTiles(en->getHitbox().pos);
+		
 		en->updateEvironment(
 			neartile,
 			EntityManager::getInstance().
@@ -200,4 +207,5 @@ void Map::updateEnvironment() {
 		);
 		en->otherEntities.push_back(player);
 	}
+
 }

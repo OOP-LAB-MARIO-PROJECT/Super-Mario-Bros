@@ -10,7 +10,7 @@ Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) {
 		256 / 16 = screenwidd / x
 	*/
 
-	camera.setSize(sf::Vector2f(400, 240));
+	camera.setSize(sf::Vector2f(width, height));
 	leftLimit = ppos.x - 100;
 	rightLimit = ppos.x;
 	aboveLimit = 200.0f;
@@ -38,6 +38,7 @@ void Camera::followPlayer(const float& x, const float& y, const float& w, const 
 
 	if (y <= aboveLimit) moveCamera(0, y - aboveLimit);
 	else if (y + h >= beneathLimit) moveCamera(0, y + h - beneathLimit);
+	camera.setCenter(sf::Vector2f((leftLimit + rightLimit) / 2, (base + 32 - 104)));
 }
 
 void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const GameConfig& config) {
@@ -82,4 +83,13 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
 	window->draw(coinText);
 	window->draw(timeText);
 	window->draw(volumeText);
+}
+
+std::pair <sf::Vector2f, sf::Vector2f> Camera::getRenderSpace() {
+	sf::Vector2f center = camera.getCenter();
+	sf::Vector2f size = sf::Vector2f(width, height);
+	center.x -= width / 2.f;
+	center.y -= height / 2.f;
+
+	return { center, size };
 }

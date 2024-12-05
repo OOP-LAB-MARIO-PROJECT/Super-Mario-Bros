@@ -8,7 +8,6 @@ void EntityManager::addEntity(Entity* entity) {
 
 // Render all entities
 void EntityManager::updateAll(float deltaTime) {
-	//std::vector <Entity*> alive;
 	for (auto en : entities)
 		if (!en->isDead() && std::abs(en->getHitbox().pos.x - updatePivot.x) < (float)updateDistance) {
 			en->update(deltaTime);
@@ -38,8 +37,8 @@ std::vector<Entity*> EntityManager::getNearEntity(Entity* en, float radius) {
 	std::vector <Entity*> tmp;
 	
 	Hitbox space = en->getHitbox();
-	space.pos -= space.size * 4.f;
-	space.size *= 4.f;
+	space.pos -= space.size;
+	space.size *= 2.f;
 
 	res = quadEn.nearEntity(space);
 	for (auto x : res) if (!x->isDead()) tmp.push_back(x);
@@ -59,12 +58,10 @@ void EntityManager::filter() {
 }
 
 std::vector <Entity*>& EntityManager::getEntities() {
-	// Container to store entities
 	return entities;
 }
 
 void EntityManager::clear() {
-	// clear out entities
 	for (auto x : entities)
 		delete x;
 	entities.clear();
@@ -72,5 +69,5 @@ void EntityManager::clear() {
 }
 
 void EntityManager::setSpace(float width, float height) {
-	quadEn.init(width, height, 10);
+	quadEn.init(width, height, 8);
 }

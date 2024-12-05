@@ -31,6 +31,8 @@ private:
 	int m_row = 0;
 	int m_col = 0;
 	int m_block_size = 1;
+	Hitbox renderSpace;
+
 
 	std::vector<Tile*> map;
 	std::map <std::pair <int, int>, int> tilePos;
@@ -57,6 +59,7 @@ public:
 	void loadMap(const std::string& filename, Player* player);
 	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel, int mode);
 	void update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode);
+	void setRenderSpace(sf::Vector2f pos, sf::Vector2f size);
 	
 	// API for use
 	// infomation for the actor to get

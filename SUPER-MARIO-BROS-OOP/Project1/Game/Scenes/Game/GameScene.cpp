@@ -121,11 +121,9 @@ void GameScene::update(float deltatime) {
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 
-	gameMap->render(getWindow());
-	player->render(getWindow());
-
 	EntityManager::getInstance().renderAll(getWindow());
 	EntityManager::getInstance().filter();
+	
 	player->update(deltatime);
 	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
 
@@ -137,11 +135,14 @@ void GameScene::update(float deltatime) {
 	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	camera->setCameraView(getWindow());
 
-	if (FontManager::getInstance().getFont("Roboto").get() == nullptr)
-		std::cout << "cannot getfont in game\n";
+	
+	gameMap->render(getWindow());
+	player->render(getWindow());
+	
+	std::pair<sf::Vector2f, sf::Vector2f> renderSpace = camera->getRenderSpace();
+	gameMap->setRenderSpace(renderSpace.first, renderSpace.second);
 	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance());
-
-
+	
 	// check for level
 	retrieveLevelStatus();
 }

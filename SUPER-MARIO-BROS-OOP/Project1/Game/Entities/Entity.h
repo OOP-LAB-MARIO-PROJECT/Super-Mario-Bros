@@ -45,6 +45,7 @@ public:
 	std::vector <Entity*> otherEntities;
 	int isRenderHitbox = true;
 	int isRenderSprite = false;
+	bool needUpdateEnvironment = true;
 
 	void kill() { _isDead = true; };
 	bool isDead() const { return _isDead; }
