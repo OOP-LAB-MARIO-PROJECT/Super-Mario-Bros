@@ -51,6 +51,11 @@ void RedMushroom::behavior(float detatime) {
 void RedMushroom::touched(float detatime) {
 	kill();
 	GameConfig::getInstance().addScore(score);
+	GameConfig::getInstance().marioState = BIG;
+}
+
+void RedMushroom::affectOther(Entity* other, float deltateim) {
+	touched(deltateim);
 }
 
 

@@ -8,32 +8,39 @@ Player::Player() {
 Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	isRenderSprite = true;
 	isRenderHitbox = true;
+	isTransforming = false;
 	facing = 1;
 
-	std::vector<std::vector<std::string>> idleTexture = { { "left-small-mario-7" }, {"right-small-mario-6"} };
+
+	std::vector<std::vector<std::string>> idleTexture = { { "left-mario-9" }, {"right-mario-6"} };
 	stateCache["IDLE"] = std::make_shared<IdleState>("mario", idleTexture, 0);
 
 
-	std::vector<std::vector<std::string>> runTexture = { {	"left-small-mario-13", 
-															"left-small-mario-12", 
-															"left-small-mario-11" }, 
-														  {	"right-small-mario-0",
-															"right-small-mario-1",
-															"right-small-mario-2"} };
+	std::vector<std::vector<std::string>> runTexture = { {	"left-mario-15", 
+															"left-mario-14", 
+															"left-mario-13" }, 
+														  {	"right-mario-0",
+															"right-mario-1",
+															"right-mario-2"} };
 	stateCache["RUN"] = std::make_shared<RunningState>("mario", runTexture, 0);
 
-	std::vector<std::vector<std::string>> jumpTexture = { { "left-small-mario-9" }, {"right-small-mario-4"} };
+	std::vector<std::vector<std::string>> jumpTexture = { { "left-mario-11" }, {"right-mario-4"} };
 	stateCache["JUMP"] = std::make_shared<JumpingState>("mario", jumpTexture, 0);
 
 
-	std::vector<std::vector<std::string>> slideTexture = { { "left-small-mario-10" }, {"right-small-mario-3"} };
+	std::vector<std::vector<std::string>> slideTexture = { { "left-mario-12" }, {"right-mario-3"} };
 	stateCache["SLIDE"] = std::make_shared<SlideState>("mario", slideTexture, 0.3f);
 
-	std::vector<std::vector<std::string>> killTexture = { { "left-small-mario-6" }, {"right-small-mario-7"} };
+	std::vector<std::vector<std::string>> killTexture = { { "left-mario-8" }, {"right-mario-7"} };
 	stateCache["KILL"] = std::make_shared<KillState>("mario", killTexture, 0.3f);
 
-	std::vector<std::vector<std::string>> deadTexture = { { "left-small-mario-8" }, {"right-small-mario-5"} };
+	std::vector<std::vector<std::string>> deadTexture = { { "left-mario-10" }, {"right-mario-5"} };
 	stateCache["DEAD"] = std::make_shared<DeadState>("mario", deadTexture, 2.5f);
+
+	std::vector<std::vector<std::string>> transformTexture = { { "left-mario-3", "left-mario-2" }, {"right-mario-14", "right-mario-15"} };
+	stateCache["TRANSFORMING"] = std::make_shared<TransformState>("big-mario", transformTexture, 0.5f);
+
+	currentMode = SMALL;
 	setState("IDLE");
 }
 
@@ -41,6 +48,9 @@ void Player::setState(const std::string& stateName) {
 	if (stateCache.find(stateName) != stateCache.end()) {
 		auto& state = stateCache[stateName];
 		if (state != nullptr) {
+
+			if (currentMode == SMALL && !getIsTransforming()) state->setEntityName("mario");
+			if (currentMode == BIG) state->setEntityName("big-mario");
 			currentState = state;
 		}
 	}
@@ -51,7 +61,16 @@ void Player::setState(const std::string& stateName) {
 
 
 void Player::update(float deltatime) {
+	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::BIG) {
+		setIsTransforming(true);
+		currentMode = BIG;
+	}
 
+
+	if (currentMode == BIG && GameConfig::getInstance().marioState == MARIO_STATE::SMALL) {
+		setIsTransforming(true);
+		currentMode = SMALL;
+	}
 
 	if (deadthTimer > 2.5) GameConfig::getInstance().levelStatus = RESTART, health = 1, deadthTimer = 0, isDead = false;
 	
@@ -88,9 +107,6 @@ void Player::update(float deltatime) {
 	else
 		setFric({ 0, 0 });
 
-	
-
-
 	setPos(getPos() + getVel() * deltatime);
 	setSpritePos(getPos() - sf::Vector2f{ 2, 2 });
 
@@ -107,7 +123,7 @@ void Player::update(float deltatime) {
 			en->affectOther(this);
 			continue;
 		}
-		en->touched(deltatime);
+		en->affectOther(this, deltatime);
 	}
 
 	other = nearPointerTiles;
@@ -198,6 +214,14 @@ int Player::getType() {
 }
 
 void Player::inflictDamage() {
+	if (currentMode == BIG) {
+		GameConfig::getInstance().marioState = MARIO_STATE::SMALL;
+		setIsTransforming(true);
+		return;
+	}
+	
+		
+		
 	health--;
 }
 

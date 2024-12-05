@@ -18,3 +18,7 @@ void CastleGate::touched(float deltatime) {
 	GameConfig::getInstance().levelStatus = NEXT_LEVEL;
 	GameConfig::getInstance().setNextLevel(nxt);
 }
+
+void CastleGate::affectOther(Entity* other, float deltatime) {
+	touched(deltatime);
+}

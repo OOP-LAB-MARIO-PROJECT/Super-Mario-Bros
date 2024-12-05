@@ -18,6 +18,8 @@ protected:
 	int facing = 0;
 	bool isKilling = false;
 	bool isDead = false;
+	bool isTransforming = true;
+
 public:
 
 	Actor(sf::Vector2f _pos, sf::Vector2f _size);
@@ -37,10 +39,11 @@ public:
 	bool getIsKilling() const;
 	void setIsKilling(bool a);
 
-
 	bool getIsDead() const;
 	void setIsDead(bool a);
 
+	bool getIsTransforming() const;
+	void setIsTransforming(bool a);
 
 	void setSpritePos(sf::Vector2f pos);
 	void setTexture(const std::string& sourceName, const std::string& rectName);

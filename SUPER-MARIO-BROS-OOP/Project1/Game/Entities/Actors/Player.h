@@ -25,8 +25,9 @@ public:
 	
 	enum mode {
 		SMALL,
-		LARGE,
-		WHITE_LARGE
+		BIG,
+		WHITE_BIG,
+		INVICIBLE
 	} currentMode;
 
 	Player();

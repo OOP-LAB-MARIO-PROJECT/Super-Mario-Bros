@@ -3,3 +3,4 @@ Texture_Pack/tiles.tsx Texture_Pack/tiles.png
 Texture_Pack/item-object.tsx Texture_Pack/items-objects.png
 Texture_Pack/enemies.tsx Texture_Pack/enemies.png
 Texture_Pack/KoopaTroopa.tsx Texture_Pack/KoopaTroopa.png
+Texture_Pack/big-mario.tsx Texture_Pack/mario.png

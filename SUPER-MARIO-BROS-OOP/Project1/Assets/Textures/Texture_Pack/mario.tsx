@@ -33,22 +33,22 @@
  <tile id="29" type="right-big-mario-lower"/>
  <tile id="30" type="right-big-mario-lower"/>
  <tile id="31" type="right-big-mario-lower"/>
- <tile id="32" type="right-small-mario"/>
- <tile id="33" type="right-small-mario"/>
- <tile id="34" type="right-small-mario"/>
- <tile id="35" type="right-small-mario"/>
- <tile id="36" type="right-small-mario"/>
- <tile id="37" type="right-small-mario"/>
- <tile id="38" type="right-small-mario"/>
- <tile id="39" type="right-small-mario"/>
- <tile id="40" type="right-small-mario"/>
- <tile id="41" type="right-small-mario"/>
- <tile id="42" type="right-small-mario"/>
- <tile id="43" type="right-small-mario"/>
- <tile id="44" type="right-small-mario"/>
- <tile id="45" type="right-small-mario"/>
- <tile id="46" type="blank"/>
- <tile id="47" type="blank"/>
+ <tile id="32" type="right-mario"/>
+ <tile id="33" type="right-mario"/>
+ <tile id="34" type="right-mario"/>
+ <tile id="35" type="right-mario"/>
+ <tile id="36" type="right-mario"/>
+ <tile id="37" type="right-mario"/>
+ <tile id="38" type="right-mario"/>
+ <tile id="39" type="right-mario"/>
+ <tile id="40" type="right-mario"/>
+ <tile id="41" type="right-mario"/>
+ <tile id="42" type="right-mario"/>
+ <tile id="43" type="right-mario"/>
+ <tile id="44" type="right-mario"/>
+ <tile id="45" type="right-mario"/>
+ <tile id="46" type="right-mario"/>
+ <tile id="47" type="right-mario"/>
  <tile id="48" type="right-bw-mario-upper"/>
  <tile id="49" type="right-bw-mario-upper"/>
  <tile id="50" type="right-bw-mario-upper"/>
@@ -95,18 +95,20 @@
  <tile id="91" type="right-small-mario-wb"/>
  <tile id="92" type="right-small-mario-wb"/>
  <tile id="93" type="right-small-mario-wb"/>
- <tile id="130" type="left-small-mario"/>
- <tile id="131" type="left-small-mario"/>
- <tile id="132" type="left-small-mario"/>
- <tile id="133" type="left-small-mario"/>
- <tile id="134" type="left-small-mario"/>
- <tile id="135" type="left-small-mario"/>
- <tile id="136" type="left-small-mario"/>
- <tile id="137" type="left-small-mario"/>
- <tile id="138" type="left-small-mario"/>
- <tile id="139" type="left-small-mario"/>
- <tile id="140" type="left-small-mario"/>
- <tile id="141" type="left-small-mario"/>
- <tile id="142" type="left-small-mario"/>
- <tile id="143" type="left-small-mario"/>
+ <tile id="128" type="left-mario"/>
+ <tile id="129" type="left-mario"/>
+ <tile id="130" type="left-mario"/>
+ <tile id="131" type="left-mario"/>
+ <tile id="132" type="left-mario"/>
+ <tile id="133" type="left-mario"/>
+ <tile id="134" type="left-mario"/>
+ <tile id="135" type="left-mario"/>
+ <tile id="136" type="left-mario"/>
+ <tile id="137" type="left-mario"/>
+ <tile id="138" type="left-mario"/>
+ <tile id="139" type="left-mario"/>
+ <tile id="140" type="left-mario"/>
+ <tile id="141" type="left-mario"/>
+ <tile id="142" type="left-mario"/>
+ <tile id="143" type="left-mario"/>
 </tileset>

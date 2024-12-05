@@ -119,3 +119,12 @@ void Actor::setSpriteScale(float x, float y) {
 void Actor::setSpriteOrigin(sf::Vector2f ori) {
 	sprite.setOrigin(ori);
 }
+
+
+bool Actor::getIsTransforming() const {
+	return isTransforming;
+}
+
+void Actor::setIsTransforming(bool a) {
+	isTransforming = a;
+}

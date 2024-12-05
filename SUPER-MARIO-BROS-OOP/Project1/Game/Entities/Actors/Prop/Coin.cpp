@@ -69,3 +69,7 @@ void Coin::touched(float deltatime) {
 int Coin::getType() {
 	return COIN;
 }
+
+void Coin::affectOther(Entity* other, float deltatime) {
+	touched(deltatime);
+}

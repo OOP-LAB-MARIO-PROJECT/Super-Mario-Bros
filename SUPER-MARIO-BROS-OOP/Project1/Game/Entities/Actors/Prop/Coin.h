@@ -17,5 +17,6 @@ public:
 	void update(float deltatime) override;
 	void behavior(float deltatime) override;
 	void touched(float deltatime) override;
+	void affectOther(Entity* other, float deltatime) override;
 	int getType() override;
 };
