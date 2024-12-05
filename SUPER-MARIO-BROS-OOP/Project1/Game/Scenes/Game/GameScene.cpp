@@ -95,10 +95,12 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myCommand.addCommand("jump", new Jump(player));
 	myCommand.addCommand("moveLeft", new MoveLeft(player));
 	myCommand.addCommand("moveRight", new MoveRight(player));
+	myCommand.addCommand("shoot", new Shoot(player));
 
 	myKeyExecute.addCommand(sf::Keyboard::W, myCommand.getCommand("jump"));
 	myKeyExecute.addCommand(sf::Keyboard::A, myCommand.getCommand("moveLeft"));
 	myKeyExecute.addCommand(sf::Keyboard::D, myCommand.getCommand("moveRight"));
+	myKeyExecute.addCommand(sf::Keyboard::F, myCommand.getCommand("shoot"));
 	EntityManager::getInstance().setRenderWindowForDebug(getWindow());
 }
 

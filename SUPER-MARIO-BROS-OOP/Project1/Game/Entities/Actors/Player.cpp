@@ -54,13 +54,9 @@ void Player::update(float deltatime) {
 
 
 	if (deadthTimer > 2.5) GameConfig::getInstance().levelStatus = RESTART, health = 1, deadthTimer = 0, isDead = false;
+	
 	shootTimer -= deltatime;
-	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shootTimer <= 0) {
-		EntityManager::getInstance().addEntity(new Fireball(getPos(), sf::Vector2f(4, 4), getFacing()));
-	}
-	
-	if (shootTimer < 0) shootTimer = 0.5;
+	if (shootTimer < 0) shootTimer = 0;
 	
 	
 	if (currentState) {
@@ -173,6 +169,13 @@ void Player::moveLeft(float deltatime) {
 	const float acce = -500;
 	setVel({ getVel().x + -7, getVel().y});
 	if (getVel().x < capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
+}
+
+void Player::shoot(float deltatime) {
+	if (shootTimer <= 0.5) {
+		EntityManager::getInstance().addEntity(new Fireball(getPos(), sf::Vector2f(4, 4), getFacing()));
+		shootTimer = 1;
+	}
 }
 
 void Player::moveRight(float deltatime) {

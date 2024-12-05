@@ -42,6 +42,7 @@ public:
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);
 	void moveRight(float deltatime);
+	void shoot(float deltatime);
 	int getType() override;
 };
 
