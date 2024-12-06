@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Entities\Actors\Projectile\BrickParticle.cpp" />
     <ClCompile Include="UI_Components\Animation.cpp" />
     <ClCompile Include="Game\Control\Commands\PlayerMovement.cpp" />
     <ClCompile Include="Game\Control\KeyExecute.cpp" />
@@ -193,6 +194,7 @@
     <ClCompile Include="UI_Components\VolumeSlider.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Entities\Actors\Projectile\BrickParticle.h" />
     <ClInclude Include="UI_Components\Animation.h" />
     <ClInclude Include="Game\Control\Commands\PlayerMovement.h" />
     <ClInclude Include="Game\Control\KeyExecute.h" />

@@ -220,8 +220,7 @@ void Player::inflictDamage() {
 		return;
 	}
 	
-		
-		
+	if (getIsTransforming()) return;
 	health--;
 }
 

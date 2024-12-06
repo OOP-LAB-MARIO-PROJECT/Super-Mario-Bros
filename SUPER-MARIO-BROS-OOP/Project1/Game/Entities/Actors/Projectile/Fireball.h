@@ -4,7 +4,6 @@
 class Fireball : public Projectile {
 	int affectType = ENEMY;
 	float timeToLive = 0;
-	sf::RenderWindow* window;
 public: 
 	Fireball();
 	Fireball(sf::Vector2f pos);

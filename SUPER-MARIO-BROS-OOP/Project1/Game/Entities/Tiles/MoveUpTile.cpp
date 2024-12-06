@@ -10,7 +10,11 @@ void MoveUpTile::touched(float deltatime) {
 	if (isTouch) return;
 	isTouch = true;
 	setVel({ 0, -90 });
-	std::cout << "asdfasdfasd\n";
+
+	if (GameConfig::getInstance().marioState == MARIO_STATE::BIG) {
+		destroy(deltatime);
+	}
+
 }
 
 void MoveUpTile::affectOther(Entity* other, float deltatime) {
@@ -25,6 +29,17 @@ Hitbox MoveUpTile::getHitbox() {
 }
 
 void MoveUpTile::destroy(float deltatime) {
+	sf::Vector2f particleSize = { 8, 8 };
+	sf::Vector2f particlePos = getPos();
+
+	EntityManager::getInstance().addEntity(new BrickParticle(particlePos, particleSize, 1));
+	particlePos.y += 8;
+	EntityManager::getInstance().addEntity(new BrickParticle(particlePos, particleSize, 1));
+	particlePos.y -= 8;
+	particlePos.x += 8;
+	EntityManager::getInstance().addEntity(new BrickParticle(particlePos, particleSize, -1));
+	particlePos.y += 8;
+	EntityManager::getInstance().addEntity(new BrickParticle(particlePos, particleSize, -1));
 	kill();
 }
 

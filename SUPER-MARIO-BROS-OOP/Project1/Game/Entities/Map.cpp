@@ -99,6 +99,12 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 		t->update(deltaTime);
 		t->notify(t);
 	}
+	else {
+		t->notify(t);
+		delete t;
+	}
+
+	std::cout << map.size() << ' ' << alive.size() << '\n';
 	map = alive;
 
 	quadMap.checkForPending();
