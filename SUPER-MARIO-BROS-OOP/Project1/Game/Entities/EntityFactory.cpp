@@ -12,6 +12,10 @@ Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vect
 		return new KoopaTroopa(pos, size);
 	}
 
+	if (type == "piranha-plant") {
+		return new PiranhaPlant(pos, size);
+	}
+
 	if (type == "red-mushroom") {
 		return new RedMushroom(pos, size);
 	}

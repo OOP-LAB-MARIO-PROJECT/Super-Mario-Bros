@@ -38,7 +38,8 @@
  <tile id="1665" type="block4"/>
  <tile id="1666" type="block4"/>
  <tile id="1675" type="flag-body-1"/>
- <tile id="1710" type="goompa"/>
+ <tile id="1710" type="troopa-koopa"/>
+ <tile id="1712" type="goompa"/>
  <tile id="1873" type="block4"/>
  <tile id="1874" type="block4"/>
  <tile id="1875" type="block4"/>
@@ -89,6 +90,7 @@
  <tile id="2102" type="castle-window-left"/>
  <tile id="2103" type="block3"/>
  <tile id="2104" type="castle-window-right"/>
+ <tile id="2138" type="piranha-plant"/>
  <tile id="2148" type="pipe-up-head-left"/>
  <tile id="2149" type="pipe-up-head-right"/>
  <tile id="2156" type="pipe-up-body-left"/>
@@ -168,6 +170,8 @@
  <tile id="2579" type="pipe-up-body-right"/>
  <tile id="2589" type="pipe-up-body-left"/>
  <tile id="2590" type="pipe-up-body-right"/>
+ <tile id="2641" type="troopa-koopa"/>
+ <tile id="2642" type="koopa-"/>
  <tile id="2666" type="block4"/>
  <tile id="2667" type="block4"/>
  <tile id="2668" type="block4"/>

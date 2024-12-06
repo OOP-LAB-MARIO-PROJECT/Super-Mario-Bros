@@ -41,6 +41,7 @@ public:
 	bool dynamicRectVsRect(const rect& rDynamic, const float fTimeStep, const rect& rStatic,
 		vt& contactPoint, vt& contactNormal, float& contactTime
 	);
+	
 
 	bool resolveDynamicRectVsRect(rect& r_dynamic, const float fTimeStep, rect& r_static, vt& pushback);
 
@@ -71,6 +72,6 @@ public:
 	
 	*/ 
 	dir dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeStep, const vt& vel, const Hitbox& staticRect);
-
+	dir dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeStep, const vt& vel, const Hitbox& staticRect, sf::Vector2f& pushback);
 #undef vt
 };

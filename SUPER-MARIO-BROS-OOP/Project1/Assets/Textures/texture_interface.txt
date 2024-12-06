@@ -4,3 +4,4 @@ Texture_Pack/item-object.tsx Texture_Pack/items-objects.png
 Texture_Pack/enemies.tsx Texture_Pack/enemies.png
 Texture_Pack/KoopaTroopa.tsx Texture_Pack/KoopaTroopa.png
 Texture_Pack/Goompa.tsx Texture_Pack/Goompa.png
+Texture_Pack/PiranhaPlant.tsx Texture_Pack/PiranhaPlant.png

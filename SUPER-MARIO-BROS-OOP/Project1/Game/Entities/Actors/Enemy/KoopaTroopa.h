@@ -18,6 +18,8 @@ class KoopaTroopa : public Enemy
 	float jumpingTime = 0;
 	float deathTimer = 0;
 	float speed = 50;
+	int cnt;
+	bool isHarm = false;
 public:
 
 

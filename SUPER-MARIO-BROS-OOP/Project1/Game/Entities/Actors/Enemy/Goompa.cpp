@@ -3,20 +3,21 @@
 
 
 Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
-	isRenderHitbox = true;
+    isRenderHitbox = true;
 	isRenderSprite = true;
-	facing = -1;
-    
+	facing = 1;
 
     std::vector<std::vector<std::string>> a = { {"goompa_ow-0", "goompa_ow-1"},
                                                 {"goompa_ow-1", "goompa_ow-0"} };
 
-    stateCache["RUN"] = std::make_shared<RunningState>("Goompa", a, 0);
+    stateCache["RUN"] = std::make_shared<RunningState>("Goompa", a, 0.15f);
 
 
     a = { {"goompa_ow-2"}, {"goompa_ow-2"} };
 
     stateCache["DEAD"] = std::make_shared<DeadState>("Goompa", a, 0.3);
+    a = { {"goompa_ow-0"}, {"goompa_ow-1"} };
+    stateCache["DEAD_BY_ENEMY"] = std::make_shared<DeadState>("Goompa", a, 1.f);
 
     setState("RUN");
 
@@ -32,15 +33,15 @@ void Goompa::setState(const std::string& stateName) {
     }
 }
 void Goompa::update(float deltatime) {
-    
+    if (health == 0 && !isDeadByOtherEnemy) isDead = true;
     if (currentState) {
         currentState->handle(this, deltatime);
         currentState->update(this, deltatime);
     }
-    
 
     
-    if (!isDead) {
+
+    if (!isDead && !isDeadByOtherEnemy) {
         for (auto en : otherEntities) {
             Hitbox ob = en->getHitbox();
             ob.vel = sf::Vector2f{ 0.f, 0.f };
@@ -66,11 +67,7 @@ void Goompa::update(float deltatime) {
         }
     }
 
-   
-
- 
     
-    behavior(deltatime);
     performPhysics(deltatime);
 }
 
@@ -91,6 +88,16 @@ int Goompa::getType() {
 void Goompa::inflictDamage() {
 	health--;
 }
+
+int Goompa::getHealth() {
+    return health;
+}
+
+void Goompa::setHealth(int h) {
+    health = h;
+}
+
+
 
 void Goompa::affectOther(Entity* other, float deltatime) {
     if (other->getType() == PLAYER) {

@@ -43,7 +43,7 @@ void RunningState::update(Actor* a, float deltaTime) {
 	a->setTexture(entityName, textureName[isRight][aniLoop % textureName[isRight].size()]);
 
 	timer += deltaTime;
-	if (timer > 0.15) {
+	if (timer > stateDuration) {
 		aniLoop++;
 		timer = 0;
 	}
@@ -71,6 +71,10 @@ void RunningState::handle(Actor* a, float deltaTime) {
 	}
 	else if (a->getType() == ENEMY) {
 		if (a->getIsDead()) a->setState("DEAD");
+		else if (a->getIsDeadByOtherEnemy()) a->setState("DEAD_BY_ENEMY");
+	}
+	else if (a->getType() == HARM_TO_ALL) {
+		a->setState("DEFENSE");
 	}
 	
 }
@@ -180,7 +184,14 @@ DeadState::DeadState(const std::string& en, const std::vector<std::vector<std::s
 void DeadState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
 	a->setTexture(entityName, textureName[isRight][0]);
-
+	if (a->getIsDeadByOtherEnemy()) { 
+		a->setIsDeadByOtherEnemy(true);
+		if (a->getHealth() == 0) a->setVel({ 0, -180.0f }), a->setHealth(-1);
+		a->setPos(a->getPos() + a->getVel() * deltaTime);
+		a->setSpriteScale(1.f, -1.f);
+		a->setSpritePos(a->getPos() + sf::Vector2f(0, 16.f));
+		a->performPhysics(deltaTime);
+	}
 }
 
 
@@ -191,29 +202,23 @@ void DeadState::handle(Actor* a, float deltaTime) {
 	}
 	else resetTimer();
 
-	if (a->getType() == ENEMY) a->kill();
 	if(a->getType() == PLAYER) a->setState("IDLE");
-
+	if (a->getIsDeadByOtherEnemy() || a->getIsDead()) a->kill();
+	
 }
 
 
-AliveState::AliveState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn, sT) {
+DefenseState::DefenseState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn, sT) {
 }
 
 
-void AliveState::update(Actor* a, float deltaTime) {
+void DefenseState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
 	a->setTexture(entityName, textureName[isRight][0]);
 
 }
 
 
-void AliveState::handle(Actor* a, float deltaTime) {
-	updateTimer(deltaTime);
-	if (!isDurationEnded()) {
-		return;
-	}
-	else resetTimer();
+void DefenseState::handle(Actor* a, float deltaTime) {
 
-	a->setState("IDLE");
 }

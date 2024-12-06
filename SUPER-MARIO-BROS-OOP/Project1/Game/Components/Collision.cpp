@@ -232,5 +232,58 @@ dir Collision::dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeSte
 }
 
 
+dir Collision::dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeStep, const vt& vel, const Hitbox& staticRect, sf::Vector2f& pushback) {
+
+	rect dRect = {
+		dynamicRect.pos,
+		dynamicRect.size,
+		vel
+	};
+
+	rect sRect = {
+		staticRect.pos,
+		staticRect.size
+	};
+
+	dir direction = dirDynamicRectVsRect(dRect, fTimeStep, sRect);
+	if (direction != -1) return direction;
+	if (!rectVsRect(dRect, sRect)) return NO_COLLIDE;
+
+	vt dPos = dRect.pos;
+	vt sPos = sRect.pos;
+
+	sRect.pos -= dRect.size / 2.f;
+	sRect.size += dRect.size;
+
+	vt dCenter = dRect.pos + dRect.size / 2.f;
+	float left = 0, right = 0, top = 0, bot = 0;
+	left = dCenter.x - sRect.pos.x;
+	right = sRect.pos.x + sRect.size.x - dCenter.x;
+	top = dCenter.y - sRect.pos.y;
+	bot = sRect.pos.y + sRect.size.y - dCenter.y;
+
+	if (std::min({ right, left, top, bot }) < 0) {
+		throw std::exception("shitty\n");
+	}
+
+	pushback = sf::Vector2f(0,0);
+	if (left < right) pushback.x -= left; else pushback.x += right;
+	if (top < bot) pushback.y -= top; else pushback.y += bot;
+
+
+	if (abs(pushback.x) < abs(pushback.y)) {
+		if (pushback.x < 0)
+			return LEFT;
+		return RIGHT;
+	}
+	else {
+		if (pushback.y < 0)
+			return TOP;
+		return BOTTOM;
+	}
+	pushback /= fTimeStep;
+	return RIGHT;
+}
+
 #undef vt
 

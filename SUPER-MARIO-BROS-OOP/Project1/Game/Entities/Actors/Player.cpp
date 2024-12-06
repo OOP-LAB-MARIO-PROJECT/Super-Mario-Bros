@@ -20,7 +20,7 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 														  {	"right-small-mario-0",
 															"right-small-mario-1",
 															"right-small-mario-2"} };
-	stateCache["RUN"] = std::make_shared<RunningState>("mario", runTexture, 0);
+	stateCache["RUN"] = std::make_shared<RunningState>("mario", runTexture, 0.15f);
 
 	std::vector<std::vector<std::string>> jumpTexture = { { "left-small-mario-9" }, {"right-small-mario-4"} };
 	stateCache["JUMP"] = std::make_shared<JumpingState>("mario", jumpTexture, 0);

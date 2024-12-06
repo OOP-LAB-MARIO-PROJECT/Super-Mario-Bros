@@ -106,9 +106,9 @@ public:
 
 
 // For enemy 
-class AliveState : public AnimationState {
+class DefenseState : public AnimationState {
 public:
-    AliveState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT);
+    DefenseState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT);
 
     void update(Actor* a, float deltaTime) override;
     void handle(Actor* a, float deltaTime) override;
