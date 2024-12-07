@@ -5,6 +5,7 @@
  <tile id="1" type="block2"/>
  <tile id="2" type="block3"/>
  <tile id="3" type="block4"/>
+ <tile id="5" type="fence"/>
  <tile id="11" type="castle1"/>
  <tile id="12" type="castle-window-left"/>
  <tile id="13" type="castle2"/>
