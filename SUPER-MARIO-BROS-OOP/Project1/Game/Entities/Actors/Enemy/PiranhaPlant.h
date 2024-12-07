@@ -7,8 +7,8 @@
 
 simple testing enemy
 */
-class Goompa : public Enemy
-{	
+class PiranhaPlant : public Enemy
+{
 	std::shared_ptr<AnimationState> currentState;
 	std::map<std::string, std::shared_ptr<AnimationState>> stateCache;
 	int health = 1;
@@ -23,10 +23,10 @@ class Goompa : public Enemy
 	bool isStop = false;
 	float tmp = 0;
 public:
-	
+
 
 	void setState(const std::string& stateName) override;
-	Goompa(sf::Vector2f pos, sf::Vector2f size);
+	PiranhaPlant(sf::Vector2f pos, sf::Vector2f size);
 	void update(float deltatime) override;
 	void behavior(float deltatime) override;
 	void inflictDamage() override;

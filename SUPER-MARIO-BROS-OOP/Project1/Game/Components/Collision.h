@@ -41,6 +41,7 @@ public:
 	bool dynamicRectVsRect(const rect& rDynamic, const float fTimeStep, const rect& rStatic,
 		vt& contactPoint, vt& contactNormal, float& contactTime
 	);
+	
 
 	bool resolveDynamicRectVsRect(rect& r_dynamic, const float fTimeStep, rect& r_static, vt& pushback);
 

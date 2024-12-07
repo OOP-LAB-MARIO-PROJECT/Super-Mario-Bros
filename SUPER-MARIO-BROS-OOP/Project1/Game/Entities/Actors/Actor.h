@@ -69,5 +69,7 @@ public:
 	virtual int getType() override;
 	virtual void update(float deltatime) override = 0;
 	virtual void setState(const std::string& stateName) { }
+	virtual int getHealth() { return -1; }
+	virtual void setHealth(int h) { }
 };
 

@@ -84,6 +84,7 @@
  <tile id="2473" type="block5"/>
  <tile id="2474" type="block5"/>
  <tile id="2483" type="block5"/>
+ <tile id="2489" type="castle-door#map-1-3"/>
  <tile id="2496" type="block1"/>
  <tile id="2497" type="block1"/>
  <tile id="2498" type="block1"/>

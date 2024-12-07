@@ -1,33 +1,47 @@
 ﻿#include "Goompa.h"
 #include <vector>
 
+
 Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
-	isRenderHitbox = true;
+    isRenderHitbox = true;
 	isRenderSprite = true;
 	facing = 1;
-    
-	currentState = MOVE;
-	ani[MOVE] = { 
-		"KoopaTroopa-Overworld-0",
-		"KoopaTroopa-Overworld-1",
-	};
 
-	ani[DIE] = { "Goomba-Overworld-2" };
+    std::vector<std::vector<std::string>> a = { {"goompa_ow-0", "goompa_ow-1"},
+                                                {"goompa_ow-1", "goompa_ow-0"} };
 
+    stateCache["RUN"] = std::make_shared<RunningState>("Goompa", a, 0.15f);
+
+
+    a = { {"goompa_ow-2"}, {"goompa_ow-2"} };
+
+    stateCache["DEAD"] = std::make_shared<DeadState>("Goompa", a, 0.3);
+    a = { {"goompa_ow-0"}, {"goompa_ow-1"} };
+    stateCache["DEAD_BY_ENEMY"] = std::make_shared<DeadState>("Goompa", a, 1.f);
+
+    setState("RUN");
 
 }
 
+
+void Goompa::setState(const std::string& stateName) {
+    if (stateCache.find(stateName) != stateCache.end()) {
+        auto& state = stateCache[stateName];
+        if (state != nullptr) {
+            currentState = state;
+        }
+    }
+}
 void Goompa::update(float deltatime) {
-    animation(deltatime);  
-    
-    
-    
-    if (isDead && deathTimer > 0.3f) { 
-        kill();
+    if (health == 0 && !isDeadByOtherEnemy) isDead = true;
+    if (currentState) {
+        currentState->handle(this, deltatime);
+        currentState->update(this, deltatime);
     }
 
     
-    if (!isDead) {
+
+    if (!isDead && !isDeadByOtherEnemy) {
         for (auto en : otherEntities) {
             Hitbox ob = en->getHitbox();
             ob.vel = sf::Vector2f{ 0.f, 0.f };
@@ -37,7 +51,7 @@ void Goompa::update(float deltatime) {
         int dir = resolveCollideGround(obstacle, deltatime);
         setPos(getPos() + getVel() * deltatime);
 
-        if (dir & (1 << 2)) setVel({ getVel().x, 0 });
+        if (dir & (1 << 2)) setVel({ getVel().x, 0 }), isOnGround = true;
         if (dir & (1 << 3)) facing = 1, setVel(sf::Vector2f(50, getVel().y));
         if (dir & (1 << 1)) facing = -1, setVel(sf::Vector2f(-50, getVel().y));
 
@@ -47,43 +61,22 @@ void Goompa::update(float deltatime) {
             else
                 setVel(sf::Vector2f(-50, getVel().y));
         }
-    }
 
-    for (auto en : otherEntities) {
-        affectOther(en, deltatime);
+        for (auto en : otherEntities) {
+            affectOther(en, deltatime);
+        }
     }
 
     
-    behavior(deltatime);
     performPhysics(deltatime);
-    setSpritePos(getPos() - sf::Vector2f(0, 16));
 }
 
-void Goompa::animation(float deltatime) {
-    if (isDead) {
-        currentState = DIE;  
-        aniLoop = 0;  
-    }
-    
-    setTexture("KoopaTroopa", ani[currentState][aniLoop % ani[currentState].size()]);
-    
 
-    
-    timer += deltatime;
-
-   
-    if (timer > 0.15f) {
-        aniLoop++;
-        timer = 0;
-    }
-}
 
 void Goompa::behavior(float deltatime) {
     if (health <= 0 && !isDead) {
-        isDead = true;
-        deathTimer = 0;  
+        isDead = true; 
     }
-    deathTimer += deltatime;
 }
 
 
@@ -95,6 +88,16 @@ int Goompa::getType() {
 void Goompa::inflictDamage() {
 	health--;
 }
+
+int Goompa::getHealth() {
+    return health;
+}
+
+void Goompa::setHealth(int h) {
+    health = h;
+}
+
+
 
 void Goompa::affectOther(Entity* other, float deltatime) {
     if (other->getType() == PLAYER) {

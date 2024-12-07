@@ -5,3 +5,5 @@ Texture_Pack/enemies.tsx Texture_Pack/enemies.png
 Texture_Pack/KoopaTroopa.tsx Texture_Pack/KoopaTroopa.png
 Texture_Pack/big-mario.tsx Texture_Pack/mario.png
 Texture_Pack/8-bit-block.tsx Texture_Pack/items-objects.png
+Texture_Pack/Goompa.tsx Texture_Pack/Goompa.png
+Texture_Pack/PiranhaPlant.tsx Texture_Pack/PiranhaPlant.png

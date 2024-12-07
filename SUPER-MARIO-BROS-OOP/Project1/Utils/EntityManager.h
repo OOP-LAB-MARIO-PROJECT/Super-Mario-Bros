@@ -13,7 +13,7 @@ private:
     std::vector <Entity*> entities;  // Container to store entities
     QuadTree quadEn;
     sf::Vector2f updatePivot = { 0, 0 };
-    float updateDistance = 200;
+    float updateDistance = 1000;
     int curEntity = 0;
 
     ~EntityManager();
