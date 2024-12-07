@@ -239,8 +239,6 @@ void DefenseState::update(Actor* a, float deltaTime) {
 
 
 void DefenseState::handle(Actor* a, float deltaTime) {
-
-	a->setState("IDLE");
 }
 
 
