@@ -17,7 +17,8 @@ namespace FACTORY_ENTITY_TYPE {
 	static std::vector <std::string> enemies = {
 		"goompa",
 		"troopa-koopa",
-		"piranha-plant"
+		"piranha-plant",
+		"king-koopa"
 	};
 
 	static std::vector <std::string> collectable = {

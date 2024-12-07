@@ -22,7 +22,7 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 														  {	"right-mario-0",
 															"right-mario-1",
 															"right-mario-2"} };
-	stateCache["RUN"] = std::make_shared<RunningState>("mario", runTexture, 0);
+	stateCache["RUN"] = std::make_shared<RunningState>("mario", runTexture, 0.15);
 
 	std::vector<std::vector<std::string>> jumpTexture = { { "left-mario-11" }, {"right-mario-4"} };
 	stateCache["JUMP"] = std::make_shared<JumpingState>("mario", jumpTexture, 0);
@@ -38,7 +38,7 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	stateCache["DEAD"] = std::make_shared<DeadState>("mario", deadTexture, 2.5f);
 
 	std::vector<std::vector<std::string>> transformTexture = { { "left-mario-3", "left-mario-2" }, {"right-mario-14", "right-mario-15"} };
-	stateCache["TRANSFORMING"] = std::make_shared<TransformState>("big-mario", transformTexture, 0.5f);
+	stateCache["TRANSFORMING"] = std::make_shared<TransformState>("big-mario", transformTexture, 1.2f);
 
 	currentMode = SMALL;
 	setState("IDLE");

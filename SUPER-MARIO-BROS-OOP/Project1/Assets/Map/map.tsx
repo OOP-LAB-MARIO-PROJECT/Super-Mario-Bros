@@ -4,6 +4,7 @@
  <tile id="620" type="flag-1"/>
  <tile id="830" type="flag-3"/>
  <tile id="831" type="flag-2"/>
+ <tile id="862" type="king-koopa"/>
  <tile id="1042" type="flag-4"/>
  <tile id="1077" type="question"/>
  <tile id="1135" type="block2"/>

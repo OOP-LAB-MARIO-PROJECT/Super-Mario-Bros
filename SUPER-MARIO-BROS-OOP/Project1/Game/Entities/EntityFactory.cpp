@@ -28,6 +28,10 @@ Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vect
 		return new CastleGate(pos, size, properties);
 	}
 
+	if (type == "king-koopa") {
+		return new KingKoopa(pos, size);
+	}
+
 
 	//return new Goompa(pos, size, map);
 	return NULL;

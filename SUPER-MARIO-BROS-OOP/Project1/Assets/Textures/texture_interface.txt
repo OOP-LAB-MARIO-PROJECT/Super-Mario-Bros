@@ -7,3 +7,5 @@ Texture_Pack/big-mario.tsx Texture_Pack/mario.png
 Texture_Pack/8-bit-block.tsx Texture_Pack/items-objects.png
 Texture_Pack/Goompa.tsx Texture_Pack/Goompa.png
 Texture_Pack/PiranhaPlant.tsx Texture_Pack/PiranhaPlant.png
+Texture_Pack/KingKoopa.tsx Texture_Pack/KingKoopa.png
+Texture_Pack/Fire.tsx Texture_Pack/Fire.png

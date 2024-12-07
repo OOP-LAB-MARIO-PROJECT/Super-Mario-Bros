@@ -115,8 +115,6 @@ public:
     void update(Actor* a, float deltaTime) override;
     void handle(Actor* a, float deltaTime) override;
 };
-};
-
 
 // For enemy 
 class DefenseState : public AnimationState {

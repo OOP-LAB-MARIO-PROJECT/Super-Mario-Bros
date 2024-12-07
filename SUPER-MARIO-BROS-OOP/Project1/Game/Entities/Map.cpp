@@ -76,7 +76,7 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 	std::vector <Hitbox> tiles;
 	std::vector <Hitbox> tmp;
 	
-	sf::Vector2f size = sf::Vector2f(64, 64);
+	sf::Vector2f size = sf::Vector2f(128, 128);
 
 	Hitbox space = {
 		pos - size / 2.f,
