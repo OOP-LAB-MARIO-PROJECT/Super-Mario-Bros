@@ -21,6 +21,7 @@
  <tile id="685" type="cloud2"/>
  <tile id="686" type="cloud2"/>
  <tile id="687" type="cloud3"/>
+ <tile id="699" type="flag-1"/>
  <tile id="705" type="castle1"/>
  <tile id="706" type="castle1"/>
  <tile id="707" type="castle1"/>
@@ -62,6 +63,8 @@
  <tile id="922" type="cloud5"/>
  <tile id="923" type="cloud5"/>
  <tile id="924" type="cloud6"/>
+ <tile id="935" type="flag-3"/>
+ <tile id="936" type="flag-2"/>
  <tile id="942" type="castle-window-left"/>
  <tile id="943" type="castle2"/>
  <tile id="944" type="castle-window-right"/>
@@ -71,6 +74,8 @@
  <tile id="1000" type="cloud5"/>
  <tile id="1001" type="cloud5"/>
  <tile id="1002" type="cloud6"/>
+ <tile id="1021" type="coin"/>
+ <tile id="1022" type="coin"/>
  <tile id="1047" type="cloud4"/>
  <tile id="1048" type="cloud5"/>
  <tile id="1049" type="cloud5"/>
@@ -83,13 +88,36 @@
  <tile id="1144" type="cloud5"/>
  <tile id="1145" type="cloud5"/>
  <tile id="1146" type="cloud6"/>
+ <tile id="1173" type="flag-body-1"/>
  <tile id="1178" type="castle1"/>
  <tile id="1179" type="castle3"/>
  <tile id="1180" type="castle3"/>
  <tile id="1181" type="castle3"/>
  <tile id="1182" type="castle1"/>
+ <tile id="1221" type="coin"/>
+ <tile id="1222" type="coin"/>
+ <tile id="1223" type="coin"/>
+ <tile id="1224" type="coin"/>
+ <tile id="1240" type="coin"/>
+ <tile id="1242" type="coin"/>
+ <tile id="1244" type="coin"/>
+ <tile id="1257" type="coin"/>
+ <tile id="1260" type="coin"/>
+ <tile id="1282" type="coin"/>
+ <tile id="1283" type="coin"/>
+ <tile id="1284" type="coin"/>
+ <tile id="1293" type="coin"/>
+ <tile id="1294" type="coin"/>
+ <tile id="1295" type="coin"/>
+ <tile id="1318" type="coin"/>
+ <tile id="1319" type="coin"/>
+ <tile id="1320" type="coin"/>
+ <tile id="1321" type="coin"/>
+ <tile id="1322" type="coin"/>
+ <tile id="1323" type="coin"/>
  <tile id="1400" type="block5"/>
  <tile id="1401" type="block5"/>
+ <tile id="1410" type="flag-body-1"/>
  <tile id="1415" type="castle2"/>
  <tile id="1416" type="castle2"/>
  <tile id="1417" type="castle-arch"/>
@@ -98,18 +126,28 @@
  <tile id="1460" type="cloud1"/>
  <tile id="1461" type="cloud2"/>
  <tile id="1462" type="cloud3"/>
+ <tile id="1478" type="coin"/>
+ <tile id="1480" type="coin"/>
  <tile id="1508" type="cloud1"/>
  <tile id="1509" type="cloud2"/>
  <tile id="1510" type="cloud3"/>
  <tile id="1556" type="cloud1"/>
  <tile id="1557" type="cloud2"/>
  <tile id="1558" type="cloud3"/>
+ <tile id="1582" type="handrail"/>
+ <tile id="1595" type="coin"/>
+ <tile id="1596" type="coin"/>
+ <tile id="1597" type="coin"/>
+ <tile id="1598" type="coin"/>
+ <tile id="1599" type="coin"/>
+ <tile id="1600" type="coin"/>
  <tile id="1604" type="cloud1"/>
  <tile id="1605" type="cloud2"/>
  <tile id="1606" type="cloud3"/>
  <tile id="1636" type="block5"/>
  <tile id="1637" type="block5"/>
  <tile id="1638" type="block5"/>
+ <tile id="1647" type="flag-body-1"/>
  <tile id="1652" type="castle2"/>
  <tile id="1653" type="castle2"/>
  <tile id="1654" type="castle-door"/>
@@ -158,6 +196,7 @@
  <tile id="1873" type="block5"/>
  <tile id="1874" type="block5"/>
  <tile id="1875" type="block5"/>
+ <tile id="1884" type="flag-body-1"/>
  <tile id="1887" type="castle1"/>
  <tile id="1888" type="castle1"/>
  <tile id="1889" type="castle3"/>
@@ -181,12 +220,21 @@
  <tile id="1979" type="cloud4"/>
  <tile id="1980" type="cloud5"/>
  <tile id="1981" type="cloud6"/>
+ <tile id="1996" type="handrail"/>
+ <tile id="1997" type="handrail"/>
+ <tile id="1998" type="handrail"/>
+ <tile id="1999" type="handrail"/>
+ <tile id="2000" type="handrail"/>
  <tile id="2001" type="cloud4"/>
  <tile id="2002" type="cloud5"/>
  <tile id="2003" type="cloud6"/>
  <tile id="2027" type="cloud4"/>
  <tile id="2028" type="cloud5"/>
  <tile id="2029" type="cloud6"/>
+ <tile id="2045" type="coin"/>
+ <tile id="2046" type="coin"/>
+ <tile id="2047" type="coin"/>
+ <tile id="2048" type="coin"/>
  <tile id="2049" type="cloud4"/>
  <tile id="2050" type="cloud5"/>
  <tile id="2051" type="cloud6"/>
@@ -202,6 +250,7 @@
  <tile id="2110" type="block5"/>
  <tile id="2111" type="block5"/>
  <tile id="2112" type="block5"/>
+ <tile id="2121" type="flag-body-1"/>
  <tile id="2124" type="castle2"/>
  <tile id="2125" type="castle2"/>
  <tile id="2126" type="castle2"/>
@@ -214,14 +263,128 @@
  <tile id="2134" type="castle-window-left"/>
  <tile id="2135" type="castle2"/>
  <tile id="2136" type="castle-window-right"/>
+ <tile id="2148" type="handrail"/>
+ <tile id="2149" type="handrail"/>
+ <tile id="2150" type="handrail"/>
+ <tile id="2151" type="handrail"/>
+ <tile id="2152" type="handrail"/>
+ <tile id="2153" type="handrail"/>
+ <tile id="2154" type="handrail"/>
+ <tile id="2155" type="handrail"/>
+ <tile id="2156" type="handrail"/>
+ <tile id="2157" type="handrail"/>
+ <tile id="2158" type="handrail"/>
+ <tile id="2159" type="handrail"/>
+ <tile id="2160" type="handrail"/>
+ <tile id="2161" type="handrail"/>
+ <tile id="2162" type="handrail"/>
+ <tile id="2163" type="handrail"/>
+ <tile id="2165" type="handrail"/>
+ <tile id="2166" type="handrail"/>
+ <tile id="2167" type="handrail"/>
+ <tile id="2168" type="handrail"/>
+ <tile id="2169" type="handrail"/>
+ <tile id="2170" type="handrail"/>
+ <tile id="2171" type="handrail"/>
+ <tile id="2172" type="handrail"/>
+ <tile id="2173" type="handrail"/>
+ <tile id="2174" type="handrail"/>
+ <tile id="2175" type="handrail"/>
+ <tile id="2176" type="handrail"/>
+ <tile id="2177" type="handrail"/>
+ <tile id="2178" type="handrail"/>
+ <tile id="2179" type="handrail"/>
+ <tile id="2181" type="handrail"/>
+ <tile id="2182" type="handrail"/>
+ <tile id="2183" type="handrail"/>
+ <tile id="2184" type="handrail"/>
+ <tile id="2185" type="handrail"/>
+ <tile id="2186" type="handrail"/>
+ <tile id="2187" type="handrail"/>
+ <tile id="2188" type="handrail"/>
+ <tile id="2189" type="handrail"/>
+ <tile id="2190" type="handrail"/>
+ <tile id="2191" type="handrail"/>
+ <tile id="2192" type="handrail"/>
+ <tile id="2193" type="handrail"/>
+ <tile id="2194" type="handrail"/>
+ <tile id="2195" type="handrail"/>
+ <tile id="2196" type="handrail"/>
+ <tile id="2202" type="handrail"/>
+ <tile id="2203" type="handrail"/>
+ <tile id="2204" type="handrail"/>
+ <tile id="2205" type="handrail"/>
+ <tile id="2206" type="handrail"/>
+ <tile id="2207" type="handrail"/>
+ <tile id="2208" type="handrail"/>
+ <tile id="2209" type="handrail"/>
+ <tile id="2210" type="handrail"/>
+ <tile id="2211" type="handrail"/>
+ <tile id="2218" type="handrail"/>
+ <tile id="2219" type="handrail"/>
+ <tile id="2220" type="handrail"/>
+ <tile id="2221" type="handrail"/>
+ <tile id="2222" type="handrail"/>
+ <tile id="2223" type="handrail"/>
+ <tile id="2224" type="handrail"/>
+ <tile id="2225" type="handrail"/>
+ <tile id="2226" type="handrail"/>
+ <tile id="2227" type="handrail"/>
  <tile id="2232" type="block5"/>
+ <tile id="2233" type="bridge"/>
+ <tile id="2234" type="bridge"/>
+ <tile id="2235" type="bridge"/>
+ <tile id="2236" type="bridge"/>
+ <tile id="2237" type="bridge"/>
  <tile id="2238" type="block5"/>
+ <tile id="2255" type="handrail"/>
+ <tile id="2256" type="handrail"/>
+ <tile id="2257" type="handrail"/>
+ <tile id="2261" type="handrail"/>
+ <tile id="2262" type="handrail"/>
+ <tile id="2263" type="handrail"/>
+ <tile id="2264" type="handrail"/>
+ <tile id="2265" type="handrail"/>
+ <tile id="2266" type="handrail"/>
+ <tile id="2267" type="handrail"/>
+ <tile id="2268" type="handrail"/>
+ <tile id="2269" type="handrail"/>
+ <tile id="2270" type="handrail"/>
+ <tile id="2271" type="handrail"/>
+ <tile id="2272" type="handrail"/>
+ <tile id="2273" type="handrail"/>
+ <tile id="2274" type="handrail"/>
+ <tile id="2275" type="handrail"/>
+ <tile id="2293" type="handrail"/>
+ <tile id="2294" type="handrail"/>
+ <tile id="2295" type="handrail"/>
+ <tile id="2296" type="handrail"/>
+ <tile id="2297" type="handrail"/>
+ <tile id="2298" type="handrail"/>
+ <tile id="2299" type="handrail"/>
+ <tile id="2300" type="handrail"/>
+ <tile id="2304" type="handrail"/>
+ <tile id="2305" type="handrail"/>
+ <tile id="2308" type="handrail"/>
+ <tile id="2309" type="handrail"/>
+ <tile id="2312" type="handrail"/>
+ <tile id="2313" type="handrail"/>
+ <tile id="2317" type="handrail"/>
+ <tile id="2318" type="handrail"/>
+ <tile id="2319" type="handrail"/>
+ <tile id="2320" type="handrail"/>
+ <tile id="2321" type="handrail"/>
+ <tile id="2322" type="handrail"/>
+ <tile id="2323" type="handrail"/>
+ <tile id="2324" type="handrail"/>
+ <tile id="2325" type="handrail"/>
  <tile id="2344" type="block5"/>
  <tile id="2345" type="block5"/>
  <tile id="2346" type="block5"/>
  <tile id="2347" type="block5"/>
  <tile id="2348" type="block5"/>
  <tile id="2349" type="block5"/>
+ <tile id="2358" type="flag-body-1"/>
  <tile id="2361" type="castle2"/>
  <tile id="2362" type="castle2"/>
  <tile id="2363" type="castle2"/>
@@ -239,20 +402,127 @@
  <tile id="2382" type="block5"/>
  <tile id="2383" type="block5"/>
  <tile id="2384" type="block5"/>
+ <tile id="2385" type="bridge"/>
+ <tile id="2386" type="bridge"/>
+ <tile id="2387" type="bridge"/>
+ <tile id="2388" type="bridge"/>
+ <tile id="2389" type="bridge"/>
+ <tile id="2390" type="bridge"/>
+ <tile id="2391" type="bridge"/>
+ <tile id="2392" type="bridge"/>
+ <tile id="2393" type="bridge"/>
+ <tile id="2394" type="bridge"/>
+ <tile id="2395" type="bridge"/>
+ <tile id="2396" type="bridge"/>
+ <tile id="2397" type="bridge"/>
+ <tile id="2398" type="bridge"/>
+ <tile id="2399" type="bridge"/>
+ <tile id="2400" type="bridge"/>
  <tile id="2401" type="block5"/>
+ <tile id="2402" type="bridge"/>
+ <tile id="2403" type="bridge"/>
+ <tile id="2404" type="bridge"/>
+ <tile id="2405" type="bridge"/>
+ <tile id="2406" type="bridge"/>
+ <tile id="2407" type="bridge"/>
+ <tile id="2408" type="bridge"/>
+ <tile id="2409" type="bridge"/>
+ <tile id="2410" type="bridge"/>
+ <tile id="2411" type="bridge"/>
+ <tile id="2412" type="bridge"/>
+ <tile id="2413" type="bridge"/>
+ <tile id="2414" type="bridge"/>
+ <tile id="2415" type="bridge"/>
+ <tile id="2416" type="bridge"/>
  <tile id="2417" type="block5"/>
+ <tile id="2418" type="bridge"/>
+ <tile id="2419" type="bridge"/>
+ <tile id="2420" type="bridge"/>
+ <tile id="2421" type="bridge"/>
+ <tile id="2422" type="bridge"/>
+ <tile id="2423" type="bridge"/>
+ <tile id="2424" type="bridge"/>
+ <tile id="2425" type="bridge"/>
+ <tile id="2426" type="bridge"/>
+ <tile id="2427" type="bridge"/>
+ <tile id="2428" type="bridge"/>
+ <tile id="2429" type="bridge"/>
+ <tile id="2430" type="bridge"/>
+ <tile id="2431" type="bridge"/>
+ <tile id="2432" type="bridge"/>
  <tile id="2433" type="block5"/>
  <tile id="2438" type="block5"/>
+ <tile id="2439" type="bridge"/>
+ <tile id="2440" type="bridge"/>
+ <tile id="2441" type="bridge"/>
+ <tile id="2442" type="bridge"/>
+ <tile id="2443" type="bridge"/>
+ <tile id="2444" type="bridge"/>
+ <tile id="2445" type="bridge"/>
+ <tile id="2446" type="bridge"/>
+ <tile id="2447" type="bridge"/>
+ <tile id="2448" type="bridge"/>
  <tile id="2449" type="block5"/>
  <tile id="2454" type="block5"/>
+ <tile id="2455" type="bridge"/>
+ <tile id="2456" type="bridge"/>
+ <tile id="2457" type="bridge"/>
+ <tile id="2458" type="bridge"/>
+ <tile id="2459" type="bridge"/>
+ <tile id="2460" type="bridge"/>
+ <tile id="2461" type="bridge"/>
+ <tile id="2462" type="bridge"/>
+ <tile id="2463" type="bridge"/>
+ <tile id="2464" type="bridge"/>
  <tile id="2465" type="block5"/>
  <tile id="2469" type="block5"/>
  <tile id="2475" type="block5"/>
+ <tile id="2492" type="bridge"/>
+ <tile id="2493" type="bridge"/>
+ <tile id="2494" type="bridge"/>
  <tile id="2497" type="block5"/>
+ <tile id="2498" type="bridge"/>
+ <tile id="2499" type="bridge"/>
+ <tile id="2500" type="bridge"/>
+ <tile id="2501" type="bridge"/>
+ <tile id="2502" type="bridge"/>
+ <tile id="2503" type="bridge"/>
+ <tile id="2504" type="bridge"/>
+ <tile id="2505" type="bridge"/>
+ <tile id="2506" type="bridge"/>
+ <tile id="2507" type="bridge"/>
+ <tile id="2508" type="bridge"/>
+ <tile id="2509" type="bridge"/>
+ <tile id="2510" type="bridge"/>
+ <tile id="2511" type="bridge"/>
+ <tile id="2512" type="bridge"/>
  <tile id="2513" type="block5"/>
  <tile id="2529" type="block5"/>
+ <tile id="2530" type="bridge"/>
+ <tile id="2531" type="bridge"/>
+ <tile id="2532" type="bridge"/>
+ <tile id="2533" type="bridge"/>
+ <tile id="2534" type="bridge"/>
+ <tile id="2535" type="bridge"/>
+ <tile id="2536" type="bridge"/>
+ <tile id="2537" type="bridge"/>
  <tile id="2538" type="block5"/>
+ <tile id="2541" type="bridge"/>
+ <tile id="2542" type="bridge"/>
+ <tile id="2545" type="bridge"/>
+ <tile id="2546" type="bridge"/>
+ <tile id="2549" type="bridge"/>
+ <tile id="2550" type="bridge"/>
  <tile id="2553" type="block5"/>
+ <tile id="2554" type="bridge"/>
+ <tile id="2555" type="bridge"/>
+ <tile id="2556" type="bridge"/>
+ <tile id="2557" type="bridge"/>
+ <tile id="2558" type="bridge"/>
+ <tile id="2559" type="bridge"/>
+ <tile id="2560" type="bridge"/>
+ <tile id="2561" type="bridge"/>
+ <tile id="2562" type="bridge"/>
  <tile id="2563" type="block5"/>
  <tile id="2564" type="block5"/>
  <tile id="2580" type="block5"/>
@@ -262,6 +532,7 @@
  <tile id="2584" type="block5"/>
  <tile id="2585" type="block5"/>
  <tile id="2586" type="block5"/>
+ <tile id="2595" type="flag-body-1"/>
  <tile id="2598" type="castle2"/>
  <tile id="2599" type="castle2"/>
  <tile id="2600" type="castle2"/>
@@ -306,6 +577,14 @@
  <tile id="2749" type="cloud1"/>
  <tile id="2750" type="block5"/>
  <tile id="2751" type="cloud3"/>
+ <tile id="2754" type="handrail"/>
+ <tile id="2755" type="handrail"/>
+ <tile id="2756" type="handrail"/>
+ <tile id="2757" type="handrail"/>
+ <tile id="2758" type="handrail"/>
+ <tile id="2759" type="handrail"/>
+ <tile id="2760" type="handrail"/>
+ <tile id="2761" type="handrail"/>
  <tile id="2766" type="block5"/>
  <tile id="2775" type="block5"/>
  <tile id="2779" type="cloud1"/>
@@ -329,6 +608,7 @@
  <tile id="2827" type="cloud1"/>
  <tile id="2828" type="cloud2"/>
  <tile id="2829" type="cloud3"/>
+ <tile id="2832" type="flag-body-1"/>
  <tile id="2835" type="castle2"/>
  <tile id="2836" type="castle2"/>
  <tile id="2837" type="castle-arch"/>
@@ -373,6 +653,14 @@
  <tile id="2987" type="block5"/>
  <tile id="2988" type="cloud6"/>
  <tile id="2990" type="block5"/>
+ <tile id="2991" type="bridge"/>
+ <tile id="2992" type="bridge"/>
+ <tile id="2993" type="bridge"/>
+ <tile id="2994" type="bridge"/>
+ <tile id="2995" type="bridge"/>
+ <tile id="2996" type="bridge"/>
+ <tile id="2997" type="bridge"/>
+ <tile id="2998" type="bridge"/>
  <tile id="2999" type="block5"/>
  <tile id="3003" type="block5"/>
  <tile id="3012" type="block5"/>

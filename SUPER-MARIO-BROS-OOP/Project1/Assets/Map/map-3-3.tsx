@@ -5,6 +5,8 @@
  <tile id="345" type="cloud2"/>
  <tile id="346" type="cloud2"/>
  <tile id="347" type="cloud3"/>
+ <tile id="382" type="coin"/>
+ <tile id="383" type="coin"/>
  <tile id="393" type="cloud2"/>
  <tile id="394" type="cloud2"/>
  <tile id="395" type="cloud3"/>
@@ -12,6 +14,7 @@
  <tile id="441" type="cloud2"/>
  <tile id="442" type="cloud2"/>
  <tile id="443" type="cloud3"/>
+ <tile id="477" type="flag-1"/>
  <tile id="483" type="castle1"/>
  <tile id="484" type="castle1"/>
  <tile id="485" type="castle1"/>
@@ -33,6 +36,7 @@
  <tile id="556" type="cloud5"/>
  <tile id="557" type="cloud5"/>
  <tile id="558" type="cloud6"/>
+ <tile id="567" type="coin"/>
  <tile id="588" type="cloud1"/>
  <tile id="589" type="cloud2"/>
  <tile id="590" type="cloud2"/>
@@ -44,6 +48,8 @@
  <tile id="636" type="cloud1"/>
  <tile id="637" type="cloud2"/>
  <tile id="638" type="cloud2"/>
+ <tile id="639" type="flag-3"/>
+ <tile id="640" type="flag-2"/>
  <tile id="646" type="castle-window-left"/>
  <tile id="647" type="castle2"/>
  <tile id="648" type="castle-window-right"/>
@@ -60,26 +66,42 @@
  <tile id="752" type="cloud5"/>
  <tile id="753" type="cloud5"/>
  <tile id="754" type="cloud6"/>
+ <tile id="757" type="coin"/>
+ <tile id="758" type="coin"/>
  <tile id="799" type="cloud4"/>
  <tile id="800" type="cloud5"/>
  <tile id="801" type="cloud5"/>
  <tile id="802" type="cloud6"/>
+ <tile id="803" type="flag-body-1"/>
  <tile id="808" type="castle1"/>
  <tile id="809" type="castle3"/>
  <tile id="810" type="castle3"/>
  <tile id="811" type="castle3"/>
  <tile id="812" type="castle1"/>
+ <tile id="896" type="coin"/>
+ <tile id="903" type="coin"/>
+ <tile id="905" type="coin"/>
+ <tile id="966" type="flag-body-1"/>
  <tile id="971" type="castle2"/>
  <tile id="972" type="castle2"/>
  <tile id="973" type="castle-arch"/>
  <tile id="974" type="castle2"/>
  <tile id="975" type="castle2"/>
+ <tile id="1015" type="coin"/>
  <tile id="1016" type="cloud1"/>
  <tile id="1017" type="cloud2"/>
  <tile id="1018" type="cloud3"/>
+ <tile id="1020" type="coin"/>
+ <tile id="1021" type="coin"/>
+ <tile id="1022" type="coin"/>
+ <tile id="1044" type="coin"/>
+ <tile id="1048" type="coin"/>
+ <tile id="1052" type="coin"/>
  <tile id="1064" type="cloud1"/>
  <tile id="1065" type="cloud2"/>
  <tile id="1066" type="cloud3"/>
+ <tile id="1087" type="coin"/>
+ <tile id="1129" type="flag-body-1"/>
  <tile id="1134" type="castle2"/>
  <tile id="1135" type="castle2"/>
  <tile id="1136" type="castle-door"/>
@@ -103,6 +125,7 @@
  <tile id="1273" type="cloud2"/>
  <tile id="1274" type="cloud3"/>
  <tile id="1275" type="cloud4"/>
+ <tile id="1292" type="flag-body-1"/>
  <tile id="1294" type="cloud1"/>
  <tile id="1295" type="castle1"/>
  <tile id="1296" type="castle1"/>
@@ -128,6 +151,7 @@
  <tile id="1435" type="cloud4"/>
  <tile id="1436" type="cloud5"/>
  <tile id="1437" type="cloud6"/>
+ <tile id="1455" type="flag-body-1"/>
  <tile id="1457" type="cloud4"/>
  <tile id="1458" type="castle2"/>
  <tile id="1459" type="castle2"/>
@@ -140,6 +164,10 @@
  <tile id="1466" type="castle2"/>
  <tile id="1468" type="castle-window-left"/>
  <tile id="1470" type="castle-window-right"/>
+ <tile id="1519" type="coin"/>
+ <tile id="1520" type="coin"/>
+ <tile id="1521" type="coin"/>
+ <tile id="1618" type="flag-body-1"/>
  <tile id="1621" type="castle2"/>
  <tile id="1622" type="castle2"/>
  <tile id="1623" type="castle2"/>
@@ -154,6 +182,8 @@
  <tile id="1632" type="castle3"/>
  <tile id="1633" type="castle3"/>
  <tile id="1634" type="castle1"/>
+ <tile id="1738" type="coin"/>
+ <tile id="1781" type="flag-body-1"/>
  <tile id="1784" type="castle2"/>
  <tile id="1785" type="castle2"/>
  <tile id="1786" type="castle2"/>
@@ -175,6 +205,7 @@
  <tile id="1935" type="cloud1"/>
  <tile id="1936" type="cloud2"/>
  <tile id="1937" type="cloud3"/>
+ <tile id="1944" type="flag-body-1"/>
  <tile id="1947" type="castle2"/>
  <tile id="1948" type="castle2"/>
  <tile id="1949" type="castle-arch"/>
@@ -188,6 +219,8 @@
  <tile id="1984" type="cloud4"/>
  <tile id="1985" type="cloud5"/>
  <tile id="1986" type="cloud6"/>
+ <tile id="1987" type="coin"/>
+ <tile id="1988" type="coin"/>
  <tile id="2032" type="cloud4"/>
  <tile id="2033" type="cloud5"/>
  <tile id="2050" type="cloud4"/>

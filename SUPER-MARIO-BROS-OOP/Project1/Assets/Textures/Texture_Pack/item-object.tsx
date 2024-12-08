@@ -11,6 +11,7 @@
  <tile id="109" type="star"/>
  <tile id="110" type="star"/>
  <tile id="111" type="star"/>
+ <tile id="112" type="climbing_rope"/>
  <tile id="113" type="bounce_bottom_1"/>
  <tile id="114" type="bounce_bottom_2"/>
  <tile id="115" type="bounce_bottom_3"/>
@@ -23,4 +24,5 @@
  <tile id="218" type="coin"/>
  <tile id="219" type="coin"/>
  <tile id="292" type="moving-platform"/>
+ <tile id="366" type="bubble"/>
 </tileset>
