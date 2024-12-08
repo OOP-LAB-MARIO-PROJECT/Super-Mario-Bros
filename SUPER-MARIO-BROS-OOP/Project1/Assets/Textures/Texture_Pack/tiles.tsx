@@ -15,6 +15,7 @@
  <tile id="26" type="question"/>
  <tile id="27" type="question"/>
  <tile id="33" type="block5"/>
+ <tile id="40" type="trunk"/>
  <tile id="44" type="castle3"/>
  <tile id="45" type="castle-arch"/>
  <tile id="46" type="castle-door"/>
@@ -28,6 +29,8 @@
  <tile id="266" type="pipe-side-head-up"/>
  <tile id="267" type="pipe-side-body-up"/>
  <tile id="268" type="pipe-side-tail-up"/>
+ <tile id="277" type="bunch"/>
+ <tile id="278" type="bunch_up"/>
  <tile id="280" type="flag-1"/>
  <tile id="281" type="flag-2"/>
  <tile id="297" type="pipe-up-body-left"/>
@@ -35,7 +38,17 @@
  <tile id="299" type="pipe-side-head-bottom"/>
  <tile id="300" type="pipe-side-body-bottom"/>
  <tile id="301" type="pipe-side-tail-bottom"/>
+ <tile id="311" type="bunch_down"/>
  <tile id="313" type="flag-body-1"/>
  <tile id="347" type="flag-4"/>
  <tile id="413" type="flag-3"/>
+ <tile id="475" type="bunch_light"/>
+ <tile id="476" type="bunch_up_light"/>
+ <tile id="509" type="bunch_down_light"/>
+ <tile id="660" type="cloud1"/>
+ <tile id="661" type="cloud2"/>
+ <tile id="662" type="cloud3"/>
+ <tile id="693" type="cloud4"/>
+ <tile id="694" type="cloud5"/>
+ <tile id="695" type="cloud6"/>
 </tileset>

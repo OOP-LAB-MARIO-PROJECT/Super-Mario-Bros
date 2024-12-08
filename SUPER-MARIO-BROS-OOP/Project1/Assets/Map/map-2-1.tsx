@@ -4,23 +4,162 @@
  <tile id="3622" type="castle1"/>
  <tile id="3623" type="castle1"/>
  <tile id="3624" type="castle1"/>
+ <tile id="3648" type="cloud1"/>
+ <tile id="3649" type="cloud2"/>
+ <tile id="3650" type="cloud3"/>
+ <tile id="3666" type="cloud1"/>
+ <tile id="3667" type="cloud2"/>
+ <tile id="3668" type="cloud3"/>
+ <tile id="3696" type="cloud1"/>
+ <tile id="3697" type="cloud2"/>
+ <tile id="3698" type="cloud3"/>
+ <tile id="3714" type="cloud1"/>
+ <tile id="3715" type="cloud2"/>
+ <tile id="3716" type="cloud3"/>
+ <tile id="3744" type="cloud1"/>
+ <tile id="3745" type="cloud2"/>
+ <tile id="3746" type="cloud3"/>
+ <tile id="3762" type="cloud1"/>
+ <tile id="3763" type="cloud2"/>
+ <tile id="3764" type="cloud3"/>
+ <tile id="3792" type="cloud1"/>
+ <tile id="3793" type="cloud2"/>
+ <tile id="3794" type="cloud3"/>
+ <tile id="3810" type="cloud1"/>
+ <tile id="3811" type="cloud2"/>
  <tile id="3835" type="castle-window-left"/>
  <tile id="3836" type="castle2"/>
  <tile id="3837" type="castle-window-right"/>
+ <tile id="3852" type="cloud1"/>
+ <tile id="3853" type="cloud2"/>
+ <tile id="3854" type="cloud3"/>
+ <tile id="3861" type="cloud4"/>
+ <tile id="3862" type="cloud5"/>
+ <tile id="3863" type="cloud6"/>
+ <tile id="3864" type="cloud1"/>
+ <tile id="3865" type="cloud2"/>
+ <tile id="3866" type="cloud2"/>
+ <tile id="3867" type="cloud3"/>
+ <tile id="3879" type="cloud4"/>
+ <tile id="3881" type="cloud6"/>
+ <tile id="3882" type="cloud1"/>
+ <tile id="3883" type="cloud2"/>
+ <tile id="3884" type="cloud2"/>
+ <tile id="3885" type="cloud3"/>
+ <tile id="3900" type="cloud1"/>
+ <tile id="3901" type="cloud2"/>
+ <tile id="3902" type="cloud3"/>
+ <tile id="3909" type="cloud4"/>
+ <tile id="3910" type="cloud5"/>
+ <tile id="3911" type="cloud6"/>
+ <tile id="3912" type="cloud1"/>
+ <tile id="3913" type="cloud2"/>
+ <tile id="3914" type="cloud2"/>
+ <tile id="3915" type="cloud3"/>
+ <tile id="3927" type="cloud4"/>
+ <tile id="3928" type="cloud5"/>
+ <tile id="3929" type="cloud6"/>
+ <tile id="3930" type="cloud1"/>
+ <tile id="3931" type="cloud2"/>
+ <tile id="3932" type="cloud2"/>
+ <tile id="3933" type="cloud3"/>
+ <tile id="3948" type="cloud1"/>
+ <tile id="3949" type="cloud2"/>
+ <tile id="3950" type="cloud3"/>
+ <tile id="3957" type="cloud4"/>
+ <tile id="3958" type="cloud5"/>
+ <tile id="3959" type="cloud6"/>
+ <tile id="3960" type="cloud1"/>
+ <tile id="3961" type="cloud2"/>
+ <tile id="3962" type="cloud2"/>
+ <tile id="3963" type="cloud3"/>
+ <tile id="3975" type="cloud4"/>
+ <tile id="3976" type="cloud5"/>
+ <tile id="3977" type="cloud6"/>
+ <tile id="3978" type="cloud1"/>
+ <tile id="3979" type="cloud2"/>
+ <tile id="3980" type="cloud2"/>
+ <tile id="3981" type="cloud3"/>
+ <tile id="3996" type="cloud1"/>
+ <tile id="3997" type="cloud2"/>
+ <tile id="3998" type="cloud3"/>
+ <tile id="4005" type="cloud4"/>
+ <tile id="4006" type="cloud5"/>
+ <tile id="4007" type="cloud6"/>
+ <tile id="4008" type="cloud1"/>
+ <tile id="4009" type="cloud2"/>
+ <tile id="4010" type="cloud2"/>
+ <tile id="4011" type="cloud3"/>
+ <tile id="4023" type="cloud4"/>
  <tile id="4024" type="block5"/>
  <tile id="4025" type="block5"/>
+ <tile id="4026" type="cloud1"/>
+ <tile id="4027" type="cloud2"/>
+ <tile id="4028" type="cloud2"/>
+ <tile id="4029" type="cloud3"/>
+ <tile id="4044" type="cloud1"/>
+ <tile id="4045" type="cloud2"/>
+ <tile id="4046" type="cloud3"/>
  <tile id="4047" type="castle1"/>
  <tile id="4048" type="castle3"/>
  <tile id="4049" type="castle3"/>
  <tile id="4050" type="castle3"/>
  <tile id="4051" type="castle1"/>
+ <tile id="4065" type="cloud4"/>
+ <tile id="4066" type="cloud5"/>
+ <tile id="4067" type="cloud6"/>
+ <tile id="4077" type="cloud4"/>
+ <tile id="4078" type="cloud5"/>
+ <tile id="4079" type="cloud5"/>
+ <tile id="4080" type="cloud6"/>
+ <tile id="4095" type="cloud4"/>
+ <tile id="4096" type="cloud5"/>
+ <tile id="4097" type="cloud5"/>
+ <tile id="4098" type="cloud6"/>
+ <tile id="4113" type="cloud4"/>
+ <tile id="4114" type="cloud5"/>
+ <tile id="4115" type="cloud6"/>
+ <tile id="4125" type="cloud4"/>
+ <tile id="4126" type="cloud5"/>
+ <tile id="4127" type="cloud5"/>
+ <tile id="4128" type="cloud6"/>
+ <tile id="4143" type="cloud4"/>
+ <tile id="4144" type="cloud5"/>
+ <tile id="4145" type="cloud5"/>
+ <tile id="4146" type="cloud6"/>
+ <tile id="4161" type="cloud4"/>
+ <tile id="4162" type="cloud5"/>
+ <tile id="4163" type="cloud6"/>
+ <tile id="4173" type="cloud4"/>
+ <tile id="4174" type="cloud5"/>
+ <tile id="4175" type="cloud5"/>
+ <tile id="4176" type="cloud6"/>
+ <tile id="4191" type="cloud4"/>
+ <tile id="4192" type="cloud5"/>
+ <tile id="4193" type="cloud5"/>
+ <tile id="4194" type="cloud6"/>
+ <tile id="4209" type="cloud4"/>
+ <tile id="4210" type="cloud5"/>
+ <tile id="4211" type="cloud6"/>
+ <tile id="4221" type="cloud4"/>
+ <tile id="4222" type="cloud5"/>
+ <tile id="4223" type="cloud5"/>
+ <tile id="4224" type="cloud6"/>
  <tile id="4237" type="block5"/>
  <tile id="4238" type="block5"/>
+ <tile id="4239" type="cloud4"/>
+ <tile id="4240" type="cloud5"/>
+ <tile id="4241" type="cloud5"/>
+ <tile id="4242" type="cloud6"/>
+ <tile id="4257" type="cloud4"/>
+ <tile id="4258" type="cloud5"/>
+ <tile id="4259" type="cloud6"/>
  <tile id="4260" type="castle2"/>
  <tile id="4261" type="castle2"/>
  <tile id="4262" type="castle-arch"/>
  <tile id="4263" type="castle2"/>
  <tile id="4264" type="castle2"/>
+ <tile id="4283" type="cloud1"/>
  <tile id="4289" type="block2"/>
  <tile id="4290" type="block2"/>
  <tile id="4291" type="block2"/>
@@ -124,11 +263,22 @@
  <tile id="5329" type="castle2"/>
  <tile id="5330" type="castle2"/>
  <tile id="5331" type="castle2"/>
+ <tile id="5338" type="bunch_up"/>
+ <tile id="5346" type="bunch_up"/>
  <tile id="5347" type="block5"/>
  <tile id="5348" type="block5"/>
  <tile id="5349" type="block5"/>
  <tile id="5359" type="block5"/>
+ <tile id="5368" type="bunch_up"/>
+ <tile id="5386" type="bunch_up"/>
+ <tile id="5394" type="bunch_up"/>
+ <tile id="5416" type="bunch_up"/>
+ <tile id="5434" type="bunch_up"/>
+ <tile id="5442" type="bunch_up"/>
  <tile id="5479" type="block5"/>
+ <tile id="5482" type="bunch_up"/>
+ <tile id="5490" type="bunch_up"/>
+ <tile id="5512" type="bunch_up"/>
  <tile id="5515" type="block5"/>
  <tile id="5516" type="block5"/>
  <tile id="5529" type="castle1"/>
@@ -143,16 +293,38 @@
  <tile id="5542" type="castle-arch"/>
  <tile id="5543" type="castle2"/>
  <tile id="5544" type="castle2"/>
+ <tile id="5549" type="bunch"/>
+ <tile id="5551" type="bunch_down"/>
  <tile id="5559" type="block5"/>
  <tile id="5560" type="block5"/>
  <tile id="5561" type="block5"/>
  <tile id="5562" type="block5"/>
  <tile id="5572" type="block5"/>
  <tile id="5573" type="block5"/>
+ <tile id="5578" type="bunch"/>
+ <tile id="5581" type="bunch_down"/>
+ <tile id="5597" type="bunch"/>
+ <tile id="5599" type="bunch_down"/>
+ <tile id="5607" type="bunch_down"/>
+ <tile id="5609" type="bunch"/>
+ <tile id="5610" type="bunch"/>
+ <tile id="5626" type="bunch"/>
+ <tile id="5629" type="bunch_down"/>
+ <tile id="5647" type="bunch_down"/>
+ <tile id="5657" type="bunch"/>
+ <tile id="5658" type="bunch"/>
+ <tile id="5674" type="bunch"/>
  <tile id="5692" type="block5"/>
+ <tile id="5695" type="bunch_down"/>
+ <tile id="5703" type="bunch_down"/>
+ <tile id="5705" type="bunch_up"/>
+ <tile id="5706" type="bunch_up"/>
+ <tile id="5722" type="bunch_up"/>
+ <tile id="5725" type="bunch_down"/>
  <tile id="5726" type="bounce_up_1"/>
  <tile id="5728" type="block5"/>
  <tile id="5729" type="block5"/>
+ <tile id="5741" type="bunch_up"/>
  <tile id="5742" type="castle2"/>
  <tile id="5743" type="castle2"/>
  <tile id="5744" type="castle-arch"/>
@@ -165,6 +337,8 @@
  <tile id="5755" type="castle-door"/>
  <tile id="5756" type="castle2"/>
  <tile id="5757" type="castle2"/>
+ <tile id="5762" type="trunk"/>
+ <tile id="5764" type="trunk"/>
  <tile id="5765" type="fence"/>
  <tile id="5766" type="fence"/>
  <tile id="5767" type="fence"/>
@@ -178,33 +352,54 @@
  <tile id="5786" type="block5"/>
  <tile id="5789" type="fence"/>
  <tile id="5790" type="fence"/>
+ <tile id="5791" type="trunk"/>
  <tile id="5792" type="fence"/>
+ <tile id="5794" type="trunk"/>
+ <tile id="5810" type="trunk"/>
  <tile id="5813" type="fence"/>
  <tile id="5814" type="fence"/>
  <tile id="5815" type="fence"/>
  <tile id="5816" type="fence"/>
+ <tile id="5820" type="trunk"/>
+ <tile id="5822" type="trunk"/>
+ <tile id="5823" type="trunk"/>
  <tile id="5837" type="fence"/>
  <tile id="5838" type="fence"/>
+ <tile id="5839" type="trunk"/>
  <tile id="5840" type="fence"/>
+ <tile id="5842" type="trunk"/>
+ <tile id="5860" type="trunk"/>
  <tile id="5861" type="fence"/>
  <tile id="5862" type="fence"/>
  <tile id="5863" type="fence"/>
  <tile id="5864" type="fence"/>
+ <tile id="5868" type="trunk"/>
+ <tile id="5870" type="trunk"/>
+ <tile id="5871" type="trunk"/>
  <tile id="5885" type="fence"/>
  <tile id="5886" type="fence"/>
+ <tile id="5887" type="trunk"/>
  <tile id="5888" type="fence"/>
  <tile id="5905" type="block5"/>
+ <tile id="5906" type="trunk"/>
+ <tile id="5908" type="trunk"/>
  <tile id="5909" type="fence"/>
  <tile id="5910" type="fence"/>
  <tile id="5911" type="fence"/>
  <tile id="5912" type="fence"/>
+ <tile id="5916" type="trunk"/>
+ <tile id="5918" type="trunk"/>
+ <tile id="5919" type="trunk"/>
  <tile id="5933" type="fence"/>
  <tile id="5934" type="fence"/>
+ <tile id="5935" type="trunk"/>
  <tile id="5936" type="fence"/>
+ <tile id="5938" type="trunk"/>
  <tile id="5939" type="bounce_bottom_1"/>
  <tile id="5941" type="block5"/>
  <tile id="5942" type="block5"/>
  <tile id="5951" type="block5"/>
+ <tile id="5954" type="trunk"/>
  <tile id="5955" type="castle2"/>
  <tile id="5956" type="block2"/>
  <tile id="5957" type="castle-door"/>
