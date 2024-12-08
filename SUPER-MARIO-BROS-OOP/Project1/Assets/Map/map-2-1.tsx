@@ -39,13 +39,13 @@
  <tile id="1386" type="coin"/>
  <tile id="1387" type="coin"/>
  <tile id="1388" type="coin"/>
- <tile id="2001" type="climbing_rope"/>
- <tile id="2214" type="climbing_rope"/>
+ <tile id="2001" type="climbing_rope#1344;224;144"/>
+ <tile id="2214" type="climbing_rope#1344;224;144"/>
  <tile id="2226" type="bubble"/>
  <tile id="2227" type="bubble"/>
  <tile id="2228" type="bubble"/>
- <tile id="2427" type="climbing_rope"/>
- <tile id="2640" type="climbing_rope"/>
+ <tile id="2427" type="climbing_rope#1344;224;144"/>
+ <tile id="2640" type="climbing_rope#1344;224;144"/>
  <tile id="2705" type="coin"/>
  <tile id="2706" type="coin"/>
  <tile id="2707" type="coin"/>
@@ -53,7 +53,7 @@
  <tile id="2850" type="cloud_standing"/>
  <tile id="2851" type="cloud_standing"/>
  <tile id="2852" type="cloud_standing"/>
- <tile id="2853" type="climbing_rope"/>
+ <tile id="2853" type="climbing_rope#1344;224;144"/>
  <tile id="2854" type="cloud_standing"/>
  <tile id="2855" type="cloud_standing"/>
  <tile id="2856" type="cloud_standing"/>
@@ -111,7 +111,7 @@
  <tile id="2908" type="cloud_standing"/>
  <tile id="2909" type="cloud_standing"/>
  <tile id="2910" type="cloud_standing"/>
- <tile id="3066" type="climbing_rope"/>
+ <tile id="3066" type="climbing_rope#1344;224;144"/>
  <tile id="3622" type="castle1"/>
  <tile id="3623" type="castle1"/>
  <tile id="3624" type="castle1"/>
@@ -287,11 +287,11 @@
  <tile id="4330" type="block2"/>
  <tile id="4331" type="block2"/>
  <tile id="4332" type="block2"/>
- <tile id="4341" type="block2"/>
- <tile id="4342" type="block2"/>
- <tile id="4343" type="block2"/>
- <tile id="4344" type="block2"/>
- <tile id="4345" type="block2"/>
+ <tile id="4341" type="block2#1360;320;240"/>
+ <tile id="4342" type="block2#1360;320;240"/>
+ <tile id="4343" type="block2#1360;320;240"/>
+ <tile id="4344" type="block2#1360;320;240"/>
+ <tile id="4345" type="block2#1360;320;240"/>
  <tile id="4352" type="block2"/>
  <tile id="4353" type="block2"/>
  <tile id="4354" type="block2"/>
@@ -373,8 +373,8 @@
  <tile id="5197" type="question"/>
  <tile id="5198" type="question"/>
  <tile id="5199" type="question"/>
- <tile id="5215" type="pipe-up-head-left"/>
- <tile id="5216" type="pipe-up-head-right"/>
+ <tile id="5215" type="pipe-up-head-left#1568;512;672"/>
+ <tile id="5216" type="pipe-up-head-right#1568;512;672"/>
  <tile id="5234" type="pipe-up-head-left"/>
  <tile id="5235" type="pipe-up-head-right"/>
  <tile id="5242" type="pipe-up-body-left"/>
@@ -464,8 +464,8 @@
  <tile id="5641" type="pipe-up-body-left"/>
  <tile id="5642" type="pipe-up-body-right"/>
  <tile id="5647" type="bunch_down"/>
- <tile id="5653" type="pipe-up-head-left"/>
- <tile id="5654" type="pipe-up-head-right"/>
+ <tile id="5653" type="pipe-up-head-left#1728;672;672"/>
+ <tile id="5654" type="pipe-up-head-right#1728;672;672"/>
  <tile id="5657" type="bunch"/>
  <tile id="5658" type="bunch"/>
  <tile id="5660" type="pipe-up-body-left"/>
@@ -988,16 +988,29 @@
  <tile id="6387" type="block1"/>
  <tile id="6388" type="block1"/>
  <tile id="6389" type="block1"/>
+ <tile id="6912" type="block-underground-3"/>
+ <tile id="6916" type="block-underground-3"/>
+ <tile id="6917" type="block-underground-3"/>
+ <tile id="6918" type="block-underground-3"/>
+ <tile id="6919" type="block-underground-3"/>
+ <tile id="6920" type="block-underground-3"/>
+ <tile id="6921" type="block-underground-3"/>
+ <tile id="6922" type="block-underground-3"/>
  <tile id="6927" type="pipe-up-body-left"/>
+ <tile id="7125" type="block-underground-3"/>
  <tile id="7140" type="pipe-up-body-left"/>
+ <tile id="7338" type="block-underground-3"/>
  <tile id="7353" type="pipe-up-body-left"/>
+ <tile id="7551" type="block-underground-3"/>
  <tile id="7556" type="coin"/>
  <tile id="7557" type="coin"/>
  <tile id="7558" type="coin"/>
  <tile id="7559" type="coin"/>
  <tile id="7560" type="coin"/>
  <tile id="7566" type="pipe-up-body-left"/>
+ <tile id="7764" type="block-underground-3"/>
  <tile id="7779" type="pipe-up-body-left"/>
+ <tile id="7977" type="block-underground-3"/>
  <tile id="7981" type="coin"/>
  <tile id="7982" type="coin"/>
  <tile id="7983" type="coin"/>
@@ -1006,7 +1019,9 @@
  <tile id="7986" type="coin"/>
  <tile id="7987" type="coin"/>
  <tile id="7992" type="pipe-up-body-left"/>
+ <tile id="8190" type="block-underground-3"/>
  <tile id="8205" type="pipe-up-body-left"/>
+ <tile id="8403" type="block-underground-3"/>
  <tile id="8407" type="coin"/>
  <tile id="8408" type="coin"/>
  <tile id="8409" type="coin"/>
@@ -1015,11 +1030,67 @@
  <tile id="8412" type="coin"/>
  <tile id="8413" type="coin"/>
  <tile id="8418" type="pipe-up-body-left"/>
+ <tile id="8616" type="block-underground-3"/>
+ <tile id="8620" type="block-underground-3"/>
+ <tile id="8621" type="block-underground-3"/>
+ <tile id="8622" type="block-underground-3"/>
+ <tile id="8623" type="block-underground-3"/>
+ <tile id="8624" type="block-underground-3"/>
+ <tile id="8625" type="block-underground-3"/>
+ <tile id="8626" type="block-underground-3"/>
  <tile id="8631" type="pipe-up-body-left"/>
- <tile id="8842" type="pipe-side-head-up"/>
+ <tile id="8829" type="block-underground-3"/>
+ <tile id="8833" type="block-underground-3"/>
+ <tile id="8834" type="block-underground-3"/>
+ <tile id="8835" type="block-underground-3"/>
+ <tile id="8836" type="block-underground-3"/>
+ <tile id="8837" type="block-underground-3"/>
+ <tile id="8838" type="block-underground-3"/>
+ <tile id="8839" type="block-underground-3"/>
+ <tile id="8842" type="pipe-side-head-up#1856;400;400"/>
  <tile id="8843" type="pipe-side-body-up"/>
  <tile id="8844" type="pipe-side-tail-up"/>
- <tile id="9055" type="pipe-side-head-bottom"/>
+ <tile id="9042" type="block-underground-3"/>
+ <tile id="9046" type="block-underground-3"/>
+ <tile id="9047" type="block-underground-3"/>
+ <tile id="9048" type="block-underground-3"/>
+ <tile id="9049" type="block-underground-3"/>
+ <tile id="9050" type="block-underground-3"/>
+ <tile id="9051" type="block-underground-3"/>
+ <tile id="9052" type="block-underground-3"/>
+ <tile id="9055" type="pipe-side-head-bottom#1856;400;400"/>
  <tile id="9056" type="pipe-side-body-bottom"/>
  <tile id="9057" type="pipe-side-tail-bottom"/>
+ <tile id="9255" type="block-underground-1"/>
+ <tile id="9256" type="block-underground-1"/>
+ <tile id="9257" type="block-underground-1"/>
+ <tile id="9258" type="block-underground-1"/>
+ <tile id="9259" type="block-underground-1"/>
+ <tile id="9260" type="block-underground-1"/>
+ <tile id="9261" type="block-underground-1"/>
+ <tile id="9262" type="block-underground-1"/>
+ <tile id="9263" type="block-underground-1"/>
+ <tile id="9264" type="block-underground-1"/>
+ <tile id="9265" type="block-underground-1"/>
+ <tile id="9266" type="block-underground-1"/>
+ <tile id="9267" type="block-underground-1"/>
+ <tile id="9268" type="block-underground-1"/>
+ <tile id="9269" type="block-underground-1"/>
+ <tile id="9270" type="block-underground-1"/>
+ <tile id="9468" type="block-underground-1"/>
+ <tile id="9469" type="block-underground-1"/>
+ <tile id="9470" type="block-underground-1"/>
+ <tile id="9471" type="block-underground-1"/>
+ <tile id="9472" type="block-underground-1"/>
+ <tile id="9473" type="block-underground-1"/>
+ <tile id="9474" type="block-underground-1"/>
+ <tile id="9475" type="block-underground-1"/>
+ <tile id="9476" type="block-underground-1"/>
+ <tile id="9477" type="block-underground-1"/>
+ <tile id="9478" type="block-underground-1"/>
+ <tile id="9479" type="block-underground-1"/>
+ <tile id="9480" type="block-underground-1"/>
+ <tile id="9481" type="block-underground-1"/>
+ <tile id="9482" type="block-underground-1"/>
+ <tile id="9483" type="block-underground-1"/>
 </tileset>

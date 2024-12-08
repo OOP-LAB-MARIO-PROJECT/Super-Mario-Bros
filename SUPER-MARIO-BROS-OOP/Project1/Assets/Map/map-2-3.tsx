@@ -704,6 +704,14 @@
  <tile id="3085" type="block1"/>
  <tile id="3086" type="block1"/>
  <tile id="3087" type="block1"/>
+ <tile id="3089" type="block_grass_1"/>
+ <tile id="3090" type="block_grass_2"/>
+ <tile id="3091" type="block_grass_2"/>
+ <tile id="3092" type="block_grass_2"/>
+ <tile id="3093" type="block_grass_2"/>
+ <tile id="3094" type="block_grass_2"/>
+ <tile id="3095" type="block_grass_2"/>
+ <tile id="3096" type="block_grass_3"/>
  <tile id="3112" type="block5"/>
  <tile id="3128" type="block5"/>
  <tile id="3144" type="block5"/>
@@ -713,6 +721,14 @@
  <tile id="3176" type="block5"/>
  <tile id="3180" type="block5"/>
  <tile id="3186" type="block5"/>
+ <tile id="3193" type="block_grass_1"/>
+ <tile id="3194" type="block_grass_2"/>
+ <tile id="3195" type="block_grass_2"/>
+ <tile id="3196" type="block_grass_2"/>
+ <tile id="3197" type="block_grass_2"/>
+ <tile id="3198" type="block_grass_2"/>
+ <tile id="3199" type="block_grass_2"/>
+ <tile id="3200" type="block_grass_3"/>
  <tile id="3208" type="block5"/>
  <tile id="3224" type="block5"/>
  <tile id="3227" type="block5"/>
@@ -720,6 +736,19 @@
  <tile id="3240" type="block5"/>
  <tile id="3249" type="block5"/>
  <tile id="3264" type="block5"/>
+ <tile id="3273" type="block_grass_1"/>
+ <tile id="3274" type="block_grass_2"/>
+ <tile id="3275" type="block_grass_2"/>
+ <tile id="3276" type="block_grass_2"/>
+ <tile id="3277" type="block_grass_2"/>
+ <tile id="3278" type="block_grass_2"/>
+ <tile id="3279" type="block_grass_2"/>
+ <tile id="3280" type="block_grass_2"/>
+ <tile id="3281" type="block_grass_2"/>
+ <tile id="3282" type="block_grass_2"/>
+ <tile id="3283" type="block_grass_2"/>
+ <tile id="3284" type="block_grass_2"/>
+ <tile id="3285" type="block_grass_3"/>
  <tile id="3288" type="block1"/>
  <tile id="3289" type="block1"/>
  <tile id="3290" type="block1"/>
@@ -757,6 +786,12 @@
  <tile id="3322" type="block1"/>
  <tile id="3323" type="block1"/>
  <tile id="3324" type="block1"/>
+ <tile id="3327" type="soil"/>
+ <tile id="3328" type="soil"/>
+ <tile id="3329" type="soil"/>
+ <tile id="3330" type="soil"/>
+ <tile id="3331" type="soil"/>
+ <tile id="3332" type="soil"/>
  <tile id="3349" type="block5"/>
  <tile id="3365" type="block5"/>
  <tile id="3381" type="block5"/>
@@ -766,6 +801,12 @@
  <tile id="3413" type="block5"/>
  <tile id="3417" type="block5"/>
  <tile id="3423" type="block5"/>
+ <tile id="3431" type="soil"/>
+ <tile id="3432" type="soil"/>
+ <tile id="3433" type="soil"/>
+ <tile id="3434" type="soil"/>
+ <tile id="3435" type="soil"/>
+ <tile id="3436" type="soil"/>
  <tile id="3445" type="block5"/>
  <tile id="3461" type="block5"/>
  <tile id="3464" type="block5"/>
@@ -773,6 +814,17 @@
  <tile id="3477" type="block5"/>
  <tile id="3486" type="block5"/>
  <tile id="3501" type="block5"/>
+ <tile id="3511" type="soil"/>
+ <tile id="3512" type="soil"/>
+ <tile id="3513" type="soil"/>
+ <tile id="3514" type="soil"/>
+ <tile id="3515" type="soil"/>
+ <tile id="3516" type="soil"/>
+ <tile id="3517" type="soil"/>
+ <tile id="3518" type="soil"/>
+ <tile id="3519" type="soil"/>
+ <tile id="3520" type="soil"/>
+ <tile id="3521" type="soil"/>
  <tile id="3525" type="block1"/>
  <tile id="3526" type="block1"/>
  <tile id="3527" type="block1"/>

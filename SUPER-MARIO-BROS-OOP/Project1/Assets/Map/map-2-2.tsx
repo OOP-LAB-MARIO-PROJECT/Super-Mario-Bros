@@ -101,12 +101,12 @@
  <tile id="2114" type="castle-arch"/>
  <tile id="2115" type="castle2"/>
  <tile id="2116" type="castle2"/>
- <tile id="2122" type="pipe-side-head-up"/>
+ <tile id="2122" type="pipe-side-head-up#32;288;432"/>
  <tile id="2123" type="pipe-side-body-up"/>
  <tile id="2124" type="pipe-side-tail-up"/>
  <tile id="2125" type="pipe-up-body-right"/>
- <tile id="2272" type="pipe-up-head-left"/>
- <tile id="2273" type="pipe-up-head-right"/>
+ <tile id="2272" type="pipe-up-head-left#3008;368;368"/>
+ <tile id="2273" type="pipe-up-head-right#3008;368;368"/>
  <tile id="2275" type="block5"/>
  <tile id="2276" type="block5"/>
  <tile id="2277" type="block5"/>
@@ -130,7 +130,7 @@
  <tile id="2306" type="castle-door"/>
  <tile id="2307" type="castle2"/>
  <tile id="2308" type="castle2"/>
- <tile id="2314" type="pipe-side-head-bottom"/>
+ <tile id="2314" type="pipe-side-head-bottom#32;288;432"/>
  <tile id="2315" type="pipe-side-body-bottom"/>
  <tile id="2316" type="pipe-side-tail-bottom"/>
  <tile id="2317" type="pipe-up-body-right"/>
@@ -1411,7 +1411,7 @@
  <tile id="4410" type="water"/>
  <tile id="4411" type="water"/>
  <tile id="4412" type="water"/>
- <tile id="4413" type="pipe-side-head-up"/>
+ <tile id="4413" type="pipe-side-head-up#2576;160;160"/>
  <tile id="4414" type="block_green"/>
  <tile id="4415" type="block_green"/>
  <tile id="4416" type="water"/>
@@ -1603,7 +1603,7 @@
  <tile id="4602" type="water"/>
  <tile id="4603" type="water"/>
  <tile id="4604" type="water"/>
- <tile id="4605" type="pipe-side-head-bottom"/>
+ <tile id="4605" type="pipe-side-head-bottom#2576;160;160"/>
  <tile id="4606" type="block_green"/>
  <tile id="4607" type="block_green"/>
  <tile id="4608" type="water"/>

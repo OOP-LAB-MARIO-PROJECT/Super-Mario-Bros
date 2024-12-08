@@ -6,6 +6,9 @@
  <tile id="2" type="block3"/>
  <tile id="3" type="block4"/>
  <tile id="5" type="fence"/>
+ <tile id="6" type="pulley_left"/>
+ <tile id="7" type="horizontal_wire"/>
+ <tile id="8" type="pulley_right"/>
  <tile id="11" type="castle1"/>
  <tile id="12" type="castle-window-left"/>
  <tile id="13" type="castle2"/>
@@ -16,6 +19,8 @@
  <tile id="27" type="question"/>
  <tile id="33" type="block5"/>
  <tile id="36" type="bridge"/>
+ <tile id="38" type="soil"/>
+ <tile id="39" type="vertical_wire"/>
  <tile id="40" type="trunk"/>
  <tile id="44" type="castle3"/>
  <tile id="45" type="castle-arch"/>
@@ -31,6 +36,9 @@
  <tile id="266" type="pipe-side-head-up"/>
  <tile id="267" type="pipe-side-body-up"/>
  <tile id="268" type="pipe-side-tail-up"/>
+ <tile id="269" type="block_grass_1"/>
+ <tile id="270" type="block_grass_2"/>
+ <tile id="271" type="block_grass_3"/>
  <tile id="272" type="edge_moutain_left"/>
  <tile id="273" type="top_mountain"/>
  <tile id="274" type="edge_moutain_right"/>
