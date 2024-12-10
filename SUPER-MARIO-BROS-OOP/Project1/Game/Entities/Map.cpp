@@ -93,6 +93,13 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 }
 
 void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode) {
+	for (auto t : tempMap) {
+		quadMap.insert((Entity*)t);
+		map.push_back(t);
+	}
+
+	tempMap.clear();
+
 	std::vector <Tile*> alive;
 	for (auto t : map) if (!t->isDead()) {
 		alive.push_back(t);
@@ -103,13 +110,6 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 		t->notify(t);
 		delete t;
 	}
-
-	for (auto t : tempMap) {
-		quadMap.insert((Entity*)t);
-		map.push_back(t);
-	}
-
-	tempMap.clear();
 
 	std::cout << map.size() << ' ' << alive.size() << '\n';
 	map = alive;
