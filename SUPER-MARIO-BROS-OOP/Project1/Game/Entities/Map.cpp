@@ -47,6 +47,9 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	if (myMapInfo["player_pos"].size()) {
 		player->setPos({ (float)myMapInfo["player_pos"][0].first, (float)myMapInfo["player_pos"][0].second });
 		resetPlayer(player->getPos(), player->getSize(), player->getVel(), player->currentMode);
+		GameConfig::getInstance().cameraBase = (float)myMapInfo["player_pos"][0].second;
+		std::cout << "Camera initial base: " << (float)myMapInfo["player_pos"][0].second + 32;
+		std::cout << "Player initial pos: " << (float)myMapInfo["player_pos"][0].first << ' ' << (float)myMapInfo["player_pos"][0].second << '\n';
 	}
 	else {
 		throw std::exception("No found player in map");
@@ -93,6 +96,13 @@ std::vector <Hitbox> Map::getNearTiles(sf::Vector2f pos, bool gettrans) {
 }
 
 void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode) {
+	for (auto t : tempMap) {
+		quadMap.insert((Entity*)t);
+		map.push_back(t);
+	}
+
+	tempMap.clear();
+
 	std::vector <Tile*> alive;
 	for (auto t : map) if (!t->isDead()) {
 		alive.push_back(t);
@@ -103,13 +113,6 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 		t->notify(t);
 		delete t;
 	}
-
-	for (auto t : tempMap) {
-		quadMap.insert((Entity*)t);
-		map.push_back(t);
-	}
-
-	tempMap.clear();
 
 	std::cout << map.size() << ' ' << alive.size() << '\n';
 	map = alive;

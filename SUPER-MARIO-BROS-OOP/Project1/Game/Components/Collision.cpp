@@ -146,6 +146,14 @@ vt Collision::rectVsTerain(Hitbox dynamicRect, std::vector <Hitbox> ground, vt v
 		resolveDynamicRectVsRect(dr, deltaTime, j.first, vel);
 	}
 
+	for (const Hitbox& rec : ground) {
+		sf::Vector2f pushback = sf::Vector2f(0, 0);
+		Hitbox dRect = {
+			dr.pos, dr.size, dr.vel
+		};
+		sf::Vector2f pp = sf::Vector2f(0, 0);
+		dynamicRectVsRect(dRect, deltaTime, dRect.vel, rec, pp);
+	}
 
 
 	pos = dr.pos;
@@ -227,7 +235,7 @@ dir Collision::dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeSte
 			return TOP;
 		return BOTTOM;
 	}
-	pushback /= fTimeStep;
+	pushback;
 	return RIGHT;
 }
 
@@ -281,7 +289,6 @@ dir Collision::dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeSte
 			return TOP;
 		return BOTTOM;
 	}
-	pushback /= fTimeStep;
 	return RIGHT;
 }
 

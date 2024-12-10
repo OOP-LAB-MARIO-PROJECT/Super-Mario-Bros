@@ -120,7 +120,6 @@
  <tile id="2314" type="castle3"/>
  <tile id="2315" type="castle3"/>
  <tile id="2316" type="castle1"/>
- <tile id="2327" type="player_pos"/>
  <tile id="2349" type="pipe-up-head-left"/>
  <tile id="2350" type="pipe-up-head-right"/>
  <tile id="2359" type="pipe-up-body-left"/>
@@ -160,6 +159,7 @@
  <tile id="2525" type="castle-arch"/>
  <tile id="2526" type="block3#trans"/>
  <tile id="2527" type="block3#trans"/>
+ <tile id="2538" type="player_pos"/>
  <tile id="2560" type="pipe-up-body-left"/>
  <tile id="2561" type="pipe-up-body-right"/>
  <tile id="2564" type="goompa"/>

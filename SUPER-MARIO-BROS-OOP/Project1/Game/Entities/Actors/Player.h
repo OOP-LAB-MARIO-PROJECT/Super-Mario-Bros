@@ -45,5 +45,6 @@ public:
 	void moveRight(float deltatime);
 	void shoot(float deltatime);
 	int getType() override;
+	void reset();
 };
 

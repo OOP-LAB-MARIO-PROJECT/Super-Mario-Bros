@@ -83,15 +83,13 @@ void Player::update(float deltatime) {
 		currentState->handle(this, deltatime);
 		currentState->update(this, deltatime);
 	}
-	
-	performPhysics(deltatime);
-	
 
 	if (health <= 0) {
 		isDead = true;
 		if (health == 0) setVel({ 0, -180.0f }), health--;
 		deadthTimer += deltatime;
 		setPos(getPos() + getVel() * deltatime);
+		performPhysics(deltatime);
 		return;
 	}
 
@@ -146,6 +144,7 @@ void Player::update(float deltatime) {
 		if (cur) cur->affectOther(this, deltatime);
 	}
 
+	performPhysics(deltatime);
 }
 
 void Player::jump(float deltatime) {
@@ -229,6 +228,18 @@ void Player::setPos(sf::Vector2f pos) {
 	setSpritePos(pos - sf::Vector2f(2, 2));
 }
 
+void Player::reset() {
+	isRenderSprite = true;
+	isRenderHitbox = true;
+	isTransforming = false;
+	facing = 1;
+	currentMode = SMALL;
+	setState("IDLE");
+	obstacle.clear();
+	nearPointerTiles.clear();
+	otherEntities.clear();
+	setVel(sf::Vector2f(0, 0));
+}
 
 
 
