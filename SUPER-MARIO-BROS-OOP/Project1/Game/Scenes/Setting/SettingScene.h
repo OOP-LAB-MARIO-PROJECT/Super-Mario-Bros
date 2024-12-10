@@ -41,8 +41,6 @@ public:
 	void muteHandling();
 	void changeVolume();
 	void loadGif(float deltatime);	
-	void saveSetting();
-	void changeKeys();
 	void drawScene();
 	void loopEvents();
 	void update(float deltatime) override;

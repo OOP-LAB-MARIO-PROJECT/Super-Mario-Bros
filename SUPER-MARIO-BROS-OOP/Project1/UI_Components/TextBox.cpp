@@ -17,6 +17,21 @@ TextBox::TextBox(float x, float y, float width, float height, bool isPassword)
     text.setPosition(x + 10, y + 10);
 }
 
+TextBox::TextBox(float x, float y, float width, float height, std::string defaulText)
+{
+    box.setPosition(x, y);
+    box.setSize(sf::Vector2f(width, height));
+    box.setFillColor(sf::Color::White);
+    box.setOutlineColor(sf::Color::Black);
+    box.setOutlineThickness(10);
+
+    text.setString(defaulText);
+    text.setFont(*(FontManager::getInstance().getFont("Mario")));
+    text.setFillColor(sf::Color::Black);
+    text.setCharacterSize(24);
+    text.setPosition(x + 10, y + 10);
+}
+
 void TextBox::handleInput(sf::Event event) {
     if (isSelected && event.type == sf::Event::TextEntered) {
         

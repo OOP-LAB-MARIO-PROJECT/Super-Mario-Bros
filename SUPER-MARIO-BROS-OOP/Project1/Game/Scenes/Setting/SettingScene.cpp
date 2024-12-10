@@ -6,16 +6,16 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	float midScreenY = getWindow()->getSize().y / 2.0;
 	sf::Vector2f midCoordinate(midScreenX - 100, midScreenY - 50); //button base position
 
-	Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y - 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x + 430, midCoordinate.y - 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { std::cout << "save\n"; }, "Save", 17, sf::Color::Black);
 	buttons.push_back(save);
 
-	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x, midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x - 100, midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 17, sf::Color::Black);
 	buttons.push_back(back);
 
-	Button keyBinding = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "keyBinding\n"; }, "Key Binding", 12, sf::Color::Black);
+	Button keyBinding = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x + 180, midCoordinate.y), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::KeyBinding); }, "Key Binding", 12, sf::Color::Black);
 	buttons.push_back(keyBinding);
 
 	volumeText.setFont(*(FontManager::getInstance().getFont("Mario")));
@@ -77,16 +77,6 @@ void SettingScene::muteHandling()
 		this->volume = 50;
 		isMute = false;
 	}
-}
-
-void SettingScene::saveSetting()
-{
-	//save setting
-}
-
-void SettingScene::changeKeys()
-{
-
 }
 
 void SettingScene::drawScene()

@@ -21,6 +21,8 @@ private:
 public:
     TextBox(float x, float y, float width, float height, bool isPassword);
 
+    TextBox(float x, float y, float width, float height, std::string defaulText);
+
     void handleInput(sf::Event event);
 
     void draw(sf::RenderWindow* window);

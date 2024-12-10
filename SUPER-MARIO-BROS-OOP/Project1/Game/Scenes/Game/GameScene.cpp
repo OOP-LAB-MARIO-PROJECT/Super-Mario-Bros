@@ -99,6 +99,11 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myKeyExecute.addCommand(sf::Keyboard::W, myCommand.getCommand("jump"));
 	myKeyExecute.addCommand(sf::Keyboard::A, myCommand.getCommand("moveLeft"));
 	myKeyExecute.addCommand(sf::Keyboard::D, myCommand.getCommand("moveRight"));
+
+	//for key binding
+	GameConfig::getInstance().controls.insert({ "Jump", sf::Keyboard::W});
+	GameConfig::getInstance().controls.insert({ "Move left", sf::Keyboard::A });
+	GameConfig::getInstance().controls.insert({ "Move Right" , sf::Keyboard::D });
 }
 
 
