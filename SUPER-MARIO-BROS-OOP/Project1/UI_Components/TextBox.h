@@ -17,11 +17,12 @@ private:
     bool isPassword;
     bool isSelected;
     std::string textEntered;
-
+    bool hasLimit = false;
 public:
     TextBox(float x, float y, float width, float height, bool isPassword);
 
-    TextBox(float x, float y, float width, float height, std::string defaulText);
+
+    TextBox(float x, float y, float width, float height, bool isPassword, std::string defaultText, bool hasLim);
 
     void handleInput(sf::Event event);
 

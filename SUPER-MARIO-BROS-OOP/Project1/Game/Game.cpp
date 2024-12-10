@@ -33,7 +33,7 @@ void Game::start() {
 	sceneManager->addScene(SceneManager::Scenes::Setting, new SettingScene(window));
 	sceneManager->addScene(SceneManager::Scenes::KeyBinding, new KeyBindingScene(window));
 
-	sceneManager->navigateTo(SceneManager::Scenes::Setting);
+	sceneManager->navigateTo(SceneManager::Scenes::Home);
 	
 
 	m_isRunning = true;

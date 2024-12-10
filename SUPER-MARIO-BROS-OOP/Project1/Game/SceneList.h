@@ -5,3 +5,4 @@
 #include "Scenes/Login/LoginScene.h"
 #include "Scenes/Setting/SettingScene.h"
 #include "Scenes/Register/RegisterScene.h"
+#include "Scenes/KeyBinding/KeyBindingScene.h"

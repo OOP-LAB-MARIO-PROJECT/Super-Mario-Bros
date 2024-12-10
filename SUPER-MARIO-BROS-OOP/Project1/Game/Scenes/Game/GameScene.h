@@ -12,6 +12,7 @@
 #include "Camera.h"
 
 #include "../../Control/Commands/PlayerMovement.h"
+//modifications
 
 class GameScene : public Scene {
 
@@ -20,7 +21,6 @@ class GameScene : public Scene {
 	Camera* camera = NULL;
 	CommandManager myCommand;
 	KeyExecute myKeyExecute;
-
 	std::map <std::string, std::string> levelMap;
 	std::string currentLevel;
 

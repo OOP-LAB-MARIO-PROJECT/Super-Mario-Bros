@@ -143,11 +143,11 @@ void SettingScene::loadGif(float deltatime)
 		sprites[i]->setTexture(*animations[i].getTexture()); //set texture for sprite, which is a sprite sheet
 		sprites[i]->setTextureRect(animations[i].rect); //set the rectangle to display the current image (one of the sprites in the sheet)
 
-		std::cout << "Sprite " << i << " texture rect: "
+		/*std::cout << "Sprite " << i << " texture rect: "
 			<< sprites[i]->getTextureRect().left << ","
 			<< sprites[i]->getTextureRect().top << ","
 			<< sprites[i]->getTextureRect().width << ","
-			<< sprites[i]->getTextureRect().height << std::endl;
+			<< sprites[i]->getTextureRect().height << std::endl;*/
 	}
 	drawScene();
 	loopEvents();

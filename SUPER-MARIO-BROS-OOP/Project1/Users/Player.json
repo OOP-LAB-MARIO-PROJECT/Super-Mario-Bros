@@ -1,9 +1,14 @@
 {
+    "controls": {
+        "jump": 22,
+        "moveLeft": 0,
+        "moveRight": 3
+    },
     "playerName": "Player",
     "unlocked-level": {
         "map-1-1": [
-            1600,
-            8
+            1000,
+            0
         ],
         "map-1-2": [
             0,

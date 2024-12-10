@@ -46,6 +46,7 @@ public:
     float cameraBase = 192;
 
     // Configurations
+    bool hasKeyChanges = false;
     std::map<std::string, std::string> mapList;
     std::map<std::string, sf::Keyboard::Key> controls;
     std::map <std::string, std::pair<int, int>> unlockedLevel;

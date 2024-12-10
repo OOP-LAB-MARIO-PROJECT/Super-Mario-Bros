@@ -101,9 +101,9 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myKeyExecute.addCommand(sf::Keyboard::D, myCommand.getCommand("moveRight"));
 
 	//for key binding
-	GameConfig::getInstance().controls.insert({ "Jump", sf::Keyboard::W});
-	GameConfig::getInstance().controls.insert({ "Move left", sf::Keyboard::A });
-	GameConfig::getInstance().controls.insert({ "Move Right" , sf::Keyboard::D });
+	GameConfig::getInstance().controls.insert({ "jump", sf::Keyboard::W });
+	GameConfig::getInstance().controls.insert({ "moveLeft", sf::Keyboard::A });
+	GameConfig::getInstance().controls.insert({ "moveRight" , sf::Keyboard::D });
 }
 
 
@@ -143,7 +143,13 @@ void GameScene::update(float deltatime) {
 		std::cout << "cannot getfont in game\n";
 	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance());
 
-
+	if (GameConfig::getInstance().hasKeyChanges)
+	{
+		for (auto it = GameConfig::getInstance().controls.begin(); it != GameConfig::getInstance().controls.end(); ++it) {
+			std::cout << it->first << ' ' << it->second << '\n';
+			myKeyExecute.addCommand(it->second, myCommand.getCommand(it->first));
+		}
+	}
 
 	// check for level
 	retrieveLevelStatus();
