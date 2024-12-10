@@ -92,6 +92,7 @@ std::map<std::string, std::vector <std::pair <int, int>>> Tileset::loadMapFromFi
     XMLDocument doc;
 
     // Load the .tsx file
+    std::cout << "loading map: " << s << '\n';
     if (doc.LoadFile(s.c_str()) != XML_SUCCESS) {
         std::cerr << "Error loading file: " << s << std::endl;
         return std::map<std::string, std::vector <std::pair <int, int>>>();

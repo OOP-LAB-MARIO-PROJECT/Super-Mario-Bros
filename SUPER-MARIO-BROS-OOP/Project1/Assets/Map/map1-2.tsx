@@ -48,7 +48,6 @@
  <tile id="2114" type="castle-door"/>
  <tile id="2115" type="castle2"/>
  <tile id="2116" type="castle2"/>
- <tile id="2118" type="player_pos"/>
  <tile id="2122" type="pipe-side-head-up#48;272;432"/>
  <tile id="2123" type="pipe-side-body-up"/>
  <tile id="2124" type="pipe-side-tail-up"/>
@@ -68,6 +67,7 @@
  <tile id="2306" type="castle-door"/>
  <tile id="2307" type="castle2"/>
  <tile id="2308" type="castle2"/>
+ <tile id="2310" type="player_pos"/>
  <tile id="2314" type="pipe-side-head-bottom#48;272;432"/>
  <tile id="2315" type="pipe-side-body-bottom"/>
  <tile id="2316" type="pipe-side-tail-bottom"/>
@@ -84,6 +84,7 @@
  <tile id="2473" type="block5"/>
  <tile id="2474" type="block5"/>
  <tile id="2483" type="block5"/>
+ <tile id="2489" type="castle-door#map-1-3"/>
  <tile id="2496" type="block1"/>
  <tile id="2497" type="block1"/>
  <tile id="2498" type="block1"/>

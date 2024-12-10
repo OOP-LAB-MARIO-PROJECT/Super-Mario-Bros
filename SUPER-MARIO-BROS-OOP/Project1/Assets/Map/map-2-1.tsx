@@ -395,6 +395,7 @@
  <tile id="5329" type="castle2"/>
  <tile id="5330" type="castle2"/>
  <tile id="5331" type="castle2"/>
+ <tile id="5333" type="player_pos"/>
  <tile id="5338" type="bunch_up"/>
  <tile id="5346" type="bunch_up"/>
  <tile id="5347" type="block5"/>
@@ -501,6 +502,7 @@
  <tile id="5755" type="castle-door"/>
  <tile id="5756" type="castle2"/>
  <tile id="5757" type="castle2"/>
+ <tile id="5759" type="player_pos"/>
  <tile id="5762" type="trunk"/>
  <tile id="5764" type="trunk"/>
  <tile id="5765" type="fence"/>

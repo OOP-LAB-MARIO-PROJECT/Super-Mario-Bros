@@ -20,6 +20,7 @@ void GameScene::loadMapList() {
 	std::string mapName, mapPath;
 	while (fin >> mapName >> mapPath) {
 		levelMap[mapName] = mapPath;
+		std::cout << "Map loaded: " << mapName << ' ' << mapPath << '\n';
 	}
 
 	currentLevel = "map-1-1";
@@ -72,12 +73,9 @@ void GameScene::restartLevel() {
 	GameConfig::getInstance().score = 0;
 	GameConfig::getInstance().timeLeft = 300;
 
-	player->otherEntities.clear();
-	player->obstacle.clear();
-	player->nearPointerTiles.clear();
-
 	delete gameMap;
 	gameMap = new Map();
+	player->reset();
 	gameMap->loadMap(levelMap[currentLevel], player);
 }
 
@@ -117,7 +115,7 @@ void GameScene::update(float deltatime) {
 
 	if (deltatime > 0.03) {
 		std::cout << "loading....\n";
-		return;
+		deltatime = 0.03;
 	}
 
 	myCommand.setDeltaTime(deltatime);

@@ -41,7 +41,7 @@ void KingKoopa::update(float deltatime) {
 
     if (attackTimer > 1.f) {
         attackTimer = 0;
-        EntityManager::getInstance().addEntity(new Fire((getPos() + sf::Vector2f(0, getPos().y / 4.f)), sf::Vector2f(22, 8) ));
+       // EntityManager::getInstance().addEntity(new Fire((getPos() + sf::Vector2f(0, getPos().y / 4.f)), sf::Vector2f(8, 8) ));
     }
 
     for (auto en : otherEntities) {

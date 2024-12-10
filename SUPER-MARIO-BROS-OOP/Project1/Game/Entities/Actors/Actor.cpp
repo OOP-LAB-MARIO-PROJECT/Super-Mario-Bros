@@ -128,3 +128,4 @@ bool Actor::getIsTransforming() const {
 void Actor::setIsTransforming(bool a) {
 	isTransforming = a;
 }
+
