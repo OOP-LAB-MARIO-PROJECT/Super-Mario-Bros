@@ -7,8 +7,8 @@ Map::~Map() {
 }
 
 void Map::addTile(Tile* tile) {
-	quadMap.insert((Entity*)tile);
-	map.push_back(tile);
+	tempMap.push_back(tile);
+	return;
 };
 
 void Map::setRenderSpace(sf::Vector2f pos, sf::Vector2f size) {
@@ -103,6 +103,13 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vec
 		t->notify(t);
 		delete t;
 	}
+
+	for (auto t : tempMap) {
+		quadMap.insert((Entity*)t);
+		map.push_back(t);
+	}
+
+	tempMap.clear();
 
 	std::cout << map.size() << ' ' << alive.size() << '\n';
 	map = alive;

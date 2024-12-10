@@ -35,6 +35,7 @@ private:
 
 
 	std::vector<Tile*> map;
+	std::vector<Tile*> tempMap;
 	std::map <std::pair <int, int>, int> tilePos;
 	
 	QuadTree quadMap;

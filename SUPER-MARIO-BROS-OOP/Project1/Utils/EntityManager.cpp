@@ -2,17 +2,23 @@
 
 void EntityManager::addEntity(Entity* entity) {
 	if (entity == NULL) return;
-	entities.push_back(entity);
-	quadEn.insert(entity);
+	tempEn.push_back(entity);
 }
 
 // Render all entities
 void EntityManager::updateAll(float deltaTime) {
-	for (auto en : entities)
+	for (auto en : entities) {
 		if (!en->isDead() && std::abs(en->getHitbox().pos.x - updatePivot.x) < (float)updateDistance) {
 			en->update(deltaTime);
 		}
+	}
 
+	for (auto en : tempEn) {
+		entities.push_back(en);
+		quadEn.insert(en);
+	}
+
+	tempEn.clear();
 	for (auto en : entities) en->notify(en);
 	quadEn.checkForPending();
 }
@@ -49,6 +55,7 @@ void EntityManager::filter() {
 	std::vector <Entity*> filtered;
 	for (auto& en : entities) 
 		if (en->isDead()) {
+			en->notify(en);
 			delete en;
 		}
 		else {

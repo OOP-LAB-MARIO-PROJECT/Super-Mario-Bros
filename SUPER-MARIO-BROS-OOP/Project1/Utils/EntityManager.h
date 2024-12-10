@@ -11,10 +11,13 @@ public:
     sf::RenderWindow* debugWindow = nullptr;
 private:
     std::vector <Entity*> entities;  // Container to store entities
+    std::vector <Entity*> tempEn;
+
     QuadTree quadEn;
     sf::Vector2f updatePivot = { 0, 0 };
     float updateDistance = 1000;
     int curEntity = 0;
+    
 
     ~EntityManager();
     EntityManager() = default; // Private constructor
