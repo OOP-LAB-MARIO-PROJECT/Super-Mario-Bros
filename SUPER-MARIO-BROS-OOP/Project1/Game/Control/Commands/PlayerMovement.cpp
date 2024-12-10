@@ -55,3 +55,16 @@ void MoveDown::execute() {
 
 void MoveDown::deExecute() {
 }
+
+
+void Shoot::setDeltatime(float _deltaTime) {
+	deltaTime = _deltaTime;
+}
+
+void Shoot::execute() {
+	player->shoot(deltaTime);
+}
+
+void Shoot::deExecute() {
+
+}

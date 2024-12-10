@@ -9,7 +9,11 @@ Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vect
 		return new Goompa(pos, size);
 
 	if (type == "troopa-koopa") {
-	//return new TroopaKoopa(pos, size, map);
+		return new KoopaTroopa(pos, size);
+	}
+
+	if (type == "piranha-plant") {
+		return new PiranhaPlant(pos, size);
 	}
 
 	if (type == "red-mushroom") {
@@ -22,6 +26,10 @@ Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vect
 
 	if (type == "castle-door") {
 		return new CastleGate(pos, size, properties);
+	}
+
+	if (type == "king-koopa") {
+		return new KingKoopa(pos, size);
 	}
 
 

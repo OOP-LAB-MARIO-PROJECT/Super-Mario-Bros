@@ -18,6 +18,8 @@ protected:
 	int facing = 0;
 	bool isKilling = false;
 	bool isDead = false;
+	bool isTransforming = true;
+
 public:
 
 	Actor(sf::Vector2f _pos, sf::Vector2f _size);
@@ -37,15 +39,29 @@ public:
 	bool getIsKilling() const;
 	void setIsKilling(bool a);
 
-
 	bool getIsDead() const;
 	void setIsDead(bool a);
 
+	bool getIsTransforming() const;
+	void setIsTransforming(bool a);
 
 	void setSpritePos(sf::Vector2f pos);
 	void setTexture(const std::string& sourceName, const std::string& rectName);
 	void setSpriteScale(float x, float y);
 	void setSpriteOrigin(sf::Vector2f ori);
+
+
+	/*
+		if (contact[2]) return dir::TOP;
+		if (contact[1]) return dir::LEFT;
+		if (contact[0]) return dir::BOTTOM;
+		if (contact[3]) return dir::RIGHT;
+
+		1 << 0: BOTTOM
+		1 << 1: LEFT
+		1 << 3: RIGHT
+		1 << 2: TOP
+	*/
 	int resolveCollideGround(std::vector <Hitbox> vi, float deltaTime);
 	int getFacing();
 	bool getIsOnGround();
@@ -53,5 +69,7 @@ public:
 	virtual int getType() override;
 	virtual void update(float deltatime) override = 0;
 	virtual void setState(const std::string& stateName) { }
+	virtual int getHealth() { return -1; }
+	virtual void setHealth(int h) { }
 };
 

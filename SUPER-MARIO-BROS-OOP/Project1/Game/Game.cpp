@@ -45,7 +45,8 @@ void Game::run() {
 	}
 
 	float deltatime = m_clock.restart().asSeconds();
-	
+	int FPS = 1 / deltatime;
+
 	window->clear();
 	sceneManager->update(deltatime);
 	window->display();

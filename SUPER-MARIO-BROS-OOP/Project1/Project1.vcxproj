@@ -140,16 +140,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Entities\Actors\Enemy\Fire.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Enemy\KingKoopa.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Projectile\BrickParticle.cpp" />
     <ClCompile Include="UI_Components\Animation.cpp" />
     <ClCompile Include="Game\Control\Commands\PlayerMovement.cpp" />
     <ClCompile Include="Game\Control\KeyExecute.cpp" />
     <ClCompile Include="Game\Entities\Actors\AnimationState\AnimationState.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\Enemy.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\Goompa.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Enemy\KoopaTroopa.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Enemy\PiranhaPlant.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Projectile\Fireball.cpp" />
     <ClCompile Include="Game\Entities\Actors\Prop\CastleGate.cpp" />
     <ClCompile Include="Game\Entities\Actors\Prop\Coin.cpp" />
     <ClCompile Include="Game\Entities\Actors\Prop\Mushroom.cpp" />
     <ClCompile Include="Game\Entities\Actors\Prop\Collectable.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Projectile\Projectile.cpp" />
     <ClCompile Include="Game\Entities\EntityFactory.cpp" />
     <ClCompile Include="Game\Entities\Tiles\MoveUpTile.cpp" />
     <ClCompile Include="Game\Entities\Tiles\MovingPlatform.cpp" />
@@ -191,16 +198,23 @@
     <ClCompile Include="UI_Components\VolumeSlider.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Entities\Actors\Enemy\Fire.h" />
+    <ClInclude Include="Game\Entities\Actors\Enemy\KingKoopa.h" />
+    <ClInclude Include="Game\Entities\Actors\Projectile\BrickParticle.h" />
     <ClInclude Include="UI_Components\Animation.h" />
     <ClInclude Include="Game\Control\Commands\PlayerMovement.h" />
     <ClInclude Include="Game\Control\KeyExecute.h" />
     <ClInclude Include="Game\Entities\Actors\AnimationState\AnimationState.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\Enemy.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\Goompa.h" />
+    <ClInclude Include="Game\Entities\Actors\Enemy\KoopaTroopa.h" />
+    <ClInclude Include="Game\Entities\Actors\Enemy\PiranhaPlant.h" />
+    <ClInclude Include="Game\Entities\Actors\Projectile\Fireball.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\CastleGate.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Coin.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Mushroom.h" />
     <ClInclude Include="Game\Entities\Actors\Prop\Collectable.h" />
+    <ClInclude Include="Game\Entities\Actors\Projectile\Projectile.h" />
     <ClInclude Include="Game\Entities\EntityFactory.h" />
     <ClInclude Include="Game\Entities\EntityList.h" />
     <ClInclude Include="Game\Entities\Tiles\MoveUpTile.h" />

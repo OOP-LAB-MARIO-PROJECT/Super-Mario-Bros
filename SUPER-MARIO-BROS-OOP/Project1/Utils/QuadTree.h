@@ -44,7 +44,7 @@ public:
 
 	std::vector <std::shared_ptr<Node>>& subDivide() {
 		if (child.size()) return child;
-		if (layer >= 5) return child;
+		if (layer <= 2) return child;
 		child.resize(4, NULL);
 		vt pos = space.pos;
 		vt size = space.size / 2.f;
@@ -52,7 +52,7 @@ public:
 		child[1] = std::make_shared<Node>(pos + sf::Vector2f(size.x, 0), size);
 		child[2] = std::make_shared<Node>(pos + sf::Vector2f(0, size.y), size);
 		child[3] = std::make_shared<Node>(pos + size, size);
-		for (auto x : child) x->layer = layer + 1, x->root = root;
+		for (auto x : child) x->layer = layer - 1, x->root = root;
 	}
 
 	bool contain(Hitbox box) {
@@ -63,8 +63,12 @@ public:
 		return true;
 	}
 
+	bool contain(vt pos) {
+		if (space.pos.x <= pos.x && space.pos.y <= pos.y && pos.x < space.pos.x + space.size.x && pos.y < space.pos.y + space.size.y) return true;
+		return false;
+	}
+
 	bool isContainIn(Hitbox box) {
-		//std::cout << "checking for " << box.pos.x << ' ' << box.pos.y << ' ' << box.size.x << ' ' << box.size.y << " against " << space.pos.x << ' ' << space.pos.y << ' ' << space.size.x << ' ' << space.size.y << '\n';
 		if (box.pos.x > space.pos.x || box.pos.y > space.pos.y) return false;
 		box.pos += box.size;
 		sf::Vector2f tmp = space.pos + space.size;
@@ -92,17 +96,16 @@ public:
 	}
 
 	void insert(sf::Vector2f pos, Entity* object) {
-		
+		if (object->isDead()) return;
+
 		if (root == nullptr) {
 			ens.insert(object);
 			return;
 		}
 
-		if (contain({pos, sf::Vector2f(0, 0)}) && layer <= 10) {
+		if (contain(pos) && layer > 1) {
 			if (child.empty()) subDivide();
-			Hitbox tmp = object->getHitbox();
-			tmp.size.x = tmp.size.y = 0;
-			for (auto ch : child) if (ch->contain(tmp)) {
+			for (auto ch : child) if (ch->contain(pos)) {
 				ch->insert(pos, object);
 				return;
 			}
@@ -153,11 +156,14 @@ public:
 		};
 
 		root = std::make_shared<Node>(r);
+		root->layer = m_maxHeight;
 		container = std::make_shared<Node>(r);
+		container->layer = m_maxHeight;
 		root->root = container.get();
 	}
 
 	void insert(Entity* en) {
+		if (en->isDead()) return;
 		vt pos = en->getHitbox().pos;
 		vt size = en->getHitbox().size;
 
@@ -200,6 +206,7 @@ public:
 		});
 
 		ans.erase(std::unique(ans.begin(), ans.end()), ans.end());
+		for (int i = 1; i < ans.size(); i++) if (ans[i] == ans[i - 1]) std::cout << "fuck there is some replication\n";
 		return ans;
 	}
 

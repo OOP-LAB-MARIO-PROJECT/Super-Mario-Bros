@@ -1,6 +1,8 @@
 #pragma once
 #include "Tile.h"
 #include "../../Components/Physics.h"
+#include "../Actors/Projectile/BrickParticle.h"
+
 class MoveUpTile : public Tile, public Physics {
 protected:
 	int state = 0;

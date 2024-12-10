@@ -7,13 +7,17 @@
 #include <map>
 
 class EntityManager {
+public:
+    sf::RenderWindow* debugWindow = nullptr;
 private:
     std::vector <Entity*> entities;  // Container to store entities
+    std::vector <Entity*> tempEn;
 
     QuadTree quadEn;
     sf::Vector2f updatePivot = { 0, 0 };
-    float updateDistance = 200;
+    float updateDistance = 1000;
     int curEntity = 0;
+    
 
     ~EntityManager();
     EntityManager() = default; // Private constructor
@@ -26,7 +30,9 @@ public:
         static EntityManager instance; // Guaranteed to be lazy-initialized and thread-safe
         return instance;
     }
-
+    void setRenderWindowForDebug(sf::RenderWindow* wind) {
+        debugWindow = wind;
+    }
     void setSpace(float width, float height);
     // Add an entity to the manager -> if an entity A derive from class entity -> addEntity(new A())
     void addEntity(Entity* entity);

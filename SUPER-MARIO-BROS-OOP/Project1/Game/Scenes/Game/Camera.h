@@ -15,6 +15,8 @@ private:
 	float aboveLimit;
 	float beneathLimit;
 	float base;
+	float width = 400;
+	float height = 240;
 
 public:
 	Camera(sf::RenderWindow* w, sf::Vector2f ppos);
@@ -22,5 +24,5 @@ public:
 	void setCameraView(sf::RenderWindow* w);
 	void followPlayer(const float& x, const float& y, const float& w, const float& h);
 	void renderGameInfo(sf::RenderWindow* window, sf::Font& font, const GameConfig& config);
-
+	std::pair <sf::Vector2f, sf::Vector2f> getRenderSpace();
 };

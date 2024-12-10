@@ -36,6 +36,7 @@ Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
 
 void Actor::setPos(sf::Vector2f _pos) {
 	pos = _pos;
+	hitbox.pos = pos;
 	if (autoSpriteFollowHitbox) sprite.setPosition(pos);
 }
 
@@ -46,6 +47,7 @@ void Actor::setSpritePos(sf::Vector2f pos) {
 
 void Actor::setSize(sf::Vector2f _size) {
 	size = _size;
+	hitbox.size = size;
 }
 
 void Actor::setVel(sf::Vector2f vel) {
@@ -116,4 +118,13 @@ void Actor::setSpriteScale(float x, float y) {
 }
 void Actor::setSpriteOrigin(sf::Vector2f ori) {
 	sprite.setOrigin(ori);
+}
+
+
+bool Actor::getIsTransforming() const {
+	return isTransforming;
+}
+
+void Actor::setIsTransforming(bool a) {
+	isTransforming = a;
 }

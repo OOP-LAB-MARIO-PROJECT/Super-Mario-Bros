@@ -72,3 +72,19 @@ public:
 	virtual void execute() override;
 	virtual void deExecute() override;
 };
+
+
+class Shoot : public Command {
+private:
+	
+public:
+	Player* player;
+	float deltaTime;
+	
+	Shoot(Player* _player) : player(_player), deltaTime(0) {};
+
+	void setDeltatime(float _deltaTime) override;
+	virtual void execute() override;
+	virtual void deExecute() override;
+
+};
