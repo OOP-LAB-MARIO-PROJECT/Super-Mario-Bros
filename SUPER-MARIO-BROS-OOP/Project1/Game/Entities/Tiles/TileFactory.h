@@ -5,6 +5,7 @@
 #include "QuestionTile.h"
 #include "PipeHead.h"
 #include "MovingPlatform.h"
+#include "RotateFire.h"
 
 #include <vector>
 #include <string>
@@ -26,7 +27,7 @@ namespace TILETYPE {
 		"pipe-side-body-bottom",
 		"pipe-side-body-up",
 		"pipe-side-tail-up",
-		"pipe-side-tail-bottom"
+		"pipe-side-tail-bottom",
 	};
 
 	static std::vector <std::string> pipeHead = {
@@ -40,7 +41,7 @@ namespace TILETYPE {
 		"block2",
 		"block-underground-3",
 		"question",
-		"moing-platform"
+		"moving-platform"
 	};
 
 	static std::vector <std::string> transparent = {

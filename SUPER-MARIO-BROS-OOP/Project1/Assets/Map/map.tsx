@@ -91,6 +91,7 @@
  <tile id="2102" type="castle-window-left"/>
  <tile id="2103" type="block3"/>
  <tile id="2104" type="castle-window-right"/>
+ <tile id="2119" type="rotate-fire"/>
  <tile id="2138" type="piranha-plant"/>
  <tile id="2148" type="pipe-up-head-left"/>
  <tile id="2149" type="pipe-up-head-right"/>
