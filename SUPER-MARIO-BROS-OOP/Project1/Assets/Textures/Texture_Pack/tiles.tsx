@@ -25,11 +25,14 @@
  <tile id="44" type="castle3"/>
  <tile id="45" type="castle-arch"/>
  <tile id="46" type="castle-door"/>
+ <tile id="61" type="hammer"/>
  <tile id="66" type="block-underground-1"/>
  <tile id="67" type="block-underground-2"/>
  <tile id="68" type="block-underground-3"/>
  <tile id="69" type="block-underground-4"/>
  <tile id="99" type="block-underground-5"/>
+ <tile id="134" type="block_rock_boss"/>
+ <tile id="167" type="block_rock"/>
  <tile id="232" type="block_green"/>
  <tile id="264" type="pipe-up-head-left"/>
  <tile id="265" type="pipe-up-head-right"/>
@@ -62,6 +65,7 @@
  <tile id="413" type="flag-3"/>
  <tile id="462" type="pipe-up-head-left-light"/>
  <tile id="463" type="pipe-up-head-right-light"/>
+ <tile id="474" type="stair"/>
  <tile id="475" type="bunch_light"/>
  <tile id="476" type="bunch_up_light"/>
  <tile id="477" type="handrail_light"/>
@@ -80,6 +84,9 @@
  <tile id="695" type="cloud6"/>
  <tile id="696" type="water2"/>
  <tile id="697" type="cloud_standing"/>
+ <tile id="795" type="lavar1"/>
+ <tile id="796" type="bridge"/>
+ <tile id="828" type="lavar2"/>
  <tile id="861" type="water_surface"/>
  <tile id="894" type="water"/>
 </tileset>
