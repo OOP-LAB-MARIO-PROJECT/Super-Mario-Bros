@@ -20,6 +20,7 @@ void MoveUpTile::touched(float deltatime) {
 void MoveUpTile::affectOther(Entity* other, float deltatime) {
 	if (other->getType() != PLAYER) return;
 	int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel, getHitbox());
+
 	if (dir == BOTTOM) {
 		touched(deltatime);
 		auto otherVel = other->getHitbox().vel;

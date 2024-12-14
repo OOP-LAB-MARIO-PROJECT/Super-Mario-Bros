@@ -232,8 +232,8 @@ dir Collision::dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeSte
 	}
 	else {
 		if (pushback.y < 0)
-			return TOP;
-		return BOTTOM;
+			return BOTTOM;
+		return TOP;
 	}
 	pushback;
 	return RIGHT;
@@ -286,8 +286,8 @@ dir Collision::dynamicRectVsRect(const Hitbox& dynamicRect, const float fTimeSte
 	}
 	else {
 		if (pushback.y < 0)
-			return TOP;
-		return BOTTOM;
+			return BOTTOM;
+		return TOP;
 	}
 	return RIGHT;
 }

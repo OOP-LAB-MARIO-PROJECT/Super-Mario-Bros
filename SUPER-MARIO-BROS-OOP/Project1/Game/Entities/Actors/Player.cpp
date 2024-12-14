@@ -61,6 +61,9 @@ void Player::setState(const std::string& stateName) {
 
 
 void Player::update(float deltatime) {
+
+	if (getPos().y > GameConfig::getInstance().cameraBase + 64) inflictDamage();
+
 	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::BIG) {
 		setIsTransforming(true);
 		currentMode = BIG;
