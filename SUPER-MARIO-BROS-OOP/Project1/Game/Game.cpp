@@ -23,6 +23,12 @@ void Game::start() {
 	fontManager = &FontManager::getInstance();
 	fontManager->loadFromInterface("Assets/Fonts/font_interface.txt");
 
+	//for key binding
+	gameConfig = &GameConfig::getInstance();
+	gameConfig->controls.insert({ "jump", sf::Keyboard::W });
+	gameConfig->controls.insert({ "moveLeft", sf::Keyboard::A});
+	gameConfig->controls.insert({ "moveRight" , sf::Keyboard::D});
+
 	sceneManager = &SceneManager::getInstance();
 
 	sceneManager->addScene(SceneManager::Scenes::Login, new LoginScene(window));

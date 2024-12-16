@@ -96,14 +96,13 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myCommand.addCommand("moveLeft", new MoveLeft(player));
 	myCommand.addCommand("moveRight", new MoveRight(player));
 
-	myKeyExecute.addCommand(sf::Keyboard::W, myCommand.getCommand("jump"));
-	myKeyExecute.addCommand(sf::Keyboard::A, myCommand.getCommand("moveLeft"));
-	myKeyExecute.addCommand(sf::Keyboard::D, myCommand.getCommand("moveRight"));
+	//myKeyExecute.addCommand(GameConfig::getInstance().getControl("jump"), myCommand.getCommand("jump"));
+	//myKeyExecute.addCommand(GameConfig::getInstance().getControl("moveLeft"), myCommand.getCommand("moveLeft"));
+	//myKeyExecute.addCommand(GameConfig::getInstance().getControl("moveRight"), myCommand.getCommand("moveRight"));
 
-	//for key binding
-	GameConfig::getInstance().controls.insert({ "jump", sf::Keyboard::W });
-	GameConfig::getInstance().controls.insert({ "moveLeft", sf::Keyboard::A });
-	GameConfig::getInstance().controls.insert({ "moveRight" , sf::Keyboard::D });
+	myKeyExecute.addCommand(GameConfig::getInstance().controls["jump"], myCommand.getCommand("jump"));
+	myKeyExecute.addCommand(GameConfig::getInstance().controls["moveLeft"], myCommand.getCommand("moveLeft"));
+	myKeyExecute.addCommand(GameConfig::getInstance().controls["moveRight"], myCommand.getCommand("moveRight"));
 }
 
 
@@ -145,10 +144,9 @@ void GameScene::update(float deltatime) {
 
 	if (GameConfig::getInstance().hasKeyChanges)
 	{
-		for (auto it = GameConfig::getInstance().controls.begin(); it != GameConfig::getInstance().controls.end(); ++it) {
-			std::cout << it->first << ' ' << it->second << '\n';
-			myKeyExecute.addCommand(it->second, myCommand.getCommand(it->first));
-		}
+		myKeyExecute.addCommand(GameConfig::getInstance().controls["jump"], myCommand.getCommand("jump"));
+		myKeyExecute.addCommand(GameConfig::getInstance().controls["moveLeft"], myCommand.getCommand("moveLeft"));
+		myKeyExecute.addCommand(GameConfig::getInstance().controls["moveRight"], myCommand.getCommand("moveRight"));
 	}
 
 	// check for level

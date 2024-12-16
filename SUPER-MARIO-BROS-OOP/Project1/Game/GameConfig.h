@@ -69,7 +69,7 @@ public:
     void setTimeLeft(int seconds);
     void updateControl(const std::string& action, sf::Keyboard::Key key);
     sf::Keyboard::Key getControl(const std::string& action);
-    
+    sf::Keyboard::Key oldKey = sf::Keyboard::Key::Unknown;
     
     void loadFromFile(const std::string& filename);
     void saveToFile(const std::string& filename);

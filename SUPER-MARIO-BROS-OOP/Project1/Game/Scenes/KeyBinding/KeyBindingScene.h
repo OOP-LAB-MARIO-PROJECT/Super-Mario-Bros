@@ -4,6 +4,7 @@
 #include "../../GameConfig.h"
 #include <vector>
 #include <unordered_map>
+#include <string>
 #include "../../../UI_Components/TextBox.h"
 #include "../../../UI_Components/Button.h"
 
@@ -12,6 +13,7 @@ class KeyBindingScene : public Scene
 	std::vector<TextBox> textBoxes;
 	std::vector<sf::RectangleShape> shapes;
 	std::vector<sf::Text> actions;
+	std::vector<std::string> actualActions;
 	std::vector<Button> buttons;
 	GameConfig* gameConfig = nullptr;
 	bool beingSelected;

@@ -79,6 +79,7 @@ void GameConfig::setTimeLeft(int seconds) {
 // Update control mapping for a specific action
 void GameConfig::updateControl(const std::string& action, sf::Keyboard::Key key) {
     if (controls.find(action) != controls.end()) {
+	//	oldKey = controls[action];
         controls[action] = key;
     }
     else {

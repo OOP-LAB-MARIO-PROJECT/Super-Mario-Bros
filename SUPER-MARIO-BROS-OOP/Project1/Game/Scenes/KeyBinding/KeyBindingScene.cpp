@@ -11,36 +11,65 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "Back", 17, sf::Color::Black);
 
 	buttons.push_back(back);
-	shapes.resize(4);
+
+	//create the shapes
+	shapes.resize(3);
 	sf::RectangleShape shape1;
 	shape1.setFillColor(sf::Color::Blue);
 	shape1.setSize(sf::Vector2f(200, 100));
 	shape1.setPosition(0, 0);
 	shapes.push_back(shape1);
 
-	//sf::RectangleShape shape2;
-	//shape2.setFillColor(sf::Color::Blue);
-	//shape2.setSize(sf::Vector2f(200, 100));
-	//shape2.setPosition(0, 100);
-	//shapes.push_back(shape2);
+	sf::RectangleShape shape2;
+	shape2.setFillColor(sf::Color::Blue);
+	shape2.setSize(sf::Vector2f(200, 100));
+	shape2.setPosition(0, 100);
+	shapes.push_back(shape2);
 
-	//sf::RectangleShape shape2;
-	//shape2.setFillColor(sf::Color::Blue);
-	//shape2.setSize(sf::Vector2f(200, 100));
-	//shape2.setPosition(0, 100);
-	//shapes.push_back(shape2);
+	sf::RectangleShape shape3;
+	shape3.setFillColor(sf::Color::Blue);
+	shape3.setSize(sf::Vector2f(200, 100));
+	shape3.setPosition(0, 100);
+	shapes.push_back(shape3);
 
+	//display the action
 	sf::Text action1;
 	action1.setFont(*(FontManager::getInstance().getFont("Mario")));
 	action1.setString("jump");
 	action1.setFillColor(sf::Color::White);
 	action1.setCharacterSize(24);
 	action1.setPosition(100,50);
+
+	sf::Text action2;
+	action2.setFont(*(FontManager::getInstance().getFont("Mario")));
+	action2.setString("move left");
+	action2.setFillColor(sf::Color::White);
+	action2.setCharacterSize(24);
+	action2.setPosition(100, 150);
+
+	sf::Text action3;
+	action3.setFont(*(FontManager::getInstance().getFont("Mario")));
+	action3.setString("move right");
+	action3.setFillColor(sf::Color::White);
+	action3.setCharacterSize(24);
+	action3.setPosition(100, 250);
+
 	actions.push_back(action1);
+	actions.push_back(action2);
+	actions.push_back(action3);
+
+	//the actual action names
+	actualActions.push_back("jump");
+	actualActions.push_back("moveLeft");
+	actualActions.push_back("moveRight");
 
 	TextBox textBox1(0, 300, 100, 100, false, "W", true);
-	//TextBox textBox1(0, 200, 200, 200, false);
+	TextBox textBox2(0, 400, 100, 100, false, "A", true);
+	TextBox textBox3(0, 500, 100, 100, false, "D", true);
+
 	textBoxes.push_back(textBox1);
+	textBoxes.push_back(textBox2);
+	textBoxes.push_back(textBox3);
 }
 
 void KeyBindingScene::drawScene()
@@ -161,7 +190,8 @@ void KeyBindingScene::loopEvents()
 				sf::Keyboard::Key key = charToKey(newKey);
 				if (key != sf::Keyboard::Unknown)
 				{
-					gameConfig->updateControl(actions[i].getString(), key);
+					//gameConfig->oldKey = gameConfig->controls[actualActions[i]];
+					gameConfig->updateControl(actualActions[i], key);
 				}
 			}
 			if ((event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter))
@@ -179,6 +209,11 @@ void KeyBindingScene::loopEvents()
 		{
 			buttons[i].handleEvent(event, *getWindow());
 		}
+		//if (gameConfig->hasKeyChanges) 
+		//{
+		//	gameConfig->hasKeyChanges = false;
+		//}
+
 	}
 }
 

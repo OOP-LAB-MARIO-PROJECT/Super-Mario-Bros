@@ -11,6 +11,12 @@ KeyExecute::~KeyExecute() {
 // add a command with a keyboard code
 void KeyExecute::addCommand(int code, Command* command) {
 	std::cout << "Added code: " << code << "Command " << command << '\n';
+	for (auto it = mp.begin(); it != mp.end(); ++it) {
+		if (it->second == command) { //added this new block of code because there
+			mp.erase(it); //is a case which there are two distinct keys with the same command
+			break;
+		}
+	}
 	mp[code] = command;
 }
 
