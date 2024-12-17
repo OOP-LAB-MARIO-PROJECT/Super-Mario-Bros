@@ -176,15 +176,12 @@ void Player::notJump(float deltatime) {
 
 void Player::moveLeft(float deltatime) {
 	if (isDead) return;
-	if (!isOnGround) {
-		if (facing == 1) setVel(getVel() + sf::Vector2f(10, 0) * deltatime);
-		else setVel(getVel() + sf::Vector2f(-20, 0) * deltatime);
-		return;
-	}
 	facing = -1;
 
-	const float capSpeed = -140;
-	const float acce = -500;
+	float capSpeed = -140;
+	
+	if (!isOnGround) capSpeed /= 2;
+	
 	setVel({ getVel().x + -7, getVel().y});
 	if (getVel().x < capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
 }
@@ -198,15 +195,10 @@ void Player::shoot(float deltatime) {
 
 void Player::moveRight(float deltatime) {
 	if (isDead) return;
-	if (!isOnGround) {
-		if (facing == -1) setVel(getVel() + sf::Vector2f(-10, 0) * deltatime);
-		else setVel(getVel() + sf::Vector2f(20, 0) * deltatime);
-		return;
-	}
 	facing = 1;
 	//setVel(sf::Vector2f(140, getVel().y));
-	const float capSpeed = 140;
-	const float acce = 500000000;
+	float capSpeed = 140;
+	if (!isOnGround) capSpeed /= 2;
 	setVel({ getVel().x + 7, getVel().y });
 	if (getVel().x > capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
 }

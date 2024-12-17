@@ -24,6 +24,7 @@ private:
 	TextureManager* textureManager = nullptr;
 	SoundManager* soundManager = nullptr;
 	FontManager* fontManager = nullptr;
+	GameConfig* gameConfig = nullptr;
 	bool m_isRunning = false;
 
 public:

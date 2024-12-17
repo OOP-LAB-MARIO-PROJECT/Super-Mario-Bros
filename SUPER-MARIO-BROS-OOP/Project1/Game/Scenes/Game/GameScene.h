@@ -30,6 +30,7 @@ public:
 	~GameScene();
 
 	void update(float deltatime) override;
+	void updateControlKey();
 	void nextLevel(std::string level);
 	void retrieveLevelStatus();
 	void restartLevel();

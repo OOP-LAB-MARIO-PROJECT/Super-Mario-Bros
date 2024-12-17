@@ -18,6 +18,7 @@ public:
         Login,
         Register,
 		Setting,
+        KeyBinding,
     };
 
     static SceneManager& getInstance();

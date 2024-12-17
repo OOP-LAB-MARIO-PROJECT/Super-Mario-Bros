@@ -17,13 +17,35 @@ TextBox::TextBox(float x, float y, float width, float height, bool isPassword)
     text.setPosition(x + 10, y + 10);
 }
 
+TextBox::TextBox(float x, float y, float width, float height, bool isPassword, std::string defaultText, bool hasLim)
+    : isPassword(isPassword), textEntered(defaultText), isSelected(false), hasLimit(hasLim) {
+
+    box.setPosition(x, y);
+    box.setSize(sf::Vector2f(width, height));
+    box.setFillColor(sf::Color::White);
+    box.setOutlineColor(sf::Color::Black);
+    box.setOutlineThickness(10);
+
+    text.setFont(*(FontManager::getInstance().getFont("Mario")));
+    text.setFillColor(sf::Color::Black);
+    text.setCharacterSize(24);
+
+
+    text.setPosition(x + 10, y + 10);
+}
+
 void TextBox::handleInput(sf::Event event) {
     if (isSelected && event.type == sf::Event::TextEntered) {
-        
-        if (event.text.unicode == 8 && textEntered.length() > 0) { 
+
+        if (hasLimit && textEntered.length() == 1) {
+            if (!std::isalpha(event.text.unicode)) return;
             textEntered.pop_back();
         }
-        else if (event.text.unicode < 128 && event.text.unicode != 8) {  
+
+        if (event.text.unicode == 8 && textEntered.length() > 0) {
+            textEntered.pop_back();
+        }
+        else if (event.text.unicode < 128 && event.text.unicode != 8) {
             textEntered += static_cast<char>(event.text.unicode);
         }
     }

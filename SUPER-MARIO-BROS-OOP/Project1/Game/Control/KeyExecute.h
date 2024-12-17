@@ -15,6 +15,7 @@ public:
 
 	// add a command with a keyboard code
 	void addCommand(int code, Command* command);
+	void changeKey(int code, Command* command);
 	void handleInput();
 };
 
