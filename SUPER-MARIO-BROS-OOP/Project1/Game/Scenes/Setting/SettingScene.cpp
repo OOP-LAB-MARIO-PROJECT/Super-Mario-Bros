@@ -62,6 +62,8 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 void SettingScene::changeVolume()
 {
 	this->volume = volumeSlider.getVolume();
+	GameConfig::getInstance().setVolume(this->volume);
+
 }
 
 void SettingScene::muteHandling()
