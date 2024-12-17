@@ -50,7 +50,7 @@ void GameScene::nextLevel(std::string level) {
 
 void GameScene::retrieveLevelStatus() {
 	LEVEL_STATUS& status = GameConfig::getInstance().levelStatus;
-	if (status == PLAYING) return;
+	if (status == PLAYING || status == PAUSE) return;
 
 	if (status == RESTART) {
 		status = PLAYING;
@@ -94,12 +94,15 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myCommand.addCommand("left", new MoveLeft(player));
 	myCommand.addCommand("right", new MoveRight(player));
 	myCommand.addCommand("shoot", new Shoot(player));
+	myCommand.addCommand("pause", new Pause());
 	//myCommand.addCommand("dodge", new Shoot(player));
 
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("jump"), myCommand.getCommand("jump"));
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("left"), myCommand.getCommand("left"));
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("right"), myCommand.getCommand("right"));
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("shoot"), myCommand.getCommand("shoot"));
+	myKeyExecute.addCommand(sf::Keyboard::Escape, myCommand.getCommand("pause"));
+
 	EntityManager::getInstance().setRenderWindowForDebug(getWindow());
 }
 
@@ -112,6 +115,7 @@ void GameScene::updateControlKey() {
 
 void GameScene::update(float deltatime) {
 	
+
 	if (GameConfig::getInstance().hasKeyChanges) {
 		GameConfig::getInstance().hasKeyChanges = false;
 		updateControlKey();
@@ -123,27 +127,40 @@ void GameScene::update(float deltatime) {
 		{
 			getWindow()->close();
 		}
+
+		if (event.type == sf::Event::KeyPressed)
+			if (event.key.code == sf::Keyboard::Escape) {
+				myCommand.executeCommand("pause");
+			}
 	}
 
-	if (deltatime > 0.03) deltatime = 0.03;
 
+	if (deltatime > 0.3) deltatime = 0.3;
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
+
+
+	//if (GameConfig::getInstance().levelStatus == PAUSE) return;
 
 	EntityManager::getInstance().renderAll(getWindow());
 	EntityManager::getInstance().filter();
 	
-	player->update(deltatime);
-	gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
+	if (GameConfig::getInstance().levelStatus != PAUSE) {
 
-	EntityManager::getInstance().setUpdatePivot(player->getPos());
-	EntityManager::getInstance().updateAll(deltatime);
+		player->update(deltatime);
+		gameMap->update(deltatime, player->getPos(), player->getSize(), player->getVel(), player->currentMode);
+
+		EntityManager::getInstance().updateAll(deltatime);
+		EntityManager::getInstance().setUpdatePivot(player->getPos());
 	
-	gameMap->updateEnvironment();
+		gameMap->updateEnvironment();
+
+		camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
 	
-	camera->followPlayer(player->getPos().x, player->getPos().y, player->getSize().x, player->getSize().y);
+	}
+	
+
 	camera->setCameraView(getWindow());
-
 	
 	gameMap->render(getWindow());
 	player->render(getWindow());

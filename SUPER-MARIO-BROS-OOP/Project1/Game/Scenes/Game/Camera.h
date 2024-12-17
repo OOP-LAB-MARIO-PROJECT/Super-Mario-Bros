@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-
+#include <string>
 
 class	Camera {
 private:
@@ -17,6 +17,8 @@ private:
 	float base;
 	float width = 400;
 	float height = 240;
+	std::string pausText = "Pausing";
+	float pauseTimer = 0;
 
 public:
 	Camera(sf::RenderWindow* w, sf::Vector2f ppos);

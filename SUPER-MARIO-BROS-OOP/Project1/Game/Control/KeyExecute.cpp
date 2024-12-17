@@ -29,11 +29,12 @@ void KeyExecute::changeKey(int code, Command* command) {
 
 
 void KeyExecute::handleInput() {
-	for (const std::pair <int, Command*>& key : mp)
+	for (const std::pair <int, Command*>& key : mp) {
 		if (sf::Keyboard::isKeyPressed((sf::Keyboard::Scancode)key.first)) {
 			if (mp.count(key.first) && key.second) key.second->execute();
 		}
 		else {
 			if (mp.count(key.first) && key.second) key.second->deExecute();
 		}
+	}
 }
