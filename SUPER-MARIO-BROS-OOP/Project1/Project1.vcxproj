@@ -204,6 +204,7 @@
     <ClInclude Include="Game\Entities\Actors\Enemy\Fire.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\KingKoopa.h" />
     <ClInclude Include="Game\Entities\Actors\Projectile\BrickParticle.h" />
+    <ClInclude Include="Game\Entities\Tiles\QuestionTile.h" />
     <ClInclude Include="Game\Entities\Tiles\RotateFire.h" />
     <ClInclude Include="UI_Components\Animation.h" />
     <ClInclude Include="Game\Control\Commands\PlayerMovement.h" />

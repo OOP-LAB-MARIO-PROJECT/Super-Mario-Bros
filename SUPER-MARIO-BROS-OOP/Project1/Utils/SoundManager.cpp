@@ -26,6 +26,8 @@ void SoundManager::playSound(const std::string& id, bool loop) {
         std::cerr << "Sound with ID '" << id << "' not found.\n";
         return;
     }
+
+    sounds[id].setVolume(volume);
     sounds[id].setLoop(loop);
     sounds[id].play();
 }
@@ -72,4 +74,12 @@ void SoundManager::loadFromInterface(const std::string& filename) {
     std::cout << "Loaded sound successully";
 
     fin.close();
+}
+
+void SoundManager::updateVolume(float vol) {
+    volume = vol;
+}
+
+float SoundManager::getVolume() const {
+    return volume;
 }

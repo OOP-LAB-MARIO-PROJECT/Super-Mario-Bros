@@ -1,15 +1,16 @@
 #pragma once
-#include "../Scene.h"	
-#include "../../../Utils/SceneManager.h"
+#include "../../../UI_Components/VolumeSlider.h"
+#include "../../../UI_Components/Animation.h"
 #include "../../../UI_Components/Button.h"
+#include "../../../Utils/SceneManager.h"
+#include "../../GameConfig.h"
 #include <SFML/Audio.hpp>
+#include "../Scene.h"	
 #include <iostream>
 #include <iomanip>
 #include <sstream>
 #include <string>
 #include <map>
-#include "../../../UI_Components/VolumeSlider.h"
-#include "../../../UI_Components/Animation.h"
 
 class SettingScene : public Scene
 {

@@ -2,6 +2,7 @@
 #include <map>
 #include <SFML/Graphics.hpp>
 #include "../Utils/json.hpp"
+#include "../Utils/SoundManager.h"
 
 // Glolbal configuration for Game -> every file can get infomation from this
 

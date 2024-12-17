@@ -21,9 +21,11 @@ public:
     void stopSound(const std::string& id);
     bool hasSound(const std::string& id) const;
     void removeSound(const std::string& id);
-    
-    void loadFromInterface(const std::string& filename);
+    void updateVolume(float vol);
+    float getVolume() const;
 
+    void loadFromInterface(const std::string& filename);
+      
 
 private:
     SoundManager() = default; // Private constructor
@@ -31,4 +33,5 @@ private:
 
     std::unordered_map<std::string, std::shared_ptr<sf::SoundBuffer>> soundBuffers;
     std::unordered_map<std::string, sf::Sound> sounds;
+    float volume = 50;
 };
