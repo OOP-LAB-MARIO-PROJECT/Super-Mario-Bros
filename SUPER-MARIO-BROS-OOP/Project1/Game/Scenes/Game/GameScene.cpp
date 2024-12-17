@@ -113,10 +113,7 @@ void GameScene::update(float deltatime) {
 		}
 	}
 
-	if (deltatime > 0.03) {
-		std::cout << "loading....\n";
-		deltatime = 0.03;
-	}
+	if (deltatime > 0.03) deltatime = 0.03;
 
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();

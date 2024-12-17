@@ -170,3 +170,31 @@ This project was created as part of an Object-Oriented Programming class assignm
 
 
 []: # (End of README.md)
+
+# CÁC TÍNH NĂNG YÊU CẦU NHƯNG CHƯA LÀM
+
+- [ ] Chiến thắng -> đu cột cờ
+- [x] Qua màn -> animantion cho mario -> del lam
+- [x] Xuống cống -> thiếu animation 
+- [x] Special Platform -> mấy cái platform di chuyển -> ok
+- [x] Enemy -> oki -> nhưng còn thiếu enemi
+- [x] Biến lớn nhỏ
+- [x] Chết animation -> ok
+- [x] Player -> behavior
+- [ ] Scene chọn màn chơi
+- [ ] Power - up
+- [x] Save Game/ Load Game -> oki
+- [ ] Background
+- [ ] UI -> ok -> chỉnh them cho scale
+- [ ] projectile -> player
+
+
+
+- [x] Boss
+- [ ] Vòng lửa
+- [ ] gạch chứa vàng
+- [ ] nhạc game
+- [x] phá block
+- [ ] nền
+- [ ] cờ 
+- [ ] lò xo

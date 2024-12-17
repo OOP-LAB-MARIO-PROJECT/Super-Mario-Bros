@@ -52,6 +52,15 @@ Tile* TileFactory::createTile(std::string type, sf::Vector2f pos, sf::Vector2f s
 		return new MovingPlatform(pos, size, false, properties);
 	}
 
+	if (type == "rotate-fire") {
+		Tile* r = new RotateFire(pos, size, 8);
+		std::string tmp = "block4";
+		r->setTexture("tiles", tmp + "-0");
+		r->setRenderSprite(true);
+		r->setRenderHitbox(false);
+		return r;
+	}
+
 	if (TILETYPE::isTransparent(type)) {
 		Tile* r = new Tile(pos, size, true);
 		r->setTexture("tiles", type + "-0");
