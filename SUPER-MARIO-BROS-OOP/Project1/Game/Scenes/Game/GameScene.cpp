@@ -96,9 +96,6 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myCommand.addCommand("moveLeft", new MoveLeft(player));
 	myCommand.addCommand("moveRight", new MoveRight(player));
 
-	//myKeyExecute.addCommand(GameConfig::getInstance().getControl("jump"), myCommand.getCommand("jump"));
-	//myKeyExecute.addCommand(GameConfig::getInstance().getControl("moveLeft"), myCommand.getCommand("moveLeft"));
-	//myKeyExecute.addCommand(GameConfig::getInstance().getControl("moveRight"), myCommand.getCommand("moveRight"));
 
 	myKeyExecute.addCommand(GameConfig::getInstance().controls["jump"], myCommand.getCommand("jump"));
 	myKeyExecute.addCommand(GameConfig::getInstance().controls["moveLeft"], myCommand.getCommand("moveLeft"));
