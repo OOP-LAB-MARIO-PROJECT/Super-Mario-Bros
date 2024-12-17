@@ -53,15 +53,27 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
 	sf::Text timeText("Time: " + std::to_string(config.timeLeft) + "s", font, fontSize);
 	sf::Text volumeText("Volume: " + std::to_string(static_cast<int>(config.volume)) + "%", font, fontSize);
 
+	if (--pauseTimer <= 0) {
+		pauseTimer = 10;
+		pausText += '.';
+		if (pausText.size() > 15) pausText = "Pausing";
+	}
+
+	sf::Text pausingText(pausText , font, fontSize);
+
 	playerNameText.setScale(scale);
 	levelText.setScale(scale);
 	scoreText.setScale(scale);
 	coinText.setScale(scale);
 	timeText.setScale(scale);
 	volumeText.setScale(scale);
+	pausingText.setScale(scale);
 
 	float textYpos = camera.getCenter().y - 116.f;
 	playerNameText.getGlobalBounds().getPosition();
+
+	sf::Vector2f sizeP = pausingText.getGlobalBounds().getSize();
+	pausingText.setPosition(camera.getCenter() - sizeP / 2.f);
 
 	auto spaceFrom = [&](const sf::Text& rect, float space) {
 		sf::Vector2f res = rect.getPosition();
@@ -83,6 +95,9 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
 	window->draw(coinText);
 	window->draw(timeText);
 	window->draw(volumeText);
+
+	if (GameConfig::getInstance().levelStatus == PAUSE)
+		window->draw(pausingText);
 }
 
 std::pair <sf::Vector2f, sf::Vector2f> Camera::getRenderSpace() {

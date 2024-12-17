@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Control\Commands\GameControl.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\Fire.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\KingKoopa.cpp" />
     <ClCompile Include="Game\Entities\Actors\Projectile\BrickParticle.cpp" />
@@ -199,6 +200,7 @@
     <ClCompile Include="UI_Components\VolumeSlider.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Control\Commands\GameControl.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\Fire.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\KingKoopa.h" />
     <ClInclude Include="Game\Entities\Actors\Projectile\BrickParticle.h" />
