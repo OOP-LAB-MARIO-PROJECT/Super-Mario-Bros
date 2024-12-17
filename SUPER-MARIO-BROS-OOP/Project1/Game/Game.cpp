@@ -23,6 +23,14 @@ void Game::start() {
 	fontManager = &FontManager::getInstance();
 	fontManager->loadFromInterface("Assets/Fonts/font_interface.txt");
 
+	gameConfig = &GameConfig::getInstance();
+
+	gameConfig->addControl("jump", sf::Keyboard::W);
+	gameConfig->addControl("left", sf::Keyboard::A);
+	gameConfig->addControl("right", sf::Keyboard::D);
+	gameConfig->addControl("dodge", sf::Keyboard::S);
+	gameConfig->addControl("shoot", sf::Keyboard::F);
+
 	sceneManager = &SceneManager::getInstance();
 
 	sceneManager->addScene(SceneManager::Scenes::Login, new LoginScene(window));
@@ -31,6 +39,7 @@ void Game::start() {
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Setting, new SettingScene(window));
+	sceneManager->addScene(SceneManager::Scenes::KeyBinding, new KeyBindingScene(window));
 
 	sceneManager->navigateTo(SceneManager::Scenes::Login);
 	

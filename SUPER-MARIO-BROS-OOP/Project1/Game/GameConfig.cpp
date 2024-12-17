@@ -86,6 +86,17 @@ void GameConfig::updateControl(const std::string& action, sf::Keyboard::Key key)
     }
 }
 
+void GameConfig::addControl(const std::string& action, sf::Keyboard::Key defaultKey) {
+    if (!controls.count(action)) {
+        controls.insert({ action, defaultKey });
+        std::cerr << "Action '" << action << "' added in controls.\n";
+    }
+    else {
+        std::cerr << "Action '" << action << "' already in controls.\n";
+    }
+}
+
+
 // Get the control key for a specific action
 sf::Keyboard::Key GameConfig::getControl(const std::string& action) {
     if (controls.find(action) != controls.end()) {

@@ -46,6 +46,8 @@ public:
     float cameraBase = 192;
 
     // Configurations
+
+    bool hasKeyChanges = false;
     std::map<std::string, std::string> mapList;
     std::map<std::string, sf::Keyboard::Key> controls;
     std::map <std::string, std::pair<int, int>> unlockedLevel;
@@ -66,6 +68,7 @@ public:
     void addScore(int points);
     void addCoin();
     void setTimeLeft(int seconds);
+    void addControl(const std::string& action, sf::Keyboard::Key defaultKey);
     void updateControl(const std::string& action, sf::Keyboard::Key key);
     sf::Keyboard::Key getControl(const std::string& action);
     

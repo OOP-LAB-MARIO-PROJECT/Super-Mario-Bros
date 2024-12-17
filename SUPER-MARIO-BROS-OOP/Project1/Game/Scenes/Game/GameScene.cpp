@@ -91,19 +91,31 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	camera = new Camera(window, gameMap->getPlayerPos());
 
 	myCommand.addCommand("jump", new Jump(player));
-	myCommand.addCommand("moveLeft", new MoveLeft(player));
-	myCommand.addCommand("moveRight", new MoveRight(player));
+	myCommand.addCommand("left", new MoveLeft(player));
+	myCommand.addCommand("right", new MoveRight(player));
 	myCommand.addCommand("shoot", new Shoot(player));
+	//myCommand.addCommand("dodge", new Shoot(player));
 
-	myKeyExecute.addCommand(sf::Keyboard::W, myCommand.getCommand("jump"));
-	myKeyExecute.addCommand(sf::Keyboard::A, myCommand.getCommand("moveLeft"));
-	myKeyExecute.addCommand(sf::Keyboard::D, myCommand.getCommand("moveRight"));
-	myKeyExecute.addCommand(sf::Keyboard::F, myCommand.getCommand("shoot"));
+	myKeyExecute.addCommand(GameConfig::getInstance().getControl("jump"), myCommand.getCommand("jump"));
+	myKeyExecute.addCommand(GameConfig::getInstance().getControl("left"), myCommand.getCommand("left"));
+	myKeyExecute.addCommand(GameConfig::getInstance().getControl("right"), myCommand.getCommand("right"));
+	myKeyExecute.addCommand(GameConfig::getInstance().getControl("shoot"), myCommand.getCommand("shoot"));
 	EntityManager::getInstance().setRenderWindowForDebug(getWindow());
 }
 
+void GameScene::updateControlKey() {
+	myKeyExecute.changeKey(GameConfig::getInstance().getControl("jump"), myCommand.getCommand("jump"));
+	myKeyExecute.changeKey(GameConfig::getInstance().getControl("left"), myCommand.getCommand("left"));
+	myKeyExecute.changeKey(GameConfig::getInstance().getControl("right"), myCommand.getCommand("right"));
+	myKeyExecute.changeKey(GameConfig::getInstance().getControl("shoot"), myCommand.getCommand("shoot"));
+}
 
 void GameScene::update(float deltatime) {
+	
+	if (GameConfig::getInstance().hasKeyChanges) {
+		GameConfig::getInstance().hasKeyChanges = false;
+		updateControlKey();
+	}
 
 	sf::Event event;
 	while (getWindow()->pollEvent(event)) {
