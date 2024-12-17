@@ -1,6 +1,6 @@
 #include "KingKoopa.h"
 #include <vector>
-#include "../../Utils/EntityManager.h"
+#include "../../../../Utils/EntityManager.h"
 
 
 KingKoopa::KingKoopa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
