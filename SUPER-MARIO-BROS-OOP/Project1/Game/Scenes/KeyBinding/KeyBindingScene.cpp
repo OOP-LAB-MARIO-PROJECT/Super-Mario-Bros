@@ -13,7 +13,7 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 	buttons.push_back(back);
 
 	//create the shapes
-	shapes.resize(3);
+//	shapes.resize(3);
 	sf::RectangleShape shape1;
 	shape1.setFillColor(sf::Color::Blue);
 	shape1.setSize(sf::Vector2f(200, 100));

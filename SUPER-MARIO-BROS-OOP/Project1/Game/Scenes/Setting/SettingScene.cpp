@@ -6,9 +6,9 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	float midScreenY = getWindow()->getSize().y / 2.0;
 	sf::Vector2f midCoordinate(midScreenX - 100, midScreenY - 50); //button base position
 
-	Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x + 430, midCoordinate.y - 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { std::cout << "save\n"; }, "Save", 17, sf::Color::Black);
-	buttons.push_back(save);
+	//Button save = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x + 430, midCoordinate.y - 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	//	[]() { std::cout << "save\n"; }, "Save", 17, sf::Color::Black);
+	//buttons.push_back(save);
 
 	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x - 100, midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 17, sf::Color::Black);

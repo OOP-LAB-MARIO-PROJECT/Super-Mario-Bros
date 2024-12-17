@@ -6,3 +6,4 @@
 #include "Scenes/Setting/SettingScene.h"
 #include "Scenes/Register/RegisterScene.h"
 #include "Scenes/KeyBinding/KeyBindingScene.h"
+#include "Scenes/Map/MapScene.h"
