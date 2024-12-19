@@ -62,7 +62,7 @@ bool Button::beingHovered()
 	return isHovered;
 }
 
-void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window) {
+void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window){
     
     sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
     isHovered = shape.getGlobalBounds().contains(mousePos);

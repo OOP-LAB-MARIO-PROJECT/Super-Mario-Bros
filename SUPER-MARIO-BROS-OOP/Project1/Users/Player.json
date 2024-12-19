@@ -1,9 +1,16 @@
 {
+    "controls": {
+        "dodge": 18,
+        "jump": 22,
+        "left": 0,
+        "right": 3,
+        "shoot": 5
+    },
     "playerName": "Player",
     "unlocked-level": {
         "map-1-1": [
-            1600,
-            8
+            200,
+            0
         ],
         "map-1-2": [
             0,

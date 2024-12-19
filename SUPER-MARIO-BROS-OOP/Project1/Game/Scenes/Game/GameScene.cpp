@@ -1,4 +1,4 @@
-#include "GameScene.h"
+﻿#include "GameScene.h"
 #include <fstream>
 #include <exception>
 
@@ -23,7 +23,13 @@ void GameScene::loadMapList() {
 		std::cout << "Map loaded: " << mapName << ' ' << mapPath << '\n';
 	}
 
-	currentLevel = "map-1-1";
+	if (GameConfig::getInstance().hasMapSelection) {
+		currentLevel = GameConfig::getInstance().chosenMap;
+	}
+	else {
+		currentLevel = "map-1-1";
+	}
+	//currentLevel = "map-1-1";
 	GameConfig::getInstance().setCurrentLevel(currentLevel);
 	GameConfig::getInstance().saveLevel();
 	fin.close();
@@ -43,6 +49,7 @@ void GameScene::nextLevel(std::string level) {
 	player->nearPointerTiles.clear();
 	std::cout << "move to " << level << '\n';
 	currentLevel = level;
+	GameConfig::getInstance().chosenMap = currentLevel; // synchronize the chosen map
 	delete gameMap;
 	gameMap = new Map();
 	gameMap->loadMap(levelMap[currentLevel], player);
@@ -110,8 +117,31 @@ void GameScene::updateControlKey() {
 	myKeyExecute.changeKey(GameConfig::getInstance().getControl("shoot"), myCommand.getCommand("shoot"));
 }
 
+void GameScene::updateMap() {
+	static std::string lastLevel = currentLevel; // old currentLevel
+	if (GameConfig::getInstance().hasMapSelection) {
+		currentLevel = GameConfig::getInstance().chosenMap; // new current currentLevel
+		if (lastLevel != currentLevel) {
+			EntityManager::getInstance().clear();
+			GameConfig::getInstance().saveLevel();
+			GameConfig::getInstance().timeLeft = 300;
+			GameConfig::getInstance().setCurrentLevel(currentLevel);
+			GameConfig::getInstance().unlockedLevel[currentLevel] = { 0, 0 };
+			GameConfig::getInstance().saveToFile();
+
+			player->otherEntities.clear();
+			player->obstacle.clear();
+			player->nearPointerTiles.clear();
+			delete gameMap;
+			gameMap = new Map();
+			gameMap->loadMap(levelMap[currentLevel], player);
+			lastLevel = currentLevel;
+		}
+	}
+}
+
 void GameScene::update(float deltatime) {
-	
+	updateMap();
 	if (GameConfig::getInstance().hasKeyChanges) {
 		GameConfig::getInstance().hasKeyChanges = false;
 		updateControlKey();

@@ -48,6 +48,8 @@ public:
     // Configurations
 
     bool hasKeyChanges = false;
+    bool hasMapSelection = false;
+    std::string chosenMap = "";
     std::map<std::string, std::string> mapList;
     std::map<std::string, sf::Keyboard::Key> controls;
     std::map <std::string, std::pair<int, int>> unlockedLevel;

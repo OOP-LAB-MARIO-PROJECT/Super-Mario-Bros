@@ -2,15 +2,17 @@
 #include "../Scene.h"
 #include "../../../Utils/SceneManager.h"
 #include <string>
-#include <vector>
+#include <map>
 #include <fstream>
+#include "../../../UI_Components/Button.h"
 #include "../../GameConfig.h"
 class MapScene : public Scene
 {
 	GameConfig* gameConfig = nullptr;
-	std::vector<std::string> allMapNames;
+	std::map<std::string, bool> allMapNames;
 	std::vector<std::string> unlockedMapNames;
-	std::vector<sf::RectangleShape> shapes;
+	std::vector<Button> buttons;
+	std::vector<bool> disabled;
 	std::vector<sf::Text> texts;
 
 public:
@@ -18,7 +20,7 @@ public:
 	~MapScene() {
 
 	};
-	std::string getMapName();
+	bool isUnlocked(std::string mapName);
 	void drawScene();
 	void loopEvents();
 	void update(float deltatime) override;
