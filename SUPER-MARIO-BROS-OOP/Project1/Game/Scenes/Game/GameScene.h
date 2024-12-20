@@ -14,16 +14,20 @@
 #include "../../Control/Commands/PlayerMovement.h"
 #include "../../Control/Commands/GameControl.h"
 
+#include "../../Scenes/Map/MapScene.h"
+#include "../../GameConfig.h"
+
 class GameScene : public Scene {
 
 	Map* gameMap = NULL;
 	Player* player = NULL;
 	Camera* camera = NULL;
+
 	CommandManager myCommand;
 	KeyExecute myKeyExecute;
-
 	std::map <std::string, std::string> levelMap;
 	std::string currentLevel;
+	std::vector<Button> buttons;
 
 public:
 

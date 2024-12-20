@@ -37,6 +37,18 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 	buttons.push_back(back);
 
 	//create the shapes
+	shapes.resize(3);
+	sf::RectangleShape shape1;
+	shape1.setFillColor(sf::Color::Blue);
+	shape1.setSize(sf::Vector2f(200, 100));
+	shape1.setPosition(0, 0);
+	shapes.push_back(shape1);
+
+	sf::RectangleShape shape2;
+	shape2.setFillColor(sf::Color::Blue);
+	shape2.setSize(sf::Vector2f(200, 100));
+	shape2.setPosition(0, 100);
+	shapes.push_back(shape2);
 
 	addShape(sf::Vector2f(0, 0), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
 	addShape(sf::Vector2f(0, 100), sf::Vector2f(200, 100), sf::Color::Blue, shapes);

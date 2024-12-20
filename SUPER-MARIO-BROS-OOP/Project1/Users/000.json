@@ -6,13 +6,21 @@
         "right": 3,
         "shoot": 5
     },
-    "playerName": "duy",
+    "playerName": "000",
     "unlocked-level": {
+        "": [
+            0,
+            0
+        ],
         "map-1-1": [
-            1400,
-            7
+            2800,
+            14
         ],
         "map-1-2": [
+            0,
+            0
+        ],
+        "map-1-3": [
             0,
             0
         ]

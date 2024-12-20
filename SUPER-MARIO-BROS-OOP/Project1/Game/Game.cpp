@@ -30,16 +30,18 @@ void Game::start() {
 	gameConfig->addControl("right", sf::Keyboard::D);
 	gameConfig->addControl("dodge", sf::Keyboard::S);
 	gameConfig->addControl("shoot", sf::Keyboard::F);
-
+	
 	sceneManager = &SceneManager::getInstance();
 
 	sceneManager->addScene(SceneManager::Scenes::Login, new LoginScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Register, new RegisterScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Home, new HomeScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Exit, new ExitScene(window));
-	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
+	sceneManager->addScene(SceneManager::Scenes::Map, new MapScene(window));
 	sceneManager->addScene(SceneManager::Scenes::Setting, new SettingScene(window));
 	sceneManager->addScene(SceneManager::Scenes::KeyBinding, new KeyBindingScene(window));
+	
+	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
 
 	sceneManager->navigateTo(SceneManager::Scenes::Login);
 	

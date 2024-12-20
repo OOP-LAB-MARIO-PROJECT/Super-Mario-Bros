@@ -186,6 +186,9 @@
     <ClCompile Include="Game\Entities\Tiles\RotateFire.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Scenes\Map\MapScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Control\Commands\GameControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -363,6 +366,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Entities\Tiles\RotateFire.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scenes\Map\MapScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Control\Commands\GameControl.h">

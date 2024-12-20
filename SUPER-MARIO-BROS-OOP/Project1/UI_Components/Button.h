@@ -13,6 +13,7 @@ private:
     sf::Text text;
     bool isPressed = false;
     bool isHovered = false;
+	bool isDisabled = false;
     std::function<void()> onClick;
 
     sf::Color defaultColor;
