@@ -139,6 +139,7 @@ void Player::update(float deltatime) {
 			if (isOnGround) tmp.vel.y = 1;
 			int dir = dynamicRectVsRect(getHitbox(), deltatime, tmp.vel, tile->getHitbox());
 			if (dir == -1) continue;
+			if (dir == dir::TOP) isJumping = false;
 			sf::Vector2f center = tile->getHitbox().pos + tile->getHitbox().size / 2.f;			
 			float dist = (pcenter.x - center.x) * (pcenter.x - center.x) + (pcenter.y - center.y) * (pcenter.y - center.y);
 			if (dist < curDist) curDist = dist, cur = tile;	
