@@ -1,4 +1,28 @@
 #include "KeyBindingScene.h"
+
+static void addShape(sf::Vector2f shapePos, sf::Vector2f shapeSize, sf::Color shapeColor, 
+			std::vector<sf::RectangleShape>& shapes) {
+	sf::RectangleShape shape;
+	shape.setFillColor(shapeColor);
+	shape.setSize(shapeSize);
+	shape.setPosition(shapePos);
+	shapes.push_back(shape);
+}
+
+static void addActionText(std::string name, sf::Vector2f pos, int charSize, sf::Color color,
+		std::vector <sf::Text>& action) {
+
+	sf::Text action1;
+	action1.setFont(*(FontManager::getInstance().getFont("Mario")));
+	action1.setString(name);
+	action1.setFillColor(color);
+	action1.setCharacterSize(charSize);
+	action1.setPosition(pos);
+
+	action.push_back(action1);
+
+}
+
 KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 {
 	gameConfig = &GameConfig::getInstance();
@@ -13,7 +37,7 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 	buttons.push_back(back);
 
 	//create the shapes
-//	shapes.resize(3);
+	shapes.resize(3);
 	sf::RectangleShape shape1;
 	shape1.setFillColor(sf::Color::Blue);
 	shape1.setSize(sf::Vector2f(200, 100));
@@ -26,50 +50,36 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 	shape2.setPosition(0, 100);
 	shapes.push_back(shape2);
 
-	sf::RectangleShape shape3;
-	shape3.setFillColor(sf::Color::Blue);
-	shape3.setSize(sf::Vector2f(200, 100));
-	shape3.setPosition(0, 100);
-	shapes.push_back(shape3);
+	addShape(sf::Vector2f(0, 0), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
+	addShape(sf::Vector2f(0, 100), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
+	addShape(sf::Vector2f(0, 200), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
 
 	//display the action
-	sf::Text action1;
-	action1.setFont(*(FontManager::getInstance().getFont("Mario")));
-	action1.setString("jump");
-	action1.setFillColor(sf::Color::White);
-	action1.setCharacterSize(24);
-	action1.setPosition(100, 50);
 
-	sf::Text action2;
-	action2.setFont(*(FontManager::getInstance().getFont("Mario")));
-	action2.setString("move left");
-	action2.setFillColor(sf::Color::White);
-	action2.setCharacterSize(24);
-	action2.setPosition(100, 150);
-
-	sf::Text action3;
-	action3.setFont(*(FontManager::getInstance().getFont("Mario")));
-	action3.setString("move right");
-	action3.setFillColor(sf::Color::White);
-	action3.setCharacterSize(24);
-	action3.setPosition(100, 250);
-
-	actions.push_back(action1);
-	actions.push_back(action2);
-	actions.push_back(action3);
+	addActionText("jump", sf::Vector2f(100, 50), 24, sf::Color::White, actions);
+	addActionText("move left", sf::Vector2f(100, 150), 24, sf::Color::White, actions);
+	addActionText("move right", sf::Vector2f(100, 250), 24, sf::Color::White, actions);
+	addActionText("dodge", sf::Vector2f(100, 350), 24, sf::Color::White, actions);
+	addActionText("shoot", sf::Vector2f(100, 450), 24, sf::Color::White, actions);
 
 	//the actual action names
 	actualActions.push_back("jump");
 	actualActions.push_back("left");
 	actualActions.push_back("right");
+	actualActions.push_back("dodge");
+	actualActions.push_back("shoot");
 
-	TextBox textBox1(0, 300, 100, 100, false, "W", true);
+	TextBox textBox1(100, 300, 100, 100, false, "W", true);
 	TextBox textBox2(0, 400, 100, 100, false, "A", true);
-	TextBox textBox3(0, 500, 100, 100, false, "D", true);
+	TextBox textBox3(200, 400, 100, 100, false, "D", true);
+	TextBox textBox4(100, 400, 100, 100, false, "S", true);
+	TextBox textBox5(400, 400, 100, 100, false, "F", true);
 
 	textBoxes.push_back(textBox1);
 	textBoxes.push_back(textBox2);
 	textBoxes.push_back(textBox3);
+	textBoxes.push_back(textBox4);
+	textBoxes.push_back(textBox5);
 }
 
 void KeyBindingScene::drawScene()

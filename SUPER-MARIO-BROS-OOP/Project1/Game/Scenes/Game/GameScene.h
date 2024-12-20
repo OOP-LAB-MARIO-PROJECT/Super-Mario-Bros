@@ -12,6 +12,7 @@
 #include "Camera.h"
 
 #include "../../Control/Commands/PlayerMovement.h"
+#include "../../Control/Commands/GameControl.h"
 
 #include "../../Scenes/Map/MapScene.h"
 #include "../../GameConfig.h"

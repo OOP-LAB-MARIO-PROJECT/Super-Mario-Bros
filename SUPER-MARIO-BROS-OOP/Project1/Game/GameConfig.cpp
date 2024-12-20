@@ -12,6 +12,9 @@ void GameConfig::setVolume(float newVolume) {
     else {
         std::cerr << "Volume out of range. Must be between 0 and 100.\n";
     }
+
+    SoundManager::getInstance().updateVolume(volume);
+    saveToFile();
 }
 
 // Toggle volume (mute/unmute)

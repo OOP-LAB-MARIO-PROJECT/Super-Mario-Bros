@@ -24,7 +24,7 @@ void TextureManager::setTextureRect(sf::Sprite& sprite, const std::string& textu
 	}
 
 	if (!textureRect[textureName].count(rectName)) {
-		std::cout << "Cannot find texture rect with name " + rectName << '\n';
+		std::cout << "Cannot find texture rect with name " + rectName + " from " + textureName << '\n';
 		return;
 
 	}

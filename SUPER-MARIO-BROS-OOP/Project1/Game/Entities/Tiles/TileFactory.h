@@ -40,8 +40,7 @@ namespace TILETYPE {
 	static std::vector <std::string> interactable = {
 		"block2",
 		"block-underground-3",
-		"question",
-		"moving-platform"
+		"question"
 	};
 
 	static std::vector <std::string> transparent = {
