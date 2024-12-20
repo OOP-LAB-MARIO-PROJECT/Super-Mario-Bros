@@ -11,22 +11,11 @@ GameScene::~GameScene() {
 
 void GameScene::loadMapList() {
 	// load map from txt file
-	const std::string& mapList = "Assets/Map/map_interface.txt";
-	std::ifstream fin(mapList);
-	if (!fin.is_open()) {
-		throw std::exception("Cannot open maplist\n");
-	}
-
-	std::string mapName, mapPath;
-	while (fin >> mapName >> mapPath) {
-		levelMap[mapName] = mapPath;
-		std::cout << "Map loaded: " << mapName << ' ' << mapPath << '\n';
-	}
-
-	currentLevel = "map-1-1";
+	levelMap = GameConfig::getInstance().mapList;
+	currentLevel = GameConfig::getInstance().chosenMap;
+	std::cout << "loadmaplist: " << currentLevel << '\n';
 	GameConfig::getInstance().setCurrentLevel(currentLevel);
 	GameConfig::getInstance().saveLevel();
-	fin.close();
 }
 
 
@@ -83,12 +72,9 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	// INITIALIZE 
 	
 	loadMapList();
-
 	player = new Player(sf::Vector2f(50, 50), sf::Vector2f(14, 14));
-	restartLevel();
 
-	std::cout << gameMap->getPlayerPos().x << ' ' << gameMap->getPlayerPos().y << "\n";
-	camera = new Camera(window, gameMap->getPlayerPos());
+	camera = new Camera(window, player->getPos());
 
 	myCommand.addCommand("jump", new Jump(player));
 	myCommand.addCommand("left", new MoveLeft(player));
@@ -114,7 +100,11 @@ void GameScene::updateControlKey() {
 }
 
 void GameScene::update(float deltatime) {
-	
+	if (GameConfig::getInstance().levelStatus == FIRST_START) {
+		currentLevel = GameConfig::getInstance().currentLevel;
+		GameConfig::getInstance().levelStatus = PLAYING;
+		restartLevel();
+	}
 
 	if (GameConfig::getInstance().hasKeyChanges) {
 		GameConfig::getInstance().hasKeyChanges = false;

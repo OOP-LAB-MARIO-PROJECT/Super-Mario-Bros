@@ -36,7 +36,6 @@ public:
 
 	void update(float deltatime) override;
 	void updateControlKey();
-	void updateMap();
 	void nextLevel(std::string level);
 	void retrieveLevelStatus();
 	void restartLevel();

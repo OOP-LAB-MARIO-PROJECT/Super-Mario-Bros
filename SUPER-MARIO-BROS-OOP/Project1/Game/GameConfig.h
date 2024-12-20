@@ -24,6 +24,7 @@ enum LEVEL_STATUS {
     NEXT_LEVEL,
     IDLE,
     PAUSE,
+    FIRST_START
 };
 
 class GameConfig {

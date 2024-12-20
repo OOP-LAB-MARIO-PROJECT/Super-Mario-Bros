@@ -21,6 +21,10 @@ MapScene::MapScene(sf::RenderWindow* window) : Scene(window)
 		allMapNames[it.first] = false; //false means locked
 	}
 
+	gameConfig->hasMapSelection = true;
+	gameConfig->chosenMap = "map-1-1";
+	gameConfig->levelStatus = FIRST_START;
+
 	Button map11 = Button::createButton(sf::Vector2f(200, 90), sf::Vector2f(100, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[this]() {
 			gameConfig->hasMapSelection = true;
@@ -30,7 +34,8 @@ MapScene::MapScene(sf::RenderWindow* window) : Scene(window)
 	Button map12 = Button::createButton(sf::Vector2f(200, 90), sf::Vector2f(100, 300), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[this]() { 
 			gameConfig->hasMapSelection = true;
-			gameConfig->chosenMap = "map-1-2"; }, "map 1-2", 20, sf::Color::Black);
+			gameConfig->chosenMap = "map-1-2";
+		}, "map 1-2", 20, sf::Color::Black);
 	buttons.push_back(map12);
 
 	Button map13 = Button::createButton(sf::Vector2f(200, 90), sf::Vector2f(100, 500), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
@@ -78,6 +83,8 @@ MapScene::MapScene(sf::RenderWindow* window) : Scene(window)
 	Button play = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(100, 700), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game); }, "Play", 17, sf::Color::Black);
 	buttons.push_back(play);
+
+
 }
 
 void MapScene::drawScene()
@@ -107,8 +114,8 @@ void  MapScene::loopEvents()
 		}
 		for (int i = 0; i < buttons.size(); ++i)
 		{
-			std::cout << "num of buttons: " << buttons.size() << '\n';
-			std::cout << disabled[i] << '\n';
+			//std::cout << "num of buttons: " << buttons.size() << '\n';
+			//std::cout << disabled[i] << '\n';
 			if (disabled[i] == true)
 			{
 				buttons[i].handleEvent(event, *getWindow());
@@ -127,4 +134,7 @@ void MapScene::update(float deltatime)
 	drawScene();
 	loopEvents();
 
+	if (gameConfig->hasMapSelection) {
+		gameConfig->setCurrentLevel(gameConfig->chosenMap);
+	}
 }
