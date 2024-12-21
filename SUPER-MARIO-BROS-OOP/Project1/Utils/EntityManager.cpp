@@ -78,3 +78,10 @@ void EntityManager::clear() {
 void EntityManager::setSpace(float width, float height) {
 	quadEn.init(width, height, 8);
 }
+
+
+void EntityManager::updatePositionAndPhysic(float deltaTime) {
+	for (int i = 0; i < entities.size(); i++) {
+		entities[i]->updatePositionAndPhysic(deltaTime);
+	}
+}
