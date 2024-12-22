@@ -108,3 +108,12 @@ void Goompa::affectOther(Entity* other, float deltatime) {
         }
     }
 }
+
+
+
+
+void Goompa::updatePositionAndPhysic(float deltaTime) {
+    setPos(getPos() + getVel() * deltaTime);
+    performPhysics(deltaTime);
+    setSpritePos(getPos() - sf::Vector2f(0, 16));
+}
