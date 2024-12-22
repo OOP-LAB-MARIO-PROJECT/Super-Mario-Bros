@@ -43,7 +43,6 @@
  <tile id="607" type="cloud5"/>
  <tile id="608" type="cloud5"/>
  <tile id="609" type="cloud6"/>
- <tile id="636" type="castle3"/>
  <tile id="639" type="cloud1"/>
  <tile id="640" type="cloud2"/>
  <tile id="641" type="cloud2"/>
@@ -256,7 +255,7 @@
  <tile id="1396" type="cloud5"/>
  <tile id="1397" type="cloud6"/>
  <tile id="1398" type="moving-platform"/>
- <tile id="1399" type="moving-platform"/>
+ <tile id="1399" type="moving-platform#1344;1408;2;1"/>
  <tile id="1400" type="moving-platform"/>
  <tile id="1417" type="soil"/>
  <tile id="1418" type="soil"/>
@@ -312,7 +311,7 @@
  <tile id="1555" type="soil"/>
  <tile id="1556" type="soil"/>
  <tile id="1570" type="moving-platform"/>
- <tile id="1571" type="moving-platform"/>
+ <tile id="1571" type="moving-platform#1472;1536;2"/>
  <tile id="1572" type="moving-platform"/>
  <tile id="1581" type="soil"/>
  <tile id="1582" type="soil"/>
@@ -469,6 +468,7 @@
  <tile id="1970" type="castle-door"/>
  <tile id="1971" type="castle2"/>
  <tile id="1972" type="castle2"/>
+ <tile id="1974" type="player_pos"/>
  <tile id="1986" type="block_grass_1"/>
  <tile id="1987" type="block_grass_2"/>
  <tile id="1988" type="block_grass_2"/>

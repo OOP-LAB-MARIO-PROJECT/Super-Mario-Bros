@@ -18,6 +18,7 @@ namespace TILETYPE {
 		"block2",
 		"block3",
 		"block4",
+		"block5",
 		"block-underground-1",
 		"block-underground-3",
 		"block-underground-4",
@@ -28,6 +29,9 @@ namespace TILETYPE {
 		"pipe-side-body-up",
 		"pipe-side-tail-up",
 		"pipe-side-tail-bottom",
+		"block_grass_1",
+		"block_grass_2",
+		"block_grass_3"
 	};
 
 	static std::vector <std::string> pipeHead = {
@@ -54,7 +58,14 @@ namespace TILETYPE {
 		"castle3",
 		"castle-arch",
 		"castle-window-right",
-		"castle-window-left"
+		"castle-window-left",
+		"cloud1",
+		"cloud2",
+		"cloud3",
+		"cloud4",
+		"cloud5",
+		"cloud6",
+		"soil"
 	};
 
 	static bool isNormalPlatform(std::string name) {
