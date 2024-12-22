@@ -118,7 +118,7 @@ void Player::update(float deltatime) {
 
 	for (const auto& en : other) { // player interact with surrounding enemies
 		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
-		if (dir == -1) continue;
+		
 		if (en->getType() == ENEMY) {
 			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), isKilling = true;
 			en->affectOther(this);
@@ -128,6 +128,7 @@ void Player::update(float deltatime) {
 	}
 
 	other = nearPointerTiles;
+	std::cout << other.size();
 	if (other.size()) {
 		float curDist = 1e9;
 		Entity* cur = NULL;
@@ -148,7 +149,6 @@ void Player::update(float deltatime) {
 		if (cur) cur->affectOther(this, deltatime);
 	}
 
-	performPhysics(deltatime);
 }
 
 void Player::jump(float deltatime) {
@@ -236,6 +236,3 @@ void Player::reset() {
 	otherEntities.clear();
 	setVel(sf::Vector2f(0, 0));
 }
-
-
-

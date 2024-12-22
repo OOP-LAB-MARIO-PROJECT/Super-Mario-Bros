@@ -24,4 +24,5 @@ public:
 	virtual void behavior(float detatime) = 0;
 	bool getIsDeadByOtherEnemy() override;
 	void setIsDeadByOtherEnemy(bool a) override;
+
 };
