@@ -21,7 +21,7 @@ MapScene::MapScene(sf::RenderWindow* window) : Scene(window)
 		allMapNames[it.first] = false; //false means locked
 	}
 
-	gameConfig->hasMapSelection = true;
+	gameConfig->hasMapSelection = false;
 	gameConfig->chosenMap = "map-1-1";
 	gameConfig->levelStatus = FIRST_START;
 
@@ -136,5 +136,6 @@ void MapScene::update(float deltatime)
 
 	if (gameConfig->hasMapSelection) {
 		gameConfig->setCurrentLevel(gameConfig->chosenMap);
+		SceneManager::getInstance().navigateTo(SceneManager::Scenes::Game);
 	}
 }
