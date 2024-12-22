@@ -236,12 +236,3 @@ void Player::reset() {
 	otherEntities.clear();
 	setVel(sf::Vector2f(0, 0));
 }
-
-
-
-
-
-void Player::updatePositionAndPhysic(float deltaTime) {
-	setPos(getPos() + getVel() * deltaTime);
-	performPhysics(deltaTime);
-}

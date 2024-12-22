@@ -39,9 +39,9 @@
  <tile id="266" type="pipe-side-head-up"/>
  <tile id="267" type="pipe-side-body-up"/>
  <tile id="268" type="pipe-side-tail-up"/>
- <tile id="269" type="block_grass_1"/>
- <tile id="270" type="block_grass_2"/>
- <tile id="271" type="block_grass_3"/>
+ <tile id="269" type="block-grass-1"/>
+ <tile id="270" type="block-grass-2"/>
+ <tile id="271" type="block-grass-3"/>
  <tile id="272" type="edge_moutain_left"/>
  <tile id="273" type="top_mountain"/>
  <tile id="274" type="edge_moutain_right"/>
