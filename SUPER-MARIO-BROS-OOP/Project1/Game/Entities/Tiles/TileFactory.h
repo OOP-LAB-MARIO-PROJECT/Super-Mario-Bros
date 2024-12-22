@@ -24,62 +24,23 @@ namespace TILETYPE {
 		"block-underground-5",
 		"pipe-up-body-left",
 		"pipe-up-body-right",
-		"pipe-up-body-left-light",
-		"pipe-up-body-right-light",
 		"pipe-side-body-bottom",
 		"pipe-side-body-up",
 		"pipe-side-tail-up",
 		"pipe-side-tail-bottom",
-		"cloud1",
-		"cloud2",
-		"cloud3",
-		"cloud4",
-		"cloud5",
-		"cloud6",
-		"block-grass-1",
-		"block-grass-2",
-		"block-grass-3"
-		"soil",
-		"block-rock",
-		"bridge",
-		"block_green"
-	};
-
-	static std::vector <std::string> comeAccross = {
-		"bunch",
-		"bunch_up",
-		"bunch_down",
-		"bunch_up_light",
-		"bunch_down_light",
-		"bunch_light",
-		"trunk",
-		"fence",
-		"moss",
-		"edge_mountain_left",
-		"top_mountain",
-		"edge_mountain_right",
-		"body_mountain",
-		"handrail",
 	};
 
 	static std::vector <std::string> pipeHead = {
 		"pipe-up-head-left",
 		"pipe-up-head-right",
 		"pipe-side-head-bottom",
-		"pipe-side-head-up",
-		"pipe-up-head-left-light",
-		"pipe-up-head-right-light",
+		"pipe-side-head-up"
 	};
 
 	static std::vector <std::string> interactable = {
 		"block2",
 		"block-underground-3",
 		"question"
-		"hammer",
-		"horizontal_wire",
-		"vertical_wire",
-		"pulley_left",
-		"pulley_right"
 	};
 
 	static std::vector <std::string> transparent = {
