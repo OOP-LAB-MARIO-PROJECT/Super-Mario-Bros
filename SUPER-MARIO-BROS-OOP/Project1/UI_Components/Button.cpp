@@ -6,6 +6,7 @@ Button::Button(const sf::Vector2f& size, const sf::Vector2f& position)
 	shape.setPosition(position);
     shape.setSize(size);
     shape.setFillColor(defaultColor); 
+    sprite = NULL;
 }
 
 void Button::setSize(const sf::Vector2f& size) {
@@ -90,7 +91,7 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
 
 
 void Button::draw(sf::RenderWindow* window) {
-    window->draw(*sprite);
+    if (sprite) window->draw(*sprite);
    /* std::cout << "draw sprite\n";*/
     window->draw(shape);
    /* std::cout << "draw shape\n";*/

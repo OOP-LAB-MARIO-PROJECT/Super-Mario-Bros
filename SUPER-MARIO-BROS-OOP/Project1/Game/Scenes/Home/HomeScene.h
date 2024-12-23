@@ -3,6 +3,7 @@
 #include "../../../Utils/SceneManager.h"
 #include "../../../UI_Components/Button.h"
 #include "../../../UI_Components/Animation.h"
+#include "../../GameConfig.h"
 class HomeScene : public Scene
 {
     std::vector<Button> buttons;
@@ -22,6 +23,8 @@ class HomeScene : public Scene
 	sf::Sprite rightPipeSprite1;
 	sf::Sprite rightPipeSprite2;
 	sf::Sprite rightPipeSprite3;
+	sf::View homeView;
+
 	bool isMoonHovered;
 	int currentMoon;
 

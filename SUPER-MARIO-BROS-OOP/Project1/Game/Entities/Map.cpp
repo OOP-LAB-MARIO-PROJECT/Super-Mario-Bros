@@ -53,6 +53,14 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	
 		player->setPos({ (float)myMapInfo["player_pos"][0].first, (float)myMapInfo["player_pos"][0].second });
 		resetPlayer(player->getPos(), player->getSize(), player->getVel(), player->currentMode);
+		
+		if (myMapInfo.count("camera_base")) {
+
+			int camBase = myMapInfo["camera_base"][0].second;
+			std::cout << "cambase: " << camBase << '\n';
+			GameConfig::getInstance().cameraBase = camBase;
+		}	
+	
 	}
 	else {
 		throw std::exception("No found player in map");

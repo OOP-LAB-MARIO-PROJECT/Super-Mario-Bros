@@ -181,7 +181,7 @@ void Player::moveLeft(float deltatime) {
 
 	float capSpeed = -140;
 
-	if (!isOnGround && getVel().x > capSpeed / 2) capSpeed /= 2;
+	if (!isOnGround && getVel().x > capSpeed / 2) capSpeed /= 4;
 
 	setVel({ getVel().x + -7, getVel().y });
 	if (getVel().x < capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
@@ -199,7 +199,7 @@ void Player::moveRight(float deltatime) {
 	facing = 1;
 	//setVel(sf::Vector2f(140, getVel().y));
 	float capSpeed = 140;
-	if (!isOnGround && getVel().x < capSpeed / 2) capSpeed /= 2;
+	if (!isOnGround && getVel().x < capSpeed / 2) capSpeed /= 4;
 	setVel({ getVel().x + 7, getVel().y });
 	if (getVel().x > capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
 }

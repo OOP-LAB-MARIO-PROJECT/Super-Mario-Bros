@@ -741,6 +741,7 @@
  <tile id="2021" type="block_rock"/>
  <tile id="2022" type="block_rock"/>
  <tile id="2023" type="block_rock"/>
+ <tile id="2024" type="camera_base"/>
  <tile id="2036" type="block_rock"/>
  <tile id="2037" type="block_rock"/>
  <tile id="2038" type="block_rock"/>
