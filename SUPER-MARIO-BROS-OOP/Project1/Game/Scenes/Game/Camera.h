@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../../GameConfig.h"
+#include "../../../UI_Components/Button.h"
+#include "../../../Utils/SceneManager.h"
 #include <array>
 #include <vector>
 #include <algorithm>
@@ -19,6 +21,7 @@ private:
 	float height = 240;
 	std::string pausText = "Pausing";
 	float pauseTimer = 0;
+	Button backhome;
 
 public:
 	Camera(sf::RenderWindow* w, sf::Vector2f ppos);

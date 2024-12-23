@@ -156,6 +156,8 @@ HomeScene::HomeScene(sf::RenderWindow* window) : Scene(window)
 	sprites.push_back(std::make_shared<sf::Sprite>(rightPipeSprite2));
 	sprites.push_back(std::make_shared<sf::Sprite>(rightPipeSprite3));
 
+	homeView = getWindow()->getDefaultView();
+	
 }
 
 
@@ -232,5 +234,8 @@ void HomeScene::loadGif(float deltatime)
 
 
 void HomeScene::update(float deltatime) {
+	GameConfig::getInstance().levelStatus = FIRST_START;
+	GameConfig::getInstance().hasMapSelection = false;
+	getWindow()->setView(homeView);
 	loadGif(deltatime);
 }

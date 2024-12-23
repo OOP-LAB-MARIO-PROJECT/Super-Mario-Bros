@@ -58,7 +58,7 @@ void Game::run() {
 	float deltatime = m_clock.restart().asSeconds();
 	int FPS = 1 / deltatime;
 
-	window->clear();
+	window->clear(/*sf::Color::Blue*/);
 	sceneManager->update(deltatime);
 	window->display();
 };

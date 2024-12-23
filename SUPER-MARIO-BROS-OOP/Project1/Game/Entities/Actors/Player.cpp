@@ -16,9 +16,9 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	stateCache["IDLE"] = std::make_shared<IdleState>("mario", idleTexture, 0);
 
 
-	std::vector<std::vector<std::string>> runTexture = { {	"left-mario-15", 
-															"left-mario-14", 
-															"left-mario-13" }, 
+	std::vector<std::vector<std::string>> runTexture = { {	"left-mario-15",
+															"left-mario-14",
+															"left-mario-13" },
 														  {	"right-mario-0",
 															"right-mario-1",
 															"right-mario-2"} };
@@ -76,11 +76,11 @@ void Player::update(float deltatime) {
 	}
 
 	if (deadthTimer > 2.5) GameConfig::getInstance().levelStatus = RESTART, health = 1, deadthTimer = 0, isDead = false;
-	
+
 	shootTimer -= deltatime;
 	if (shootTimer < 0) shootTimer = 0;
-	
-	
+
+
 	if (currentState) {
 		//std::cout << "Current state exists" << std::endl;
 		currentState->handle(this, deltatime);
@@ -140,9 +140,9 @@ void Player::update(float deltatime) {
 			int dir = dynamicRectVsRect(getHitbox(), deltatime, tmp.vel, tile->getHitbox());
 			if (dir == -1) continue;
 			if (dir == dir::TOP) isJumping = false;
-			sf::Vector2f center = tile->getHitbox().pos + tile->getHitbox().size / 2.f;			
+			sf::Vector2f center = tile->getHitbox().pos + tile->getHitbox().size / 2.f;
 			float dist = (pcenter.x - center.x) * (pcenter.x - center.x) + (pcenter.y - center.y) * (pcenter.y - center.y);
-			if (dist < curDist) curDist = dist, cur = tile;	
+			if (dist < curDist) curDist = dist, cur = tile;
 		}
 
 		if (cur) cur->affectOther(this, deltatime);
@@ -180,10 +180,10 @@ void Player::moveLeft(float deltatime) {
 	facing = -1;
 
 	float capSpeed = -140;
-	
-	if (!isOnGround && getVel().x > capSpeed / 2) capSpeed /= 2;
-	
-	setVel({ getVel().x + -7, getVel().y});
+
+	if (!isOnGround && getVel().x > capSpeed / 2) capSpeed /= 4;
+
+	setVel({ getVel().x + -7, getVel().y });
 	if (getVel().x < capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
 }
 
@@ -199,7 +199,7 @@ void Player::moveRight(float deltatime) {
 	facing = 1;
 	//setVel(sf::Vector2f(140, getVel().y));
 	float capSpeed = 140;
-	if (!isOnGround && getVel().x < capSpeed / 2) capSpeed /= 2;
+	if (!isOnGround && getVel().x < capSpeed / 2) capSpeed /= 4;
 	setVel({ getVel().x + 7, getVel().y });
 	if (getVel().x > capSpeed) setVel(sf::Vector2f(capSpeed, getVel().y));
 }
@@ -214,7 +214,7 @@ void Player::inflictDamage() {
 		setIsTransforming(true);
 		return;
 	}
-	
+
 	if (getIsTransforming()) return;
 	health--;
 }
@@ -236,6 +236,3 @@ void Player::reset() {
 	otherEntities.clear();
 	setVel(sf::Vector2f(0, 0));
 }
-
-
-

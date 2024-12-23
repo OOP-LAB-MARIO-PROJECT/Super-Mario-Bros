@@ -41,7 +41,6 @@ void MovingPlatform::update(float deltatime) {
 	float b = after.x * after.x + after.y * after.y;
 
 	if (b > a) {
-		std::cout << isMoveBack << '\n';
 		if (isMoveBack) {
 			std::swap(start, end);
 			vel = -vel;
