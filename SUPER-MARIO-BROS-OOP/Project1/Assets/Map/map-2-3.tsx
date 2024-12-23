@@ -30,6 +30,8 @@
  <tile id="716" type="cloud2"/>
  <tile id="717" type="cloud3"/>
  <tile id="729" type="cloud4"/>
+ <tile id="730" type="cloud5"/>
+ <tile id="731" type="cloud5"/>
  <tile id="732" type="cloud6"/>
  <tile id="762" type="cloud1"/>
  <tile id="763" type="cloud2"/>
@@ -69,6 +71,8 @@
  <tile id="943" type="castle2"/>
  <tile id="944" type="castle-window-right"/>
  <tile id="951" type="cloud4"/>
+ <tile id="952" type="cloud5"/>
+ <tile id="953" type="cloud5"/>
  <tile id="954" type="cloud6"/>
  <tile id="999" type="cloud4"/>
  <tile id="1000" type="cloud5"/>
@@ -134,7 +138,6 @@
  <tile id="1556" type="cloud1"/>
  <tile id="1557" type="cloud2"/>
  <tile id="1558" type="cloud3"/>
- <tile id="1582" type="handrail"/>
  <tile id="1595" type="coin"/>
  <tile id="1596" type="coin"/>
  <tile id="1597" type="coin"/>
@@ -210,6 +213,7 @@
  <tile id="1898" type="castle1"/>
  <tile id="1899" type="castle1"/>
  <tile id="1905" type="cloud4"/>
+ <tile id="1906" type="cloud5"/>
  <tile id="1907" type="cloud6"/>
  <tile id="1931" type="cloud4"/>
  <tile id="1932" type="cloud5"/>
@@ -244,7 +248,6 @@
  <tile id="2097" type="cloud4"/>
  <tile id="2098" type="cloud5"/>
  <tile id="2099" type="cloud6"/>
- <tile id="2104" type="block5"/>
  <tile id="2108" type="block5"/>
  <tile id="2109" type="block5"/>
  <tile id="2110" type="block5"/>
@@ -630,10 +633,12 @@
  <tile id="2857" type="block5"/>
  <tile id="2858" type="block5"/>
  <tile id="2872" type="cloud4"/>
+ <tile id="2873" type="cloud5"/>
  <tile id="2874" type="cloud6"/>
  <tile id="2875" type="block5"/>
- <tile id="2890" type="cloud5"/>
+ <tile id="2890" type="cloud4"/>
  <tile id="2891" type="block5"/>
+ <tile id="2892" type="cloud6"/>
  <tile id="2907" type="block5"/>
  <tile id="2912" type="block5"/>
  <tile id="2920" type="cloud4"/>
@@ -691,7 +696,7 @@
  <tile id="3069" type="block5"/>
  <tile id="3072" type="castle2"/>
  <tile id="3073" type="castle2"/>
- <tile id="3074" type="castle-door"/>
+ <tile id="3074" type="castle-door#map-2-4"/>
  <tile id="3075" type="castle2"/>
  <tile id="3076" type="castle-door#map-3-1"/>
  <tile id="3077" type="castle2"/>
@@ -829,7 +834,7 @@
  <tile id="3525" type="block1"/>
  <tile id="3526" type="block1"/>
  <tile id="3527" type="block1"/>
- <tile id="3528" type="block5"/>
+ <tile id="3528" type="block1"/>
  <tile id="3529" type="block1"/>
  <tile id="3530" type="block1"/>
  <tile id="3531" type="block1"/>

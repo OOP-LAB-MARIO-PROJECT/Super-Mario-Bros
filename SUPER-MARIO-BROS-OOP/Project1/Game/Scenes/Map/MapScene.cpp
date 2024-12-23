@@ -68,6 +68,12 @@ MapScene::MapScene(sf::RenderWindow* window) : Scene(window)
 			gameConfig->chosenMap = "map-2-3"; }, "map 2-3", 20, sf::Color::Black);
 	buttons.push_back(map23);
 
+	Button map24 = Button::createButton(sf::Vector2f(200, 90), sf::Vector2f(100, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[this]() {
+			gameConfig->hasMapSelection = true;
+			gameConfig->chosenMap = "map-2-4";  }, "map 2-4", 20, sf::Color::Black);
+	buttons.push_back(map24);
+
 	Button map31 = Button::createButton(sf::Vector2f(200, 90), sf::Vector2f(700, 100), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[this]() {
 			gameConfig->hasMapSelection = true;

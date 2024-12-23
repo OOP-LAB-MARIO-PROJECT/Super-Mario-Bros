@@ -347,12 +347,6 @@
  <tile id="882" type="block_rock"/>
  <tile id="886" type="flag-body-light-1"/>
  <tile id="889" type="flag-body-light-1"/>
- <tile id="928" type="block_rock_boss"/>
- <tile id="929" type="block_rock_boss"/>
- <tile id="930" type="block_rock_boss"/>
- <tile id="931" type="block_rock_boss"/>
- <tile id="932" type="block_rock_boss"/>
- <tile id="933" type="block_rock_boss"/>
  <tile id="942" type="block_rock"/>
  <tile id="943" type="block_rock"/>
  <tile id="1042" type="block4"/>
@@ -383,6 +377,7 @@
  <tile id="1442" type="block_rock"/>
  <tile id="1443" type="block_rock"/>
  <tile id="1444" type="block_rock"/>
+ <tile id="1445" type="player_pos"/>
  <tile id="1458" type="block_rock"/>
  <tile id="1459" type="block_rock"/>
  <tile id="1467" type="block_rock"/>
@@ -453,10 +448,10 @@
  <tile id="1682" type="block_rock"/>
  <tile id="1683" type="block_rock"/>
  <tile id="1685" type="moving-platform"/>
- <tile id="1686" type="moving-platform"/>
+ <tile id="1686" type="moving-platform#32;224;1;1"/>
  <tile id="1687" type="moving-platform"/>
  <tile id="1688" type="moving-platform"/>
- <tile id="1689" type="moving-platform"/>
+ <tile id="1689" type="moving-platform#224;32;1;2"/>
  <tile id="1690" type="moving-platform"/>
  <tile id="1693" type="block_rock"/>
  <tile id="1694" type="block_rock"/>
@@ -588,6 +583,7 @@
  <tile id="2061" type="block_rock"/>
  <tile id="2062" type="block_rock"/>
  <tile id="2063" type="block_rock"/>
+ <tile id="2078" type="castle-door#map-3-1"/>
  <tile id="2080" type="block_rock"/>
  <tile id="2081" type="block_rock"/>
  <tile id="2082" type="block_rock"/>

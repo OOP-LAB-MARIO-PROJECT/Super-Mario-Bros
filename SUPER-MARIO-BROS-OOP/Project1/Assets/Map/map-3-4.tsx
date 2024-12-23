@@ -288,6 +288,7 @@
  <tile id="880" type="block4"/>
  <tile id="942" type="block_rock"/>
  <tile id="943" type="block_rock"/>
+ <tile id="960" type="player_pos"/>
  <tile id="1041" type="coin"/>
  <tile id="1042" type="coin"/>
  <tile id="1043" type="coin"/>
@@ -509,6 +510,7 @@
  <tile id="2061" type="block_rock"/>
  <tile id="2062" type="block_rock"/>
  <tile id="2063" type="block_rock"/>
+ <tile id="2078" type="castle-door#map-3-4"/>
  <tile id="2080" type="block_rock"/>
  <tile id="2081" type="block_rock"/>
  <tile id="2082" type="block_rock"/>
