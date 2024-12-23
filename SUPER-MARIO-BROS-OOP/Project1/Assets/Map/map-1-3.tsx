@@ -311,7 +311,7 @@
  <tile id="1555" type="soil"/>
  <tile id="1556" type="soil"/>
  <tile id="1570" type="moving-platform"/>
- <tile id="1571" type="moving-platform#1472;1536;2"/>
+ <tile id="1571" type="moving-platform#1472;1536;2;1"/>
  <tile id="1572" type="moving-platform"/>
  <tile id="1581" type="soil"/>
  <tile id="1582" type="soil"/>
@@ -533,7 +533,7 @@
  <tile id="2124" type="castle2"/>
  <tile id="2125" type="castle-door"/>
  <tile id="2126" type="castle2"/>
- <tile id="2127" type="castle-door"/>
+ <tile id="2127" type="castle-door#map-2-1"/>
  <tile id="2128" type="castle2"/>
  <tile id="2129" type="castle-door"/>
  <tile id="2130" type="castle2"/>

@@ -461,6 +461,7 @@
  <tile id="1954" type="castle2"/>
  <tile id="1955" type="castle2"/>
  <tile id="1958" type="castle-door"/>
+ <tile id="1962" type="player_pos"/>
  <tile id="1975" type="soil"/>
  <tile id="1976" type="soil"/>
  <tile id="1977" type="soil"/>

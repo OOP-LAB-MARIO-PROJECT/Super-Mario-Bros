@@ -130,6 +130,7 @@
  <tile id="2306" type="castle-door"/>
  <tile id="2307" type="castle2"/>
  <tile id="2308" type="castle2"/>
+ <tile id="2310" type="player_pos"/>
  <tile id="2314" type="pipe-side-head-bottom#32;288;432"/>
  <tile id="2315" type="pipe-side-body-bottom"/>
  <tile id="2316" type="pipe-side-tail-bottom"/>

@@ -306,6 +306,7 @@
  <tile id="2666" type="castle-door"/>
  <tile id="2667" type="castle2"/>
  <tile id="2668" type="castle2"/>
+ <tile id="2670" type="player_pos"/>
  <tile id="2675" type="trunk"/>
  <tile id="2677" type="trunk"/>
  <tile id="2678" type="fence"/>

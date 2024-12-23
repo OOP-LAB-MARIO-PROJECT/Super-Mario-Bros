@@ -501,6 +501,7 @@
  <tile id="5755" type="castle-door"/>
  <tile id="5756" type="castle2"/>
  <tile id="5757" type="castle2"/>
+ <tile id="5759" type="player_pos"/>
  <tile id="5762" type="trunk"/>
  <tile id="5764" type="trunk"/>
  <tile id="5765" type="fence"/>
@@ -582,7 +583,7 @@
  <tile id="5954" type="trunk"/>
  <tile id="5955" type="castle2"/>
  <tile id="5956" type="block2"/>
- <tile id="5957" type="castle-door"/>
+ <tile id="5957" type="castle-door#map-2-2"/>
  <tile id="5958" type="castle2"/>
  <tile id="5959" type="castle2"/>
  <tile id="5960" type="fence"/>

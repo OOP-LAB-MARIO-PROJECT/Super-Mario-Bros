@@ -31,7 +31,10 @@ namespace TILETYPE {
 		"pipe-side-tail-bottom",
 		"block_grass_1",
 		"block_grass_2",
-		"block_grass_3"
+		"block_grass_3",
+		"block_rock",
+		"stair",
+		"bridge"
 	};
 
 	static std::vector <std::string> pipeHead = {
@@ -44,7 +47,8 @@ namespace TILETYPE {
 	static std::vector <std::string> interactable = {
 		"block2",
 		"block-underground-3",
-		"question"
+		"question",
+		"hammer"
 	};
 
 	static std::vector <std::string> transparent = {

@@ -623,6 +623,7 @@
  <tile id="2846" type="castle-door"/>
  <tile id="2847" type="castle2"/>
  <tile id="2848" type="castle2"/>
+ <tile id="2849" type="player_pos"/>
  <tile id="2854" type="block5"/>
  <tile id="2855" type="block5"/>
  <tile id="2856" type="block5"/>

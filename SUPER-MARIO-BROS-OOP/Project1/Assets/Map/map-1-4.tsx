@@ -353,8 +353,8 @@
  <tile id="1009" type="block4"/>
  <tile id="1020" type="block4"/>
  <tile id="1027" type="block4"/>
- <tile id="1098" type="moving-platform"/>
- <tile id="1099" type="moving-platform"/>
+ <tile id="1098" type="moving-platform#2160;2208;2;1"/>
+ <tile id="1099" type="moving-platform#2176;2224;2;1"/>
  <tile id="1120" type="block_rock"/>
  <tile id="1121" type="block_rock"/>
  <tile id="1122" type="block_rock"/>
@@ -437,6 +437,7 @@
  <tile id="1624" type="block_rock"/>
  <tile id="1625" type="block_rock"/>
  <tile id="1629" type="block_rock"/>
+ <tile id="1630" type="block_rock"/>
  <tile id="1631" type="block_rock"/>
  <tile id="1635" type="block_rock"/>
  <tile id="1636" type="block_rock"/>
