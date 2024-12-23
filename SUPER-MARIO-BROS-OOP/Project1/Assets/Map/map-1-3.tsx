@@ -531,7 +531,7 @@
  <tile id="2120" type="block5"/>
  <tile id="2123" type="castle2"/>
  <tile id="2124" type="castle2"/>
- <tile id="2125" type="castle-door"/>
+ <tile id="2125" type="castle-door#map-2-1"/>
  <tile id="2126" type="castle2"/>
  <tile id="2127" type="castle-door#map-2-1"/>
  <tile id="2128" type="castle2"/>

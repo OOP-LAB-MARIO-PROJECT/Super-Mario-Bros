@@ -25,6 +25,8 @@ namespace TILETYPE {
 		"block-underground-5",
 		"pipe-up-body-left",
 		"pipe-up-body-right",
+		"pipe-up-body-left-light",
+		"pipe-up-body-right-light",
 		"pipe-side-body-bottom",
 		"pipe-side-body-up",
 		"pipe-side-tail-up",
@@ -34,12 +36,16 @@ namespace TILETYPE {
 		"block_grass_3",
 		"block_rock",
 		"stair",
-		"bridge"
+		"bridge",
+		"block_green",
+
 	};
 
 	static std::vector <std::string> pipeHead = {
 		"pipe-up-head-left",
 		"pipe-up-head-right",
+		"pipe-up-head-left-light",
+		"pipe-up-head-right-light",
 		"pipe-side-head-bottom",
 		"pipe-side-head-up"
 	};
@@ -56,6 +62,7 @@ namespace TILETYPE {
 		"flag-2",
 		"flag-3",
 		"flag-4",
+		"flag-dark-1",
 		"flag-body-1",
 		"castle1",
 		"castle2",
@@ -69,7 +76,28 @@ namespace TILETYPE {
 		"cloud4",
 		"cloud5",
 		"cloud6",
-		"soil"
+		"soil",
+		"trunk",
+		"bunch",
+		"bunch_up",
+		"bunch_down",
+		"bunch_light",
+		"bunch_up_light",
+		"bunch_down_light",
+		"fence",
+		"moss",
+		"edge_moutain_left",
+		"edge_moutain_right",
+		"body_mountain",
+		"grass3",
+		"handrail",
+		"handrail_light",
+		"water_surface_2",
+		"vertical_wire",
+		"horizontal_wire",
+		"pulley_left",
+		"pulley_right",
+		"water",
 	};
 
 	static bool isNormalPlatform(std::string name) {

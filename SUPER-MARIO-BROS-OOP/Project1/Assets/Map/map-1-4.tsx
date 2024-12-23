@@ -349,6 +349,7 @@
  <tile id="871" type="block_rock"/>
  <tile id="942" type="block_rock"/>
  <tile id="943" type="block_rock"/>
+ <tile id="960" type="player_pos"/>
  <tile id="990" type="question"/>
  <tile id="1009" type="block4"/>
  <tile id="1020" type="block4"/>
@@ -751,6 +752,7 @@
  <tile id="2061" type="block_rock"/>
  <tile id="2062" type="block_rock"/>
  <tile id="2063" type="block_rock"/>
+ <tile id="2078" type="castle-door#map-1-4"/>
  <tile id="2080" type="block_rock"/>
  <tile id="2081" type="block_rock"/>
  <tile id="2082" type="block_rock"/>

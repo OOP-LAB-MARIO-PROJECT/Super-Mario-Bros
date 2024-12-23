@@ -1,149 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.11.0" name="map-3-1" tilewidth="16" tileheight="16" tilecount="9585" columns="213">
  <image source="bg-3-1.png" width="3408" height="720"/>
- <tile id="1237" type="coin"/>
- <tile id="1238" type="coin"/>
- <tile id="1239" type="coin"/>
- <tile id="1240" type="coin"/>
- <tile id="1241" type="coin"/>
- <tile id="1242" type="coin"/>
- <tile id="1243" type="coin"/>
- <tile id="1255" type="coin"/>
- <tile id="1256" type="coin"/>
- <tile id="1257" type="coin"/>
- <tile id="1258" type="coin"/>
- <tile id="1259" type="coin"/>
- <tile id="1260" type="coin"/>
- <tile id="1261" type="coin"/>
- <tile id="1262" type="coin"/>
- <tile id="1263" type="coin"/>
- <tile id="1264" type="coin"/>
- <tile id="1412" type="coin"/>
- <tile id="1413" type="coin"/>
- <tile id="1414" type="coin"/>
- <tile id="1415" type="coin"/>
- <tile id="1416" type="coin"/>
- <tile id="1417" type="coin"/>
- <tile id="1418" type="coin"/>
- <tile id="1419" type="coin"/>
- <tile id="1420" type="coin"/>
- <tile id="1421" type="coin"/>
- <tile id="1422" type="coin"/>
- <tile id="1423" type="coin"/>
- <tile id="1424" type="coin"/>
- <tile id="1425" type="coin"/>
- <tile id="1426" type="coin"/>
- <tile id="1427" type="coin"/>
- <tile id="1431" type="coin"/>
- <tile id="1432" type="coin"/>
- <tile id="1433" type="coin"/>
- <tile id="1434" type="coin"/>
- <tile id="1435" type="coin"/>
- <tile id="1436" type="coin"/>
- <tile id="1437" type="coin"/>
- <tile id="1438" type="coin"/>
- <tile id="1439" type="coin"/>
- <tile id="1440" type="coin"/>
- <tile id="1441" type="coin"/>
- <tile id="1442" type="coin"/>
- <tile id="1443" type="coin"/>
- <tile id="1444" type="coin"/>
- <tile id="1445" type="coin"/>
- <tile id="1446" type="coin"/>
- <tile id="2040" type="climbing_rope"/>
- <tile id="2253" type="climbing_rope"/>
- <tile id="2265" type="bubble"/>
- <tile id="2266" type="bubble"/>
- <tile id="2267" type="bubble"/>
- <tile id="2466" type="climbing_rope"/>
- <tile id="2547" type="coin"/>
- <tile id="2548" type="coin"/>
- <tile id="2549" type="coin"/>
- <tile id="2679" type="climbing_rope"/>
- <tile id="2888" type="cloud_standing"/>
- <tile id="2889" type="cloud_standing"/>
- <tile id="2890" type="cloud_standing"/>
- <tile id="2891" type="cloud_standing"/>
- <tile id="2892" type="climbing_rope"/>
- <tile id="2893" type="cloud_standing"/>
- <tile id="2894" type="cloud_standing"/>
- <tile id="2895" type="cloud_standing"/>
- <tile id="2896" type="cloud_standing"/>
- <tile id="2897" type="cloud_standing"/>
- <tile id="2898" type="cloud_standing"/>
- <tile id="2899" type="cloud_standing"/>
- <tile id="2900" type="cloud_standing"/>
- <tile id="2901" type="cloud_standing"/>
- <tile id="2902" type="cloud_standing"/>
- <tile id="2903" type="cloud_standing"/>
- <tile id="2904" type="cloud_standing"/>
- <tile id="2905" type="cloud_standing"/>
- <tile id="2906" type="cloud_standing"/>
- <tile id="2907" type="cloud_standing"/>
- <tile id="2908" type="cloud_standing"/>
- <tile id="2909" type="cloud_standing"/>
- <tile id="2910" type="cloud_standing"/>
- <tile id="2911" type="cloud_standing"/>
- <tile id="2912" type="cloud_standing"/>
- <tile id="2913" type="cloud_standing"/>
- <tile id="2914" type="cloud_standing"/>
- <tile id="2915" type="cloud_standing"/>
- <tile id="2916" type="cloud_standing"/>
- <tile id="2917" type="cloud_standing"/>
- <tile id="2918" type="cloud_standing"/>
- <tile id="2919" type="cloud_standing"/>
- <tile id="2920" type="cloud_standing"/>
- <tile id="2921" type="cloud_standing"/>
- <tile id="2922" type="cloud_standing"/>
- <tile id="2923" type="cloud_standing"/>
- <tile id="2924" type="cloud_standing"/>
- <tile id="2925" type="cloud_standing"/>
- <tile id="2926" type="cloud_standing"/>
- <tile id="2927" type="cloud_standing"/>
- <tile id="2928" type="cloud_standing"/>
- <tile id="2929" type="cloud_standing"/>
- <tile id="2930" type="cloud_standing"/>
- <tile id="2931" type="cloud_standing"/>
- <tile id="2932" type="cloud_standing"/>
- <tile id="2933" type="cloud_standing"/>
- <tile id="2934" type="cloud_standing"/>
- <tile id="2935" type="cloud_standing"/>
- <tile id="2936" type="cloud_standing"/>
- <tile id="2937" type="cloud_standing"/>
- <tile id="2938" type="cloud_standing"/>
- <tile id="2939" type="cloud_standing"/>
- <tile id="2940" type="cloud_standing"/>
- <tile id="2941" type="cloud_standing"/>
- <tile id="2942" type="cloud_standing"/>
- <tile id="2943" type="cloud_standing"/>
- <tile id="2944" type="cloud_standing"/>
- <tile id="2945" type="cloud_standing"/>
- <tile id="2946" type="cloud_standing"/>
- <tile id="2947" type="cloud_standing"/>
- <tile id="2948" type="cloud_standing"/>
- <tile id="2949" type="cloud_standing"/>
- <tile id="2950" type="cloud_standing"/>
- <tile id="2951" type="cloud_standing"/>
- <tile id="2952" type="cloud_standing"/>
- <tile id="2953" type="cloud_standing"/>
- <tile id="2954" type="cloud_standing"/>
- <tile id="2955" type="cloud_standing"/>
- <tile id="2956" type="cloud_standing"/>
- <tile id="2957" type="cloud_standing"/>
- <tile id="2958" type="cloud_standing"/>
- <tile id="2959" type="cloud_standing"/>
- <tile id="2960" type="cloud_standing"/>
- <tile id="2961" type="cloud_standing"/>
- <tile id="2962" type="cloud_standing"/>
- <tile id="2963" type="cloud_standing"/>
- <tile id="2964" type="cloud_standing"/>
- <tile id="2965" type="cloud_standing"/>
- <tile id="2966" type="cloud_standing"/>
- <tile id="2967" type="cloud_standing"/>
- <tile id="2968" type="cloud_standing"/>
- <tile id="2969" type="cloud_standing"/>
- <tile id="2970" type="cloud_standing"/>
- <tile id="3105" type="climbing_rope"/>
  <tile id="3622" type="castle1"/>
  <tile id="3623" type="castle1"/>
  <tile id="3624" type="castle1"/>
@@ -541,7 +398,6 @@
  <tile id="5655" type="bunch_down_light"/>
  <tile id="5657" type="bunch_light"/>
  <tile id="5658" type="bunch_light"/>
- <tile id="5664" type="bounce_up_1"/>
  <tile id="5674" type="bunch_light"/>
  <tile id="5675" type="block5"/>
  <tile id="5676" type="block5"/>
@@ -636,7 +492,6 @@
  <tile id="5868" type="trunk"/>
  <tile id="5870" type="trunk"/>
  <tile id="5871" type="trunk"/>
- <tile id="5877" type="bounce_bottom_1"/>
  <tile id="5885" type="fence"/>
  <tile id="5886" type="fence"/>
  <tile id="5887" type="block5"/>
@@ -670,7 +525,7 @@
  <tile id="5954" type="trunk"/>
  <tile id="5955" type="castle2"/>
  <tile id="5956" type="castle2"/>
- <tile id="5957" type="castle-door"/>
+ <tile id="5957" type="castle-door#map-3-2"/>
  <tile id="5958" type="castle2"/>
  <tile id="5959" type="castle2"/>
  <tile id="5960" type="fence"/>

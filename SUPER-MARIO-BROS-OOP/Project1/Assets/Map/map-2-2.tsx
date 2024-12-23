@@ -154,7 +154,7 @@
  <tile id="2483" type="block5"/>
  <tile id="2487" type="castle2"/>
  <tile id="2488" type="castle2"/>
- <tile id="2489" type="castle-door"/>
+ <tile id="2489" type="castle-door#map-2-3"/>
  <tile id="2490" type="castle2"/>
  <tile id="2491" type="castle2"/>
  <tile id="2492" type="grass3"/>

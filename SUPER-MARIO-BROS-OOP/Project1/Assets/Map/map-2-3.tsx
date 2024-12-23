@@ -693,7 +693,7 @@
  <tile id="3073" type="castle2"/>
  <tile id="3074" type="castle-door"/>
  <tile id="3075" type="castle2"/>
- <tile id="3076" type="castle-door"/>
+ <tile id="3076" type="castle-door#map-3-1"/>
  <tile id="3077" type="castle2"/>
  <tile id="3078" type="castle-door"/>
  <tile id="3079" type="castle2"/>

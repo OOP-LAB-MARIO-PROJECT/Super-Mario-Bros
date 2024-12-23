@@ -387,7 +387,7 @@
  <tile id="2873" type="block5"/>
  <tile id="2877" type="castle2"/>
  <tile id="2878" type="castle2"/>
- <tile id="2879" type="castle-door"/>
+ <tile id="2879" type="castle-door#map-3-3"/>
  <tile id="2880" type="castle2"/>
  <tile id="2881" type="castle2"/>
  <tile id="2886" type="block1"/>
