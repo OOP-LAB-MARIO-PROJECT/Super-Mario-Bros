@@ -15,8 +15,8 @@
  <tile id="1039" type="moving-platform#"/>
  <tile id="1040" type="moving-platform#"/>
  <tile id="1041" type="moving-platform#96;224;1;1"/>
- <tile id="1322" type="player_pos"/>
  <tile id="1837" type="coin"/>
+ <tile id="1975" type="player_pos"/>
  <tile id="1986" type="cay1"/>
  <tile id="1987" type="cay1"/>
  <tile id="1988" type="cay1"/>
