@@ -284,6 +284,8 @@
     <Image Include="UI_Components\UI_Texture_Pack\knob.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Koopa.png" />
     <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\LuigiWithWrench.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\MapScene.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Moon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\PinkFlower.png" />
@@ -292,6 +294,18 @@
     <Image Include="UI_Components\UI_Texture_Pack\SadMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\SettingSceneBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Title.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-1.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-2.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-3.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-4.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-1.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-2.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-3.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-4.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-1.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-2.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-3.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-4.png" />
     <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
