@@ -43,7 +43,7 @@ void Game::start() {
 	
 	sceneManager->addScene(SceneManager::Scenes::Game, new GameScene(window));
 
-	sceneManager->navigateTo(SceneManager::Scenes::Setting);
+	sceneManager->navigateTo(SceneManager::Scenes::Login);
 	
 
 	m_isRunning = true;

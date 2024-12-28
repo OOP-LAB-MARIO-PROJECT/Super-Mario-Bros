@@ -1,13 +1,13 @@
 #include "KeyBindingScene.h"
 
-static void addShape(sf::Vector2f shapePos, sf::Vector2f shapeSize, sf::Color shapeColor, 
-			std::vector<sf::RectangleShape>& shapes) {
-	sf::RectangleShape shape;
-	shape.setFillColor(shapeColor);
-	shape.setSize(shapeSize);
-	shape.setPosition(shapePos);
-	shapes.push_back(shape);
-}
+//static void addShape(sf::Vector2f shapePos, sf::Vector2f shapeSize, sf::Color shapeColor, 
+//			std::vector<sf::RectangleShape>& shapes) {
+//	sf::RectangleShape shape;
+//	shape.setFillColor(shapeColor);
+//	shape.setSize(shapeSize);
+//	shape.setPosition(shapePos);
+//	shapes.push_back(shape);
+//}
 
 static void addActionText(std::string name, sf::Vector2f pos, int charSize, sf::Color color,
 		std::vector <sf::Text>& action) {
@@ -25,42 +25,42 @@ static void addActionText(std::string name, sf::Vector2f pos, int charSize, sf::
 
 KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 {
+	float midScreenX = getWindow()->getSize().x / 2.0 - 70;
+	float midScreenY = getWindow()->getSize().y / 2.0 - 35;
 	gameConfig = &GameConfig::getInstance();
 	//for key binding
 	/*GameConfig::getInstance().controls.insert({ "Jump", sf::Keyboard::W });
 	GameConfig::getInstance().controls.insert({ "Move left", sf::Keyboard::A });
 	GameConfig::getInstance().controls.insert({ "Move Right" , sf::Keyboard::D });*/
 
-	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(500, 500), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button back = Button::createButton(sf::Vector2f(200,100), sf::Vector2f(midScreenX - 320, midScreenY + 240), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "Back", 17, sf::Color::Black);
 
 	buttons.push_back(back);
 
+	//back
+	backTexture = std::make_shared<sf::Texture>();
+	backTexture->loadFromFile("UI_Components/UI_Texture_Pack/back.png");
+	backSprite.setTexture(*backTexture);
+	backSprite.setScale(0.1, 0.1);
+
 	//create the shapes
-	shapes.resize(3);
+	/*shapes.resize(3);
 	sf::RectangleShape shape1;
 	shape1.setFillColor(sf::Color::Blue);
 	shape1.setSize(sf::Vector2f(200, 100));
 	shape1.setPosition(0, 0);
-	shapes.push_back(shape1);
+	shapes.push_back(shape1);*/
 
-	sf::RectangleShape shape2;
-	shape2.setFillColor(sf::Color::Blue);
-	shape2.setSize(sf::Vector2f(200, 100));
-	shape2.setPosition(0, 100);
-	shapes.push_back(shape2);
+	//sf::RectangleShape shape2;
+	//shape2.setFillColor(sf::Color::Blue);
+	//shape2.setSize(sf::Vector2f(200, 100));
+	//shape2.setPosition(0, 100);
+	//shapes.push_back(shape2);
 
-	addShape(sf::Vector2f(0, 0), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
+	/*addShape(sf::Vector2f(0, 0), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
 	addShape(sf::Vector2f(0, 100), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
-	addShape(sf::Vector2f(0, 200), sf::Vector2f(200, 100), sf::Color::Blue, shapes);
-
-	//display the action
-
-	addActionText("jump", sf::Vector2f(100, 50), 24, sf::Color::White, actions);
-	addActionText("move left", sf::Vector2f(100, 150), 24, sf::Color::White, actions);
-	addActionText("move right", sf::Vector2f(100, 250), 24, sf::Color::White, actions);
-	addActionText("dodge", sf::Vector2f(100, 350), 24, sf::Color::White, actions);
-	addActionText("shoot", sf::Vector2f(100, 450), 24, sf::Color::White, actions);
+	addShape(sf::Vector2f(0, 200), sf::Vector2f(200, 100), sf::Color::Blue, shapes);*/
 
 	//the actual action names
 	actualActions.push_back("jump");
@@ -69,11 +69,64 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 	actualActions.push_back("dodge");
 	actualActions.push_back("shoot");
 
-	TextBox textBox1(100, 300, 100, 100, false, "W", true);
-	TextBox textBox2(0, 400, 100, 100, false, "A", true);
-	TextBox textBox3(200, 400, 100, 100, false, "D", true);
-	TextBox textBox4(100, 400, 100, 100, false, "S", true);
-	TextBox textBox5(400, 400, 100, 100, false, "F", true);
+
+	TextBox textBox1(midScreenX, midScreenY - 130, 100, 100, false, "W", true);
+	TextBox textBox2(midScreenX - 130, midScreenY, 100, 100, false, "A", true);
+	TextBox textBox3(midScreenX + 130, midScreenY, 100, 100, false, "D", true);
+	TextBox textBox4(midScreenX, midScreenY, 100, 100, false, "S", true);
+	TextBox textBox5(midScreenX + 400, midScreenY + 200, 100, 100, false, "F", true);
+
+	//display the arrows
+	upArrowTexture.loadFromFile("UI_Components/UI_Texture_Pack/UpArrow.png");
+	upArrowSprite.setTexture(upArrowTexture);
+	upArrowSprite.setScale(1.0, 1.0);
+	upArrowSprite.setPosition(midScreenX + 20, midScreenY - 230);
+	sprites.push_back(std::make_shared<sf::Sprite>(upArrowSprite));
+
+	downArrowTexture.loadFromFile("UI_Components/UI_Texture_Pack/DownArrow.png");
+	downArrowSprite1.setTexture(downArrowTexture);
+	downArrowSprite1.setScale(1.0, 1.0);
+	downArrowSprite1.setPosition(midScreenX + 20, midScreenY + 115);
+	sprites.push_back(std::make_shared<sf::Sprite>(downArrowSprite1));
+
+	rightArrowTexture.loadFromFile("UI_Components/UI_Texture_Pack/right.png");
+	rightArrowSprite.setTexture(rightArrowTexture);
+	rightArrowSprite.setScale(1.0, 1.0);
+	rightArrowSprite.setPosition(midScreenX + 245, midScreenY + 25);
+	sprites.push_back(std::make_shared<sf::Sprite>(rightArrowSprite));
+
+
+	leftArrowTexture.loadFromFile("UI_Components/UI_Texture_Pack/left.png");
+	leftArrowSprite.setTexture(leftArrowTexture);
+	leftArrowSprite.setScale(1.0, 1.0);
+	leftArrowSprite.setPosition(midScreenX - 210, midScreenY + 25);
+	sprites.push_back(std::make_shared<sf::Sprite>(leftArrowSprite));
+
+	leftArrowSprite2.setTexture(leftArrowTexture);
+	leftArrowSprite2.setScale(1.0, 1.0);
+	leftArrowSprite2.setPosition(midScreenX + 320, midScreenY + 225);
+	sprites.push_back(std::make_shared<sf::Sprite>(leftArrowSprite2));
+
+	//display the jelly
+	jellyTexture.loadFromFile("UI_Components/UI_Texture_Pack/AngrySun2.png");
+	jellySprite.setTexture(jellyTexture);
+	jellySprite.setScale(2.5, 2.5);
+	jellySprite.setPosition(midScreenX + 230, 40);
+	sprites.push_back(std::make_shared<sf::Sprite>(jellySprite));
+
+	//display the foo
+	fooTexture.loadFromFile("UI_Components/UI_Texture_Pack/foo.png");
+	fooSprite.setTexture(fooTexture);
+	fooSprite.setScale(3, 3);
+	fooSprite.setPosition(0, 70);
+	sprites.push_back(std::make_shared<sf::Sprite>(fooSprite));
+
+	//display the actions
+	addActionText("jump", sf::Vector2f(midScreenX + 5, midScreenY - 260), 24, sf::Color::Black, actions);
+	addActionText("move left", sf::Vector2f(midScreenX - 425, midScreenY + 40), 24, sf::Color::Black, actions);
+	addActionText("move right", sf::Vector2f(midScreenX + 325, midScreenY + 40), 24, sf::Color::Black, actions);
+	addActionText("dodge", sf::Vector2f(midScreenX, midScreenY + 190), 24, sf::Color::Black, actions);
+	addActionText("shoot", sf::Vector2f(midScreenX + 200, midScreenY + 240), 24, sf::Color::Black, actions);
 
 	textBoxes.push_back(textBox1);
 	textBoxes.push_back(textBox2);
@@ -84,9 +137,16 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 
 void KeyBindingScene::drawScene()
 {
-	for (int i = 0; i < shapes.size(); ++i)
+	sf::Texture backgroundTexture;
+	backgroundTexture.loadFromFile("UI_Components/UI_Texture_Pack/PurpleBackground.png");
+	sf::Sprite backgroundSprite;
+	backgroundSprite.setTexture(backgroundTexture);
+	backgroundSprite.setScale(1.8, 1.2);
+	getWindow()->draw(backgroundSprite);
+
+	for (int i = 0; i < sprites.size(); ++i)
 	{
-		getWindow()->draw(shapes[i]);
+		getWindow()->draw(*sprites[i]);
 	}
 	for (int i = 0; i < actions.size(); ++i)
 	{
@@ -99,6 +159,12 @@ void KeyBindingScene::drawScene()
 	for (int i = 0; i < buttons.size(); ++i)
 	{
 		buttons[i].draw(getWindow());
+	}
+
+	if (beingSelected)
+	{
+		backSprite.setPosition(buttons[0].getPosition().x + buttons[0].getSize().x - 20, buttons[0].getPosition().y + 5);
+		getWindow()->draw(backSprite);
 	}
 }
 
@@ -192,7 +258,6 @@ void KeyBindingScene::loopEvents()
 		{
 			if (textBoxes[i].getSelected())
 			{
-				beingSelected = true;
 				textBoxes[i].handleInput(event);
 				std::string enteredText = textBoxes[i].getText();
 				char newKey = enteredText[0];
@@ -213,6 +278,10 @@ void KeyBindingScene::loopEvents()
 
 		for (int i = 0; i < buttons.size(); ++i)
 		{
+			if (buttons[i].beingHovered())
+			{
+				beingSelected = true;
+			}
 			buttons[i].handleEvent(event, *getWindow());
 		}
 
