@@ -33,7 +33,7 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 	GameConfig::getInstance().controls.insert({ "Move left", sf::Keyboard::A });
 	GameConfig::getInstance().controls.insert({ "Move Right" , sf::Keyboard::D });*/
 
-	Button back = Button::createButton(sf::Vector2f(200,100), sf::Vector2f(midScreenX - 320, midScreenY + 240), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button back = Button::createButton(sf::Vector2f(200,100), sf::Vector2f(midScreenX - 350, midScreenY + 240), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Setting); }, "Back", 17, sf::Color::Black);
 
 	buttons.push_back(back);
@@ -125,7 +125,7 @@ KeyBindingScene::KeyBindingScene(sf::RenderWindow* window) : Scene(window)
 	addActionText("jump", sf::Vector2f(midScreenX + 5, midScreenY - 260), 24, sf::Color::Black, actions);
 	addActionText("move left", sf::Vector2f(midScreenX - 425, midScreenY + 40), 24, sf::Color::Black, actions);
 	addActionText("move right", sf::Vector2f(midScreenX + 325, midScreenY + 40), 24, sf::Color::Black, actions);
-	addActionText("dodge", sf::Vector2f(midScreenX, midScreenY + 190), 24, sf::Color::Black, actions);
+	addActionText("dodge", sf::Vector2f(midScreenX - 5, midScreenY + 195), 24, sf::Color::Black, actions);
 	addActionText("shoot", sf::Vector2f(midScreenX + 200, midScreenY + 240), 24, sf::Color::Black, actions);
 
 	textBoxes.push_back(textBox1);
