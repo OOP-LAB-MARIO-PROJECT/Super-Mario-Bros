@@ -100,6 +100,17 @@ MapScene::MapScene(sf::RenderWindow* window) : Scene(window)
 	buttons.push_back(map34);
 }
 
+std::vector<std::string> MapScene::reformat(){
+	std::vector<std::string> unlockedMapNames;
+	for (auto it : this->unlockedMapNames)
+	{
+		it[3] = ' ';
+		unlockedMapNames.push_back(it);
+
+	}
+	return unlockedMapNames;
+}
+
 void MapScene::drawScene()
 {
 	sf::Texture backgroundTexture;
@@ -108,6 +119,14 @@ void MapScene::drawScene()
 	backgroundSprite.setTexture(backgroundTexture);
 	backgroundSprite.setScale(1.75, 1.5);
 	getWindow()->draw(backgroundSprite);
+	std::shared_ptr<sf::Font> font = FontManager::getInstance().getFont("Mario");
+	sf::Text text;
+	text.setFont(*font);
+	text.setCharacterSize(20);
+	text.setString("Currently unlocked level: " + reformat().back());
+	text.setFillColor(sf::Color::White);
+	text.setPosition(100, 100);
+	getWindow()->draw(text);
 	for (int i = 0; i < buttons.size(); ++i)
 	{
 		buttons[i].draw(getWindow());
@@ -148,8 +167,11 @@ void MapScene::update(float deltatime)
 	for (auto it : allMapNames)
 	{
 		disabled.push_back(isUnlocked(it.first));
+		if (isUnlocked(it.first))
+		{
+			unlockedMapNames.push_back(it.first);
+		}
 	}
-	//disabled.push_back(true);
 	drawScene();
 	loopEvents();
 
