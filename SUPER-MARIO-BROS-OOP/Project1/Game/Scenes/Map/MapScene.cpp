@@ -123,7 +123,7 @@ void MapScene::drawScene()
 	sf::Text text;
 	text.setFont(*font);
 	text.setCharacterSize(20);
-	text.setString("Currently unlocked level: " + reformat().back());
+	text.setString("Current level: " + reformat().back());
 	text.setFillColor(sf::Color::White);
 	text.setPosition(100, 100);
 	getWindow()->draw(text);

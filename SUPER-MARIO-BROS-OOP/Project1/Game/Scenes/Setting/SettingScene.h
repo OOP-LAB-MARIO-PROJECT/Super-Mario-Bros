@@ -15,7 +15,6 @@
 class SettingScene : public Scene
 {
 	std::vector<Button> buttons;
-	/*sf::Font font;*/
 	bool isMute = false;
 	float volume = 50.0;
 	bool save = false;
@@ -35,6 +34,14 @@ class SettingScene : public Scene
 	std::vector<Animation> animations;
 	std::vector<std::shared_ptr<sf::Sprite>> sprites;
 	sf::Sprite talkingFlowerSprite;
+
+	std::shared_ptr<sf::Texture> wrenchTexture;
+	sf::Sprite wrenchSprite;
+	std::shared_ptr<sf::Texture> backTexture;
+	sf::Sprite backSprite;
+	bool isHovered;
+	int currentButton = 0;
+
 public:
 	SettingScene(sf::RenderWindow* window);
 	~SettingScene() {

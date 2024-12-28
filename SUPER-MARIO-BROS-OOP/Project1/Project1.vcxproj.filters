@@ -488,6 +488,15 @@
     <Image Include="UI_Components\UI_Texture_Pack\MapScene.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\wrench.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\purple.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />

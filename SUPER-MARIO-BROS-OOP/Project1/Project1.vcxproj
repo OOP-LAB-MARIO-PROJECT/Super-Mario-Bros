@@ -272,6 +272,7 @@
     <Text Include="Assets\Sounds\sound_interface.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="UI_Components\UI_Texture_Pack\back.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Background.png" />
     <Image Include="UI_Components\UI_Texture_Pack\cat.png" />
     <Image Include="UI_Components\UI_Texture_Pack\CloudBackground.png" />
@@ -290,6 +291,7 @@
     <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\PinkFlower.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\purple.png" />
     <Image Include="UI_Components\UI_Texture_Pack\RegisterBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\SadMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\SettingSceneBackground.png" />
@@ -306,6 +308,7 @@
     <Image Include="UI_Components\UI_Texture_Pack\world3-2.png" />
     <Image Include="UI_Components\UI_Texture_Pack\world3-3.png" />
     <Image Include="UI_Components\UI_Texture_Pack\world3-4.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\wrench.png" />
     <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

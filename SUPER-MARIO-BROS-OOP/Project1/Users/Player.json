@@ -9,13 +9,9 @@
     "playerName": "Player",
     "unlocked-level": {
         "map-1-1": [
-            200,
-            0
-        ],
-        "map-1-2": [
             0,
             0
         ]
     },
-    "volume": 100.0
+    "volume": 50.0
 }
