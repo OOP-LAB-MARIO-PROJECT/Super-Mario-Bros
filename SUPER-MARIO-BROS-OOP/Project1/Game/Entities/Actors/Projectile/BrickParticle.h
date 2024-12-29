@@ -1,6 +1,6 @@
 #pragma once
 #include "Projectile.h"
-#include "../../Utils/EntityManager.h"
+#include "../../../../Utils/EntityManager.h"
 class BrickParticle : public Projectile {
 	float timeToLive = 0;
 

@@ -2,6 +2,7 @@
 #include <map>
 #include <SFML/Graphics.hpp>
 #include "../Utils/json.hpp"
+#include "../Utils/SoundManager.h"
 
 // Glolbal configuration for Game -> every file can get infomation from this
 
@@ -21,7 +22,9 @@ enum LEVEL_STATUS {
     PLAYING,
     RESTART,
     NEXT_LEVEL,
-    IDLE
+    IDLE,
+    PAUSE,
+    FIRST_START
 };
 
 class GameConfig {
@@ -48,6 +51,8 @@ public:
     // Configurations
 
     bool hasKeyChanges = false;
+    bool hasMapSelection = false;
+    std::string chosenMap = "";
     std::map<std::string, std::string> mapList;
     std::map<std::string, sf::Keyboard::Key> controls;
     std::map <std::string, std::pair<int, int>> unlockedLevel;

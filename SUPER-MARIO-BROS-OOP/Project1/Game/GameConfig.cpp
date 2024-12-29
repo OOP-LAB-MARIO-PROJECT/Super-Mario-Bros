@@ -12,6 +12,9 @@ void GameConfig::setVolume(float newVolume) {
     else {
         std::cerr << "Volume out of range. Must be between 0 and 100.\n";
     }
+
+    SoundManager::getInstance().updateVolume(volume);
+    saveToFile();
 }
 
 // Toggle volume (mute/unmute)
@@ -33,7 +36,7 @@ void GameConfig::setPlayerName(const std::string& name) {
 void GameConfig::setCurrentLevel(const std::string& level) {
     if (!level.empty()) {
         currentLevel = level;
-        std::cout << "cur lev" << ' ' << level << '\n';
+   //     std::cout << "cur lev" << ' ' << level << '\n';
     }
     else {
         std::cerr << "Level name cannot be empty.\n";

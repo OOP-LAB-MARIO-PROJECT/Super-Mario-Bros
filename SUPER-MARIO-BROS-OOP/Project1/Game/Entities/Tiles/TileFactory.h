@@ -18,21 +18,34 @@ namespace TILETYPE {
 		"block2",
 		"block3",
 		"block4",
+		"block5",
 		"block-underground-1",
 		"block-underground-3",
 		"block-underground-4",
 		"block-underground-5",
 		"pipe-up-body-left",
 		"pipe-up-body-right",
+		"pipe-up-body-left-light",
+		"pipe-up-body-right-light",
 		"pipe-side-body-bottom",
 		"pipe-side-body-up",
 		"pipe-side-tail-up",
 		"pipe-side-tail-bottom",
+		"block_grass_1",
+		"block_grass_2",
+		"block_grass_3",
+		"block_rock",
+		"stair",
+		"bridge",
+		"block_green",
+
 	};
 
 	static std::vector <std::string> pipeHead = {
 		"pipe-up-head-left",
 		"pipe-up-head-right",
+		"pipe-up-head-left-light",
+		"pipe-up-head-right-light",
 		"pipe-side-head-bottom",
 		"pipe-side-head-up"
 	};
@@ -41,7 +54,7 @@ namespace TILETYPE {
 		"block2",
 		"block-underground-3",
 		"question",
-		"moving-platform"
+		"hammer"
 	};
 
 	static std::vector <std::string> transparent = {
@@ -49,13 +62,45 @@ namespace TILETYPE {
 		"flag-2",
 		"flag-3",
 		"flag-4",
+		"flag-dark-1",
 		"flag-body-1",
+		"flag-body-light-1",
 		"castle1",
 		"castle2",
 		"castle3",
 		"castle-arch",
 		"castle-window-right",
-		"castle-window-left"
+		"castle-window-left",
+		"cloud1",
+		"cloud2",
+		"cloud3",
+		"cloud4",
+		"cloud5",
+		"cloud6",
+		"soil",
+		"trunk",
+		"bunch",
+		"bunch_up",
+		"bunch_down",
+		"bunch_light",
+		"bunch_up_light",
+		"bunch_down_light",
+		"fence",
+		"moss",
+		"edge_moutain_left",
+		"edge_moutain_right",
+		"body_mountain",
+		"body_moutain_right",
+		"body_moutain_left",
+		"top_mountain",
+		"grass3",
+		"handrail",
+		"handrail_light",
+		"water_surface_2",
+		"water",
+		"water2",
+		"lavar1",
+		"lavar2",
 	};
 
 	static bool isNormalPlatform(std::string name) {

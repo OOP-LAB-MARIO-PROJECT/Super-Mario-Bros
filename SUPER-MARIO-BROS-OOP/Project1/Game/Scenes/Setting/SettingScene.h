@@ -1,20 +1,20 @@
 #pragma once
-#include "../Scene.h"	
-#include "../../../Utils/SceneManager.h"
+#include "../../../UI_Components/VolumeSlider.h"
+#include "../../../UI_Components/Animation.h"
 #include "../../../UI_Components/Button.h"
+#include "../../../Utils/SceneManager.h"
+#include "../../GameConfig.h"
 #include <SFML/Audio.hpp>
+#include "../Scene.h"	
 #include <iostream>
 #include <iomanip>
 #include <sstream>
 #include <string>
 #include <map>
-#include "../../../UI_Components/VolumeSlider.h"
-#include "../../../UI_Components/Animation.h"
 
 class SettingScene : public Scene
 {
 	std::vector<Button> buttons;
-	/*sf::Font font;*/
 	bool isMute = false;
 	float volume = 50.0;
 	bool save = false;
@@ -34,6 +34,14 @@ class SettingScene : public Scene
 	std::vector<Animation> animations;
 	std::vector<std::shared_ptr<sf::Sprite>> sprites;
 	sf::Sprite talkingFlowerSprite;
+
+	std::shared_ptr<sf::Texture> wrenchTexture;
+	sf::Sprite wrenchSprite;
+	std::shared_ptr<sf::Texture> backTexture;
+	sf::Sprite backSprite;
+	bool isHovered;
+	int currentButton = 0;
+
 public:
 	SettingScene(sf::RenderWindow* window);
 	~SettingScene() {

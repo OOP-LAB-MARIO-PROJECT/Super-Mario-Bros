@@ -1,6 +1,6 @@
 #pragma once
 #include "Projectile.h"
-#include "../../Utils/EntityManager.h"
+#include "../../../../Utils/EntityManager.h"
 class Fireball : public Projectile {
 	int affectType = ENEMY;
 	float timeToLive = 0;

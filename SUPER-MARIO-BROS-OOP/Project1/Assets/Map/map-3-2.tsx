@@ -26,7 +26,6 @@
  <tile id="634" type="cloud2"/>
  <tile id="635" type="cloud3"/>
  <tile id="642" type="question"/>
- <tile id="647" type="pipe-up-head-left-light"/>
  <tile id="653" type="flag-dark-1"/>
  <tile id="663" type="cloud1"/>
  <tile id="664" type="cloud2"/>
@@ -181,7 +180,6 @@
  <tile id="1752" type="block5"/>
  <tile id="1753" type="block5"/>
  <tile id="1754" type="block5"/>
- <tile id="1759" type="block5"/>
  <tile id="1763" type="flag-body-light-1"/>
  <tile id="1777" type="castle1"/>
  <tile id="1778" type="castle1"/>
@@ -306,6 +304,7 @@
  <tile id="2666" type="castle-door"/>
  <tile id="2667" type="castle2"/>
  <tile id="2668" type="castle2"/>
+ <tile id="2670" type="player_pos"/>
  <tile id="2675" type="trunk"/>
  <tile id="2677" type="trunk"/>
  <tile id="2678" type="fence"/>
@@ -386,7 +385,7 @@
  <tile id="2873" type="block5"/>
  <tile id="2877" type="castle2"/>
  <tile id="2878" type="castle2"/>
- <tile id="2879" type="castle-door"/>
+ <tile id="2879" type="castle-door#map-3-3"/>
  <tile id="2880" type="castle2"/>
  <tile id="2881" type="castle2"/>
  <tile id="2886" type="block1"/>

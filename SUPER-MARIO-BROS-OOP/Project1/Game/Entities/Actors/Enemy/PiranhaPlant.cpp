@@ -62,7 +62,6 @@ void PiranhaPlant::update(float deltatime) {
         cnt += 14 * deltatime * dist;
     }
     else if (isStop) {
-        std::cout << dist;
         if (cnt > 0) {
             if (cnt >= 36) {
                 timer += deltatime;

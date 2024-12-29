@@ -1,6 +1,6 @@
 #include "Camera.h"
 
-Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) {
+Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) : backhome(sf::Vector2f(0, 0), sf::Vector2f(100, 50)) {
 	camera = w->getDefaultView();
 	sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 	int screenWidth = desktop.width / 8;
@@ -16,6 +16,21 @@ Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) {
 	aboveLimit = 200.0f;
 	beneathLimit = w->getSize().y - 200.0f;
 	base = GameConfig::getInstance().cameraBase;
+
+	backhome.setSize(sf::Vector2f(30, 16));
+	backhome.setOnClick(
+		[]() {
+			SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home);
+		}
+	);
+	/*
+	
+    button.setFont(*(FontManager::getInstance().getFont("Mario")));
+    button.setText(content, textSize, textColor);
+	*/
+	backhome.setFont(*(FontManager::getInstance().getFont("Mario")));
+	backhome.setText("Home", 11, sf::Color::White);
+	backhome.setColors(sf::Color::White, sf::Color::Yellow, sf::Color::Green);
 }
 
 void Camera::moveCamera(const float& x, const float& y) {
@@ -53,15 +68,29 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
 	sf::Text timeText("Time: " + std::to_string(config.timeLeft) + "s", font, fontSize);
 	sf::Text volumeText("Volume: " + std::to_string(static_cast<int>(config.volume)) + "%", font, fontSize);
 
+	if (--pauseTimer <= 0) {
+		pauseTimer = 10;
+		pausText += '.';
+		if (pausText.size() > 15) pausText = "Pausing";
+	}
+
+	sf::Text pausingText(pausText , font, fontSize);
+
 	playerNameText.setScale(scale);
 	levelText.setScale(scale);
 	scoreText.setScale(scale);
 	coinText.setScale(scale);
 	timeText.setScale(scale);
 	volumeText.setScale(scale);
+	pausingText.setScale(scale);
 
 	float textYpos = camera.getCenter().y - 116.f;
 	playerNameText.getGlobalBounds().getPosition();
+
+	sf::Vector2f sizeP = pausingText.getGlobalBounds().getSize();
+	pausingText.setPosition(camera.getCenter() - sizeP / 2.f);
+	sizeP.x = 0;
+	backhome.setPosition(camera.getCenter() + sizeP);
 
 	auto spaceFrom = [&](const sf::Text& rect, float space) {
 		sf::Vector2f res = rect.getPosition();
@@ -83,6 +112,20 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
 	window->draw(coinText);
 	window->draw(timeText);
 	window->draw(volumeText);
+
+	if (GameConfig::getInstance().levelStatus == PAUSE) {
+		window->draw(pausingText);
+		backhome.draw(window);
+		sf::Event event;
+		while (window->pollEvent(event)) {
+			if (event.type == sf::Event::Closed)
+			{
+				window->close();
+			}
+
+			backhome.handleEvent(event, *window);
+		}
+	}
 }
 
 std::pair <sf::Vector2f, sf::Vector2f> Camera::getRenderSpace() {

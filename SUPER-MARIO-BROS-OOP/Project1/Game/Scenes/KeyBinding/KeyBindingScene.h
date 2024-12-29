@@ -11,7 +11,24 @@
 class KeyBindingScene : public Scene
 {
 	std::vector<TextBox> textBoxes;
-	std::vector<sf::RectangleShape> shapes;
+	//std::vector<sf::RectangleShape> shapes;
+	std::vector<std::shared_ptr <sf::Sprite>> sprites;
+	sf::Texture upArrowTexture;
+	sf::Sprite upArrowSprite;
+	sf::Texture downArrowTexture;
+	sf::Sprite downArrowSprite1;
+	sf::Sprite leftArrowSprite2;
+	sf::Texture leftArrowTexture;
+	sf::Sprite leftArrowSprite;
+	sf::Texture rightArrowTexture;
+	sf::Sprite rightArrowSprite;
+	sf::Texture jellyTexture;
+	sf::Sprite jellySprite;
+	sf::Texture fooTexture;
+	sf::Sprite fooSprite;
+	std::shared_ptr<sf::Texture> backTexture;
+	sf::Sprite backSprite;
+
 	std::vector<sf::Text> actions;
 	std::vector<std::string> actualActions;
 	std::vector<Button> buttons;

@@ -19,6 +19,7 @@ public:
         Register,
 		Setting,
         KeyBinding,
+		Map,
     };
 
     static SceneManager& getInstance();

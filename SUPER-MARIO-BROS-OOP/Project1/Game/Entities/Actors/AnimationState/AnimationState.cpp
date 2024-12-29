@@ -325,19 +325,19 @@ void TransformState::handle(Actor* a, float deltaTime) {
 			if (transformTime < 0.8) id = 0;
 			if (transformTime < 0.5) id = 1;
 			
-			pos.y -= 16.f / 1.2f * deltaTime;
+			pos.y -= 16.f * deltaTime;
 			size.y += 16.f / 1.2f * deltaTime;
 		}
 		else if (GameConfig::getInstance().marioState == MARIO_STATE::SMALL) {
 			if (transformTime < 0.8) id = 1;
 			if (transformTime < 0.5) id = 0;
 
-			pos.y += 16.f / 1.2f * deltaTime;
+			pos.y += 16.f * deltaTime;
 			size.y -= 16.f / 1.2f * deltaTime;
 		}
-		pos.y -= 2.f;
 		a->setSize(size);
 		a->setPos(pos);
+		a->setVel({ 0, 0 });
 	}
 
 	if (transformTime <= 0.1) {

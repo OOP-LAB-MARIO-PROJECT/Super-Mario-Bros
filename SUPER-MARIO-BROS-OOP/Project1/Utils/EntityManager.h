@@ -41,7 +41,7 @@ public:
 
     void renderAll(sf::RenderWindow* window);
     // vector <..> getEntityWithID();
-
+    void updatePositionAndPhysic(float deltaTime);
     void setUpdatePivot(sf::Vector2f pos);
     std::vector <Entity*>& getEntities();  // Container to store entities
 

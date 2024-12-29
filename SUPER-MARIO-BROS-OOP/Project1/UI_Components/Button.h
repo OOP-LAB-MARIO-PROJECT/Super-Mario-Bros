@@ -13,12 +13,13 @@ private:
     sf::Text text;
     bool isPressed = false;
     bool isHovered = false;
+	bool isDisabled = false;
     std::function<void()> onClick;
 
     sf::Color defaultColor;
     sf::Color hoverColor;
     sf::Color pressedColor;
-
+    sf::Color textColor;
 public:
     // Constructor
     Button(const sf::Vector2f& size, const sf::Vector2f& position);
@@ -43,6 +44,19 @@ public:
         unsigned int textSize,
         const sf::Color& textColor
     );
+    static Button createButton(
+        const sf::Vector2f& size,
+        const sf::Vector2f& position,
+        const sf::Color& defaultCol,
+        const sf::Color& hoverCol,
+        const sf::Color& pressedCol,
+        const std::function<void()>& onClickCallback,
+        const std::string& content,
+        unsigned int textSize,
+        const sf::Color& textColor,
+		std::string texturePath
+    );
+	sf::Color getTextColor();
     bool isButtonPressed();
 	bool beingHovered();
 };

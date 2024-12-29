@@ -1,4 +1,11 @@
 {
+    "controls": {
+        "dodge": 18,
+        "jump": 22,
+        "left": 0,
+        "right": 3,
+        "shoot": 5
+    },
     "playerName": "duy",
     "unlocked-level": {
         "map-1-1": [
