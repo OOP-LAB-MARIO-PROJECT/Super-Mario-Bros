@@ -6,6 +6,7 @@
 #include <fstream>
 #include "../../../UI_Components/Button.h"
 #include "../../GameConfig.h"
+#include "../../../Utils/FontManager.h"
 class MapScene : public Scene
 {
 	GameConfig* gameConfig = nullptr;
@@ -24,5 +25,6 @@ public:
 	void drawScene();
 	void loopEvents();
 	void update(float deltatime) override;
+	std::vector<std::string> reformat();
 };
 

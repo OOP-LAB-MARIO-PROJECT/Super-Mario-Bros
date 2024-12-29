@@ -47,6 +47,7 @@ void Button::setText(const std::string& content, unsigned int textSize, const sf
     text.setCharacterSize(textSize);
     text.setFillColor(textColor);
 
+	this->textColor = textColor;
 
     sf::FloatRect bounds = shape.getGlobalBounds();
     sf::FloatRect textBounds = text.getGlobalBounds();
@@ -76,7 +77,6 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
         }
         else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
             text.setCharacterSize(text.getCharacterSize() - 5);
-			text.setFillColor(sf::Color::Black);
             if (isPressed && onClick) {
                 onClick(); 
             }
@@ -85,7 +85,7 @@ void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window)
     }
     else {
         shape.setFillColor(defaultColor); 
-        text.setFillColor(sf::Color::Black);
+        text.setFillColor(getTextColor());
    }
 }
 
@@ -132,7 +132,47 @@ Button Button::createButton(
     return button;
 }
 
+Button Button::createButton(
+    const sf::Vector2f& size,
+    const sf::Vector2f& position,
+    const sf::Color& defaultCol,
+    const sf::Color& hoverCol,
+    const sf::Color& pressedCol,
+    const std::function<void()>& onClickCallback,
+    const std::string& content,
+    unsigned int textSize,
+    const sf::Color& textColor,
+	std::string texturePath
+) {
+    Button button(size, position);
+
+    button.texture = std::make_shared<sf::Texture>();
+    if (!button.texture->loadFromFile(texturePath))
+    {
+        std::cout << "ver2" << std::endl;
+    }
+    button.sprite = std::make_shared<sf::Sprite>();
+    button.sprite->setTexture(*(button.texture));
+    float midX = size.x / 2.0;
+    float midY = size.y / 2.0;
+    sf::Vector2u textureSize = button.texture->getSize();
+    button.sprite->setScale(1.3, 1.3);
+    button.sprite->setPosition(position.x, position.y + midY);
+    button.setFont(*(FontManager::getInstance().getFont("Mario")));
+    button.setText(content, textSize, textColor);
+    button.text.setOutlineColor(sf::Color::Black);
+    button.text.setOutlineThickness(2);
+    button.setOnClick(onClickCallback);
+    return button;
+}
+
+
 bool Button::isButtonPressed()
 {
     return isPressed;
+}
+
+sf::Color Button::getTextColor()
+{
+	return textColor;
 }

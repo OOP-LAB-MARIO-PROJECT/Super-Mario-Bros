@@ -272,10 +272,16 @@
     <Text Include="Assets\Sounds\sound_interface.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="UI_Components\UI_Texture_Pack\AngrySun.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\AngrySun2.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\back.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Background.png" />
     <Image Include="UI_Components\UI_Texture_Pack\cat.png" />
     <Image Include="UI_Components\UI_Texture_Pack\CloudBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\CoinSpriteSheet.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\DownArrow.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\foo.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\fwoosh.png" />
     <Image Include="UI_Components\UI_Texture_Pack\GoombaSpriteSheet.png" />
     <Image Include="UI_Components\UI_Texture_Pack\HappyMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\HoveredMario.png" />
@@ -283,15 +289,35 @@
     <Image Include="UI_Components\UI_Texture_Pack\IdleMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\knob.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Koopa.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\left.png" />
     <Image Include="UI_Components\UI_Texture_Pack\LoginBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\LuigiWithWrench.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\MapScene.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Moon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\OrangeMoon.png" />
     <Image Include="UI_Components\UI_Texture_Pack\PinkFlower.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Pipe.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\purple.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\PurpleBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\RegisterBackground.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\right.png" />
     <Image Include="UI_Components\UI_Texture_Pack\SadMario.png" />
     <Image Include="UI_Components\UI_Texture_Pack\SettingSceneBackground.png" />
     <Image Include="UI_Components\UI_Texture_Pack\Title.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\UpArrow.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-1.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-2.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-3.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world1-4.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-1.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-2.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-3.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world2-4.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-1.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-2.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-3.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\world3-4.png" />
+    <Image Include="UI_Components\UI_Texture_Pack\wrench.png" />
     <Image Include="UI_Components\UI_Texture_Pack\YellowMoon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

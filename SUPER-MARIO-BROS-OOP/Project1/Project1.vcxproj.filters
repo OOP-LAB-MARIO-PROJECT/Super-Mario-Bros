@@ -446,6 +446,84 @@
     <Image Include="UI_Components\UI_Texture_Pack\knob.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\LuigiWithWrench.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world2-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world2-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world2-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world2-4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world3-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world3-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world3-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world3-4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world1-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world1-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world1-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\world1-4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\MapScene.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\wrench.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\purple.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\UpArrow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\DownArrow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\PurpleBackground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\AngrySun.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\AngrySun2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\foo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="UI_Components\UI_Texture_Pack\fwoosh.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\font_interface.txt" />
