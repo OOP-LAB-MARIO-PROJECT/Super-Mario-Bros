@@ -40,6 +40,7 @@ void KoopaTroopa::update(float deltatime) {
 
 
 
+
     if (!isDead) {
         for (auto en : otherEntities) {
             Hitbox ob = en->getHitbox();
@@ -98,7 +99,7 @@ void KoopaTroopa::inflictDamage() {
 }
 
 void KoopaTroopa::affectOther(Entity* other, float deltatime) {
-    if (other->getType() == PLAYER) {
+    if (other->getType() == PLAYER && GameConfig::getInstance().marioState != INVINCIBLE) {
         sf::Vector2f pushback;
         int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel - this->getHitbox().vel, this->getHitbox(), pushback);
 
@@ -132,6 +133,14 @@ void KoopaTroopa::affectOther(Entity* other, float deltatime) {
         {
             other->setIsDeadByOtherEnemy(true);
             other->inflictDamage();
+        }
+    }
+    else if (other->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+        int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel - this->getHitbox().vel, this->getHitbox());
+        if (dir == -1) return;
+        if ((dir == LEFT || dir == RIGHT || dir == TOP || dir == BOTTOM))
+        {
+            this->kill();
         }
     }
 }

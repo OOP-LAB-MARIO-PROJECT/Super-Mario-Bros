@@ -51,6 +51,7 @@ void Player::setState(const std::string& stateName) {
 
 			if (currentMode == SMALL && !getIsTransforming()) state->setEntityName("mario");
 			if (currentMode == BIG) state->setEntityName("big-mario");
+			if (currentMode == WHITE_BIG) state->setEntityName("wb-mario");
 			currentState = state;
 		}
 	}
@@ -64,6 +65,17 @@ void Player::update(float deltatime) {
 
 	if (getPos().y > GameConfig::getInstance().cameraBase + 64) inflictDamage();
 
+	if (currentMode == INVICIBLE) {
+		
+		invicibleDuration += deltatime;
+		if (invicibleDuration > 5.f) {
+			invicibleDuration = 0;
+			GameConfig::getInstance().marioState = MARIO_STATE::SMALL;
+			currentMode = SMALL;
+			
+		}
+	}
+
 	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::BIG) {
 		setIsTransforming(true);
 		currentMode = BIG;
@@ -71,6 +83,24 @@ void Player::update(float deltatime) {
 
 
 	if (currentMode == BIG && GameConfig::getInstance().marioState == MARIO_STATE::SMALL) {
+		setIsTransforming(true);
+		currentMode = SMALL;
+	}
+
+	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::INVINCIBLE) {
+		currentMode = INVICIBLE;
+	}
+
+	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::INVINCIBLE) {
+		currentMode = INVICIBLE;
+	}
+
+	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::WHITE_BIG) {
+		setIsTransforming(true);
+		currentMode = WHITE_BIG;
+	}
+
+	if (currentMode == WHITE_BIG && GameConfig::getInstance().marioState == MARIO_STATE::SMALL) {
 		setIsTransforming(true);
 		currentMode = SMALL;
 	}
@@ -119,10 +149,13 @@ void Player::update(float deltatime) {
 	for (const auto& en : other) { // player interact with surrounding enemies
 		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
 		if (dir == -1) continue;
-		if (en->getType() == ENEMY) {
-			if (dir == TOP) setVel({ getVel().x, -20 }), en->inflictDamage(), isKilling = true;
+		if (en->getType() == ENEMY && currentMode != INVICIBLE) {
+			if (dir == TOP) setVel({ getVel().x, -80 }), en->inflictDamage(), isKilling = true;
 			en->affectOther(this);
 			continue;
+		}
+		else if (currentMode == INVICIBLE) {
+			if (dir == TOP || dir == BOTTOM || dir == LEFT || dir == RIGHT) en->inflictDamage();
 		}
 		en->affectOther(this, deltatime);
 	}
@@ -187,6 +220,7 @@ void Player::moveLeft(float deltatime) {
 }
 
 void Player::shoot(float deltatime) {
+	if (currentMode != WHITE_BIG) return;
 	if (shootTimer <= 0.5) {
 		EntityManager::getInstance().addEntity(new Fireball(getPos(), sf::Vector2f(4, 4), getFacing()));
 		shootTimer = 1;
@@ -208,7 +242,7 @@ int Player::getType() {
 }
 
 void Player::inflictDamage() {
-	if (currentMode == BIG) {
+	if (currentMode == BIG || currentMode == WHITE_BIG) {
 		GameConfig::getInstance().marioState = MARIO_STATE::SMALL;
 		setIsTransforming(true);
 		return;

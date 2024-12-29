@@ -5,6 +5,10 @@
  <tile id="37" type="green-mushroom"/>
  <tile id="38" type="brown-mushroom"/>
  <tile id="44" type="flag"/>
+ <tile id="72" type="flower"/>
+ <tile id="73" type="flower"/>
+ <tile id="74" type="flower"/>
+ <tile id="75" type="flower"/>
  <tile id="108" type="star"/>
  <tile id="109" type="star"/>
  <tile id="110" type="star"/>

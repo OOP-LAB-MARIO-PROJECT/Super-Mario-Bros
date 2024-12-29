@@ -113,7 +113,7 @@ void KingKoopa::setHealth(int h) {
 
 
 void KingKoopa::affectOther(Entity* other, float deltatime) {
-    if (other->getType() == PLAYER) {
+    if (other->getType() == PLAYER && GameConfig::getInstance().marioState != INVINCIBLE) {
         int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel - this->getHitbox().vel, this->getHitbox());
         if (dir == -1) return;
         if (dir == LEFT || dir == RIGHT) {

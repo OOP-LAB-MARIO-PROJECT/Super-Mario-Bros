@@ -31,6 +31,14 @@ Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vect
 	if (type == "king-koopa") {
 		return new KingKoopa(pos, size);
 	}
+	
+	if (type == "star") {
+		return new Star(pos, size);
+	}
+
+	if (type == "flower") {
+		return new Flower(pos, size);
+	}
 
 
 	//return new Goompa(pos, size, map);

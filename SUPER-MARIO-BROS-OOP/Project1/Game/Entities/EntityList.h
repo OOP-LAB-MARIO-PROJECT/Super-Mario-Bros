@@ -6,3 +6,5 @@
 #include "Actors/Prop/CastleGate.h"
 #include "Actors/Enemy/PiranhaPlant.h"
 #include "Actors/Enemy/KingKoopa.h"
+#include "Actors/Prop/Star.h"
+#include "Actors/Prop/Flower.h"

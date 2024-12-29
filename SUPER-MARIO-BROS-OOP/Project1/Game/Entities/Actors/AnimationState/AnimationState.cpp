@@ -1,4 +1,4 @@
-#include "AnimationState.h"
+﻿#include "AnimationState.h"
 
 
 AnimationState::AnimationState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : entityName(en), textureName(tn), stateDuration(sT)  {}
@@ -8,6 +8,7 @@ void AnimationState::setEntityName(const std::string EntityName) {
 }
 
 void AnimationState::switchTexture(std::vector<std::vector<std::string>> newTexture) {
+	textureName = newTexture;
 }
 
 
@@ -18,7 +19,21 @@ IdleState::IdleState(const std::string& en, const std::vector<std::vector<std::s
 
 void IdleState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
+	std::vector<std::vector<std::string>> wbTexture = { { "left-small-mario-wb-12" }, {"right-small-mario-wb-1"} };
+	//switchTexture(wbTexture);
+	
+	if (a->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+		static float blinkTimer = 0;
+		blinkTimer += deltaTime;
+
+		int alpha = static_cast<int>((std::sin(blinkTimer * 40.0f) + 1.0f) * 77.5f + 100);
+		a->sprite.setColor(sf::Color(255, 255, 255, alpha));
+	}
+	else if (GameConfig::getInstance().marioState == SMALL) {
+		a->sprite.setColor(sf::Color(255, 255, 255, 255));
+	}
 	a->setTexture(entityName, textureName[isRight][0]);
+	
 }
 
 
@@ -46,14 +61,27 @@ RunningState::RunningState(const std::string& en, const std::vector<std::vector<
 
 void RunningState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
+	if (a->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+		static float blinkTimer = 0;
+		blinkTimer += deltaTime;
+
+		int alpha = static_cast<int>((std::sin(blinkTimer * 40.0f) + 1.0f) * 77.5f + 100);
+		a->sprite.setColor(sf::Color(255, 255, 255, alpha));
+	}
+	else if (GameConfig::getInstance().marioState == SMALL) {
+		a->sprite.setColor(sf::Color(255, 255, 255, 255));
+	}
 	a->setTexture(entityName, textureName[isRight][aniLoop % textureName[isRight].size()]);
 
+
+	// Cập nhật animation loop
 	timer += deltaTime;
 	if (timer > stateDuration) {
 		aniLoop++;
 		timer = 0;
 	}
 }
+
 
 
 void RunningState::handle(Actor* a, float deltaTime) {
@@ -95,7 +123,18 @@ JumpingState::JumpingState(const std::string& en, const std::vector<std::vector<
 
 void JumpingState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
+	if (a->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+		static float blinkTimer = 0;
+		blinkTimer += deltaTime;
+
+		int alpha = static_cast<int>((std::sin(blinkTimer * 40.0f) + 1.0f) * 77.5f + 100);
+		a->sprite.setColor(sf::Color(255, 255, 255, alpha));
+	}
+	else if (GameConfig::getInstance().marioState == SMALL) {
+		a->sprite.setColor(sf::Color(255, 255, 255, 255));
+	}
 	a->setTexture(entityName, textureName[isRight][0]);
+	
 }
 
 
@@ -128,8 +167,18 @@ SlideState::SlideState(const std::string& en, const std::vector<std::vector<std:
 
 void SlideState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
-	a->setTexture(entityName, textureName[isRight][0]);
+	if (a->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+		static float blinkTimer = 0;
+		blinkTimer += deltaTime;
 
+		int alpha = static_cast<int>((std::sin(blinkTimer * 40.0f) + 1.0f) * 77.5f + 100);
+		a->sprite.setColor(sf::Color(255, 255, 255, alpha));
+	}
+	else if (GameConfig::getInstance().marioState == SMALL) {
+		a->sprite.setColor(sf::Color(255, 255, 255, 255));
+	}
+	a->setTexture(entityName, textureName[isRight][0]);
+	
 }
 
 
@@ -167,8 +216,15 @@ KillState::KillState(const std::string& en, const std::vector<std::vector<std::s
 
 void KillState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
+	
 	a->setTexture(entityName, textureName[isRight][0]);
+	if (a->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+		static float blinkTimer = 0;
+		blinkTimer += deltaTime;
 
+		int alpha = static_cast<int>((std::sin(blinkTimer * 40.0f) + 1.0f) * 77.5f + 100);
+		a->sprite.setColor(sf::Color(255, 255, 255, alpha));
+	}
 }
 
 
@@ -265,7 +321,7 @@ void TransformState::handle(Actor* a, float deltaTime) {
 		sf::Vector2f pos = a->getPos();
 		sf::Vector2f size = a->getSize();
 
-		if (GameConfig::getInstance().marioState == MARIO_STATE::BIG) {
+		if (GameConfig::getInstance().marioState == MARIO_STATE::BIG || GameConfig::getInstance().marioState == MARIO_STATE::WHITE_BIG) {
 			if (transformTime < 0.8) id = 0;
 			if (transformTime < 0.5) id = 1;
 			
