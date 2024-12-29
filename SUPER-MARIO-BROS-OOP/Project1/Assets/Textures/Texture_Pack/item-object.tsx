@@ -7,6 +7,10 @@
  <tile id="44" type="flag"/>
  <tile id="77" type="bounce_up_1"/>
  <tile id="78" type="bounce_up_2"/>
+ <tile id="72" type="flower"/>
+ <tile id="73" type="flower"/>
+ <tile id="74" type="flower"/>
+ <tile id="75" type="flower"/>
  <tile id="108" type="star"/>
  <tile id="109" type="star"/>
  <tile id="110" type="star"/>

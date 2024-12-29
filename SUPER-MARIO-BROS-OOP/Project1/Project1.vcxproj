@@ -144,6 +144,8 @@
     <ClCompile Include="Game\Entities\Actors\Enemy\Fire.cpp" />
     <ClCompile Include="Game\Entities\Actors\Enemy\KingKoopa.cpp" />
     <ClCompile Include="Game\Entities\Actors\Projectile\BrickParticle.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Prop\Flower.cpp" />
+    <ClCompile Include="Game\Entities\Actors\Prop\Star.cpp" />
     <ClCompile Include="Game\Entities\Tiles\RotateFire.cpp" />
     <ClCompile Include="Game\Scenes\Map\MapScene.cpp" />
     <ClCompile Include="UI_Components\Animation.cpp" />
@@ -205,6 +207,8 @@
     <ClInclude Include="Game\Entities\Actors\Enemy\Fire.h" />
     <ClInclude Include="Game\Entities\Actors\Enemy\KingKoopa.h" />
     <ClInclude Include="Game\Entities\Actors\Projectile\BrickParticle.h" />
+    <ClInclude Include="Game\Entities\Actors\Prop\Flower.h" />
+    <ClInclude Include="Game\Entities\Actors\Prop\Star.h" />
     <ClInclude Include="Game\Entities\Tiles\QuestionTile.h" />
     <ClInclude Include="Game\Entities\Tiles\RotateFire.h" />
     <ClInclude Include="Game\Scenes\Map\MapScene.h" />

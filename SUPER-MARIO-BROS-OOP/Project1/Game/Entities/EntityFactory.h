@@ -26,7 +26,9 @@ namespace FACTORY_ENTITY_TYPE {
 		"green-mushroom",
 		"brown-mushroom",
 		"coin",
-		"castle-door"
+		"castle-door",
+		"star",
+		"flowr",
 	};
 
 	static bool isEnemy(const std::string& type) {

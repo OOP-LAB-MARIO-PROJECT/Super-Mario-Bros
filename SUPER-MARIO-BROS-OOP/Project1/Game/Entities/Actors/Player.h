@@ -19,7 +19,7 @@ class Player : public Actor
 	ENTITY_TYPE currentType = PLAYER;
 	float deadthTimer = 0;
 	float shootTimer = 0;
-
+	float invicibleDuration = 0;
 public:
 	std::vector <Entity*> nearPointerTiles;
 	
@@ -27,7 +27,7 @@ public:
 		SMALL,
 		BIG,
 		WHITE_BIG,
-		INVICIBLE
+		INVICIBLE,
 	} currentMode;
 
 	Player();

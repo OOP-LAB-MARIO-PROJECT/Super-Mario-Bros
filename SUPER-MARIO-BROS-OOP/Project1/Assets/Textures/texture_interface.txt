@@ -9,3 +9,4 @@ Texture_Pack/Goompa.tsx Texture_Pack/Goompa.png
 Texture_Pack/PiranhaPlant.tsx Texture_Pack/PiranhaPlant.png
 Texture_Pack/KingKoopa.tsx Texture_Pack/KingKoopa.png
 Texture_Pack/Fire.tsx Texture_Pack/Fire.png
+Texture_Pack/wb-mario.tsx Texture_Pack/wb-mario.png
