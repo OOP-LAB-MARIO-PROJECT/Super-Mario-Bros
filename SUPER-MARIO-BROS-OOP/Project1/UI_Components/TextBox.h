@@ -30,7 +30,7 @@ public:
 
     std::string getText() const;
 
-    bool isMouseOver(sf::Vector2i mousePos);
+    bool isMouseOver(sf::RenderWindow& window);
 
     void setSelected(bool selected);
 
