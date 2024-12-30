@@ -7,12 +7,13 @@
 
 class Actor : public Entity, public Collision, public Physics {
 private:
-	sf::Sprite sprite;
+
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
 	// spritesheet
 protected:
+
 	bool isOnGround = false;
 	bool autoSpriteFollowHitbox = true;
 	int facing = 0;
@@ -21,7 +22,7 @@ protected:
 	bool isTransforming = true;
 
 public:
-
+	sf::Sprite sprite;
 	Actor(sf::Vector2f _pos, sf::Vector2f _size);
 	Actor();
 

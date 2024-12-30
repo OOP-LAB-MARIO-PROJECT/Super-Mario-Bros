@@ -9,6 +9,7 @@ private:
 	int x = 0;
 	int y = 0;
 	float cameraBase = 0;
+	std::string backgroundColor = "";
 	Entity* player;
 
 public:

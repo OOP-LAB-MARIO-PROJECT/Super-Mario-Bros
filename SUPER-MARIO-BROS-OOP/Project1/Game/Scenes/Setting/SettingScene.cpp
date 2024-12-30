@@ -4,14 +4,13 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 
 	float midScreenX = getWindow()->getSize().x / 2.0;
 	float midScreenY = getWindow()->getSize().y / 2.0;
-	sf::Vector2f midCoordinate(midScreenX - 100, midScreenY - 50); //button base position
+	sf::Vector2f midCoordinate(midScreenX - 95, midScreenY - 45); //button base position
 
-	
-	Button back = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x - 100, midCoordinate.y + 210), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
-		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 17, sf::Color::Black);
+	Button back = Button::createButton(sf::Vector2f(190, 90), sf::Vector2f(midCoordinate.x, midCoordinate.y + 50), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home); }, "Back", 13, sf::Color::Black);
 	buttons.push_back(back);
 
-	Button keyBinding = Button::createButton(sf::Vector2f(200, 100), sf::Vector2f(midCoordinate.x + 180, midCoordinate.y), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
+	Button keyBinding = Button::createButton(sf::Vector2f(190, 90), sf::Vector2f(midCoordinate.x, midCoordinate.y - 150), sf::Color::Yellow, sf::Color::Blue, sf::Color::Green,
 		[]() { SceneManager::getInstance().navigateTo(SceneManager::Scenes::KeyBinding); }, "Key Binding", 12, sf::Color::Black);
 	buttons.push_back(keyBinding);
 
@@ -41,6 +40,18 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	luigiSprite.setScale(0.5, 0.5);
 	luigiSprite.setPosition(10, getWindow()->getSize().y - luigiSprite.getLocalBounds().height / 2.0 - 50);
 
+	//wrench
+	wrenchTexture = std::make_shared<sf::Texture>();
+	wrenchTexture->loadFromFile("UI_Components/UI_Texture_Pack/wrench.png");
+	wrenchSprite.setTexture(*wrenchTexture);
+	wrenchSprite.setScale(1, 1);
+
+	//back
+	backTexture = std::make_shared<sf::Texture>();
+	backTexture->loadFromFile("UI_Components/UI_Texture_Pack/back.png");
+	backSprite.setTexture(*backTexture);
+	backSprite.setScale(0.1, 0.1);
+
 	//talking flower gif
 	std::shared_ptr<sf::Texture> talkingFlowerTexture = std::make_shared<sf::Texture>();
 	if (talkingFlowerTexture->loadFromFile("UI_Components/UI_Texture_Pack/TalkingFlower.png"))
@@ -54,13 +65,27 @@ SettingScene::SettingScene(sf::RenderWindow* window) : Scene(window) {
 	animations.push_back(talkingFlower);
 	sprites[0]->setScale(2, 2);
 	sprites[0]->setPosition(800, getWindow()->getSize().y - sprites[0]->getTexture()->getSize().y / 1.0 - talkingFlowerSprite->getGlobalBounds().height - 28);
+
+	//purple flower gif
+	std::shared_ptr<sf::Texture> purpleFlowerTexture = std::make_shared<sf::Texture>();
+	if (purpleFlowerTexture->loadFromFile("UI_Components/UI_Texture_Pack/purple.png"))
+	{
+		std::cout << "texture for purple flower rendered\n" << std::endl;
+	}
+	std::shared_ptr <sf::Sprite> purpleFlowerSprite = std::make_shared<sf::Sprite>();
+	purpleFlowerSprite->setTexture(*purpleFlowerTexture);
+	sprites.push_back(purpleFlowerSprite);
+	Animation purpleFlower = Animation::createAnimation(purpleFlowerTexture, sf::Vector2u(4, 1), 0.3);
+	animations.push_back(purpleFlower);
+	sprites[1]->setScale(3, 3);
+	sprites[1]->setPosition(850, 150);
+
 }
 
 void SettingScene::changeVolume()
 {
 	this->volume = volumeSlider.getVolume();
 	GameConfig::getInstance().setVolume(this->volume);
-
 }
 
 void SettingScene::muteHandling()
@@ -99,6 +124,18 @@ void SettingScene::drawScene()
 	{
 		getWindow()->draw(unmuteIconSprite);
 	}
+
+	if (isHovered && currentButton == 0)
+	{
+		backSprite.setPosition(buttons[currentButton].getPosition().x + buttons[currentButton].getSize().x - 20, buttons[currentButton].getPosition().y + 5);
+		getWindow()->draw(backSprite);
+	}
+	else if (isHovered && currentButton == 1)
+	{
+		wrenchSprite.setPosition(buttons[currentButton].getPosition().x + buttons[currentButton].getSize().x + 10, buttons[currentButton].getPosition().y - 20);
+		getWindow()->draw(wrenchSprite);
+	}
+
 	getWindow()->draw(luigiSprite);
 	for (int i = 0; i < sprites.size(); i++)
 	{
@@ -118,8 +155,14 @@ void SettingScene::loopEvents()
 		{
 			getWindow()->close();
 		}
+		isHovered = false;
 		for (int i = 0; i < buttons.size(); i++)
 		{
+			if (buttons[i].beingHovered())
+			{
+				isHovered = true;
+				currentButton = i;
+			}
 			buttons[i].handleEvent(event, *getWindow());
 		}
 		sf::Vector2f mousePos = getWindow()->mapPixelToCoords(sf::Mouse::getPosition(*getWindow()));

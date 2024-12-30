@@ -132,6 +132,10 @@ void GameScene::update(float deltatime) {
 
 	//if (GameConfig::getInstance().levelStatus == PAUSE) return;
 
+	BACKGROUND_COLOR bgCol = GameConfig::getInstance().backgroundColor;
+	if (bgCol == BLACK) getWindow()->clear(BLACK_BG);
+	if (bgCol == BLUE) getWindow()->clear(BLUE_BG);
+
 	EntityManager::getInstance().renderAll(getWindow());
 	EntityManager::getInstance().filter();
 	
