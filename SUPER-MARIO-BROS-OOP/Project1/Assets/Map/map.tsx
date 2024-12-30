@@ -1078,7 +1078,7 @@
  <tile id="1074"/>
  <tile id="1075"/>
  <tile id="1076"/>
- <tile id="1077" type="question"/>
+ <tile id="1077" type="question#power"/>
  <tile id="1078"/>
  <tile id="1079"/>
  <tile id="1080"/>
