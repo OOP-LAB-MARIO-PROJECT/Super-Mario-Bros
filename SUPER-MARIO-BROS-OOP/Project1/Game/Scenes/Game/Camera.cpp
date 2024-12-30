@@ -17,7 +17,7 @@ Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) : backhome(sf::Vector2f(0
 	beneathLimit = w->getSize().y - 200.0f;
 	base = GameConfig::getInstance().cameraBase;
 
-	backhome.setSize(sf::Vector2f(30, 16));
+	backhome.setSize(sf::Vector2f(40, 20));
 	backhome.setOnClick(
 		[]() {
 			SceneManager::getInstance().navigateTo(SceneManager::Scenes::Home);
@@ -28,9 +28,9 @@ Camera::Camera(sf::RenderWindow* w, sf::Vector2f ppos) : backhome(sf::Vector2f(0
     button.setFont(*(FontManager::getInstance().getFont("Mario")));
     button.setText(content, textSize, textColor);
 	*/
-	backhome.setFont(*(FontManager::getInstance().getFont("Mario")));
-	backhome.setText("Home", 11, sf::Color::White);
-	backhome.setColors(sf::Color::White, sf::Color::Yellow, sf::Color::Green);
+	backhome.setFont(*(FontManager::getInstance().getFont("Roboto")));
+	backhome.setText("Home", 10, sf::Color::White);
+	backhome.setColors(sf::Color(117, 78, 26), sf::Color::Yellow, sf::Color::Green);
 }
 
 void Camera::moveCamera(const float& x, const float& y) {
@@ -56,7 +56,7 @@ void Camera::followPlayer(const float& x, const float& y, const float& w, const 
 	camera.setCenter(sf::Vector2f((leftLimit + rightLimit) / 2, (base + 32 - 104)));
 }
 
-void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const GameConfig& config) {
+void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const GameConfig& config, CommandManager& command) {
 
 	int fontSize = 100;
 	sf::Vector2f scale(0.1, 0.1);
@@ -89,7 +89,8 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
 
 	sf::Vector2f sizeP = pausingText.getGlobalBounds().getSize();
 	pausingText.setPosition(camera.getCenter() - sizeP / 2.f);
-	sizeP.x = 0;
+	sizeP.x = -20;
+
 	backhome.setPosition(camera.getCenter() + sizeP);
 
 	auto spaceFrom = [&](const sf::Text& rect, float space) {
@@ -122,6 +123,12 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
 			{
 				window->close();
 			}
+
+
+			if (event.type == sf::Event::KeyPressed)
+				if (event.key.code == sf::Keyboard::Escape) {
+					command.executeCommand("pause");
+				}
 
 			backhome.handleEvent(event, *window);
 		}

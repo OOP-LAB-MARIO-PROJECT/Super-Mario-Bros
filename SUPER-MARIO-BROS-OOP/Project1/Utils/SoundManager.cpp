@@ -77,6 +77,17 @@ void SoundManager::loadFromInterface(const std::string& filename) {
 }
 
 void SoundManager::updateVolume(float vol) {
+    
+    for (auto& mySound : sounds) {
+        if (mySound.second.getStatus() == sf::Sound::Playing) {
+            auto offset = mySound.second.getPlayingOffset();
+            mySound.second.stop();
+            mySound.second.setVolume(vol);
+            mySound.second.setPlayingOffset(offset);
+            mySound.second.play();
+        }
+    }
+    
     volume = vol;
 }
 

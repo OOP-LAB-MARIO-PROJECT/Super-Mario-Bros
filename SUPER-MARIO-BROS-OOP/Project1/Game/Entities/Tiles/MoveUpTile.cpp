@@ -11,7 +11,8 @@ void MoveUpTile::touched(float deltatime) {
 	isTouch = true;
 	setVel({ 0, -90 });
 
-	if (GameConfig::getInstance().marioState == MARIO_STATE::BIG) {
+	if (GameConfig::getInstance().marioState == MARIO_STATE::BIG || 
+		GameConfig::getInstance().marioState == MARIO_STATE::WHITE_BIG) {
 		destroy(deltatime);
 	}
 

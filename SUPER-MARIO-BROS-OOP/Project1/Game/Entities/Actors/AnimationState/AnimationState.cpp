@@ -22,14 +22,14 @@ void IdleState::update(Actor* a, float deltaTime) {
 	std::vector<std::vector<std::string>> wbTexture = { { "left-small-mario-wb-12" }, {"right-small-mario-wb-1"} };
 	//switchTexture(wbTexture);
 	
-	if (a->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+	if (a->getType() == PLAYER && GameConfig::getInstance().isInvincible) {
 		static float blinkTimer = 0;
 		blinkTimer += deltaTime;
 
 		int alpha = static_cast<int>((std::sin(blinkTimer * 40.0f) + 1.0f) * 77.5f + 100);
 		a->sprite.setColor(sf::Color(255, 255, 255, alpha));
 	}
-	else if (GameConfig::getInstance().marioState == SMALL) {
+	else if (GameConfig::getInstance().marioState == SMALL || GameConfig::getInstance().marioState == BIG || GameConfig::getInstance().marioState == WHITE_BIG) {
 		a->sprite.setColor(sf::Color(255, 255, 255, 255));
 	}
 	a->setTexture(entityName, textureName[isRight][0]);
@@ -40,8 +40,8 @@ void IdleState::update(Actor* a, float deltaTime) {
 void IdleState::handle(Actor* a, float deltaTime) {
 	if (a->getIsTransforming()) {
 		a->setState("TRANSFORMING");
-	} else
-	if (a->getVel().x != 0 && a->getIsOnGround()) {
+	} 
+	else if (a->getVel().x != 0 && a->getIsOnGround()) {
 		a->setState("RUN");
 	}
 	else if (!a->getIsOnGround()) {
@@ -53,6 +53,35 @@ void IdleState::handle(Actor* a, float deltaTime) {
 		a->setIsDead(false);
 	}
 
+}
+DodgingState::DodgingState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn) {
+
+}
+
+
+void DodgingState::update(Actor* a, float deltaTime) {
+	if (a->getIsDodge()) {
+		sf::Vector2f size = a->getSize();
+		size.y = 14.f;
+		a->setPos(a->getPos() - size + a->getSize());
+		a->setSize(size);
+		size.x = 0;
+		a->setSpriteOrigin(sf::Vector2f(0, 16));
+		bool isRight = a->getFacing() == 1;
+		a->setTexture(entityName, textureName[isRight][0]);
+	}
+}
+void DodgingState::handle(Actor* a, float deltaTime) {
+	if (!a->getIsDodge()) {
+		sf::Vector2f size = a->getSize();
+		size.y = 30.f;
+
+		a->setPos(a->getPos() - size + a->getSize());
+		a->setSpriteOrigin(sf::Vector2f(0, 0));
+
+		a->setSize(size);
+		a->setState("IDLE");
+	}
 }
 
 RunningState::RunningState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn, sT) {

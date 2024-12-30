@@ -176,6 +176,7 @@
  <tile id="1531" type="block5"/>
  <tile id="1532" type="block5"/>
  <tile id="1541" type="flag-body-light-1"/>
+ <tile id="1735" type="background#black"/>
  <tile id="1751" type="block5"/>
  <tile id="1752" type="block5"/>
  <tile id="1753" type="block5"/>
@@ -200,6 +201,7 @@
  <tile id="2054" type="coin"/>
  <tile id="2055" type="coin"/>
  <tile id="2075" type="block2"/>
+ <tile id="2167" type="piranha-plant"/>
  <tile id="2193" type="block5"/>
  <tile id="2194" type="block5"/>
  <tile id="2195" type="block5"/>
@@ -306,14 +308,20 @@
  <tile id="2668" type="castle2"/>
  <tile id="2670" type="player_pos"/>
  <tile id="2675" type="trunk"/>
+ <tile id="2676" type="goompa"/>
  <tile id="2677" type="trunk"/>
  <tile id="2678" type="fence"/>
  <tile id="2679" type="fence"/>
  <tile id="2680" type="fence"/>
  <tile id="2681" type="fence"/>
+ <tile id="2683" type="goompa"/>
  <tile id="2685" type="trunk"/>
+ <tile id="2686" type="goompa"/>
  <tile id="2687" type="trunk"/>
  <tile id="2688" type="trunk"/>
+ <tile id="2691" type="goompa"/>
+ <tile id="2693" type="goompa"/>
+ <tile id="2695" type="goompa"/>
  <tile id="2702" type="fence"/>
  <tile id="2703" type="fence"/>
  <tile id="2704" type="trunk"/>
@@ -337,6 +345,9 @@
  <tile id="2752" type="trunk"/>
  <tile id="2753" type="fence"/>
  <tile id="2755" type="trunk"/>
+ <tile id="2763" type="goompa"/>
+ <tile id="2765" type="goompa"/>
+ <tile id="2767" type="goompa"/>
  <tile id="2771" type="trunk"/>
  <tile id="2773" type="trunk"/>
  <tile id="2774" type="fence"/>
@@ -363,6 +374,9 @@
  <tile id="2832" type="trunk"/>
  <tile id="2833" type="pipe-up-body-left-light"/>
  <tile id="2834" type="pipe-up-body-right-light"/>
+ <tile id="2840" type="troopa-koopa"/>
+ <tile id="2842" type="troopa-koopa"/>
+ <tile id="2844" type="troopa-koopa"/>
  <tile id="2846" type="fence"/>
  <tile id="2847" type="fence"/>
  <tile id="2848" type="trunk"/>

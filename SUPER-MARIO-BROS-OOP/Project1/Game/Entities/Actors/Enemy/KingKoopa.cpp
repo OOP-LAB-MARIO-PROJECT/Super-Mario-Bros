@@ -36,7 +36,13 @@ void KingKoopa::update(float deltatime) {
         currentState->update(this, deltatime);
     }
 
-    
+    if (getPos().y > GameConfig::getInstance().cameraBase + 32) {
+        GameConfig::getInstance().addScore(1000);
+        kill();
+        return;
+    }
+
+    attackTimer += deltatime;
     timer += deltatime;
 
 

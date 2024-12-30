@@ -3,8 +3,11 @@
 #include <SFML/Graphics.hpp>
 #include "../Utils/json.hpp"
 #include "../Utils/SoundManager.h"
-
+#define BLUE_BG sf::Color(132, 180, 252)
+#define BLACK_BG sf::Color::Black
 // Glolbal configuration for Game -> every file can get infomation from this
+//
+
 
 enum WORLD {
     OVERWORLD,
@@ -27,6 +30,11 @@ enum LEVEL_STATUS {
     FIRST_START
 };
 
+enum BACKGROUND_COLOR {
+    BLUE,
+    BLACK
+};
+
 class GameConfig {
 
     GameConfig() = default;
@@ -46,6 +54,12 @@ public:
     WORLD currentWorld = OVERWORLD;
     MARIO_STATE marioState = SMALL;
     LEVEL_STATUS levelStatus = PLAYING;
+    BACKGROUND_COLOR backgroundColor = BLUE;
+    bool isInvincible = false;
+    bool isWinning = false; // after boss hammer is touched
+    sf::Vector2f winingPos = { 0, 0 };
+
+
     float cameraBase = 192;
 
     // Configurations
