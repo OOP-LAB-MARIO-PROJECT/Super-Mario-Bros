@@ -421,6 +421,7 @@
  <tile id="1513" type="block4"/>
  <tile id="1526" type="flag-body-light-1"/>
  <tile id="1529" type="flag-body-light-1"/>
+ <tile id="1579" type="king_koopa_ow"/>
  <tile id="1580" type="stair"/>
  <tile id="1581" type="block_rock"/>
  <tile id="1582" type="block_rock"/>

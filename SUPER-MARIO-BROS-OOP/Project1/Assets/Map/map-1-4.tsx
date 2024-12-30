@@ -350,6 +350,7 @@
  <tile id="942" type="block_rock"/>
  <tile id="943" type="block_rock"/>
  <tile id="960" type="player_pos"/>
+ <tile id="983" type="block4"/>
  <tile id="990" type="question"/>
  <tile id="997" type="block4"/>
  <tile id="1009" type="block4"/>
@@ -410,6 +411,7 @@
  <tile id="1516" type="block4"/>
  <tile id="1524" type="block4"/>
  <tile id="1532" type="block4"/>
+ <tile id="1578" type="king_koopa_ow"/>
  <tile id="1580" type="stair"/>
  <tile id="1581" type="block_rock"/>
  <tile id="1582" type="block_rock"/>
@@ -439,7 +441,7 @@
  <tile id="1624" type="block_rock"/>
  <tile id="1625" type="block_rock"/>
  <tile id="1629" type="block_rock"/>
- <tile id="1630" type="block_rock"/>
+ <tile id="1630" type="block4"/>
  <tile id="1631" type="block_rock"/>
  <tile id="1635" type="block_rock"/>
  <tile id="1636" type="block_rock"/>

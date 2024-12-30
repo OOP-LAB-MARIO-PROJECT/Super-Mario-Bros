@@ -282,6 +282,7 @@
  <tile id="2161" type="handrail"/>
  <tile id="2162" type="handrail"/>
  <tile id="2163" type="handrail"/>
+ <tile id="2164" type="king_koopa_ow"/>
  <tile id="2165" type="handrail"/>
  <tile id="2166" type="handrail"/>
  <tile id="2167" type="handrail"/>
@@ -323,6 +324,7 @@
  <tile id="2209" type="handrail"/>
  <tile id="2210" type="handrail"/>
  <tile id="2211" type="handrail"/>
+ <tile id="2212" type="king_koopa_ow"/>
  <tile id="2218" type="handrail"/>
  <tile id="2219" type="handrail"/>
  <tile id="2220" type="handrail"/>
@@ -333,6 +335,7 @@
  <tile id="2225" type="handrail"/>
  <tile id="2226" type="handrail"/>
  <tile id="2227" type="handrail"/>
+ <tile id="2228" type="king_koopa_ow"/>
  <tile id="2232" type="block5"/>
  <tile id="2233" type="bridge"/>
  <tile id="2234" type="bridge"/>
@@ -358,6 +361,7 @@
  <tile id="2273" type="handrail"/>
  <tile id="2274" type="handrail"/>
  <tile id="2275" type="handrail"/>
+ <tile id="2276" type="king_koopa_ow"/>
  <tile id="2293" type="handrail"/>
  <tile id="2294" type="handrail"/>
  <tile id="2295" type="handrail"/>
@@ -381,6 +385,7 @@
  <tile id="2323" type="handrail"/>
  <tile id="2324" type="handrail"/>
  <tile id="2325" type="handrail"/>
+ <tile id="2327" type="king_koopa_ow"/>
  <tile id="2344" type="block5"/>
  <tile id="2345" type="block5"/>
  <tile id="2346" type="block5"/>
