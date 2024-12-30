@@ -2113,7 +2113,7 @@
  <tile id="2109"/>
  <tile id="2110"/>
  <tile id="2111"/>
- <tile id="2112"/>
+ <tile id="2112" type="top_mountain"/>
  <tile id="2113"/>
  <tile id="2114"/>
  <tile id="2115"/>
@@ -2129,7 +2129,7 @@
  <tile id="2125"/>
  <tile id="2126"/>
  <tile id="2127"/>
- <tile id="2128" type="king-koopa"/>
+ <tile id="2128"/>
  <tile id="2129"/>
  <tile id="2130"/>
  <tile id="2131"/>

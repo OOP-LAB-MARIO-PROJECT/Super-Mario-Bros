@@ -40,6 +40,12 @@ Tile* TileFactory::createTile(std::string type, sf::Vector2f pos, sf::Vector2f s
 			return r;
 		}
 
+		if (type == "flag") {
+			Tile* r = new FullFlag(pos);
+
+			return r;
+		}
+
 		Tile* r = new MoveUpTile(pos, size, false);
 		r->setTexture("tiles", type + "-0");
 		r->setRenderSprite(true);

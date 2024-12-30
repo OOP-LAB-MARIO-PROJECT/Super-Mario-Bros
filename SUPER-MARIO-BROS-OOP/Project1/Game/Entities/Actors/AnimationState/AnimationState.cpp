@@ -389,3 +389,33 @@ void AttackState::handle(Actor* a, float deltaTime) {
 
 	a->setState("RUN");
 }
+
+
+
+PollingState::PollingState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn, sT) {
+}
+
+void PollingState::update(Actor* a, float deltaTime) {
+	timer += deltaTime;
+	if (timer > 0.2) timer = 0, aniLoop++;
+	bool isRight = a->getFacing();
+	a->setTexture(entityName, textureName[isRight][aniLoop % textureName[isRight].size()]);
+
+	if (firstUpdate) {
+		curPos = a->getPos();
+		firstUpdate = false;
+	}
+	curPos.y += 60 * deltaTime;
+	a->setPos(curPos);
+}
+
+void PollingState::handle(Actor* a, float deltaTime) {
+	updateTimer(deltaTime);
+
+	if (stateDuration < 0 || a->getPos().y + a->getSize().y + 16 >= GameConfig::getInstance().cameraBase) a->setState("IDLE"), resetTimer(), firstUpdate = false;
+	
+	if (!isDurationEnded()) {
+		return;
+	}
+	else resetTimer();
+}

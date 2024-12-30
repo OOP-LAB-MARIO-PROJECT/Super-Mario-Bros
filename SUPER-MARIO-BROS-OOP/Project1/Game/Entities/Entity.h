@@ -46,6 +46,7 @@ public:
 	int isRenderHitbox = true;
 	int isRenderSprite = false;
 	bool needUpdateEnvironment = true;
+	std::string messageFromOther = "";
 
 	void kill() { _isDead = true; };
 	bool isDead() const { return _isDead; }
