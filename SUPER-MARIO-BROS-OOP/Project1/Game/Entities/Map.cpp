@@ -44,6 +44,7 @@ void Map::loadMap(const std::string& filename, Player* player) {
 
 	sf::Vector2f size = sf::Vector2f{ (float)mapLoader.tilewidth, (float)mapLoader.tileheight };
 
+
 	if (myMapInfo["player_pos"].size()) {
 		GameConfig::getInstance().cameraBase = (float)myMapInfo["player_pos"][0].second;
 		std::cout << "Camera initial base: " << (float)myMapInfo["player_pos"][0].second + 32;

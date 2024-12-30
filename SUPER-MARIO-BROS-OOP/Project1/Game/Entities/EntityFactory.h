@@ -41,7 +41,14 @@ namespace FACTORY_ENTITY_TYPE {
 
 	static bool isEntityNotTile(const std::string& type) {
 		std::string tmp = type;
-		findProperties(tmp);
+		std::string prop = findProperties(tmp);
+
+		if (tmp == "background") {
+			GameConfig::getInstance().backgroundColor = BLUE;
+			if (prop == "black") GameConfig::getInstance().backgroundColor = BLACK;
+			return true;
+		}
+
 		return isEnemy(tmp) || isCollectable(tmp);
 	}
 

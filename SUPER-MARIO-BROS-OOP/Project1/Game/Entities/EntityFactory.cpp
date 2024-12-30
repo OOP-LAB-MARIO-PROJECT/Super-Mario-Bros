@@ -4,6 +4,9 @@
 Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vector2f size) {
 
 	std::string properties = findProperties(type);
+	
+	if (type == "background")
+		return NULL;
 
 	if (type == "goompa")
 		return new Goompa(pos, size);
