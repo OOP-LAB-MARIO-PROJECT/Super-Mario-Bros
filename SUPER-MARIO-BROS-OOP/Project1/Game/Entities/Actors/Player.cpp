@@ -279,6 +279,7 @@ void Player::reset() {
 	isTransforming = false;
 	facing = 1;
 	currentMode = SMALL;
+	setSize(sf::Vector2f(14, 14));
 	setState("IDLE");
 	obstacle.clear();
 	nearPointerTiles.clear();

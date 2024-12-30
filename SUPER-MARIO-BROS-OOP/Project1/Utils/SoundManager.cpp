@@ -27,10 +27,6 @@ void SoundManager::playSound(const std::string& id, bool loop) {
         return;
     }
 
-    if (sounds[id].getStatus() == sf::Sound::Playing) {
-        return;
-    }
-
     sounds[id].setVolume(volume);
     sounds[id].setLoop(loop);
     sounds[id].play();

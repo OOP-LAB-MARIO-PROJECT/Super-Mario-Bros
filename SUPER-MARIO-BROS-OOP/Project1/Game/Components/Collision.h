@@ -9,10 +9,10 @@
 #include "../Entities/Entity.h"
 
 enum dir {
-	TOP = 1,
-	LEFT = 2,
-	BOTTOM = 3,
-	RIGHT = 4,
+	TOP = 0,
+	LEFT = 1,
+	BOTTOM = 2,
+	RIGHT = 3,
 	NO_COLLIDE = -1
 };
 
