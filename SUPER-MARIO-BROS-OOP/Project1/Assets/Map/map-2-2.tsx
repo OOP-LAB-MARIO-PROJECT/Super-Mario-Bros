@@ -37,6 +37,7 @@
  <tile id="1353" type="cloud1"/>
  <tile id="1354" type="cloud2"/>
  <tile id="1355" type="cloud3"/>
+ <tile id="1503" type="background#blue"/>
  <tile id="1511" type="block5"/>
  <tile id="1512" type="block5"/>
  <tile id="1513" type="block5"/>
@@ -272,6 +273,9 @@
  <tile id="3535" type="block_green"/>
  <tile id="3539" type="moss"/>
  <tile id="3587" type="block_green"/>
+ <tile id="3589" type="goompa"/>
+ <tile id="3591" type="goompa"/>
+ <tile id="3593" type="goompa"/>
  <tile id="3629" type="moss"/>
  <tile id="3644" type="block_green"/>
  <tile id="3645" type="block_green"/>
@@ -291,6 +295,7 @@
  <tile id="3787" type="block_green"/>
  <tile id="3788" type="block_green"/>
  <tile id="3821" type="moss"/>
+ <tile id="3829" type="goompa"/>
  <tile id="3836" type="block_green"/>
  <tile id="3837" type="block_green"/>
  <tile id="3838" type="block_green"/>
@@ -330,11 +335,12 @@
  <tile id="4196" type="block_green"/>
  <tile id="4222" type="block_green"/>
  <tile id="4223" type="block_green"/>
+ <tile id="4228" type="background#black"/>
  <tile id="4266" type="moss"/>
  <tile id="4326" type="moss"/>
  <tile id="4380" type="block_green"/>
  <tile id="4388" type="block_green"/>
- <tile id="4413" type="pipe-side-head-up#2576;160;160"/>
+ <tile id="4413" type="pipe-side-head-up#2576;160;176"/>
  <tile id="4414" type="block_green"/>
  <tile id="4415" type="block_green"/>
  <tile id="4449" type="moss"/>
@@ -347,7 +353,9 @@
  <tile id="4572" type="block_green"/>
  <tile id="4575" type="block_green"/>
  <tile id="4580" type="block_green"/>
- <tile id="4605" type="pipe-side-head-bottom#2576;160;160"/>
+ <tile id="4589" type="goompa"/>
+ <tile id="4597" type="goompa"/>
+ <tile id="4605" type="pipe-side-head-bottom#2576;160;176"/>
  <tile id="4606" type="block_green"/>
  <tile id="4607" type="block_green"/>
  <tile id="4626" type="block_green"/>
@@ -443,6 +451,10 @@
  <tile id="5195" type="moss"/>
  <tile id="5198" type="coin"/>
  <tile id="5199" type="coin"/>
+ <tile id="5206" type="goompa"/>
+ <tile id="5208" type="goompa"/>
+ <tile id="5210" type="goompa"/>
+ <tile id="5212" type="goompa"/>
  <tile id="5217" type="moss"/>
  <tile id="5220" type="coin"/>
  <tile id="5221" type="coin"/>
@@ -452,6 +464,8 @@
  <tile id="5249" type="block_green"/>
  <tile id="5255" type="block_green"/>
  <tile id="5256" type="block_green"/>
+ <tile id="5258" type="goompa"/>
+ <tile id="5260" type="goompa"/>
  <tile id="5262" type="block_green"/>
  <tile id="5263" type="block_green"/>
  <tile id="5273" type="moss"/>
@@ -470,6 +484,11 @@
  <tile id="5344" type="coin"/>
  <tile id="5345" type="coin"/>
  <tile id="5348" type="block_green"/>
+ <tile id="5356" type="goompa"/>
+ <tile id="5358" type="goompa"/>
+ <tile id="5360" type="goompa"/>
+ <tile id="5364" type="goompa"/>
+ <tile id="5366" type="goompa"/>
  <tile id="5369" type="block_green"/>
  <tile id="5370" type="block_green"/>
  <tile id="5371" type="block_green"/>

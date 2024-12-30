@@ -371,6 +371,8 @@
  <tile id="1382" type="coin"/>
  <tile id="1383" type="coin"/>
  <tile id="1384" type="coin"/>
+ <tile id="1413" type="background#black"/>
+ <tile id="1419" type="king-koopa"/>
  <tile id="1421" type="hammer"/>
  <tile id="1440" type="block_rock"/>
  <tile id="1441" type="block_rock"/>
@@ -552,6 +554,7 @@
  <tile id="1935" type="block_rock"/>
  <tile id="1952" type="block_rock"/>
  <tile id="1953" type="block_rock"/>
+ <tile id="1954" type="camera_base"/>
  <tile id="2000" type="block_rock"/>
  <tile id="2001" type="block_rock"/>
  <tile id="2002" type="block_rock"/>
