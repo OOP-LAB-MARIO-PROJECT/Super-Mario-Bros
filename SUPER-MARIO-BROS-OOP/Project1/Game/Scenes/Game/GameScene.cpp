@@ -129,6 +129,7 @@ void GameScene::update(float deltatime) {
 	if (bgCol == BLACK) getWindow()->clear(BLACK_BG);
 	if (bgCol == BLUE) getWindow()->clear(BLUE_BG);
 
+	gameMap->render(getWindow(), 0);
 	EntityManager::getInstance().renderAll(getWindow());
 	EntityManager::getInstance().filter();
 	
@@ -149,7 +150,7 @@ void GameScene::update(float deltatime) {
 
 	camera->setCameraView(getWindow());
 	
-	gameMap->render(getWindow());
+	gameMap->render(getWindow(), 1);
 	player->render(getWindow());
 	
 	std::pair<sf::Vector2f, sf::Vector2f> renderSpace = camera->getRenderSpace();

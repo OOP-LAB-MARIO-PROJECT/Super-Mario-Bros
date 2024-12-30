@@ -16,10 +16,17 @@ void Map::setRenderSpace(sf::Vector2f pos, sf::Vector2f size) {
 	renderSpace.size = size;
 }
 
-void Map::render(sf::RenderWindow* window) {
+void Map::render(sf::RenderWindow* window, int renderOption) {
 	std::vector <Entity*> renderTile = quadMap.nearEntity(renderSpace);
-	for (Entity* t : renderTile)
-		t->render(window);
+	for (Entity* t : renderTile) {
+		if (renderOption == 2) {
+			t->render(window);
+			continue;
+		}
+
+		if (renderOption == 0 && t->getType() == TRANS) t->render(window);
+		if (renderOption == 1 && t->getType() != TRANS) t->render(window);
+	}
 };
 
 std::vector <Hitbox> Map::getTiles() {
