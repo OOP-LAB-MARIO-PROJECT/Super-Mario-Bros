@@ -46,6 +46,11 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	std::vector<std::vector<std::string>> dodgeTexture = { { "left-mario-10" }, {"right-mario-5"} };
 	stateCache["DODGE"] = std::make_shared<DodgingState>("big-mario", dodgeTexture, 0);
 
+	std::vector<std::vector<std::string>> pollingTexture = { { "left-mario-7", "left-mario-8" }, {"right-mario-7", "right-mario-8"} };
+	stateCache["POLLING"] = std::make_shared<PollingState>("mario", pollingTexture, 5.f);
+
+
+
 	currentMode = SMALL;
 	setState("IDLE");
 }
@@ -68,6 +73,11 @@ void Player::setState(const std::string& stateName) {
 
 
 void Player::update(float deltatime) {
+
+	if (messageFromOther == "FlagTouched") {
+		this->setState("POLLING");
+		messageFromOther.clear();
+	}
 
 	if (getPos().y > GameConfig::getInstance().cameraBase + 64) inflictDamage();
 
