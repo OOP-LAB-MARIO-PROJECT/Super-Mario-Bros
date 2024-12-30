@@ -32,6 +32,7 @@ void Goompa::setState(const std::string& stateName) {
     }
 }
 void Goompa::update(float deltatime) {
+    if (isDeadByOtherThings && timer > 1.f) kill();
     if (health == 0 && !isDeadByOtherThings) isDead = true;
     if (currentState) {
         currentState->handle(this, deltatime);
@@ -40,6 +41,7 @@ void Goompa::update(float deltatime) {
 
     if (isDeadByOtherThings) {
         if (getHealth() == 0) setVel({ 0, -120.0f }), health--;
+        timer += deltatime;
         setPos(getPos() + getVel() * deltatime);
         setSpriteScale(1.f, -1.f);
         setSpritePos(getPos() + sf::Vector2f(0, 16.f));

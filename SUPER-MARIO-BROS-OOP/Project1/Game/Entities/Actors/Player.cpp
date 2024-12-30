@@ -16,12 +16,12 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 	stateCache["IDLE"] = std::make_shared<IdleState>("mario", idleTexture, 0);
 
 
-	std::vector<std::vector<std::string>> runTexture = { {	"left-mario-15",
+	std::vector<std::vector<std::string>> runTexture = { {	"left-mario-13",
 															"left-mario-14",
-															"left-mario-13" },
-														  {	"right-mario-0",
+															"left-mario-15" },
+														  {	"right-mario-2",
 															"right-mario-1",
-															"right-mario-2"} };
+															"right-mario-0"} };
 
 
 
