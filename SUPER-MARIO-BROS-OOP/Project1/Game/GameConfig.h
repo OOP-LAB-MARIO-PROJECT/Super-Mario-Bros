@@ -74,7 +74,7 @@ public:
     std::string currentLevel = "Level 1"; // Current level name
     std::string nextLevel = "";
     float volume = 100.0f; // Default volume (0-100)
-    int timeLeft = 300; // Remaining time in seconds
+    float timeLeft = 300; // Remaining time in seconds
     int score = 0; // Player's score
     int coins = 0; // Number of coins collected
     
@@ -86,7 +86,7 @@ public:
     void setNextLevel(const std::string& level);
     void addScore(int points);
     void addCoin();
-    void setTimeLeft(int seconds);
+    void setTimeLeft(float seconds);
     void addControl(const std::string& action, sf::Keyboard::Key defaultKey);
     void updateControl(const std::string& action, sf::Keyboard::Key key);
     sf::Keyboard::Key getControl(const std::string& action);
