@@ -190,6 +190,7 @@ void Player::update(float deltatime) {
 void Player::jump(float deltatime) {
 	if (isDead) return;
 	if (isOnGround && !isJumping) {
+		SoundManager::getInstance().playSound("jump");
 		setVel({ getVel().x, -190 });
 		isOnGround = false;
 		reachMaxHeight = false;

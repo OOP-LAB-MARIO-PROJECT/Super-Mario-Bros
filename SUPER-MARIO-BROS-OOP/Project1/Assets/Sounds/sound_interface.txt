@@ -4,3 +4,4 @@ defeat Sound_Pack/defeat.wav
 hit Sound_Pack/hit.wav
 jump Sound_Pack/jump.wav
 underground Sound_Pack/UndergroundTheme.MP3
+8-bit-background Sound_Pack/8-bit-arcade-138828.mp3

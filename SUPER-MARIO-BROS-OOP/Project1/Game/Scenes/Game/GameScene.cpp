@@ -91,6 +91,9 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myKeyExecute.addCommand(sf::Keyboard::Escape, myCommand.getCommand("pause"));
 
 	EntityManager::getInstance().setRenderWindowForDebug(getWindow());
+
+	SoundManager::getInstance().playSound("8-bit-background", true);
+
 }
 
 void GameScene::updateControlKey() {
@@ -113,18 +116,6 @@ void GameScene::update(float deltatime) {
 		updateControlKey();
 	}
 
-	sf::Event event;
-	while (getWindow()->pollEvent(event)) {
-		if (event.type == sf::Event::Closed)
-		{
-			getWindow()->close();
-		}
-
-		if (event.type == sf::Event::KeyPressed)
-			if (event.key.code == sf::Keyboard::Escape) {
-				myCommand.executeCommand("pause");
-			}
-	}
 
 
 	if (deltatime > 0.3) deltatime = 0.3;
@@ -163,8 +154,20 @@ void GameScene::update(float deltatime) {
 	
 	std::pair<sf::Vector2f, sf::Vector2f> renderSpace = camera->getRenderSpace();
 	gameMap->setRenderSpace(renderSpace.first, renderSpace.second);
-	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance());
-	
+	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance(), myCommand);
+
+	sf::Event event;
+	while (getWindow()->pollEvent(event)) {
+		if (event.type == sf::Event::Closed)
+		{
+			getWindow()->close();
+		}
+
+		if (event.type == sf::Event::KeyPressed)
+			if (event.key.code == sf::Keyboard::Escape) {
+				myCommand.executeCommand("pause");
+			}
+	}
 	// check for level
 	retrieveLevelStatus();
 }
