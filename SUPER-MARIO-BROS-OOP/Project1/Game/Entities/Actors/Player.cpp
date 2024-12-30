@@ -155,7 +155,7 @@ void Player::update(float deltatime) {
 			continue;
 		}
 		else if (currentMode == INVICIBLE) {
-			if (dir == TOP || dir == BOTTOM || dir == LEFT || dir == RIGHT) en->inflictDamage();
+			if (dir == TOP || dir == BOTTOM || dir == LEFT || dir == RIGHT) en->setIsDeadByOtherThings(true), en->inflictDamage();
 		}
 		en->affectOther(this, deltatime);
 	}

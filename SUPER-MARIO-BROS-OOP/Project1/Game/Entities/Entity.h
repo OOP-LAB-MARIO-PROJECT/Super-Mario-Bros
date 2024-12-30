@@ -71,7 +71,7 @@ public:
 	virtual Hitbox getHitbox() = 0; // get the dynamic hitbox of an object -> make it easier for detection collision
 	virtual void affectOther(Entity* other);
 	virtual void affectOther(Entity* other, float deltatime);
-	virtual bool getIsDeadByOtherEnemy() { return false; }
-	virtual void setIsDeadByOtherEnemy(bool a) { }
+	virtual bool getIsDeadByOtherThings() { return false; }
+	virtual void setIsDeadByOtherThings(bool a) { }
 };
 

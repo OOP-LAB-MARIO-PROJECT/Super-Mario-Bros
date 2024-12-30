@@ -28,7 +28,7 @@ void QuestionTile::update(float deltatime) {
 		if (!isEmpty) {
 			EntityFactory factory;
 			EntityManager::getInstance().addEntity(
-				factory.createEntity("flower", getPos() - sf::Vector2f(0, 5), {16.f, 16.f})
+				factory.createEntity("star", getPos() - sf::Vector2f(0, 5), {16.f, 16.f})
 			);
 		}
 

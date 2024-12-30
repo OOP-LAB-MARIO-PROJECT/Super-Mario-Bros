@@ -32,17 +32,27 @@ void KoopaTroopa::setState(const std::string& stateName) {
     }
 }
 void KoopaTroopa::update(float deltatime) {
-
+    if (isDead && timer > 1.f) timer = 0, kill();
     if (currentState) {
         currentState->handle(this, deltatime);
         currentState->update(this, deltatime);
     }
 
 
+    if (isDeadByOtherThings) {
+        isDead = true;
+        if (health == 0) setVel({ 0, -120.0f }), health--;
+        timer += deltatime;
+        setPos(getPos() + getVel() * deltatime);
+        setSpriteScale(1.f, -1.f);
+        setSpritePos(getPos() + sf::Vector2f(0, 32.f));
+        performPhysics(deltatime);
+        return;
+    }
 
-
-    if (!isDead) {
+    if (!isDead && !isDeadByOtherThings) {
         for (auto en : otherEntities) {
+            if (en->getType() == HARM_TO_PLAYER) continue;
             Hitbox ob = en->getHitbox();
             ob.vel = sf::Vector2f{ 0.f, 0.f };
             obstacle.push_back(ob);
@@ -61,18 +71,42 @@ void KoopaTroopa::update(float deltatime) {
                 else
                     setVel(sf::Vector2f(-speed, getVel().y));
             }
-     
-       
-       
-        
 
+            // Follow player
+            if (!isDefense) {
+                for (auto en : otherEntities) {
+                    if (en->getType() == PLAYER) {
+                        if ((getPos().x - 128 <= en->getHitbox().pos.x) && (getPos().x + 128 >= en->getHitbox().pos.x)) {
+                            isAttack = true;
+                            if (getPos().x + 64.f < en->getHitbox().pos.x)
+                            {
+                                facing = 1;
+                            }
+                            else if (getPos().x - 64.f > en->getHitbox().pos.x) {
+                                facing = -1;
+                            }
+                        }
+                        else {
+                            isAttack = false;
+                        }
+
+                    }
+                }
+
+                if (facing == 1)
+                    setVel(sf::Vector2f(speed, getVel().y));
+                else
+                    setVel(sf::Vector2f(-speed, getVel().y));
+
+            }
+
+            for (auto en : otherEntities) {
+                affectOther(en, deltatime);
+            }
+            
     }
 
-    for (auto en : otherEntities) {
-        affectOther(en, deltatime);
-    }
-
-    
+  
 
     setSpritePos(getPos() - sf::Vector2f(0, 16.f));
     behavior(deltatime);
@@ -82,10 +116,10 @@ void KoopaTroopa::update(float deltatime) {
 
 
 void KoopaTroopa::behavior(float deltatime) {
-    if (health < 0 && !isDead) {
+    if (health <= 0 && !isDead) {
         isDead = false;
     }
-    else if (health <= 1) speed = 0, isDefense =true, health = 2, cnt++;
+    else if (health <= 1 && GameConfig::getInstance().marioState != INVINCIBLE) speed = 0, isDefense =true, health = 2, cnt++;
 }
 
 
@@ -131,16 +165,8 @@ void KoopaTroopa::affectOther(Entity* other, float deltatime) {
         if (dir == -1) return;
         if ((dir == LEFT || dir == RIGHT))
         {
-            other->setIsDeadByOtherEnemy(true);
+            other->setIsDeadByOtherThings(true);
             other->inflictDamage();
-        }
-    }
-    else if (other->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
-        int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel - this->getHitbox().vel, this->getHitbox());
-        if (dir == -1) return;
-        if ((dir == LEFT || dir == RIGHT || dir == TOP || dir == BOTTOM))
-        {
-            this->kill();
         }
     }
 }

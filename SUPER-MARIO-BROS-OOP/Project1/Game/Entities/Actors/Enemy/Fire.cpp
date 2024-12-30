@@ -6,7 +6,8 @@ Fire::Fire(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
     isRenderHitbox = true;
     isRenderSprite = true;
     facing = 1;
-    setSize({ 22, 8 });
+    setPos({ pos.x, pos.y + 5.f });
+    setSize({8, 8});
     std::vector<std::vector<std::string>> a = { {"fire-0", "fire-1"},
                                                 {"fire-1", "fire-0"} };
 
@@ -15,7 +16,7 @@ Fire::Fire(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
 
     
     setState("RUN");
-
+     
 }
 
 
@@ -38,14 +39,19 @@ void Fire::update(float deltatime) {
         currentState->handle(this, deltatime);
         currentState->update(this, deltatime);
     }
-    if (firstFire) {
-
+   if (firstFire) {
+        sf::Vector2f tmp;
         for (auto en : otherEntities) {
             if (en->getType() == PLAYER) {
-                setPos({ getPos().x, en->getHitbox().pos.y });
+                tmp = sf::Vector2f(en->getHitbox().pos.x, en->getHitbox().pos.y);
+                if (en->getHitbox().pos.y > getPos().y) dist = 1;
+                else if (getPos().y > en->getHitbox().pos.y) dist = -1;
+                else firstFire = false;
+                setPos({ getPos().x, getPos().y  + (abs(en->getHitbox().pos.y - getPos().y) + 8.f) * deltatime * dist });
             }
+           
         }
-        firstFire = false;
+        if (tmp.y < getPos().y && getPos().y - tmp.y < 2.f) firstFire = false;
     }
 
     for (auto en : otherEntities) {

@@ -13,8 +13,8 @@ KingKoopa::KingKoopa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
                                                 {"king_koopa_ow-0", "king_koopa_ow-1"} };
 
     stateCache["RUN"] = std::make_shared<RunningState>("KingKoopa", a, 0.15f);
-
-
+    a = { {"king_koopa_ow-2"}, {"king_koopa_ow-3"} };
+    stateCache["ATTACK"] = std::make_shared<AttackState>("KingKoopa", a, 0.15f);
     
 
     setState("RUN");
@@ -36,13 +36,27 @@ void KingKoopa::update(float deltatime) {
         currentState->update(this, deltatime);
     }
 
-    attackTimer += deltatime;
+    
     timer += deltatime;
 
-    if (attackTimer > 1.f) {
-        attackTimer = 0;
-       // EntityManager::getInstance().addEntity(new Fire((getPos() + sf::Vector2f(0, getPos().y / 4.f)), sf::Vector2f(8, 8) ));
+
+    for (auto en : otherEntities) {
+        if (en->getType() == PLAYER) {
+            if ((getPos().x - 176 <= en->getHitbox().pos.x) && (getPos().x + 176 >= en->getHitbox().pos.x)) {
+                attackTimer += deltatime;
+                if (attackTimer > 2.35f) isAttack = true;
+                if (attackTimer > 2.5f) {
+                    setState("IDLE");
+                    attackTimer = 0;
+                    EntityManager::getInstance().addEntity(new Fire(getPos(), sf::Vector2f(8, 8)));
+                    isAttack = false;
+                }
+            }
+            
+        }
+        
     }
+    
 
     for (auto en : otherEntities) {
         Hitbox ob = en->getHitbox();
@@ -79,7 +93,7 @@ void KingKoopa::update(float deltatime) {
         timer = 0;
         facing *= -1;
         isOnGround = false;
-        performPhysics(deltatime);
+
     }
 
     performPhysics(deltatime);

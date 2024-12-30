@@ -72,5 +72,7 @@ public:
 	virtual void setState(const std::string& stateName) { }
 	virtual int getHealth() { return -1; }
 	virtual void setHealth(int h) { }
+	virtual bool getIsAttack() { return false; }
+
 };
 
