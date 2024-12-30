@@ -52,7 +52,7 @@ void Fireball::update(float deltatime) {
 		Collision::rect b = { this->getHitbox().pos, this->getHitbox().size };
 
 		if (rectVsRect(a, b)) {
-			en->setIsDeadByOtherEnemy(true);
+			en->setIsDeadByOtherThings(true);
 			explode();
 		}
 	}
