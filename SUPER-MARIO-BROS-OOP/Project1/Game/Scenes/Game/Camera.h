@@ -3,7 +3,7 @@
 #include "../../GameConfig.h"
 #include "../../../UI_Components/Button.h"
 #include "../../../Utils/SceneManager.h"
-#include "../../Game/Control/CommandManager.h"
+#include "../../../Game/Control/CommandManager.h"
 #include <array>
 #include <vector>
 #include <algorithm>

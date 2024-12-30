@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Tile.h"
 #include "../Actors/Enemy/Enemy.h"
 #include "../../../Utils/EntityManager.h"
@@ -52,22 +52,17 @@ public:
 	}
 };
 
-class RotateFire : public Tile
-{ 
+class RotateFire : public Tile {
 	std::vector <RotateFireBall*> fireballs;
 	int numBalls;
 	sf::Vector2f center;
-
 	float angle = 0;
-
 public:
-
-	//Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans = true);
 	RotateFire(sf::Vector2f _pos, sf::Vector2f _size, int num) : Tile(_pos, _size, false), numBalls(num) {
-
 		center = _pos + _size / 2.f;
-		
-		center.y -= 8 * numBalls;
+		// Thay đổi vị trí center để đảm bảo nó nằm đúng ngay chỗ block4
+		center.y += 0.1 * numBalls;
+		center.x -= numBalls;
 		for (int i = 0; i < numBalls; i++) {
 			fireballs.push_back(new RotateFireBall(center));
 			fireballs[i]->setRenderSprite(true);
@@ -78,11 +73,10 @@ public:
 	void update(float deltatime) override {
 		angle += deltatime;
 		if (angle > 2 * PI) angle = 0;
-		sf::Vector2f endPoint(std::cos(angle), std::sin(angle));
-		
 		for (int i = 0; i < numBalls; i++) {
 			float len = i * 8;
-			fireballs[i]->setPos(center + endPoint * len + sf::Vector2f(-4, len));
+			sf::Vector2f position(center.x + len * std::cos(angle), center.y + len * std::sin(angle));
+			fireballs[i]->setPos(position);
 		}
 	}
 };

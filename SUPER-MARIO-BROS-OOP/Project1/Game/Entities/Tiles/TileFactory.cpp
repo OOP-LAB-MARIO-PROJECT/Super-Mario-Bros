@@ -53,7 +53,7 @@ Tile* TileFactory::createTile(std::string type, sf::Vector2f pos, sf::Vector2f s
 	}
 
 	if (type == "rotate-fire") {
-		Tile* r = new RotateFire(pos, size, 8);
+		Tile* r = new RotateFire(pos, size, 5);
 		std::string tmp = "block4";
 		r->setTexture("tiles", tmp + "-0");
 		r->setRenderSprite(true);
