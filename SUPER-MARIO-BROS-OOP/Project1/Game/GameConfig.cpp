@@ -45,6 +45,7 @@ void GameConfig::setCurrentLevel(const std::string& level) {
 
 
 void GameConfig::setNextLevel(const std::string& level) {
+    isWinning = false;
     if (!level.empty()) {
         nextLevel = level;
         std::cout << "next lev" << ' ' << level << '\n';
@@ -70,7 +71,7 @@ void GameConfig::addCoin() {
 }
 
 // Set remaining time (seconds)
-void GameConfig::setTimeLeft(int seconds) {
+void GameConfig::setTimeLeft(float seconds) {
     if (seconds >= 0) {
         timeLeft = seconds;
     }

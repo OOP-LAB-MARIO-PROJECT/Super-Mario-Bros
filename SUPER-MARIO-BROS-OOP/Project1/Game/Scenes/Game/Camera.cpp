@@ -65,7 +65,7 @@ void Camera::renderGameInfo(sf::RenderWindow* window, sf::Font& font, const Game
  	sf::Text levelText("Level: " + config.currentLevel, font, fontSize);
 	sf::Text scoreText("Score: " + std::to_string(config.score), font, fontSize);
 	sf::Text coinText("Coins: " + std::to_string(config.coins), font, fontSize);
-	sf::Text timeText("Time: " + std::to_string(config.timeLeft) + "s", font, fontSize);
+	sf::Text timeText("Time: " + std::to_string((int)config.timeLeft) + "s", font, fontSize);
 	sf::Text volumeText("Volume: " + std::to_string(static_cast<int>(config.volume)) + "%", font, fontSize);
 
 	if (--pauseTimer <= 0) {

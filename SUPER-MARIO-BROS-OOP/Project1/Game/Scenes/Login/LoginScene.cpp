@@ -103,25 +103,33 @@ bool LoginScene::isValidAccount() {
 void LoginScene::loopEvents() {
 	sf::Event event;
 	while (getWindow()->pollEvent(event)) {
+		
+		
+
 		if (event.type == sf::Event::Closed)
 			getWindow()->close();
+
 		if (event.type == sf::Event::MouseButtonPressed) {
+			bool selected = false;
 			for (int i = 0; i < textBoxes.size(); i++) {
-				bool isSelected = textBoxes[i].isMouseOver(sf::Mouse::getPosition(*(getWindow())));
-				textBoxes[i].setSelected(isSelected);
+				if (textBoxes[i].isMouseOver(*(getWindow()))) {
+					textBoxes[i].setSelected(true);
+					selected = true;
+					currentBox = i; // Ghi nhận TextBox hiện tại
+				}
+				else {
+					textBoxes[i].setSelected(false);
+				}
 			}
-		}
-		beingSelected = false;
-		for (int i = 0; i < textBoxes.size(); i++) {
-			if (textBoxes[i].getSelected()) {
-				beingSelected = true;
-				currentBox = i;
-				textBoxes[i].handleInput(event);
-			}
+			beingSelected = selected;
 		}
 
-		for (int i = 0; i < buttons.size(); i++)
-		{
+		if (event.type == sf::Event::TextEntered && beingSelected) {
+			// Chỉ xử lý TextBox hiện tại
+			textBoxes[currentBox].handleInput(event);
+		}
+
+		for (int i = 0; i < buttons.size(); i++) {
 			buttons[i].handleEvent(event, *getWindow());
 		}
 	}

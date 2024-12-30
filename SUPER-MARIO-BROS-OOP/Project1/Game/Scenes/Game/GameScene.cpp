@@ -48,6 +48,7 @@ void GameScene::retrieveLevelStatus() {
 	}
 
 	if (status = NEXT_LEVEL) {
+		GameConfig::getInstance().addScore(GameConfig::getInstance().timeLeft);
 		status = PLAYING;
 		nextLevel(GameConfig::getInstance().nextLevel);
 	}
@@ -119,6 +120,9 @@ void GameScene::update(float deltatime) {
 
 
 	if (deltatime > 0.3) deltatime = 0.3;
+	float timeLeft = GameConfig::getInstance().timeLeft;
+	GameConfig::getInstance().setTimeLeft(timeLeft - deltatime);
+
 	myCommand.setDeltaTime(deltatime);
 	myKeyExecute.handleInput();
 

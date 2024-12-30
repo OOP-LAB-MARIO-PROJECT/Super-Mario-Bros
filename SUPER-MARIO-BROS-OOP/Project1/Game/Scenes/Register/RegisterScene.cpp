@@ -127,7 +127,7 @@ void RegisterScene::loopEvents() {
 
 		if (event.type == sf::Event::MouseButtonPressed) {
 			for (int i = 0; i < textBoxes.size(); i++) {
-				bool isSelected = textBoxes[i].isMouseOver(sf::Mouse::getPosition(*(getWindow())));
+				bool isSelected = textBoxes[i].isMouseOver(*(getWindow()));
 				textBoxes[i].setSelected(isSelected);
 			}
 		}

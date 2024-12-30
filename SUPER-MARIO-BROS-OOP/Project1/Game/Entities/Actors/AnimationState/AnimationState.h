@@ -132,3 +132,14 @@ public:
     void handle(Actor* a, float deltaTime) override;
 
 };
+
+
+class AttackState : public AnimationState {
+public:
+    AttackState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT);
+
+    void update(Actor* a, float deltaTime) override;
+    void handle(Actor* a, float deltaTime) override;
+
+};
+

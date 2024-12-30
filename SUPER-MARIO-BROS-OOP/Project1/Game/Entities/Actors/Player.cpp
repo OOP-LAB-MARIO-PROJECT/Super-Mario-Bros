@@ -258,6 +258,9 @@ int Player::getType() {
 }
 
 void Player::inflictDamage() {
+
+	if (isTransforming) return;
+
 	if (currentMode == BIG || currentMode == WHITE_BIG) {
 		GameConfig::getInstance().marioState = MARIO_STATE::SMALL;
 		setIsTransforming(true);

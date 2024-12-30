@@ -16,12 +16,14 @@
 
 class Enemy : public Actor {
 protected:
-	bool isDeadByOtherEnemy = false;
+	bool isDeadByOtherThings = false;
+	bool isAttack = false;
 public:
 
 	Enemy(sf::Vector2f _pos, sf::Vector2f _size);
 	virtual void update(float deltatime) override = 0;
 	virtual void behavior(float detatime) = 0;
-	bool getIsDeadByOtherEnemy() override;
-	void setIsDeadByOtherEnemy(bool a) override;
+	void setIsDeadByOtherThings(bool a) override;
+	bool getIsDeadByOtherThings() override;
+	bool getIsAttack() override;
 };
