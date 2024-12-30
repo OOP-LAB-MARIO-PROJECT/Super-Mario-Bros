@@ -260,6 +260,7 @@
  <tile id="1444" type="moving-platform"/>
  <tile id="1445" type="moving-platform"/>
  <tile id="1446" type="moving-platform"/>
+ <tile id="1450" type="background#black"/>
  <tile id="1455" type="flag-body-1"/>
  <tile id="1457" type="cloud4"/>
  <tile id="1458" type="castle2"/>

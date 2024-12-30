@@ -176,6 +176,7 @@
  <tile id="1531" type="block5"/>
  <tile id="1532" type="block5"/>
  <tile id="1541" type="flag-body-light-1"/>
+ <tile id="1735" type="background#black"/>
  <tile id="1751" type="block5"/>
  <tile id="1752" type="block5"/>
  <tile id="1753" type="block5"/>

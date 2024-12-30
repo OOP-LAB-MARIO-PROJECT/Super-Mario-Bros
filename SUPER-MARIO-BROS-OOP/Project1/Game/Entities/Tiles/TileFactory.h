@@ -89,7 +89,7 @@ namespace TILETYPE {
 		"moss",
 		"edge_moutain_left",
 		"edge_moutain_right",
-		"body_mountain",
+		"body_moutain",
 		"body_moutain_right",
 		"body_moutain_left",
 		"top_mountain",

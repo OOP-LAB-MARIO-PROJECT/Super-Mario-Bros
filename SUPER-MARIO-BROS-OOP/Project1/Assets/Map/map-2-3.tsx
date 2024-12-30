@@ -386,6 +386,7 @@
  <tile id="2324" type="handrail"/>
  <tile id="2325" type="handrail"/>
  <tile id="2327" type="king_koopa_ow"/>
+ <tile id="2328" type="background#blue"/>
  <tile id="2344" type="block5"/>
  <tile id="2345" type="block5"/>
  <tile id="2346" type="block5"/>

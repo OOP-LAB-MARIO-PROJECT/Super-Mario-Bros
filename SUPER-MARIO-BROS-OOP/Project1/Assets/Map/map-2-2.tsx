@@ -37,6 +37,7 @@
  <tile id="1353" type="cloud1"/>
  <tile id="1354" type="cloud2"/>
  <tile id="1355" type="cloud3"/>
+ <tile id="1503" type="background#blue"/>
  <tile id="1511" type="block5"/>
  <tile id="1512" type="block5"/>
  <tile id="1513" type="block5"/>
@@ -334,6 +335,7 @@
  <tile id="4196" type="block_green"/>
  <tile id="4222" type="block_green"/>
  <tile id="4223" type="block_green"/>
+ <tile id="4228" type="background#black"/>
  <tile id="4266" type="moss"/>
  <tile id="4326" type="moss"/>
  <tile id="4380" type="block_green"/>

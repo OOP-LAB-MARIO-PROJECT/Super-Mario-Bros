@@ -356,6 +356,7 @@
  <tile id="1009" type="block4"/>
  <tile id="1020" type="block4"/>
  <tile id="1027" type="block4"/>
+ <tile id="1088" type="background#black"/>
  <tile id="1098" type="moving-platform#2160;2208;2;1"/>
  <tile id="1099" type="moving-platform#2176;2224;2;1"/>
  <tile id="1120" type="block_rock"/>

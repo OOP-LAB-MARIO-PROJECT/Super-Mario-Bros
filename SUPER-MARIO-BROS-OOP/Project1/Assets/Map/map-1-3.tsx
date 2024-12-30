@@ -44,6 +44,7 @@
  <tile id="607" type="cloud5"/>
  <tile id="608" type="cloud5"/>
  <tile id="609" type="cloud6"/>
+ <tile id="630" type="background#blue"/>
  <tile id="639" type="cloud1"/>
  <tile id="640" type="cloud2"/>
  <tile id="641" type="cloud2"/>

@@ -292,6 +292,7 @@
  <tile id="1041" type="coin"/>
  <tile id="1042" type="coin"/>
  <tile id="1043" type="coin"/>
+ <tile id="1095" type="background#black"/>
  <tile id="1098" type="moving-platform"/>
  <tile id="1099" type="moving-platform"/>
  <tile id="1120" type="block_rock"/>
@@ -511,6 +512,7 @@
  <tile id="2061" type="block_rock"/>
  <tile id="2062" type="block_rock"/>
  <tile id="2063" type="block_rock"/>
+ <tile id="2067" type="camera_base"/>
  <tile id="2078" type="castle-door#map-3-4"/>
  <tile id="2080" type="block_rock"/>
  <tile id="2081" type="block_rock"/>

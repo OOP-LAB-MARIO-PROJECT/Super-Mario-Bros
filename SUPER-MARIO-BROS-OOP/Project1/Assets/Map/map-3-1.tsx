@@ -192,6 +192,7 @@
  <tile id="4475" type="castle-door"/>
  <tile id="4476" type="castle2"/>
  <tile id="4477" type="castle2"/>
+ <tile id="4643" type="background#black"/>
  <tile id="4662" type="block5"/>
  <tile id="4663" type="block5"/>
  <tile id="4664" type="block5"/>

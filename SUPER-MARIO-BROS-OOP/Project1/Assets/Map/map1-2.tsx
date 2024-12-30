@@ -563,6 +563,7 @@
  <tile id="4311" type="block-underground-3"/>
  <tile id="4312" type="block-underground-3"/>
  <tile id="4313" type="block-underground-3"/>
+ <tile id="4353" type="background#black"/>
  <tile id="4364" type="moving-platform#256;480;1"/>
  <tile id="4365" type="moving-platform#256;480;1"/>
  <tile id="4366" type="moving-platform#256;480;1"/>
