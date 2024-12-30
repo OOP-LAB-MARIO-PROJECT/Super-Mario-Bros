@@ -1244,8 +1244,8 @@
  <tile id="1240"/>
  <tile id="1241"/>
  <tile id="1242"/>
- <tile id="1243" type="block4"/>
- <tile id="1244" type="block4"/>
+ <tile id="1243" type="block5"/>
+ <tile id="1244" type="block5"/>
  <tile id="1245"/>
  <tile id="1246"/>
  <tile id="1247"/>
@@ -1454,9 +1454,9 @@
  <tile id="1450"/>
  <tile id="1451"/>
  <tile id="1452"/>
- <tile id="1453" type="block4"/>
- <tile id="1454" type="block4"/>
- <tile id="1455" type="block4"/>
+ <tile id="1453" type="block5"/>
+ <tile id="1454" type="block5"/>
+ <tile id="1455" type="block5"/>
  <tile id="1456"/>
  <tile id="1457"/>
  <tile id="1458"/>
@@ -1664,10 +1664,10 @@
  <tile id="1660"/>
  <tile id="1661"/>
  <tile id="1662"/>
- <tile id="1663" type="block4"/>
- <tile id="1664" type="block4"/>
- <tile id="1665" type="block4"/>
- <tile id="1666" type="block4"/>
+ <tile id="1663" type="block5"/>
+ <tile id="1664" type="block5"/>
+ <tile id="1665" type="block5"/>
+ <tile id="1666" type="block5"/>
  <tile id="1667"/>
  <tile id="1668"/>
  <tile id="1669"/>
@@ -1874,11 +1874,11 @@
  <tile id="1870"/>
  <tile id="1871"/>
  <tile id="1872"/>
- <tile id="1873" type="block4"/>
- <tile id="1874" type="block4"/>
- <tile id="1875" type="block4"/>
- <tile id="1876" type="block4"/>
- <tile id="1877" type="block4"/>
+ <tile id="1873" type="block5"/>
+ <tile id="1874" type="block5"/>
+ <tile id="1875" type="block5"/>
+ <tile id="1876" type="block5"/>
+ <tile id="1877" type="block5"/>
  <tile id="1878"/>
  <tile id="1879"/>
  <tile id="1880"/>
@@ -2084,12 +2084,12 @@
  <tile id="2080"/>
  <tile id="2081"/>
  <tile id="2082"/>
- <tile id="2083" type="block4"/>
- <tile id="2084" type="block4"/>
- <tile id="2085" type="block4"/>
- <tile id="2086" type="block4"/>
- <tile id="2087" type="block4"/>
- <tile id="2088" type="block4"/>
+ <tile id="2083" type="block5"/>
+ <tile id="2084" type="block5"/>
+ <tile id="2085" type="block5"/>
+ <tile id="2086" type="block5"/>
+ <tile id="2087" type="block5"/>
+ <tile id="2088" type="block5"/>
  <tile id="2089"/>
  <tile id="2090"/>
  <tile id="2091"/>
@@ -2294,13 +2294,13 @@
  <tile id="2290"/>
  <tile id="2291"/>
  <tile id="2292"/>
- <tile id="2293" type="block4"/>
- <tile id="2294" type="block4"/>
- <tile id="2295" type="block4"/>
- <tile id="2296" type="block4"/>
- <tile id="2297" type="block4"/>
- <tile id="2298" type="block4"/>
- <tile id="2299" type="block4"/>
+ <tile id="2293" type="block5"/>
+ <tile id="2294" type="block5"/>
+ <tile id="2295" type="block5"/>
+ <tile id="2296" type="block5"/>
+ <tile id="2297" type="block5"/>
+ <tile id="2298" type="block5"/>
+ <tile id="2299" type="block5"/>
  <tile id="2300"/>
  <tile id="2301"/>
  <tile id="2302"/>
@@ -2504,14 +2504,14 @@
  <tile id="2500" type="pipe-up-head-left"/>
  <tile id="2501" type="pipe-up-head-right"/>
  <tile id="2502"/>
- <tile id="2503" type="block4"/>
- <tile id="2504" type="block4"/>
- <tile id="2505" type="block4"/>
- <tile id="2506" type="block4"/>
- <tile id="2507" type="block4"/>
- <tile id="2508" type="block4"/>
- <tile id="2509" type="block4"/>
- <tile id="2510" type="block4"/>
+ <tile id="2503" type="block5"/>
+ <tile id="2504" type="block5"/>
+ <tile id="2505" type="block5"/>
+ <tile id="2506" type="block5"/>
+ <tile id="2507" type="block5"/>
+ <tile id="2508" type="block5"/>
+ <tile id="2509" type="block5"/>
+ <tile id="2510" type="block5"/>
  <tile id="2511"/>
  <tile id="2512"/>
  <tile id="2513"/>
@@ -2557,7 +2557,7 @@
  <tile id="2553"/>
  <tile id="2554"/>
  <tile id="2557" type="grass3"/>
- <tile id="2556"/>
+ <tile id="2556" type="grass2"/>
  <tile id="2540" type="background#blue"/>
  <tile id="2558"/>
  <tile id="2559"/>
@@ -2714,15 +2714,15 @@
  <tile id="2710"/>
  <tile id="2711" type="pipe-up-body-left"/>
  <tile id="2712" type="pipe-up-body-right"/>
- <tile id="2713" type="block4"/>
- <tile id="2714" type="block4"/>
- <tile id="2715" type="block4"/>
- <tile id="2716" type="block4"/>
- <tile id="2717" type="block4"/>
- <tile id="2718" type="block4"/>
- <tile id="2719" type="block4"/>
- <tile id="2720" type="block4"/>
- <tile id="2721" type="block4"/>
+ <tile id="2713" type="block5"/>
+ <tile id="2714" type="block5"/>
+ <tile id="2715" type="block5"/>
+ <tile id="2716" type="block5"/>
+ <tile id="2717" type="block5"/>
+ <tile id="2718" type="block5"/>
+ <tile id="2719" type="block5"/>
+ <tile id="2720" type="block5"/>
+ <tile id="2721" type="block5"/>
  <tile id="2722"/>
  <tile id="2723"/>
  <tile id="2724" type="edge_moutain_left"/>

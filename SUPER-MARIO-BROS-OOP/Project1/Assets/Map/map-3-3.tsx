@@ -52,8 +52,7 @@
  <tile id="636" type="cloud1"/>
  <tile id="637" type="cloud2"/>
  <tile id="638" type="cloud2"/>
- <tile id="639" type="flag-3"/>
- <tile id="640" type="flag-2"/>
+ <tile id="639" type="cloud3"/>
  <tile id="646" type="castle-window-left"/>
  <tile id="647" type="castle2"/>
  <tile id="648" type="castle-window-right"/>
@@ -84,7 +83,6 @@
  <tile id="800" type="cloud5"/>
  <tile id="801" type="cloud5"/>
  <tile id="802" type="cloud6"/>
- <tile id="803" type="flag-body-1"/>
  <tile id="808" type="castle1"/>
  <tile id="809" type="castle3"/>
  <tile id="810" type="castle3"/>
@@ -106,7 +104,6 @@
  <tile id="951" type="moving-platform"/>
  <tile id="952" type="moving-platform"/>
  <tile id="953" type="moving-platform"/>
- <tile id="966" type="flag-body-1"/>
  <tile id="971" type="castle2"/>
  <tile id="972" type="castle2"/>
  <tile id="973" type="castle-arch"/>
@@ -146,7 +143,6 @@
  <tile id="1112" type="cloud1"/>
  <tile id="1113" type="cloud2"/>
  <tile id="1114" type="cloud3"/>
- <tile id="1129" type="flag-body-1"/>
  <tile id="1134" type="castle2"/>
  <tile id="1135" type="castle2"/>
  <tile id="1136" type="castle-door"/>
@@ -206,7 +202,6 @@
  <tile id="1275" type="cloud4"/>
  <tile id="1276" type="cloud5"/>
  <tile id="1277" type="cloud6"/>
- <tile id="1292" type="flag-body-1"/>
  <tile id="1294" type="cloud1"/>
  <tile id="1295" type="castle1"/>
  <tile id="1296" type="castle1"/>
@@ -264,7 +259,6 @@
  <tile id="1445" type="moving-platform"/>
  <tile id="1446" type="moving-platform"/>
  <tile id="1450" type="background#black"/>
- <tile id="1455" type="flag-body-1"/>
  <tile id="1457" type="cloud4"/>
  <tile id="1458" type="castle2"/>
  <tile id="1459" type="castle2"/>
@@ -311,7 +305,6 @@
  <tile id="1589" type="troopa-koopa"/>
  <tile id="1591" type="troopa-koopa"/>
  <tile id="1593" type="troopa-koopa"/>
- <tile id="1618" type="flag-body-1"/>
  <tile id="1621" type="castle2"/>
  <tile id="1622" type="castle2"/>
  <tile id="1623" type="castle2"/>
@@ -368,7 +361,6 @@
  <tile id="1758" type="block_grass_2"/>
  <tile id="1759" type="block_grass_2"/>
  <tile id="1760" type="block_grass_3"/>
- <tile id="1781" type="flag-body-1"/>
  <tile id="1784" type="castle2"/>
  <tile id="1785" type="castle2"/>
  <tile id="1786" type="castle2"/>
@@ -445,7 +437,6 @@
  <tile id="1935" type="cloud1"/>
  <tile id="1936" type="cloud2"/>
  <tile id="1937" type="cloud3"/>
- <tile id="1944" type="flag-body-1"/>
  <tile id="1947" type="castle2"/>
  <tile id="1948" type="castle2"/>
  <tile id="1949" type="castle-arch"/>
@@ -526,7 +517,7 @@
  <tile id="2099" type="cloud5"/>
  <tile id="2100" type="cloud6"/>
  <tile id="2103" type="troopa-koopa"/>
- <tile id="2107" type="block5"/>
+ <tile id="2107" type="flag"/>
  <tile id="2110" type="castle2"/>
  <tile id="2111" type="castle2"/>
  <tile id="2112" type="castle-door#map-3-4"/>

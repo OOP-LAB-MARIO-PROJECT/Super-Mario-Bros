@@ -1,6 +1,6 @@
 #pragma once
 #include "Tile.h"
-#include "../../Utils/EntityManager.h"
+#include "../../../Utils/EntityManager.h"
 class Flag : public Tile {
 	bool isEnd = false;
 public:
