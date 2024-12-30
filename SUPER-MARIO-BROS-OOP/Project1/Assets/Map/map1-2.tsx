@@ -20,6 +20,7 @@
  <tile id="772" type="cloud5"/>
  <tile id="773" type="cloud5"/>
  <tile id="774" type="cloud6"/>
+ <tile id="940" type="background#blue"/>
  <tile id="949" type="cloud4"/>
  <tile id="950" type="cloud5"/>
  <tile id="951" type="cloud6"/>
@@ -46,6 +47,9 @@
  <tile id="1704" type="block5"/>
  <tile id="1705" type="block5"/>
  <tile id="1706" type="block5"/>
+ <tile id="1720" type="castle1"/>
+ <tile id="1721" type="castle1"/>
+ <tile id="1722" type="castle1"/>
  <tile id="1729" type="castle-window-left"/>
  <tile id="1730" type="castle2"/>
  <tile id="1731" type="castle-window-right"/>
@@ -57,6 +61,9 @@
  <tile id="1896" type="block5"/>
  <tile id="1897" type="block5"/>
  <tile id="1898" type="block5"/>
+ <tile id="1912" type="castle-window-left"/>
+ <tile id="1913" type="castle2"/>
+ <tile id="1914" type="castle-window-right"/>
  <tile id="1920" type="castle1"/>
  <tile id="1921" type="castle3"/>
  <tile id="1922" type="castle3"/>
@@ -71,6 +78,11 @@
  <tile id="2088" type="block5"/>
  <tile id="2089" type="block5"/>
  <tile id="2090" type="block5"/>
+ <tile id="2103" type="castle1"/>
+ <tile id="2104" type="castle3"/>
+ <tile id="2105" type="castle3"/>
+ <tile id="2106" type="castle3"/>
+ <tile id="2107" type="castle1"/>
  <tile id="2112" type="castle2"/>
  <tile id="2113" type="castle2"/>
  <tile id="2114" type="castle-door"/>
@@ -90,6 +102,11 @@
  <tile id="2280" type="block5"/>
  <tile id="2281" type="block5"/>
  <tile id="2282" type="block5"/>
+ <tile id="2295" type="castle2"/>
+ <tile id="2296" type="castle2"/>
+ <tile id="2297" type="castle-door"/>
+ <tile id="2298" type="castle2"/>
+ <tile id="2299" type="castle2"/>
  <tile id="2304" type="castle2"/>
  <tile id="2305" type="castle2"/>
  <tile id="2306" type="castle-door"/>
@@ -112,7 +129,11 @@
  <tile id="2473" type="block5"/>
  <tile id="2474" type="block5"/>
  <tile id="2483" type="block5"/>
+ <tile id="2487" type="castle2"/>
+ <tile id="2488" type="castle2"/>
  <tile id="2489" type="castle-door#map-1-3"/>
+ <tile id="2490" type="castle2"/>
+ <tile id="2491" type="castle2"/>
  <tile id="2496" type="block1"/>
  <tile id="2497" type="block1"/>
  <tile id="2498" type="block1"/>
