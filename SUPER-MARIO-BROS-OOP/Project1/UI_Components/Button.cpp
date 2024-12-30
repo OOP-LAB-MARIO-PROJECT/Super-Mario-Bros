@@ -19,7 +19,17 @@ sf::Vector2f Button::getSize() const {
 
 
 void Button::setPosition(const sf::Vector2f& position) {
+    
     shape.setPosition(position);
+
+    auto size = shape.getGlobalBounds().getSize();
+    auto textSize = text.getGlobalBounds().getSize();
+
+
+    auto shapeCenter = position + size / 2.f;
+
+    text.setPosition(shapeCenter - textSize /2.f);
+
 }
 
 sf::Vector2f Button::getPosition() const {
@@ -43,9 +53,13 @@ void Button::setText(const std::string& content, unsigned int textSize, const sf
     if (content.empty()) {
         std::cerr << "Text content is empty!" << std::endl;
     }
+
     text.setString(content);
     text.setCharacterSize(textSize);
     text.setFillColor(textColor);
+
+    text.setCharacterSize(1000);
+    text.setScale(sf::Vector2f((float)textSize / 1000, (float)textSize / 1000));
 
 	this->textColor = textColor;
 

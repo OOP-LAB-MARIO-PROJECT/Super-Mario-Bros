@@ -58,6 +58,8 @@
  <tile id="305" type="body_moutain_right"/>
  <tile id="306" type="body_moutain"/>
  <tile id="307" type="body_moutain_left"/>
+ <tile id="308" type="grass1"/>
+ <tile id="309" type="grass2"/>
  <tile id="310" type="grass3"/>
  <tile id="311" type="bunch_down"/>
  <tile id="313" type="flag-body-1"/>

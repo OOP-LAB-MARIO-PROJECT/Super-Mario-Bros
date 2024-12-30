@@ -146,18 +146,22 @@ vt Collision::rectVsTerain(Hitbox dynamicRect, std::vector <Hitbox> ground, vt v
 		resolveDynamicRectVsRect(dr, deltaTime, j.first, vel);
 	}
 
+	pos = dr.pos;
+	direction = 0;
+
 	for (const Hitbox& rec : ground) {
 		sf::Vector2f pushback = sf::Vector2f(0, 0);
 		Hitbox dRect = {
 			dr.pos, dr.size, dr.vel
 		};
 		sf::Vector2f pp = sf::Vector2f(0, 0);
-		dynamicRectVsRect(dRect, deltaTime, dRect.vel, rec, pp);
+		auto dirr = dynamicRectVsRect(dRect, deltaTime, dRect.vel, rec, pp);
+
+		if (dirr != NO_COLLIDE)
+			direction |= 1 << dirr;
 	}
 
 
-	pos = dr.pos;
-	direction = 0;
 
 	for (int i = 0; i < 4; i++)
 		if (dr.contact[i] != nullptr)

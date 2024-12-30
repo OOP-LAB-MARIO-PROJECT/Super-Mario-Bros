@@ -20,6 +20,9 @@ class Player : public Actor
 	float deadthTimer = 0;
 	float shootTimer = 0;
 	float invicibleDuration = 0;
+	bool isInvincible = false;
+	bool isDodging = false;
+
 public:
 	std::vector <Entity*> nearPointerTiles;
 	
@@ -43,8 +46,10 @@ public:
 	void notJump(float deltatime);
 	void moveLeft(float deltatime);
 	void moveRight(float deltatime);
+	void dodge(float deltatime, bool isDoged);
 	void shoot(float deltatime);
 	int getType() override;
 	void reset();
+	bool getIsDodge() const override;
 };
 

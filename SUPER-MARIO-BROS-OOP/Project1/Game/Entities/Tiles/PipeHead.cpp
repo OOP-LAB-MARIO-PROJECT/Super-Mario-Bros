@@ -16,12 +16,17 @@ PipeHead::PipeHead(sf::Vector2f pos, sf::Vector2f size, bool isTrans, std::strin
 			i++;
 			continue;
 		}
+
+		if (i == 3) {
+			backgroundColor += ch;
+			continue;
+		}
 		p[i] = p[i] * 10 + ch - '0';
 	}
 
 	x = p[0], y = p[1];
 	cameraBase = p[2];
-	std::cout << cameraBase << '\n';
+	std::cout << cameraBase << ' ' << backgroundColor << '\n';
 }
 
 int PipeHead::getType() {
@@ -39,6 +44,8 @@ void PipeHead::update(float deltatime) {
 		(!isUp && sf::Keyboard::isKeyPressed(sf::Keyboard::D))) {
 		player->setPos(sf::Vector2f(x, y));
 		GameConfig::getInstance().cameraBase = cameraBase;
+		if (backgroundColor == "blue") GameConfig::getInstance().backgroundColor = BLUE;
+		if (backgroundColor == "black") GameConfig::getInstance().backgroundColor = BLACK;
 	}
 }
 

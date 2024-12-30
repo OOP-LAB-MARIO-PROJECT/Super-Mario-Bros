@@ -99,7 +99,7 @@ void KoopaTroopa::inflictDamage() {
 }
 
 void KoopaTroopa::affectOther(Entity* other, float deltatime) {
-    if (other->getType() == PLAYER && GameConfig::getInstance().marioState != INVINCIBLE) {
+    if (other->getType() == PLAYER && !GameConfig::getInstance().isInvincible) {
         sf::Vector2f pushback;
         int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel - this->getHitbox().vel, this->getHitbox(), pushback);
 
@@ -135,7 +135,7 @@ void KoopaTroopa::affectOther(Entity* other, float deltatime) {
             other->inflictDamage();
         }
     }
-    else if (other->getType() == PLAYER && GameConfig::getInstance().marioState == INVINCIBLE) {
+    else if (other->getType() == PLAYER && !GameConfig::getInstance().isInvincible) {
         int dir = dynamicRectVsRect(other->getHitbox(), deltatime, other->getHitbox().vel - this->getHitbox().vel, this->getHitbox());
         if (dir == -1) return;
         if ((dir == LEFT || dir == RIGHT || dir == TOP || dir == BOTTOM))

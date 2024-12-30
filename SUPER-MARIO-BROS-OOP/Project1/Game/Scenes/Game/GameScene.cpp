@@ -79,17 +79,21 @@ GameScene::GameScene(sf::RenderWindow* window) : Scene(window) {
 	myCommand.addCommand("jump", new Jump(player));
 	myCommand.addCommand("left", new MoveLeft(player));
 	myCommand.addCommand("right", new MoveRight(player));
+	myCommand.addCommand("dodge", new MoveDown(player));
 	myCommand.addCommand("shoot", new Shoot(player));
 	myCommand.addCommand("pause", new Pause());
-	//myCommand.addCommand("dodge", new Shoot(player));
 
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("jump"), myCommand.getCommand("jump"));
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("left"), myCommand.getCommand("left"));
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("right"), myCommand.getCommand("right"));
 	myKeyExecute.addCommand(GameConfig::getInstance().getControl("shoot"), myCommand.getCommand("shoot"));
+	myKeyExecute.addCommand(GameConfig::getInstance().getControl("dodge"), myCommand.getCommand("dodge"));
 	myKeyExecute.addCommand(sf::Keyboard::Escape, myCommand.getCommand("pause"));
 
 	EntityManager::getInstance().setRenderWindowForDebug(getWindow());
+
+	SoundManager::getInstance().playSound("8-bit-background", true);
+
 }
 
 void GameScene::updateControlKey() {
@@ -97,6 +101,7 @@ void GameScene::updateControlKey() {
 	myKeyExecute.changeKey(GameConfig::getInstance().getControl("left"), myCommand.getCommand("left"));
 	myKeyExecute.changeKey(GameConfig::getInstance().getControl("right"), myCommand.getCommand("right"));
 	myKeyExecute.changeKey(GameConfig::getInstance().getControl("shoot"), myCommand.getCommand("shoot"));
+	myKeyExecute.addCommand(GameConfig::getInstance().getControl("dodge"), myCommand.getCommand("dodge"));
 }
 
 void GameScene::update(float deltatime) {
@@ -111,18 +116,6 @@ void GameScene::update(float deltatime) {
 		updateControlKey();
 	}
 
-	sf::Event event;
-	while (getWindow()->pollEvent(event)) {
-		if (event.type == sf::Event::Closed)
-		{
-			getWindow()->close();
-		}
-
-		if (event.type == sf::Event::KeyPressed)
-			if (event.key.code == sf::Keyboard::Escape) {
-				myCommand.executeCommand("pause");
-			}
-	}
 
 
 	if (deltatime > 0.3) deltatime = 0.3;
@@ -132,6 +125,11 @@ void GameScene::update(float deltatime) {
 
 	//if (GameConfig::getInstance().levelStatus == PAUSE) return;
 
+	BACKGROUND_COLOR bgCol = GameConfig::getInstance().backgroundColor;
+	if (bgCol == BLACK) getWindow()->clear(BLACK_BG);
+	if (bgCol == BLUE) getWindow()->clear(BLUE_BG);
+
+	gameMap->render(getWindow(), 0);
 	EntityManager::getInstance().renderAll(getWindow());
 	EntityManager::getInstance().filter();
 	
@@ -152,13 +150,25 @@ void GameScene::update(float deltatime) {
 
 	camera->setCameraView(getWindow());
 	
-	gameMap->render(getWindow());
+	gameMap->render(getWindow(), 1);
 	player->render(getWindow());
 	
 	std::pair<sf::Vector2f, sf::Vector2f> renderSpace = camera->getRenderSpace();
 	gameMap->setRenderSpace(renderSpace.first, renderSpace.second);
-	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance());
-	
+	camera->renderGameInfo(getWindow(), *FontManager::getInstance().getFont("Roboto").get(), GameConfig::getInstance(), myCommand);
+
+	sf::Event event;
+	while (getWindow()->pollEvent(event)) {
+		if (event.type == sf::Event::Closed)
+		{
+			getWindow()->close();
+		}
+
+		if (event.type == sf::Event::KeyPressed)
+			if (event.key.code == sf::Keyboard::Escape) {
+				myCommand.executeCommand("pause");
+			}
+	}
 	// check for level
 	retrieveLevelStatus();
 }

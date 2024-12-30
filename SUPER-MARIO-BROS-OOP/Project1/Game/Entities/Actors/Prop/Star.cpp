@@ -79,7 +79,7 @@ void Star::behavior(float detatime) {
 void Star::touched(float detatime) {
 	kill();
 	GameConfig::getInstance().addScore(score);
-	GameConfig::getInstance().marioState = INVINCIBLE;
+	GameConfig::getInstance().isInvincible = true;
 }
 
 void Star::affectOther(Entity* other, float deltateim) {

@@ -56,7 +56,14 @@ public:
 
 	void updateEnvironment();
 	void addTile(Tile* tile);
-	void render(sf::RenderWindow* window);
+
+
+	/*
+	0: render transparent
+	1: render solid
+	2: render all
+	*/
+	void render(sf::RenderWindow* window, int renderOption = 2);
 	void loadMap(const std::string& filename, Player* player);
 	void resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel, int mode);
 	void update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel, int mode);

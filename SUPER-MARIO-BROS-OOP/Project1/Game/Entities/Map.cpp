@@ -16,10 +16,17 @@ void Map::setRenderSpace(sf::Vector2f pos, sf::Vector2f size) {
 	renderSpace.size = size;
 }
 
-void Map::render(sf::RenderWindow* window) {
+void Map::render(sf::RenderWindow* window, int renderOption) {
 	std::vector <Entity*> renderTile = quadMap.nearEntity(renderSpace);
-	for (Entity* t : renderTile)
-		t->render(window);
+	for (Entity* t : renderTile) {
+		if (renderOption == 2) {
+			t->render(window);
+			continue;
+		}
+
+		if (renderOption == 0 && t->getType() == TRANS) t->render(window);
+		if (renderOption == 1 && t->getType() != TRANS) t->render(window);
+	}
 };
 
 std::vector <Hitbox> Map::getTiles() {
@@ -43,6 +50,7 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	EntityManager::getInstance().setSpace(m_col * (m_block_size + 10), m_row * (m_block_size + 10));
 
 	sf::Vector2f size = sf::Vector2f{ (float)mapLoader.tilewidth, (float)mapLoader.tileheight };
+
 
 	if (myMapInfo["player_pos"].size()) {
 		GameConfig::getInstance().cameraBase = (float)myMapInfo["player_pos"][0].second;
@@ -69,7 +77,7 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	EntityFactory enFactory;
 
 	for (const auto& typeTile : myMapInfo) {
-
+		if (typeTile.first.empty()) continue;
 		if (FACTORY_ENTITY_TYPE::isEntityNotTile(typeTile.first)) {
 			for (const auto& tile : typeTile.second) {
 				EntityManager::getInstance().

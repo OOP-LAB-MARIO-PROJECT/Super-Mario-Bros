@@ -1,7 +1,8 @@
 #include "QuestionTile.h"
 
 
-QuestionTile::QuestionTile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans) : MoveUpTile(_pos, _size, isTrans) {
+QuestionTile::QuestionTile(sf::Vector2f _pos, sf::Vector2f _size, std::string power) : MoveUpTile(_pos, _size, false), prop(power) {
+	if (prop.empty()) prop = "coin";
 	isRenderSprite = true;
 	isEmpty = false;
 	setTexture("item-object", "question-block-0");
@@ -27,9 +28,40 @@ void QuestionTile::update(float deltatime) {
 	if (isTouch) {
 		if (!isEmpty) {
 			EntityFactory factory;
-			EntityManager::getInstance().addEntity(
-				factory.createEntity("flower", getPos() - sf::Vector2f(0, 5), {16.f, 16.f})
-			);
+			sf::Vector2f _pos = getPos() - sf::Vector2f(0, 5);
+			sf::Vector2f _size = { 16.f, 16.f };
+
+			if (prop == "coin") {
+				EntityManager::getInstance().addEntity(
+					factory.createEntity("coin#instant", _pos, _size)
+				);
+			}
+
+			if (prop == "power") {
+				MARIO_STATE mst = GameConfig::getInstance().marioState;
+
+				if (mst == SMALL)
+					EntityManager::getInstance().addEntity(
+						factory.createEntity("red-mushroom", _pos, _size)
+					);
+				
+				if (mst == BIG)
+					EntityManager::getInstance().addEntity(
+						factory.createEntity("flower", _pos, _size)
+					);
+
+				if (mst == WHITE_BIG)
+					EntityManager::getInstance().addEntity(
+						factory.createEntity("coin#instant", _pos, _size)
+					);
+			} 
+
+			if (prop == "star") {
+				EntityManager::getInstance().addEntity(
+					factory.createEntity("star", _pos, _size)
+				);
+			}
+		
 		}
 
 		isEmpty = true;
