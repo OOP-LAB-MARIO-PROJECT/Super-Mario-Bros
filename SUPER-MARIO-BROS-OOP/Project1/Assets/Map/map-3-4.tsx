@@ -283,9 +283,9 @@
  <tile id="767" type="block_rock"/>
  <tile id="782" type="block_rock"/>
  <tile id="783" type="block_rock"/>
- <tile id="854" type="block4"/>
- <tile id="864" type="block4"/>
- <tile id="880" type="block4"/>
+ <tile id="854" type="rotate-fire"/>
+ <tile id="864" type="rotate-fire"/>
+ <tile id="880" type="rotate-fire"/>
  <tile id="942" type="block_rock"/>
  <tile id="943" type="block_rock"/>
  <tile id="960" type="player_pos"/>
@@ -403,19 +403,19 @@
  <tile id="1774" type="block_rock"/>
  <tile id="1775" type="block_rock"/>
  <tile id="1778" type="block_rock"/>
- <tile id="1779" type="block4"/>
+ <tile id="1779" type="rotate-fire"/>
  <tile id="1780" type="block_rock"/>
  <tile id="1783" type="block_rock"/>
- <tile id="1784" type="block4"/>
+ <tile id="1784" type="rotate-fire"/>
  <tile id="1785" type="block_rock"/>
  <tile id="1788" type="block_rock"/>
- <tile id="1789" type="block4"/>
+ <tile id="1789" type="rotate-fire"/>
  <tile id="1790" type="block_rock"/>
  <tile id="1793" type="block_rock"/>
  <tile id="1794" type="block_rock"/>
- <tile id="1814" type="block4"/>
- <tile id="1824" type="block4"/>
- <tile id="1840" type="block4"/>
+ <tile id="1814" type="rotate-fire"/>
+ <tile id="1824" type="rotate-fire"/>
+ <tile id="1840" type="rotate-fire"/>
  <tile id="1850" type="block_rock"/>
  <tile id="1851" type="block_rock"/>
  <tile id="1852" type="block_rock"/>
