@@ -17,6 +17,7 @@ public:
 	Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans = true);
 	~Tile() {};
 	void render(sf::RenderWindow* window) const override;
+	virtual void renderExtra(sf::RenderWindow* window) const {}
 	virtual void update(float deltaTime) {};
 	virtual void destroy(float deltaTime) {};
 	// set hitbox position, not sprite position 

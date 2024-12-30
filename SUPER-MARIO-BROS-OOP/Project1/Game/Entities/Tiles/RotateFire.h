@@ -78,6 +78,14 @@ public:
 			sf::Vector2f position(center.x + len * std::cos(angle), center.y + len * std::sin(angle));
 			fireballs[i]->setPos(position);
 		}
+		for (auto& fireball : fireballs) { 
+			fireball->update(deltatime); 
+		}
+	}
+	void renderExtra(sf::RenderWindow* window) const override { 
+		for (auto& fireball : fireballs) { 
+			fireball->render(window); 
+		} 
 	}
 };
 

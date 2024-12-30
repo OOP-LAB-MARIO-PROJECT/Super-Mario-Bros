@@ -66,8 +66,6 @@
  <tile id="400" type="block_rock"/>
  <tile id="401" type="block_rock"/>
  <tile id="402" type="block_rock"/>
- <tile id="406" type="flag-body-light-1"/>
- <tile id="409" type="flag-body-light-1"/>
  <tile id="413" type="block_rock"/>
  <tile id="414" type="block_rock"/>
  <tile id="415" type="block_rock"/>
@@ -185,8 +183,6 @@
  <tile id="560" type="block_rock"/>
  <tile id="561" type="block_rock"/>
  <tile id="562" type="block_rock"/>
- <tile id="566" type="flag-body-light-1"/>
- <tile id="569" type="flag-body-light-1"/>
  <tile id="573" type="block_rock"/>
  <tile id="574" type="block_rock"/>
  <tile id="575" type="block_rock"/>
@@ -273,8 +269,6 @@
  <tile id="720" type="block_rock"/>
  <tile id="721" type="block_rock"/>
  <tile id="722" type="block_rock"/>
- <tile id="726" type="flag-body-light-1"/>
- <tile id="729" type="flag-body-light-1"/>
  <tile id="733" type="block_rock"/>
  <tile id="734" type="block_rock"/>
  <tile id="735" type="block_rock"/>
@@ -345,13 +339,9 @@
  <tile id="880" type="block_rock"/>
  <tile id="881" type="block_rock"/>
  <tile id="882" type="block_rock"/>
- <tile id="886" type="flag-body-light-1"/>
- <tile id="889" type="flag-body-light-1"/>
  <tile id="942" type="block_rock"/>
  <tile id="943" type="block_rock"/>
  <tile id="1042" type="rotate-fire"/>
- <tile id="1046" type="flag-body-light-1"/>
- <tile id="1049" type="flag-body-light-1"/>
  <tile id="1098" type="moving-platform"/>
  <tile id="1099" type="moving-platform"/>
  <tile id="1120" type="block_rock"/>
@@ -360,14 +350,10 @@
  <tile id="1142" type="block_rock"/>
  <tile id="1143" type="rotate-fire"/>
  <tile id="1144" type="block_rock"/>
- <tile id="1206" type="flag-body-light-1"/>
- <tile id="1209" type="flag-body-light-1"/>
  <tile id="1280" type="block_rock"/>
  <tile id="1281" type="block_rock"/>
  <tile id="1282" type="block_rock"/>
  <tile id="1283" type="block_rock"/>
- <tile id="1366" type="flag-body-light-1"/>
- <tile id="1369" type="flag-body-light-1"/>
  <tile id="1382" type="coin"/>
  <tile id="1383" type="coin"/>
  <tile id="1384" type="coin"/>
@@ -421,8 +407,6 @@
  <tile id="1511" type="block_rock"/>
  <tile id="1512" type="block_rock"/>
  <tile id="1513" type="rotate-fire"/>
- <tile id="1526" type="flag-body-light-1"/>
- <tile id="1529" type="flag-body-light-1"/>
  <tile id="1580" type="stair"/>
  <tile id="1581" type="block_rock"/>
  <tile id="1582" type="block_rock"/>
@@ -512,8 +496,6 @@
  <tile id="1841" type="block_rock"/>
  <tile id="1842" type="block_rock"/>
  <tile id="1843" type="block_rock"/>
- <tile id="1846" type="flag-body-light-1"/>
- <tile id="1849" type="flag-body-light-1"/>
  <tile id="1852" type="block_rock"/>
  <tile id="1853" type="block_rock"/>
  <tile id="1854" type="block_rock"/>
@@ -560,8 +542,6 @@
  <tile id="2001" type="block_rock"/>
  <tile id="2002" type="block_rock"/>
  <tile id="2003" type="block_rock"/>
- <tile id="2006" type="flag-body-light-1"/>
- <tile id="2009" type="flag-body-light-1"/>
  <tile id="2012" type="block_rock"/>
  <tile id="2013" type="block_rock"/>
  <tile id="2014" type="block_rock"/>
@@ -672,8 +652,6 @@
  <tile id="2161" type="block_rock"/>
  <tile id="2162" type="block_rock"/>
  <tile id="2163" type="block_rock"/>
- <tile id="2166" type="flag-body-light-1"/>
- <tile id="2169" type="flag-body-light-1"/>
  <tile id="2172" type="block_rock"/>
  <tile id="2173" type="block_rock"/>
  <tile id="2174" type="block_rock"/>
@@ -826,8 +804,6 @@
  <tile id="2321" type="block_rock"/>
  <tile id="2322" type="block_rock"/>
  <tile id="2323" type="block_rock"/>
- <tile id="2326" type="flag-body-light-1"/>
- <tile id="2329" type="flag-body-light-1"/>
  <tile id="2332" type="block_rock"/>
  <tile id="2333" type="block_rock"/>
  <tile id="2334" type="block_rock"/>
