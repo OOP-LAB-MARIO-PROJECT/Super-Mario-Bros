@@ -6,7 +6,7 @@
 #define BLUE_BG sf::Color(132, 180, 252)
 #define BLACK_BG sf::Color::Black
 // Glolbal configuration for Game -> every file can get infomation from this
-
+//
 
 
 enum WORLD {
