@@ -16,8 +16,7 @@ Goompa::Goompa(sf::Vector2f pos, sf::Vector2f size) : Enemy(pos, size) {
     a = { {"goompa_ow-2"}, {"goompa_ow-2"} };
 
     stateCache["DEAD"] = std::make_shared<DeadState>("Goompa", a, 0.3);
-    a = { {"goompa_ow-0"}, {"goompa_ow-1"} };
-    stateCache["DEAD_BY_ENEMY"] = std::make_shared<DeadState>("Goompa", a, 1.f);
+  
 
     setState("RUN");
 
@@ -33,15 +32,21 @@ void Goompa::setState(const std::string& stateName) {
     }
 }
 void Goompa::update(float deltatime) {
-    if (health == 0 && !isDeadByOtherEnemy) isDead = true;
+    if (health == 0 && !isDeadByOtherThings) isDead = true;
     if (currentState) {
         currentState->handle(this, deltatime);
         currentState->update(this, deltatime);
     }
 
-    
+    if (isDeadByOtherThings) {
+        if (getHealth() == 0) setVel({ 0, -120.0f }), health--;
+        setPos(getPos() + getVel() * deltatime);
+        setSpriteScale(1.f, -1.f);
+        setSpritePos(getPos() + sf::Vector2f(0, 16.f));
+        performPhysics(deltatime);
+    }
 
-    if (!isDead && !isDeadByOtherEnemy) {
+    if (!isDead && !isDeadByOtherThings) {
         for (auto en : otherEntities) {
             Hitbox ob = en->getHitbox();
             ob.vel = sf::Vector2f{ 0.f, 0.f };
@@ -61,6 +66,34 @@ void Goompa::update(float deltatime) {
             else
                 setVel(sf::Vector2f(-50, getVel().y));
         }
+
+
+        // Follow player
+
+        for (auto en : otherEntities) {
+            if (en->getType() == PLAYER) {
+                if ((getPos().x - 128 <= en->getHitbox().pos.x) && (getPos().x + 128 >= en->getHitbox().pos.x)) {
+                    isAttack = true;
+                    if (getPos().x + 64.f < en->getHitbox().pos.x)
+                    {
+                        facing = 1;
+                    }
+                    else if (getPos().x - 64.f > en->getHitbox().pos.x) {
+                        facing = -1;
+                    }
+                }
+                else {
+                    isAttack = false;
+                }
+
+            }
+        }
+
+        if (facing == 1)
+            setVel(sf::Vector2f(50, getVel().y));
+        else
+            setVel(sf::Vector2f(-50, getVel().y));
+
 
         for (auto en : otherEntities) {
             affectOther(en, deltatime);

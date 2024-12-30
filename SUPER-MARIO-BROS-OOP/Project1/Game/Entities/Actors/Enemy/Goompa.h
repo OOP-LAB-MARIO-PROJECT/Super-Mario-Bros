@@ -15,12 +15,8 @@ class Goompa : public Enemy
 	int facing = 0;
 	float timer = 0;
 	int aniLoop = 0;
-	float jumpingTime = 0;
 	float deathTimer = 0;
-	float dist = 0;
-	float cnt = 0;
 	sf::Vector2f a;
-	bool isStop = false;
 	float tmp = 0;
 public:
 	

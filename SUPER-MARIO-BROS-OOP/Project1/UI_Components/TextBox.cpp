@@ -64,8 +64,11 @@ std::string TextBox::getText() const {
     return textEntered;
 }
 
-bool TextBox::isMouseOver(sf::Vector2i mousePos) {
-    return box.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos));
+bool TextBox::isMouseOver(sf::RenderWindow& window) {
+    sf::Vector2i mousePixelPos = sf::Mouse::getPosition(window);
+    sf::Vector2f mouseWorldPos = window.mapPixelToCoords(mousePixelPos);
+
+    return box.getGlobalBounds().contains(mouseWorldPos);
 }
 
 void TextBox::setSelected(bool selected) {
@@ -81,3 +84,4 @@ void TextBox::setSelected(bool selected) {
 bool TextBox::getSelected() {
     return isSelected;
 }
+

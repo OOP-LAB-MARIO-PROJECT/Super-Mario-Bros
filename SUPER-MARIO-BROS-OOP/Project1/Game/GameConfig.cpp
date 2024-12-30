@@ -45,6 +45,7 @@ void GameConfig::setCurrentLevel(const std::string& level) {
 
 
 void GameConfig::setNextLevel(const std::string& level) {
+    isWinning = false;
     if (!level.empty()) {
         nextLevel = level;
         std::cout << "next lev" << ' ' << level << '\n';

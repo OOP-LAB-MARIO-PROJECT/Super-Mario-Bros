@@ -137,7 +137,8 @@ void RunningState::handle(Actor* a, float deltaTime) {
 	}
 	else if (a->getType() == ENEMY) {
 		if (a->getIsDead()) a->setState("DEAD");
-		else if (a->getIsDeadByOtherEnemy()) a->setState("DEAD_BY_ENEMY");
+		else if (a->getIsAttack()) a->setState("ATTACK");
+		else if (a->getIsDeadByOtherThings()) a->setState("DEAD_BY_OTHER_THINGS");
 	}
 	else if (a->getType() == HARM_TO_ALL) {
 		a->setState("DEFENSE");
@@ -288,14 +289,6 @@ DeadState::DeadState(const std::string& en, const std::vector<std::vector<std::s
 void DeadState::update(Actor* a, float deltaTime) {
 	bool isRight = a->getFacing() == 1;
 	a->setTexture(entityName, textureName[isRight][0]);
-	if (a->getIsDeadByOtherEnemy()) { 
-		a->setIsDeadByOtherEnemy(true);
-		if (a->getHealth() == 0) a->setVel({ 0, -180.0f }), a->setHealth(-1);
-		a->setPos(a->getPos() + a->getVel() * deltaTime);
-		a->setSpriteScale(1.f, -1.f);
-		a->setSpritePos(a->getPos() + sf::Vector2f(0, 16.f));
-		a->performPhysics(deltaTime);
-	}
 }
 
 
@@ -305,10 +298,8 @@ void DeadState::handle(Actor* a, float deltaTime) {
 		return;
 	}
 	else resetTimer();
-
 	if(a->getType() == PLAYER) a->setState("IDLE");
-	if (a->getIsDeadByOtherEnemy() || a->getIsDead()) a->kill();
-	
+	if (a->getIsDead()) a->kill();
 }
 
 
@@ -375,4 +366,26 @@ void TransformState::handle(Actor* a, float deltaTime) {
 		a->setState("IDLE");
 		a->setIsTransforming(false);
 	}
+}
+
+
+AttackState::AttackState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT) : AnimationState(en, tn, sT) {
+}
+
+
+void AttackState::update(Actor* a, float deltaTime) {
+	bool isRight = a->getFacing() == 1;
+	a->setTexture(entityName, textureName[isRight][0]);
+
+}
+
+
+void AttackState::handle(Actor* a, float deltaTime) {
+	updateTimer(deltaTime);
+	if (!isDurationEnded()) {
+		return;
+	}
+	else resetTimer();
+
+	a->setState("RUN");
 }
