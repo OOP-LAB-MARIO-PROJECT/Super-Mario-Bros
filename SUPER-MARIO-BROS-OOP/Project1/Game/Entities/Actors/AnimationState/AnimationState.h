@@ -61,6 +61,19 @@ public:
 };
 
 
+class PollingState : public AnimationState {
+    float timer = 0.f;
+    int aniLoop = 0;
+    bool firstUpdate = true;
+    sf::Vector2f curPos = { 0, 0 };
+public:
+
+    PollingState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT);
+
+    void update(Actor* a, float deltaTime);
+    void handle(Actor* a, float deltaTime);
+};
+
 
 
 class  RunningState : public AnimationState {

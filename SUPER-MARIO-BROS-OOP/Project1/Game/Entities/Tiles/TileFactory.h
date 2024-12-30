@@ -8,6 +8,7 @@
 #include "RotateFire.h"
 #include "BossHammer.h"
 #include "Brigde.h"
+#include "Flag.h"
 
 #include <vector>
 #include <string>
@@ -56,7 +57,8 @@ namespace TILETYPE {
 		"block-underground-3",
 		"question",
 		"hammer",
-		"bridge"
+		"bridge",
+		"flag"
 	};
 
 	static std::vector <std::string> transparent = {
