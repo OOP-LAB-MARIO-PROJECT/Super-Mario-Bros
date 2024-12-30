@@ -111,6 +111,7 @@ void Goompa::update(float deltatime) {
 void Goompa::behavior(float deltatime) {
     if (health <= 0 && !isDead) {
         isDead = true; 
+        GameConfig::getInstance().addScore(200);
     }
 }
 
