@@ -351,7 +351,7 @@
  <tile id="943" type="block_rock"/>
  <tile id="960" type="player_pos"/>
  <tile id="983" type="rotate-fire"/>
- <tile id="990" type="question"/>
+ <tile id="990" type="question#star"/>
  <tile id="997" type="rotate-fire"/>
  <tile id="1009" type="rotate-fire"/>
  <tile id="1020" type="rotate-fire"/>

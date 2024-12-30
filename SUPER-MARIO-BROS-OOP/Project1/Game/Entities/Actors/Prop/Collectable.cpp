@@ -3,3 +3,6 @@ Collectable::Collectable(sf::Vector2f _pos, sf::Vector2f _size) : Actor(_pos, _s
 	isRenderHitbox = true;
 	isRenderSprite = true;
 }
+void Collectable::addScore(int points) {
+	score += points;
+}

@@ -28,5 +28,6 @@ public:
 
 	virtual void update(float deltatime) override = 0;
 	virtual void behavior(float detatime) = 0; 
+	void addScore(int points);
 };
 

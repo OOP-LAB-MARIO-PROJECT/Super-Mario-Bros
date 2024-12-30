@@ -1150,7 +1150,7 @@
  <tile id="1146" type="block2"/>
  <tile id="1147" type="block2"/>
  <tile id="1148" type="block2"/>
- <tile id="1149" type="question"/>
+ <tile id="1149" type="question#power"/>
  <tile id="1150"/>
  <tile id="1151"/>
  <tile id="1152"/>
@@ -1185,8 +1185,8 @@
  <tile id="1181"/>
  <tile id="1182"/>
  <tile id="1183" type="block2"/>
- <tile id="1184" type="question"/>
- <tile id="1185" type="question"/>
+ <tile id="1184" type="question#star"/>
+ <tile id="1185" type="question#star"/>
  <tile id="1186" type="block2"/>
  <tile id="1187"/>
  <tile id="1188"/>
@@ -1978,7 +1978,7 @@
  <tile id="1974"/>
  <tile id="1975"/>
  <tile id="1976" type="block2"/>
- <tile id="1977" type="question"/>
+ <tile id="1977" type="question#star"/>
  <tile id="1978" type="block2"/>
  <tile id="1979"/>
  <tile id="1980"/>
@@ -2106,7 +2106,39 @@
  <tile id="2102" type="castle-window-left"/>
  <tile id="2103" type="block3"/>
  <tile id="2104" type="castle-window-right"/>
+ <tile id="2105"/>
+ <tile id="2106"/>
+ <tile id="2107"/>
+ <tile id="2108"/>
+ <tile id="2109"/>
+ <tile id="2110"/>
+ <tile id="2111"/>
+ <tile id="2112"/>
+ <tile id="2113"/>
+ <tile id="2114"/>
+ <tile id="2115"/>
+ <tile id="2116"/>
+ <tile id="2117"/>
+ <tile id="2118"/>
+ <tile id="2119"/>
+ <tile id="2120"/>
+ <tile id="2121"/>
+ <tile id="2122"/>
+ <tile id="2123"/>
+ <tile id="2124"/>
+ <tile id="2125"/>
+ <tile id="2126"/>
+ <tile id="2127"/>
  <tile id="2128" type="king-koopa"/>
+ <tile id="2129"/>
+ <tile id="2130"/>
+ <tile id="2131"/>
+ <tile id="2132"/>
+ <tile id="2133"/>
+ <tile id="2134"/>
+ <tile id="2135"/>
+ <tile id="2136"/>
+ <tile id="2137"/>
  <tile id="2138" type="piranha-plant"/>
  <tile id="2139"/>
  <tile id="2140"/>

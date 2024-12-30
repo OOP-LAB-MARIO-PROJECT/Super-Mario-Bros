@@ -1,5 +1,6 @@
 #pragma once
 #include "../Actor.h"
+#include "../Prop/Collectable.h"
 /*
 
 	// set the map that the enemy are on
@@ -18,12 +19,19 @@ class Enemy : public Actor {
 protected:
 	bool isDeadByOtherThings = false;
 	bool isAttack = false;
+	Collectable* collectable;
 public:
-
 	Enemy(sf::Vector2f _pos, sf::Vector2f _size);
 	virtual void update(float deltatime) override = 0;
 	virtual void behavior(float detatime) = 0;
 	void setIsDeadByOtherThings(bool a) override;
 	bool getIsDeadByOtherThings() override;
 	bool getIsAttack() override;
+	void setCollectable(Collectable* _collectable);
+	void checkIfDead() {
+		if (isDead && collectable != nullptr) {
+			collectable->addScore(200); 
+		}
+	}
+
 };
