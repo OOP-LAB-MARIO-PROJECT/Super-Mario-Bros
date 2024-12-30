@@ -5,8 +5,6 @@
 #include <string>
 #include "../Actor.h"
 
-class Player;
-
 class Entity;
 
 class AnimationState {
@@ -51,6 +49,15 @@ public:
     void update(Actor* a, float deltaTime) override;
     void handle(Actor* a, float deltaTime) override;
     
+};
+
+class DodgingState: public AnimationState {
+public:
+
+    DodgingState(const std::string& en, const std::vector<std::vector<std::string>>& tn, const float& sT);
+
+    void update(Actor* a, float deltaTime);
+    void handle(Actor* a, float deltaTime);
 };
 
 

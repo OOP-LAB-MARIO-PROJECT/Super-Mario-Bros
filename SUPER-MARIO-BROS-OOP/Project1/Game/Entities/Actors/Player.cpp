@@ -22,6 +22,9 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 														  {	"right-mario-0",
 															"right-mario-1",
 															"right-mario-2"} };
+
+
+
 	stateCache["RUN"] = std::make_shared<RunningState>("mario", runTexture, 0.15);
 
 	std::vector<std::vector<std::string>> jumpTexture = { { "left-mario-11" }, {"right-mario-4"} };
@@ -39,6 +42,9 @@ Player::Player(sf::Vector2f pos, sf::Vector2f size) : Actor(pos, size) {
 
 	std::vector<std::vector<std::string>> transformTexture = { { "left-mario-3", "left-mario-2" }, {"right-mario-14", "right-mario-15"} };
 	stateCache["TRANSFORMING"] = std::make_shared<TransformState>("big-mario", transformTexture, 1.2f);
+
+	std::vector<std::vector<std::string>> dodgeTexture = { { "left-mario-10" }, {"right-mario-5"} };
+	stateCache["DODGE"] = std::make_shared<DodgingState>("big-mario", dodgeTexture, 0);
 
 	currentMode = SMALL;
 	setState("IDLE");
@@ -65,15 +71,17 @@ void Player::update(float deltatime) {
 
 	if (getPos().y > GameConfig::getInstance().cameraBase + 64) inflictDamage();
 
-	if (currentMode == INVICIBLE) {
+	isInvincible = GameConfig::getInstance().isInvincible;
+	if (isTransforming) isInvincible = true;
+
+	if (isInvincible) {
 		
-		invicibleDuration += deltatime;
+		if (!isTransforming)
+			invicibleDuration += deltatime;
 		if (invicibleDuration > 5.f) {
 			invicibleDuration = 0;
-			GameConfig::getInstance().marioState = MARIO_STATE::SMALL;
-			currentMode = SMALL;
-			
-		}
+			GameConfig::getInstance().isInvincible = false;
+		}			
 	}
 
 	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::BIG) {
@@ -81,18 +89,13 @@ void Player::update(float deltatime) {
 		currentMode = BIG;
 	}
 
+	if (currentMode == BIG && GameConfig::getInstance().marioState == MARIO_STATE::WHITE_BIG) {
+		currentMode = WHITE_BIG;
+	}
 
 	if (currentMode == BIG && GameConfig::getInstance().marioState == MARIO_STATE::SMALL) {
 		setIsTransforming(true);
 		currentMode = SMALL;
-	}
-
-	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::INVINCIBLE) {
-		currentMode = INVICIBLE;
-	}
-
-	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::INVINCIBLE) {
-		currentMode = INVICIBLE;
 	}
 
 	if (currentMode == SMALL && GameConfig::getInstance().marioState == MARIO_STATE::WHITE_BIG) {
@@ -149,12 +152,12 @@ void Player::update(float deltatime) {
 	for (const auto& en : other) { // player interact with surrounding enemies
 		int dir = dynamicRectVsRect(getHitbox(), deltatime, getVel() - en->getHitbox().vel, en->getHitbox());
 		if (dir == -1) continue;
-		if (en->getType() == ENEMY && currentMode != INVICIBLE) {
+		if (en->getType() == ENEMY && !isInvincible) {
 			if (dir == TOP) setVel({ getVel().x, -80 }), en->inflictDamage(), isKilling = true;
 			en->affectOther(this);
 			continue;
 		}
-		else if (currentMode == INVICIBLE) {
+		else if (isInvincible) {
 			if (dir == TOP || dir == BOTTOM || dir == LEFT || dir == RIGHT) en->inflictDamage();
 		}
 		en->affectOther(this, deltatime);
@@ -228,6 +231,17 @@ void Player::shoot(float deltatime) {
 	}
 }
 
+void Player::dodge(float deltatime, bool isDoged) {
+	if (currentMode == SMALL) return;
+	if (isDoged) {
+		isDodging = true;
+		setState("DODGE");
+	} else {
+		isDodging = false;
+	};
+}
+
+
 void Player::moveRight(float deltatime) {
 	if (isDead) return;
 	facing = 1;
@@ -269,4 +283,8 @@ void Player::reset() {
 	nearPointerTiles.clear();
 	otherEntities.clear();
 	setVel(sf::Vector2f(0, 0));
+}
+
+bool Player::getIsDodge() const {
+	return isDodging;
 }

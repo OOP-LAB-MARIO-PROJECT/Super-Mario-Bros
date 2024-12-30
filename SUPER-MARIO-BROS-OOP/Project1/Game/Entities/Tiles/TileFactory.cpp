@@ -18,7 +18,7 @@ Tile* TileFactory::createTile(std::string type, sf::Vector2f pos, sf::Vector2f s
 
 	if (TILETYPE::isInteractable(type)) {
 		if (type == "question") {
-			Tile* r = new QuestionTile(pos, size, false);
+			Tile* r = new QuestionTile(pos, size, properties);
 			r->setRenderSprite(true);
 			r->setRenderHitbox(false);
 			return r;

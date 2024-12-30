@@ -51,9 +51,11 @@ void MoveDown::setDeltatime(float _deltaTime) {
 }
 
 void MoveDown::execute() {
+	player->dodge(deltaTime, true);
 }
 
 void MoveDown::deExecute() {
+	player->dodge(deltaTime, false);
 }
 
 

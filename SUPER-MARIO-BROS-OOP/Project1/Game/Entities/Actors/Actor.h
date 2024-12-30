@@ -66,6 +66,7 @@ public:
 	int resolveCollideGround(std::vector <Hitbox> vi, float deltaTime);
 	int getFacing();
 	bool getIsOnGround();
+	virtual bool getIsDodge() const { return 0;  }
 	Hitbox getHitbox();
 	virtual int getType() override;
 	virtual void update(float deltatime) override = 0;

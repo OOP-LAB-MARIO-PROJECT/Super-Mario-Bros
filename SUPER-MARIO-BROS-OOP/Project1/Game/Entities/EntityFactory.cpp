@@ -24,6 +24,8 @@ Entity* EntityFactory::createEntity(std::string type, sf::Vector2f pos, sf::Vect
 	}
 
 	if (type == "coin") {
+		if (properties == "instant")
+			return new Coin(pos, size, true);
 		return new Coin(pos, size);
 	}
 

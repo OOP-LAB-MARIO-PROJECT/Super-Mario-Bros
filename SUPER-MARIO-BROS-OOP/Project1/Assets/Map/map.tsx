@@ -5,7 +5,7 @@
  <tile id="830" type="flag-3"/>
  <tile id="831" type="flag-2"/>
  <tile id="1042" type="flag-4"/>
- <tile id="1077" type="question"/>
+ <tile id="1077" type="question#power"/>
  <tile id="1135" type="block2"/>
  <tile id="1136" type="block2"/>
  <tile id="1137" type="block2"/>
@@ -49,11 +49,11 @@
  <tile id="1891" type="castle1"/>
  <tile id="1892" type="castle1"/>
  <tile id="1893" type="castle1"/>
- <tile id="1915" type="question"/>
+ <tile id="1915" type="question#coin"/>
  <tile id="1919" type="block2"/>
- <tile id="1920" type="question"/>
+ <tile id="1920" type="question#power"/>
  <tile id="1921" type="block2"/>
- <tile id="1922" type="question"/>
+ <tile id="1922" type="question#star"/>
  <tile id="1923" type="block2"/>
  <tile id="1945" type="pipe-up-head-left"/>
  <tile id="1946" type="pipe-up-head-right"/>

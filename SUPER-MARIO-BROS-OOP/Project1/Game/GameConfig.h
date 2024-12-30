@@ -55,6 +55,8 @@ public:
     MARIO_STATE marioState = SMALL;
     LEVEL_STATUS levelStatus = PLAYING;
     BACKGROUND_COLOR backgroundColor = BLUE;
+    bool isInvincible = false;
+
 
     float cameraBase = 192;
 

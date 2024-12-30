@@ -1,7 +1,7 @@
 #include "Coin.h"
 
 
-Coin::Coin(sf::Vector2f(pos), sf::Vector2f(size)) : Collectable(pos, size) {
+Coin::Coin(sf::Vector2f pos, sf::Vector2f size, bool instant) : Collectable(pos, size), isInstantPoint(instant) {
 	setSize({ 10, getSize().y });
 	isRenderSprite = true;
 	isRenderHitbox = false;
@@ -34,6 +34,13 @@ void Coin::update(float deltatime) {
 		return;
 	}
 	//std::cout << obstacle.size() << '\n';
+
+	if (isInstantPoint) {
+		setVel(sf::Vector2f{ 0, -90 });
+		fallingTimer = 1;
+		touched(deltatime);
+		return;
+	}
 
 	bool blockUnder = false;
 
