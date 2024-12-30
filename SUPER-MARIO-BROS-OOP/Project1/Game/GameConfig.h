@@ -56,6 +56,8 @@ public:
     LEVEL_STATUS levelStatus = PLAYING;
     BACKGROUND_COLOR backgroundColor = BLUE;
     bool isInvincible = false;
+    bool isWinning = false; // after boss hammer is touched
+    sf::Vector2f winingPos = { 0, 0 };
 
 
     float cameraBase = 192;
