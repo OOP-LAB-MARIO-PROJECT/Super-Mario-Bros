@@ -831,8 +831,8 @@
  <tile id="827"/>
  <tile id="828"/>
  <tile id="829"/>
- <tile id="830" type="flag-3"/>
- <tile id="831" type="flag-2"/>
+ <tile id="830"/>
+ <tile id="831"/>
  <tile id="832"/>
  <tile id="833" type="cloud1"/>
  <tile id="834" type="cloud2"/>
@@ -1043,7 +1043,7 @@
  <tile id="1039"/>
  <tile id="1040"/>
  <tile id="1041"/>
- <tile id="1042" type="flag-4"/>
+ <tile id="1042"/>
  <tile id="1043"/>
  <tile id="1044" type="cloud4"/>
  <tile id="1045" type="cloud5"/>
@@ -1254,7 +1254,7 @@
  <tile id="1250"/>
  <tile id="1251"/>
  <tile id="1252"/>
- <tile id="1253" type="flag-body-1"/>
+ <tile id="1253"/>
  <tile id="1254"/>
  <tile id="1255"/>
  <tile id="1256"/>
@@ -1465,7 +1465,7 @@
  <tile id="1461"/>
  <tile id="1462"/>
  <tile id="1463"/>
- <tile id="1464" type="flag-body-1"/>
+ <tile id="1464"/>
  <tile id="1465"/>
  <tile id="1466"/>
  <tile id="1467"/>
@@ -1676,7 +1676,7 @@
  <tile id="1672"/>
  <tile id="1673"/>
  <tile id="1674"/>
- <tile id="1675" type="flag-body-1"/>
+ <tile id="1675"/>
  <tile id="1676"/>
  <tile id="1677"/>
  <tile id="1678"/>
@@ -1887,7 +1887,7 @@
  <tile id="1883"/>
  <tile id="1884"/>
  <tile id="1885"/>
- <tile id="1886" type="flag-body-1"/>
+ <tile id="1886"/>
  <tile id="1887"/>
  <tile id="1888"/>
  <tile id="1889"/>
@@ -2098,7 +2098,7 @@
  <tile id="2094"/>
  <tile id="2095"/>
  <tile id="2096"/>
- <tile id="2097" type="flag-body-1"/>
+ <tile id="2097"/>
  <tile id="2098"/>
  <tile id="2099"/>
  <tile id="2100"/>
@@ -2309,7 +2309,7 @@
  <tile id="2305"/>
  <tile id="2306"/>
  <tile id="2307"/>
- <tile id="2308" type="flag-body-1"/>
+ <tile id="2308"/>
  <tile id="2309"/>
  <tile id="2310"/>
  <tile id="2311"/>
@@ -2520,7 +2520,7 @@
  <tile id="2516" type="edge_moutain_right"/>
  <tile id="2517"/>
  <tile id="2518"/>
- <tile id="2519" type="flag-body-1"/>
+ <tile id="2519"/>
  <tile id="2520"/>
  <tile id="2521"/>
  <tile id="2522"/>
@@ -2731,7 +2731,7 @@
  <tile id="2727" type="body_moutain_right"/>
  <tile id="2728" type="edge_moutain_right"/>
  <tile id="2729"/>
- <tile id="2730" type="block4"/>
+ <tile id="2730" type="flag"/>
  <tile id="2731"/>
  <tile id="2732"/>
  <tile id="2733"/>
