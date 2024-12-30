@@ -28,7 +28,7 @@
  <tile id="511" type="cloud5"/>
  <tile id="512" type="cloud5"/>
  <tile id="513" type="cloud6"/>
- <tile id="534" type="kooptroopa_ow_left"/>
+ <tile id="534" type="troopa-koopa"/>
  <tile id="543" type="cloud1"/>
  <tile id="544" type="cloud2"/>
  <tile id="545" type="cloud2"/>
@@ -60,7 +60,7 @@
  <tile id="660" type="cloud5"/>
  <tile id="661" type="cloud5"/>
  <tile id="662" type="cloud6"/>
- <tile id="682" type="kooptroopa_ow_left"/>
+ <tile id="682" type="troopa-koopa"/>
  <tile id="683" type="coin"/>
  <tile id="684" type="coin"/>
  <tile id="685" type="coin"/>
@@ -150,7 +150,7 @@
  <tile id="1070" type="cloud1"/>
  <tile id="1071" type="cloud2"/>
  <tile id="1072" type="cloud3"/>
- <tile id="1090" type="kooptroopa_ow_left"/>
+ <tile id="1090" type="troopa-koopa"/>
  <tile id="1115" type="moving-platform"/>
  <tile id="1116" type="moving-platform"/>
  <tile id="1117" type="moving-platform"/>

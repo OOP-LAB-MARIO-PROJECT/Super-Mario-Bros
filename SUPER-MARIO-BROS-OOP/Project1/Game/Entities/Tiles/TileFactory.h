@@ -93,6 +93,8 @@ namespace TILETYPE {
 		"body_moutain_right",
 		"body_moutain_left",
 		"top_mountain",
+		"grass1",
+		"grass2",
 		"grass3",
 		"handrail",
 		"handrail_light",

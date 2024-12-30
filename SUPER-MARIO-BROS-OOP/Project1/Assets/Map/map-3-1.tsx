@@ -154,6 +154,7 @@
  <tile id="4240" type="cloud5"/>
  <tile id="4241" type="cloud5"/>
  <tile id="4242" type="cloud6"/>
+ <tile id="4247" type="flag-body-light-1"/>
  <tile id="4257" type="cloud4"/>
  <tile id="4258" type="cloud5"/>
  <tile id="4259" type="cloud6"/>
@@ -229,8 +230,8 @@
  <tile id="4982" type="handrail_light"/>
  <tile id="4983" type="handrail_light"/>
  <tile id="5002" type="piranha-plant"/>
- <tile id="5012" type="kooptroopa_ow_left"/>
- <tile id="5016" type="kooptroopa_ow_left"/>
+ <tile id="5012" type="troopa-koopa"/>
+ <tile id="5016" type="troopa-koopa"/>
  <tile id="5028" type="block2"/>
  <tile id="5029" type="block2"/>
  <tile id="5030" type="block2"/>
@@ -452,7 +453,7 @@
  <tile id="5780" type="goompa"/>
  <tile id="5783" type="pipe-up-body-left-light"/>
  <tile id="5784" type="pipe-up-body-right-light"/>
- <tile id="5786" type="kooptroopa_ow_left"/>
+ <tile id="5786" type="troopa-koopa"/>
  <tile id="5789" type="pipe-up-body-left-light"/>
  <tile id="5790" type="pipe-up-body-right-light"/>
  <tile id="5791" type="trunk"/>
@@ -525,6 +526,7 @@
  <tile id="5919" type="trunk"/>
  <tile id="5925" type="block5"/>
  <tile id="5926" type="block5"/>
+ <tile id="5931" type="camera_base"/>
  <tile id="5933" type="fence"/>
  <tile id="5934" type="block5"/>
  <tile id="5935" type="block5"/>
@@ -1000,11 +1002,11 @@
  <tile id="8552" type="block-underground-3"/>
  <tile id="8567" type="pipe-up-body-left"/>
  <tile id="8765" type="block-underground-3"/>
- <tile id="8778" type="pipe-side-head-up#1088;400;400"/>
+ <tile id="8778" type="pipe-side-head-up#1088;400;432"/>
  <tile id="8779" type="pipe-side-body-up"/>
  <tile id="8780" type="pipe-side-tail-up"/>
  <tile id="8978" type="block-underground-3"/>
- <tile id="8991" type="pipe-side-head-bottom#1088;400;400"/>
+ <tile id="8991" type="pipe-side-head-bottom#1088;400;432"/>
  <tile id="8992" type="pipe-side-body-bottom"/>
  <tile id="8993" type="pipe-side-tail-bottom"/>
  <tile id="9191" type="block-underground-1"/>

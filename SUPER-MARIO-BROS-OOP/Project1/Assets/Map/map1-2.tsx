@@ -836,8 +836,8 @@
  <tile id="5213" type="goompa"/>
  <tile id="5215" type="block-underground-5"/>
  <tile id="5217" type="block-underground-5"/>
- <tile id="5229" type="kooptroopa_ow_left"/>
- <tile id="5231" type="kooptroopa_ow_left"/>
+ <tile id="5229" type="troopa-koopa"/>
+ <tile id="5231" type="troopa-koopa"/>
  <tile id="5251" type="goompa"/>
  <tile id="5253" type="goompa"/>
  <tile id="5255" type="goompa"/>
@@ -856,7 +856,7 @@
  <tile id="5319" type="block-underground-5"/>
  <tile id="5320" type="block-underground-5"/>
  <tile id="5321" type="block-underground-5"/>
- <tile id="5332" type="kooptroopa_ow_left"/>
+ <tile id="5332" type="troopa-koopa"/>
  <tile id="5344" type="block-underground-3"/>
  <tile id="5345" type="block-underground-3"/>
  <tile id="5346" type="block-underground-3"/>

@@ -374,9 +374,9 @@
  <tile id="2832" type="trunk"/>
  <tile id="2833" type="pipe-up-body-left-light"/>
  <tile id="2834" type="pipe-up-body-right-light"/>
- <tile id="2840" type="kooptroopa_ow_left"/>
- <tile id="2842" type="kooptroopa_ow_left"/>
- <tile id="2844" type="kooptroopa_ow_left"/>
+ <tile id="2840" type="troopa-koopa"/>
+ <tile id="2842" type="troopa-koopa"/>
+ <tile id="2844" type="troopa-koopa"/>
  <tile id="2846" type="fence"/>
  <tile id="2847" type="fence"/>
  <tile id="2848" type="trunk"/>

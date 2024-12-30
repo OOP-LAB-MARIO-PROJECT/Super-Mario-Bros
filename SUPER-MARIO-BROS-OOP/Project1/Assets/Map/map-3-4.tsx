@@ -302,6 +302,7 @@
  <tile id="1281" type="block_rock"/>
  <tile id="1282" type="block_rock"/>
  <tile id="1283" type="block_rock"/>
+ <tile id="1419" type="king-koopa"/>
  <tile id="1421" type="hammer"/>
  <tile id="1440" type="block_rock"/>
  <tile id="1441" type="block_rock"/>
@@ -311,7 +312,6 @@
  <tile id="1482" type="question"/>
  <tile id="1483" type="question"/>
  <tile id="1484" type="question"/>
- <tile id="1579" type="king_koopa_ow"/>
  <tile id="1580" type="stair"/>
  <tile id="1581" type="block_rock"/>
  <tile id="1582" type="block_rock"/>

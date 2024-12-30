@@ -340,7 +340,7 @@
  <tile id="4326" type="moss"/>
  <tile id="4380" type="block_green"/>
  <tile id="4388" type="block_green"/>
- <tile id="4413" type="pipe-side-head-up#2576;160;160"/>
+ <tile id="4413" type="pipe-side-head-up#2576;160;176"/>
  <tile id="4414" type="block_green"/>
  <tile id="4415" type="block_green"/>
  <tile id="4449" type="moss"/>
@@ -355,7 +355,7 @@
  <tile id="4580" type="block_green"/>
  <tile id="4589" type="goompa"/>
  <tile id="4597" type="goompa"/>
- <tile id="4605" type="pipe-side-head-bottom#2576;160;160"/>
+ <tile id="4605" type="pipe-side-head-bottom#2576;160;176"/>
  <tile id="4606" type="block_green"/>
  <tile id="4607" type="block_green"/>
  <tile id="4626" type="block_green"/>

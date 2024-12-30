@@ -362,6 +362,7 @@
  <tile id="1120" type="block_rock"/>
  <tile id="1121" type="block_rock"/>
  <tile id="1122" type="block_rock"/>
+ <tile id="1258" type="king-koopa"/>
  <tile id="1280" type="block_rock"/>
  <tile id="1281" type="block_rock"/>
  <tile id="1282" type="block_rock"/>
@@ -412,7 +413,6 @@
  <tile id="1516" type="block4"/>
  <tile id="1524" type="block4"/>
  <tile id="1532" type="block4"/>
- <tile id="1578" type="king_koopa_ow"/>
  <tile id="1580" type="stair"/>
  <tile id="1581" type="block_rock"/>
  <tile id="1582" type="block_rock"/>

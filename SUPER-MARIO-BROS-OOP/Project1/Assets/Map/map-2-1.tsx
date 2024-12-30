@@ -412,8 +412,8 @@
  <tile id="5773" type="block5"/>
  <tile id="5774" type="block5"/>
  <tile id="5775" type="block5"/>
- <tile id="5778" type="kooptroopa_ow_left"/>
- <tile id="5780" type="kooptroopa_ow_left"/>
+ <tile id="5778" type="troopa-koopa"/>
+ <tile id="5780" type="troopa-koopa"/>
  <tile id="5785" type="block5"/>
  <tile id="5786" type="block5"/>
  <tile id="5789" type="fence"/>
@@ -484,12 +484,12 @@
  <tile id="5916" type="trunk"/>
  <tile id="5918" type="trunk"/>
  <tile id="5919" type="trunk"/>
- <tile id="5922" type="kooptroopa_ow_left"/>
- <tile id="5925" type="kooptroopa_ow_left"/>
+ <tile id="5922" type="troopa-koopa"/>
+ <tile id="5925" type="troopa-koopa"/>
  <tile id="5927" type="pipe-up-body-left"/>
  <tile id="5928" type="pipe-up-body-right"/>
- <tile id="5930" type="kooptroopa_ow_left"/>
- <tile id="5932" type="kooptroopa_ow_left"/>
+ <tile id="5930" type="troopa-koopa"/>
+ <tile id="5932" type="troopa-koopa"/>
  <tile id="5933" type="fence"/>
  <tile id="5934" type="fence"/>
  <tile id="5935" type="trunk"/>
