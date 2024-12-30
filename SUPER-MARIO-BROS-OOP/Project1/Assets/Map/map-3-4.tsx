@@ -309,9 +309,9 @@
  <tile id="1442" type="block_rock"/>
  <tile id="1443" type="block_rock"/>
  <tile id="1444" type="block_rock"/>
- <tile id="1482" type="question"/>
- <tile id="1483" type="question"/>
- <tile id="1484" type="question"/>
+ <tile id="1482" type="question#star"/>
+ <tile id="1483" type="question#power"/>
+ <tile id="1484" type="question#power"/>
  <tile id="1580" type="stair"/>
  <tile id="1581" type="block_rock"/>
  <tile id="1582" type="block_rock"/>

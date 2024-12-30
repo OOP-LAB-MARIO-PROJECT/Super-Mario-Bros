@@ -133,7 +133,7 @@
  <tile id="493" type="block_rock"/>
  <tile id="494" type="block_rock"/>
  <tile id="495" type="block_rock"/>
- <tile id="503" type="question"/>
+ <tile id="503" type="question#power"/>
  <tile id="514" type="block_rock"/>
  <tile id="515" type="block_rock"/>
  <tile id="516" type="block_rock"/>

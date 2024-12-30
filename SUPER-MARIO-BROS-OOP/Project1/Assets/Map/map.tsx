@@ -1150,7 +1150,7 @@
  <tile id="1146" type="block2"/>
  <tile id="1147" type="block2"/>
  <tile id="1148" type="block2"/>
- <tile id="1149" type="question"/>
+ <tile id="1149" type="question#power"/>
  <tile id="1150"/>
  <tile id="1151"/>
  <tile id="1152"/>
@@ -1185,8 +1185,8 @@
  <tile id="1181"/>
  <tile id="1182"/>
  <tile id="1183" type="block2"/>
- <tile id="1184" type="question"/>
- <tile id="1185" type="question"/>
+ <tile id="1184" type="question#star"/>
+ <tile id="1185" type="question#star"/>
  <tile id="1186" type="block2"/>
  <tile id="1187"/>
  <tile id="1188"/>
@@ -1978,7 +1978,7 @@
  <tile id="1974"/>
  <tile id="1975"/>
  <tile id="1976" type="block2"/>
- <tile id="1977" type="question"/>
+ <tile id="1977" type="question#star"/>
  <tile id="1978" type="block2"/>
  <tile id="1979"/>
  <tile id="1980"/>

@@ -169,11 +169,11 @@
  <tile id="4289" type="block2"/>
  <tile id="4290" type="block2"/>
  <tile id="4291" type="block2"/>
- <tile id="4313" type="question"/>
- <tile id="4314" type="question"/>
- <tile id="4315" type="question"/>
- <tile id="4316" type="question"/>
- <tile id="4317" type="question"/>
+ <tile id="4313" type="question#coin"/>
+ <tile id="4314" type="question#coin"/>
+ <tile id="4315" type="question#coin"/>
+ <tile id="4316" type="question#coin"/>
+ <tile id="4317" type="question#coin"/>
  <tile id="4329" type="block2"/>
  <tile id="4330" type="block2"/>
  <tile id="4331" type="block2"/>
@@ -255,21 +255,21 @@
  <tile id="5146" type="block5"/>
  <tile id="5158" type="pipe-up-head-left"/>
  <tile id="5159" type="pipe-up-head-right"/>
- <tile id="5165" type="question"/>
- <tile id="5166" type="question"/>
- <tile id="5167" type="question"/>
- <tile id="5168" type="question"/>
- <tile id="5169" type="question"/>
+ <tile id="5165" type="question#coin"/>
+ <tile id="5166" type="question#coin"/>
+ <tile id="5167" type="question#coin"/>
+ <tile id="5168" type="question#coin"/>
+ <tile id="5169" type="question#power"/>
  <tile id="5180" type="block2"/>
  <tile id="5186" type="pipe-up-head-left"/>
  <tile id="5187" type="pipe-up-head-right"/>
- <tile id="5191" type="question"/>
- <tile id="5192" type="question"/>
- <tile id="5193" type="question"/>
- <tile id="5194" type="question"/>
- <tile id="5197" type="question"/>
- <tile id="5198" type="question"/>
- <tile id="5199" type="question"/>
+ <tile id="5191" type="question#coin"/>
+ <tile id="5192" type="question#coin"/>
+ <tile id="5193" type="question#coin"/>
+ <tile id="5194" type="question#coin"/>
+ <tile id="5197" type="question#coin"/>
+ <tile id="5198" type="question#coin"/>
+ <tile id="5199" type="question#coin"/>
  <tile id="5215" type="pipe-up-head-left#1568;512;672"/>
  <tile id="5216" type="pipe-up-head-right#1568;512;672"/>
  <tile id="5234" type="pipe-up-head-left"/>
@@ -278,6 +278,7 @@
  <tile id="5242" type="pipe-up-body-left"/>
  <tile id="5243" type="pipe-up-body-right"/>
  <tile id="5273" type="question"/>
+ <tile id="5282" type="question#coin"/>
  <tile id="5288" type="piranha-plant"/>
  <tile id="5297" type="block2"/>
  <tile id="5298" type="block2"/>

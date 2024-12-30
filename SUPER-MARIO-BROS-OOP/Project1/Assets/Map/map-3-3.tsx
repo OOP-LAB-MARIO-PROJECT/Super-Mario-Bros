@@ -27,7 +27,7 @@
  <tile id="508" type="cloud5"/>
  <tile id="509" type="cloud5"/>
  <tile id="510" type="cloud6"/>
- <tile id="538" type="question"/>
+ <tile id="538" type="question#power"/>
  <tile id="540" type="cloud1"/>
  <tile id="541" type="cloud2"/>
  <tile id="542" type="cloud2"/>

@@ -1,5 +1,6 @@
 #pragma once
 #include "../Actor.h"
+#include "../Prop/Collectable.h"
 /*
 
 	// set the map that the enemy are on
@@ -19,7 +20,6 @@ protected:
 	bool isDeadByOtherThings = false;
 	bool isAttack = false;
 public:
-
 	Enemy(sf::Vector2f _pos, sf::Vector2f _size);
 	virtual void update(float deltatime) override = 0;
 	virtual void behavior(float detatime) = 0;

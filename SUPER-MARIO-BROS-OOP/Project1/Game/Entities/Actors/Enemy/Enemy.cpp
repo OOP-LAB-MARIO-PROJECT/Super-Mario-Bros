@@ -17,3 +17,7 @@ void Enemy::setIsDeadByOtherThings(bool a) {
 bool Enemy::getIsAttack() {
 	return isAttack;
 }
+
+
+void Enemy::update(float deltaTime) {
+}

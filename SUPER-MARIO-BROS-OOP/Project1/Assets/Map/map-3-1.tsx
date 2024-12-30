@@ -168,11 +168,11 @@
  <tile id="4352" type="block2"/>
  <tile id="4371" type="block2"/>
  <tile id="4372" type="block2"/>
- <tile id="4373" type="question"/>
+ <tile id="4373" type="question#power"/>
  <tile id="4374" type="block2"/>
  <tile id="4375" type="block2"/>
  <tile id="4376" type="block2"/>
- <tile id="4377" type="question"/>
+ <tile id="4377" type="question#power"/>
  <tile id="4378" type="block2"/>
  <tile id="4379" type="block2"/>
  <tile id="4380" type="block2"/>
@@ -180,10 +180,10 @@
  <tile id="4390" type="block2"/>
  <tile id="4391" type="block2"/>
  <tile id="4410" type="block2"/>
- <tile id="4411" type="question"/>
+ <tile id="4411" type="question#coin"/>
  <tile id="4412" type="block2"/>
  <tile id="4415" type="block2"/>
- <tile id="4416" type="question"/>
+ <tile id="4416" type="question#coin"/>
  <tile id="4417" type="block2"/>
  <tile id="4450" type="block5"/>
  <tile id="4451" type="block5"/>
@@ -220,7 +220,7 @@
  <tile id="4904" type="castle2"/>
  <tile id="4905" type="castle2"/>
  <tile id="4918" type="question"/>
- <tile id="4921" type="question"/>
+ <tile id="4921" type="question#star"/>
  <tile id="4976" type="handrail_light"/>
  <tile id="4977" type="handrail_light"/>
  <tile id="4978" type="handrail_light"/>
@@ -254,7 +254,7 @@
  <tile id="5116" type="castle2"/>
  <tile id="5117" type="castle2"/>
  <tile id="5118" type="castle2"/>
- <tile id="5128" type="question"/>
+ <tile id="5128" type="question#power"/>
  <tile id="5138" type="block2"/>
  <tile id="5139" type="block2"/>
  <tile id="5140" type="block2"/>
@@ -291,10 +291,10 @@
  <tile id="5252" type="block5"/>
  <tile id="5253" type="block5"/>
  <tile id="5262" type="block2"/>
- <tile id="5263" type="question"/>
+ <tile id="5263" type="question#coin"/>
  <tile id="5264" type="block2"/>
  <tile id="5267" type="block2"/>
- <tile id="5268" type="question"/>
+ <tile id="5268" type="question#coin"/>
  <tile id="5269" type="block2"/>
  <tile id="5278" type="block2"/>
  <tile id="5279" type="block2"/>
