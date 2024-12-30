@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.11.0" name="map1-2" tilewidth="16" tileheight="16" tilecount="8640" columns="192">
  <image source="bg-1-2.png" width="3072" height="720"/>
+ <tile id="545" type="cloud1"/>
+ <tile id="546" type="cloud2"/>
+ <tile id="547" type="cloud2"/>
+ <tile id="548" type="cloud3"/>
+ <tile id="579" type="cloud1"/>
+ <tile id="580" type="cloud2"/>
+ <tile id="581" type="cloud2"/>
+ <tile id="582" type="cloud3"/>
+ <tile id="737" type="cloud4"/>
+ <tile id="738" type="cloud5"/>
+ <tile id="739" type="cloud5"/>
+ <tile id="740" type="cloud6"/>
+ <tile id="757" type="cloud1"/>
+ <tile id="758" type="cloud2"/>
+ <tile id="759" type="cloud3"/>
+ <tile id="771" type="cloud4"/>
+ <tile id="772" type="cloud5"/>
+ <tile id="773" type="cloud5"/>
+ <tile id="774" type="cloud6"/>
+ <tile id="949" type="cloud4"/>
+ <tile id="950" type="cloud5"/>
+ <tile id="951" type="cloud6"/>
  <tile id="1129" type="block5"/>
  <tile id="1130" type="block5"/>
  <tile id="1320" type="block5"/>
  <tile id="1321" type="block5"/>
  <tile id="1322" type="block5"/>
+ <tile id="1353" type="cloud1"/>
+ <tile id="1354" type="cloud2"/>
+ <tile id="1355" type="cloud3"/>
  <tile id="1511" type="block5"/>
  <tile id="1512" type="block5"/>
  <tile id="1513" type="block5"/>
@@ -13,6 +38,9 @@
  <tile id="1537" type="castle1"/>
  <tile id="1538" type="castle1"/>
  <tile id="1539" type="castle1"/>
+ <tile id="1545" type="cloud4"/>
+ <tile id="1546" type="cloud5"/>
+ <tile id="1547" type="cloud6"/>
  <tile id="1702" type="block5"/>
  <tile id="1703" type="block5"/>
  <tile id="1704" type="block5"/>
@@ -349,6 +377,9 @@
  <tile id="3448" type="block-underground-3"/>
  <tile id="3449" type="block-underground-3"/>
  <tile id="3450" type="block-underground-3"/>
+ <tile id="3451" type="block-underground-3"/>
+ <tile id="3452" type="block-underground-3"/>
+ <tile id="3453" type="block-underground-3"/>
  <tile id="3454" type="block-underground-3"/>
  <tile id="3455" type="block-underground-3"/>
  <tile id="3456" type="block-underground-3"/>
@@ -377,6 +408,19 @@
  <tile id="3630" type="block-underground-3"/>
  <tile id="3631" type="block-underground-3"/>
  <tile id="3632" type="block-underground-3"/>
+ <tile id="3633" type="block-underground-3"/>
+ <tile id="3634" type="block-underground-3"/>
+ <tile id="3635" type="block-underground-3"/>
+ <tile id="3636" type="block-underground-3"/>
+ <tile id="3637" type="block-underground-3"/>
+ <tile id="3638" type="block-underground-3"/>
+ <tile id="3639" type="block-underground-3"/>
+ <tile id="3640" type="block-underground-3"/>
+ <tile id="3641" type="block-underground-3"/>
+ <tile id="3642" type="block-underground-3"/>
+ <tile id="3643" type="block-underground-3"/>
+ <tile id="3644" type="block-underground-3"/>
+ <tile id="3645" type="block-underground-3"/>
  <tile id="3646" type="block-underground-3"/>
  <tile id="3647" type="block-underground-3"/>
  <tile id="3648" type="block-underground-3"/>
@@ -409,6 +453,19 @@
  <tile id="3822" type="block-underground-3"/>
  <tile id="3823" type="block-underground-3"/>
  <tile id="3824" type="block-underground-3"/>
+ <tile id="3825" type="block-underground-3"/>
+ <tile id="3826" type="block-underground-3"/>
+ <tile id="3827" type="block-underground-3"/>
+ <tile id="3828" type="block-underground-3"/>
+ <tile id="3829" type="block-underground-3"/>
+ <tile id="3830" type="block-underground-3"/>
+ <tile id="3831" type="block-underground-3"/>
+ <tile id="3832" type="block-underground-3"/>
+ <tile id="3833" type="block-underground-3"/>
+ <tile id="3834" type="block-underground-3"/>
+ <tile id="3835" type="block-underground-3"/>
+ <tile id="3836" type="block-underground-3"/>
+ <tile id="3837" type="block-underground-3"/>
  <tile id="3838" type="block-underground-3"/>
  <tile id="3839" type="block-underground-3"/>
  <tile id="3840" type="block-underground-3"/>
@@ -438,6 +495,19 @@
  <tile id="4014" type="block-underground-3"/>
  <tile id="4015" type="block-underground-3"/>
  <tile id="4016" type="block-underground-3"/>
+ <tile id="4017" type="block-underground-3"/>
+ <tile id="4018" type="block-underground-3"/>
+ <tile id="4019" type="block-underground-3"/>
+ <tile id="4020" type="block-underground-3"/>
+ <tile id="4021" type="block-underground-3"/>
+ <tile id="4022" type="block-underground-3"/>
+ <tile id="4023" type="block-underground-3"/>
+ <tile id="4024" type="block-underground-3"/>
+ <tile id="4025" type="block-underground-3"/>
+ <tile id="4026" type="block-underground-3"/>
+ <tile id="4027" type="block-underground-3"/>
+ <tile id="4028" type="block-underground-3"/>
+ <tile id="4029" type="block-underground-3"/>
  <tile id="4030" type="block-underground-3"/>
  <tile id="4031" type="block-underground-3"/>
  <tile id="4032" type="block-underground-3"/>
@@ -458,6 +528,19 @@
  <tile id="4206" type="block-underground-3"/>
  <tile id="4207" type="block-underground-3"/>
  <tile id="4208" type="block-underground-3"/>
+ <tile id="4209" type="block-underground-3"/>
+ <tile id="4210" type="block-underground-3"/>
+ <tile id="4211" type="block-underground-3"/>
+ <tile id="4212" type="block-underground-3"/>
+ <tile id="4213" type="block-underground-3"/>
+ <tile id="4214" type="block-underground-3"/>
+ <tile id="4215" type="block-underground-3"/>
+ <tile id="4216" type="block-underground-3"/>
+ <tile id="4217" type="block-underground-3"/>
+ <tile id="4218" type="block-underground-3"/>
+ <tile id="4219" type="block-underground-3"/>
+ <tile id="4220" type="block-underground-3"/>
+ <tile id="4221" type="block-underground-3"/>
  <tile id="4222" type="block-underground-3"/>
  <tile id="4223" type="block-underground-3"/>
  <tile id="4224" type="block-underground-3"/>
@@ -492,6 +575,19 @@
  <tile id="4398" type="block-underground-3"/>
  <tile id="4399" type="block-underground-3"/>
  <tile id="4400" type="block-underground-3"/>
+ <tile id="4401" type="block-underground-3"/>
+ <tile id="4402" type="block-underground-3"/>
+ <tile id="4403" type="block-underground-3"/>
+ <tile id="4404" type="block-underground-3"/>
+ <tile id="4405" type="block-underground-3"/>
+ <tile id="4406" type="block-underground-3"/>
+ <tile id="4407" type="block-underground-3"/>
+ <tile id="4408" type="block-underground-3"/>
+ <tile id="4409" type="block-underground-3"/>
+ <tile id="4410" type="block-underground-3"/>
+ <tile id="4411" type="block-underground-3"/>
+ <tile id="4412" type="block-underground-3"/>
+ <tile id="4413" type="block-underground-3"/>
  <tile id="4414" type="block-underground-3"/>
  <tile id="4415" type="block-underground-3"/>
  <tile id="4416" type="block-underground-3"/>
@@ -521,6 +617,7 @@
  <tile id="4503" type="block-underground-3"/>
  <tile id="4504" type="block-underground-3"/>
  <tile id="4505" type="block-underground-3"/>
+ <tile id="4525" type="piranha-plant"/>
  <tile id="4561" type="block-underground-3"/>
  <tile id="4562" type="block-underground-3"/>
  <tile id="4563" type="block-underground-3"/>
@@ -538,6 +635,19 @@
  <tile id="4590" type="block-underground-3"/>
  <tile id="4591" type="block-underground-3"/>
  <tile id="4592" type="block-underground-3"/>
+ <tile id="4593" type="block-underground-3"/>
+ <tile id="4594" type="block-underground-3"/>
+ <tile id="4595" type="block-underground-3"/>
+ <tile id="4596" type="block-underground-3"/>
+ <tile id="4597" type="block-underground-3"/>
+ <tile id="4598" type="block-underground-3"/>
+ <tile id="4599" type="block-underground-3"/>
+ <tile id="4600" type="block-underground-3"/>
+ <tile id="4601" type="block-underground-3"/>
+ <tile id="4602" type="block-underground-3"/>
+ <tile id="4603" type="block-underground-3"/>
+ <tile id="4604" type="block-underground-3"/>
+ <tile id="4605" type="block-underground-3"/>
  <tile id="4606" type="block-underground-3"/>
  <tile id="4607" type="block-underground-3"/>
  <tile id="4608" type="block-underground-3"/>
@@ -586,6 +696,19 @@
  <tile id="4782" type="block-underground-3"/>
  <tile id="4783" type="block-underground-3"/>
  <tile id="4784" type="block-underground-3"/>
+ <tile id="4785" type="block-underground-3"/>
+ <tile id="4786" type="block-underground-3"/>
+ <tile id="4787" type="block-underground-3"/>
+ <tile id="4788" type="block-underground-3"/>
+ <tile id="4789" type="block-underground-3"/>
+ <tile id="4790" type="block-underground-3"/>
+ <tile id="4791" type="block-underground-3"/>
+ <tile id="4792" type="block-underground-3"/>
+ <tile id="4793" type="block-underground-3"/>
+ <tile id="4794" type="block-underground-3"/>
+ <tile id="4795" type="block-underground-3"/>
+ <tile id="4796" type="block-underground-3"/>
+ <tile id="4797" type="block-underground-3"/>
  <tile id="4798" type="block-underground-3"/>
  <tile id="4799" type="block-underground-3"/>
  <tile id="4800" type="block-underground-3"/>
@@ -622,12 +745,19 @@
  <tile id="4974" type="block-underground-3"/>
  <tile id="4975" type="block-underground-3"/>
  <tile id="4976" type="block-underground-3"/>
- <tile id="4978" type="pipe-up-head-left"/>
- <tile id="4979" type="pipe-up-head-right"/>
- <tile id="4982" type="pipe-up-head-left"/>
- <tile id="4983" type="pipe-up-head-right"/>
- <tile id="4986" type="pipe-up-head-left"/>
- <tile id="4987" type="pipe-up-head-right"/>
+ <tile id="4977" type="block-underground-3"/>
+ <tile id="4978" type="block-underground-3"/>
+ <tile id="4979" type="block-underground-3"/>
+ <tile id="4980" type="block-underground-3"/>
+ <tile id="4981" type="block-underground-3"/>
+ <tile id="4982" type="block-underground-3"/>
+ <tile id="4983" type="block-underground-3"/>
+ <tile id="4984" type="block-underground-3"/>
+ <tile id="4985" type="block-underground-3"/>
+ <tile id="4986" type="block-underground-3"/>
+ <tile id="4987" type="block-underground-3"/>
+ <tile id="4988" type="block-underground-3"/>
+ <tile id="4989" type="block-underground-3"/>
  <tile id="4990" type="block-underground-3"/>
  <tile id="4991" type="block-underground-3"/>
  <tile id="4992" type="block-underground-3"/>
@@ -678,23 +808,40 @@
  <tile id="5166" type="block-underground-3"/>
  <tile id="5167" type="block-underground-3"/>
  <tile id="5168" type="block-underground-3"/>
- <tile id="5170" type="pipe-up-body-left"/>
- <tile id="5171" type="pipe-up-body-right"/>
- <tile id="5174" type="pipe-up-body-left"/>
- <tile id="5175" type="pipe-up-body-right"/>
- <tile id="5178" type="pipe-up-body-left"/>
- <tile id="5179" type="pipe-up-body-right"/>
+ <tile id="5169" type="block-underground-3"/>
+ <tile id="5170" type="block-underground-3"/>
+ <tile id="5171" type="block-underground-3"/>
+ <tile id="5172" type="block-underground-3"/>
+ <tile id="5173" type="block-underground-3"/>
+ <tile id="5174" type="block-underground-3"/>
+ <tile id="5175" type="block-underground-3"/>
+ <tile id="5176" type="block-underground-3"/>
+ <tile id="5177" type="block-underground-3"/>
+ <tile id="5178" type="block-underground-3"/>
+ <tile id="5179" type="block-underground-3"/>
+ <tile id="5180" type="block-underground-3"/>
+ <tile id="5181" type="block-underground-3"/>
  <tile id="5182" type="block-underground-3"/>
  <tile id="5183" type="block-underground-3"/>
  <tile id="5184" type="block-underground-3"/>
+ <tile id="5196" type="goompa"/>
+ <tile id="5197" type="goompa"/>
  <tile id="5201" type="block-underground-5"/>
  <tile id="5203" type="block-underground-5"/>
  <tile id="5205" type="block-underground-5"/>
  <tile id="5207" type="block-underground-5"/>
  <tile id="5209" type="block-underground-5"/>
  <tile id="5211" type="block-underground-5"/>
+ <tile id="5213" type="goompa"/>
  <tile id="5215" type="block-underground-5"/>
  <tile id="5217" type="block-underground-5"/>
+ <tile id="5229" type="kooptroopa_ow_left"/>
+ <tile id="5231" type="kooptroopa_ow_left"/>
+ <tile id="5251" type="goompa"/>
+ <tile id="5253" type="goompa"/>
+ <tile id="5255" type="goompa"/>
+ <tile id="5269" type="goompa"/>
+ <tile id="5271" type="goompa"/>
  <tile id="5287" type="pipe-up-body-left"/>
  <tile id="5288" type="pipe-up-body-right"/>
  <tile id="5293" type="pipe-up-body-left"/>
@@ -708,6 +855,7 @@
  <tile id="5319" type="block-underground-5"/>
  <tile id="5320" type="block-underground-5"/>
  <tile id="5321" type="block-underground-5"/>
+ <tile id="5332" type="kooptroopa_ow_left"/>
  <tile id="5344" type="block-underground-3"/>
  <tile id="5345" type="block-underground-3"/>
  <tile id="5346" type="block-underground-3"/>
@@ -725,12 +873,19 @@
  <tile id="5358" type="block-underground-3"/>
  <tile id="5359" type="block-underground-3"/>
  <tile id="5360" type="block-underground-3"/>
- <tile id="5362" type="pipe-up-body-left"/>
- <tile id="5363" type="pipe-up-body-right"/>
- <tile id="5366" type="pipe-up-body-left"/>
- <tile id="5367" type="pipe-up-body-right"/>
- <tile id="5370" type="pipe-up-body-left"/>
- <tile id="5371" type="pipe-up-body-right"/>
+ <tile id="5361" type="block-underground-3"/>
+ <tile id="5362" type="block-underground-3"/>
+ <tile id="5363" type="block-underground-3"/>
+ <tile id="5364" type="block-underground-3"/>
+ <tile id="5365" type="block-underground-3"/>
+ <tile id="5366" type="block-underground-3"/>
+ <tile id="5367" type="block-underground-3"/>
+ <tile id="5368" type="block-underground-3"/>
+ <tile id="5369" type="block-underground-3"/>
+ <tile id="5370" type="block-underground-3"/>
+ <tile id="5371" type="block-underground-3"/>
+ <tile id="5372" type="block-underground-3"/>
+ <tile id="5373" type="block-underground-3"/>
  <tile id="5374" type="block-underground-3"/>
  <tile id="5375" type="block-underground-3"/>
  <tile id="5376" type="block-underground-1"/>
