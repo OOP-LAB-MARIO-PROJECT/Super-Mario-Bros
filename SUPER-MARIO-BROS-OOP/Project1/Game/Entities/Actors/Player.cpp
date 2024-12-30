@@ -74,11 +74,6 @@ void Player::setState(const std::string& stateName) {
 
 void Player::update(float deltatime) {
 
-	if (messageFromOther == "FlagTouched") {
-		this->setState("POLLING");
-		messageFromOther.clear();
-	}
-
 	if (getPos().y > GameConfig::getInstance().cameraBase + 64) inflictDamage();
 
 	isInvincible = GameConfig::getInstance().isInvincible;
@@ -123,6 +118,11 @@ void Player::update(float deltatime) {
 	shootTimer -= deltatime;
 	if (shootTimer < 0) shootTimer = 0;
 
+
+	if (messageFromOther == "FlagTouched") {
+		this->setState("POLLING");
+		messageFromOther.clear();
+	}
 
 	if (currentState) {
 		//std::cout << "Current state exists" << std::endl;

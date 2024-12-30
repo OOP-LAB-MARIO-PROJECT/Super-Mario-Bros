@@ -14,8 +14,6 @@
  <tile id="738" type="cloud5"/>
  <tile id="739" type="cloud5"/>
  <tile id="740" type="cloud6"/>
- <tile id="754" type="flag-3"/>
- <tile id="755" type="flag-2"/>
  <tile id="757" type="cloud1"/>
  <tile id="758" type="cloud2"/>
  <tile id="759" type="cloud3"/>
@@ -23,17 +21,14 @@
  <tile id="772" type="cloud5"/>
  <tile id="773" type="cloud5"/>
  <tile id="774" type="cloud6"/>
- <tile id="947" type="flag-body-1"/>
  <tile id="949" type="cloud4"/>
  <tile id="950" type="cloud5"/>
  <tile id="951" type="cloud6"/>
  <tile id="1129" type="block5"/>
  <tile id="1130" type="block5"/>
- <tile id="1139" type="flag-body-1"/>
  <tile id="1320" type="block5"/>
  <tile id="1321" type="block5"/>
  <tile id="1322" type="block5"/>
- <tile id="1331" type="flag-body-1"/>
  <tile id="1353" type="cloud1"/>
  <tile id="1354" type="cloud2"/>
  <tile id="1355" type="cloud3"/>
@@ -41,7 +36,6 @@
  <tile id="1512" type="block5"/>
  <tile id="1513" type="block5"/>
  <tile id="1514" type="block5"/>
- <tile id="1523" type="flag-body-1"/>
  <tile id="1537" type="castle1"/>
  <tile id="1538" type="castle1"/>
  <tile id="1539" type="castle1"/>
@@ -53,7 +47,6 @@
  <tile id="1704" type="block5"/>
  <tile id="1705" type="block5"/>
  <tile id="1706" type="block5"/>
- <tile id="1715" type="flag-body-1"/>
  <tile id="1720" type="castle1"/>
  <tile id="1721" type="castle1"/>
  <tile id="1722" type="castle1"/>
@@ -68,7 +61,6 @@
  <tile id="1896" type="block5"/>
  <tile id="1897" type="block5"/>
  <tile id="1898" type="block5"/>
- <tile id="1907" type="flag-body-1"/>
  <tile id="1912" type="castle-window-left"/>
  <tile id="1913" type="castle2"/>
  <tile id="1914" type="castle-window-right"/>
@@ -87,7 +79,6 @@
  <tile id="2089" type="block5"/>
  <tile id="2090" type="block5"/>
  <tile id="2095" type="top_mountain"/>
- <tile id="2099" type="flag-body-1"/>
  <tile id="2103" type="castle1"/>
  <tile id="2104" type="castle3"/>
  <tile id="2105" type="castle3"/>
@@ -115,7 +106,6 @@
  <tile id="2286" type="edge_moutain_left"/>
  <tile id="2287" type="body_moutain_right"/>
  <tile id="2288" type="edge_moutain_right"/>
- <tile id="2291" type="flag-body-1"/>
  <tile id="2295" type="castle2"/>
  <tile id="2296" type="castle2"/>
  <tile id="2297" type="castle-arch"/>
@@ -148,7 +138,7 @@
  <tile id="2479" type="body_moutain"/>
  <tile id="2480" type="body_moutain_left"/>
  <tile id="2481" type="edge_moutain_right"/>
- <tile id="2483" type="block5"/>
+ <tile id="2483" type="flag"/>
  <tile id="2487" type="castle2"/>
  <tile id="2488" type="castle2"/>
  <tile id="2489" type="castle-door#map-1-3"/>

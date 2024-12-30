@@ -405,14 +405,16 @@ void PollingState::update(Actor* a, float deltaTime) {
 		curPos = a->getPos();
 		firstUpdate = false;
 	}
+
 	curPos.y += 60 * deltaTime;
 	a->setPos(curPos);
+	a->setVel(sf::Vector2f(0, 0));
 }
 
 void PollingState::handle(Actor* a, float deltaTime) {
 	updateTimer(deltaTime);
 
-	if (stateDuration < 0 || a->getPos().y + a->getSize().y + 16 >= GameConfig::getInstance().cameraBase) a->setState("IDLE"), resetTimer(), firstUpdate = false;
+	if (isDurationEnded() || a->getPos().y + a->getSize().y + 16 >= GameConfig::getInstance().cameraBase) a->setState("IDLE"), resetTimer(), firstUpdate = true;
 	
 	if (!isDurationEnded()) {
 		return;
