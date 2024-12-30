@@ -72,6 +72,10 @@ void DodgingState::update(Actor* a, float deltaTime) {
 	}
 }
 void DodgingState::handle(Actor* a, float deltaTime) {
+	if (a->getIsDead()) {
+		a->setState("DEAD");
+		return;
+	}
 	if (!a->getIsDodge()) {
 		sf::Vector2f size = a->getSize();
 		size.y = 30.f;
