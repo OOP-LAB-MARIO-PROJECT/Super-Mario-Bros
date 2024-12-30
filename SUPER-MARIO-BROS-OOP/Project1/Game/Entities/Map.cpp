@@ -77,7 +77,7 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	EntityFactory enFactory;
 
 	for (const auto& typeTile : myMapInfo) {
-
+		if (typeTile.first.empty()) continue;
 		if (FACTORY_ENTITY_TYPE::isEntityNotTile(typeTile.first)) {
 			for (const auto& tile : typeTile.second) {
 				EntityManager::getInstance().
